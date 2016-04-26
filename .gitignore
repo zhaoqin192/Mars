@@ -22,6 +22,8 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
+.DS_Store
+/Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone.a
 
 ## Obj-C/Swift specific
 *.hmap

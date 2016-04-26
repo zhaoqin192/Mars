@@ -1,0 +1,775 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E5AAA8AC4F4ECC025F5949 /* libPods.a */; };
+		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
+		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
+		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
+		AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C8C1CCDC5CE008E6D52 /* Mars.xcdatamodeld */; };
+		AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */; };
+		AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C921CCDC63D008E6D52 /* Account.m */; };
+		AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */; };
+		AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C9C1CCDD964008E6D52 /* NetworkFetcher+Account.m */; };
+		AC2E6C9F1CCDDCF2008E6D52 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6C9E1CCDDCF2008E6D52 /* OpenGLES.framework */; };
+		AC2E6CA11CCDDD01008E6D52 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CA01CCDDD01008E6D52 /* MediaPlayer.framework */; };
+		AC2E6CA31CCDDD0B008E6D52 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CA21CCDDD0B008E6D52 /* CoreMedia.framework */; };
+		AC2E6CA51CCDDD17008E6D52 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CA41CCDDD17008E6D52 /* VideoToolbox.framework */; };
+		AC2E6CA71CCDDD22008E6D52 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CA61CCDDD22008E6D52 /* SystemConfiguration.framework */; };
+		AC2E6CA91CCDDD2B008E6D52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CA81CCDDD2B008E6D52 /* UIKit.framework */; };
+		AC2E6CAB1CCDDD38008E6D52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CAA1CCDDD38008E6D52 /* Foundation.framework */; };
+		AC2E6CAD1CCDDD41008E6D52 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CAC1CCDDD41008E6D52 /* AVFoundation.framework */; };
+		AC2E6CAF1CCDDD4B008E6D52 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CAE1CCDDD4B008E6D52 /* libz.tbd */; };
+		AC2E6CB11CCDDD57008E6D52 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CB01CCDDD57008E6D52 /* libc.tbd */; };
+		AC2E6CB31CCDDD61008E6D52 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CB21CCDDD61008E6D52 /* libc++.tbd */; };
+		AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CC61CCDFA06008E6D52 /* LiveViewController.m */; };
+		AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2E6CC71CCDFA06008E6D52 /* LiveViewController.xib */; };
+		AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */; };
+		AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CD01CCE0031008E6D52 /* AlertManager.m */; };
+		AC2E6CD61CCE1416008E6D52 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
+		AC33449A1CCD1B2B009C7323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344991CCD1B2B009C7323 /* main.m */; };
+		AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC33449F1CCD1B2B009C7323 /* ViewController.m */; };
+		AC3344A31CCD1B2B009C7323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A11CCD1B2B009C7323 /* Main.storyboard */; };
+		AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A71CCD1B2B009C7323 /* Assets.xcassets */; };
+		AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */; };
+		AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344B71CCD1CFA009C7323 /* NSObject+MemoryLeak.m */; };
+		AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344B91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m */; };
+		AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344BB1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m */; };
+		AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344BD1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m */; };
+		AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344BF1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m */; };
+		AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */; };
+		AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */; };
+		AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344D81CCD1DBF009C7323 /* AppDelegate.m */; };
+		ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */; };
+		ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */; };
+		ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B701CCE602F005A6A12 /* WatchViewController.m */; };
+		ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC3344D11CCD1CFA009C7323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		AC2E6C841CCDC531008E6D52 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		AC2E6C881CCDC570008E6D52 /* AccountDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDao.h; sourceTree = "<group>"; };
+		AC2E6C891CCDC570008E6D52 /* AccountDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDao.m; sourceTree = "<group>"; };
+		AC2E6C8D1CCDC5CE008E6D52 /* Mars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mars.xcdatamodel; sourceTree = "<group>"; };
+		AC2E6C8F1CCDC63D008E6D52 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AC2E6C911CCDC63D008E6D52 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		AC2E6C921CCDC63D008E6D52 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		AC2E6C951CCDC872008E6D52 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
+		AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkFetcher.m; sourceTree = "<group>"; };
+		AC2E6C9B1CCDD964008E6D52 /* NetworkFetcher+Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Account.h"; sourceTree = "<group>"; };
+		AC2E6C9C1CCDD964008E6D52 /* NetworkFetcher+Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Account.m"; sourceTree = "<group>"; };
+		AC2E6C9E1CCDDCF2008E6D52 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		AC2E6CA01CCDDD01008E6D52 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AC2E6CA21CCDDD0B008E6D52 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AC2E6CA41CCDDD17008E6D52 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		AC2E6CA61CCDDD22008E6D52 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC2E6CA81CCDDD2B008E6D52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC2E6CAA1CCDDD38008E6D52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC2E6CAC1CCDDD41008E6D52 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AC2E6CAE1CCDDD4B008E6D52 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AC2E6CB01CCDDD57008E6D52 /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
+		AC2E6CB21CCDDD61008E6D52 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AC2E6CB81CCDE8C1008E6D52 /* SDK_Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDK_Config.h; sourceTree = "<group>"; };
+		AC2E6CB91CCDE8C1008E6D52 /* EasyLiveSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLiveSDK.h; sourceTree = "<group>"; };
+		AC2E6CBA1CCDE8C1008E6D52 /* EasyLivePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLivePlayer.h; sourceTree = "<group>"; };
+		AC2E6CBB1CCDE8C1008E6D52 /* EasyLiveEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLiveEncoder.h; sourceTree = "<group>"; };
+		AC2E6CBC1CCDE8C1008E6D52 /* EasyLiveConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLiveConst.h; sourceTree = "<group>"; };
+		AC2E6CBD1CCDE8C1008E6D52 /* EasyLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLive.h; sourceTree = "<group>"; };
+		AC2E6CC51CCDFA06008E6D52 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		AC2E6CC61CCDFA06008E6D52 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
+		AC2E6CC71CCDFA06008E6D52 /* LiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
+		AC2E6CCB1CCDFAE1008E6D52 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		AC2E6CCF1CCE0031008E6D52 /* AlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
+		AC2E6CD01CCE0031008E6D52 /* AlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
+		AC2E6CD21CCE1416008E6D52 /* libEasyLiveSDK_simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEasyLiveSDK_simulator.a; path = Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_simulator.a; sourceTree = "<group>"; };
+		AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEasyLiveSDK_iphone.a; path = Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone.a; sourceTree = "<group>"; };
+		AC2E6CD41CCE1416008E6D52 /* libEasyLiveSDK_iphone_simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEasyLiveSDK_iphone_simulator.a; path = Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone_simulator.a; sourceTree = "<group>"; };
+		AC3344951CCD1B2B009C7323 /* Mars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3344991CCD1B2B009C7323 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC33449E1CCD1B2B009C7323 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AC33449F1CCD1B2B009C7323 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC3344A21CCD1B2B009C7323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC3344A71CCD1B2B009C7323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC3344AA1CCD1B2B009C7323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC3344AC1CCD1B2B009C7323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3344B51CCD1CFA009C7323 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		AC3344B61CCD1CFA009C7323 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344B71CCD1CFA009C7323 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344B81CCD1CFA009C7323 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344B91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344BA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344BB1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344BC1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344BD1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344BE1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344BF1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344C01CCD1CFA009C7323 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344C21CCD1CFA009C7323 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
+		AC3344D71CCD1DBF009C7323 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AC3344D81CCD1DBF009C7323 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ACA82B611CCE37A5005A6A12 /* LiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRegisterViewController.h; sourceTree = "<group>"; };
+		ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRegisterViewController.m; sourceTree = "<group>"; };
+		ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveRegisterViewController.xib; sourceTree = "<group>"; };
+		ACA82B6F1CCE602F005A6A12 /* WatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchViewController.h; sourceTree = "<group>"; };
+		ACA82B701CCE602F005A6A12 /* WatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchViewController.m; sourceTree = "<group>"; };
+		ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchViewController.xib; sourceTree = "<group>"; };
+		D6E5AAA8AC4F4ECC025F5949 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC3344921CCD1B2B009C7323 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2E6CD61CCE1416008E6D52 /* libEasyLiveSDK_iphone.a in Frameworks */,
+				AC2E6CB31CCDDD61008E6D52 /* libc++.tbd in Frameworks */,
+				AC2E6CB11CCDDD57008E6D52 /* libc.tbd in Frameworks */,
+				AC2E6CAF1CCDDD4B008E6D52 /* libz.tbd in Frameworks */,
+				AC2E6CAD1CCDDD41008E6D52 /* AVFoundation.framework in Frameworks */,
+				AC2E6CAB1CCDDD38008E6D52 /* Foundation.framework in Frameworks */,
+				AC2E6CA91CCDDD2B008E6D52 /* UIKit.framework in Frameworks */,
+				AC2E6CA71CCDDD22008E6D52 /* SystemConfiguration.framework in Frameworks */,
+				AC2E6CA51CCDDD17008E6D52 /* VideoToolbox.framework in Frameworks */,
+				AC2E6CA31CCDDD0B008E6D52 /* CoreMedia.framework in Frameworks */,
+				AC2E6CA11CCDDD01008E6D52 /* MediaPlayer.framework in Frameworks */,
+				AC2E6C9F1CCDDCF2008E6D52 /* OpenGLES.framework in Frameworks */,
+				2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CD21CCE1416008E6D52 /* libEasyLiveSDK_simulator.a */,
+				AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */,
+				AC2E6CD41CCE1416008E6D52 /* libEasyLiveSDK_iphone_simulator.a */,
+				AC2E6CB21CCDDD61008E6D52 /* libc++.tbd */,
+				AC2E6CB01CCDDD57008E6D52 /* libc.tbd */,
+				AC2E6CAE1CCDDD4B008E6D52 /* libz.tbd */,
+				AC2E6CAC1CCDDD41008E6D52 /* AVFoundation.framework */,
+				AC2E6CAA1CCDDD38008E6D52 /* Foundation.framework */,
+				AC2E6CA81CCDDD2B008E6D52 /* UIKit.framework */,
+				AC2E6CA61CCDDD22008E6D52 /* SystemConfiguration.framework */,
+				AC2E6CA41CCDDD17008E6D52 /* VideoToolbox.framework */,
+				AC2E6CA21CCDDD0B008E6D52 /* CoreMedia.framework */,
+				AC2E6CA01CCDDD01008E6D52 /* MediaPlayer.framework */,
+				AC2E6C9E1CCDDCF2008E6D52 /* OpenGLES.framework */,
+				D6E5AAA8AC4F4ECC025F5949 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC2E6C7D1CCDC3FF008E6D52 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */,
+				AC2E6C801CCDC422008E6D52 /* NetworkManager.m */,
+				AC2E6C951CCDC872008E6D52 /* NetworkFetcher.h */,
+				AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */,
+				AC2E6C9B1CCDD964008E6D52 /* NetworkFetcher+Account.h */,
+				AC2E6C9C1CCDD964008E6D52 /* NetworkFetcher+Account.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AC2E6C831CCDC4E0008E6D52 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6C841CCDC531008E6D52 /* DatabaseManager.h */,
+				AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AC2E6C871CCDC55D008E6D52 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6C881CCDC570008E6D52 /* AccountDao.h */,
+				AC2E6C891CCDC570008E6D52 /* AccountDao.m */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		AC2E6C8B1CCDC591008E6D52 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6C8C1CCDC5CE008E6D52 /* Mars.xcdatamodeld */,
+				AC2E6C8F1CCDC63D008E6D52 /* Account+CoreDataProperties.h */,
+				AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */,
+				AC2E6C911CCDC63D008E6D52 /* Account.h */,
+				AC2E6C921CCDC63D008E6D52 /* Account.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		AC2E6CB61CCDE7DA008E6D52 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CCE1CCE001A008E6D52 /* alert */,
+				AC2E6CCA1CCDFAC2008E6D52 /* utility */,
+				AC2E6CB71CCDE7F2008E6D52 /* EasyLiveSDK */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AC2E6CB71CCDE7F2008E6D52 /* EasyLiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CB81CCDE8C1008E6D52 /* SDK_Config.h */,
+				AC2E6CB91CCDE8C1008E6D52 /* EasyLiveSDK.h */,
+				AC2E6CBA1CCDE8C1008E6D52 /* EasyLivePlayer.h */,
+				AC2E6CBB1CCDE8C1008E6D52 /* EasyLiveEncoder.h */,
+				AC2E6CBC1CCDE8C1008E6D52 /* EasyLiveConst.h */,
+				AC2E6CBD1CCDE8C1008E6D52 /* EasyLive.h */,
+			);
+			path = EasyLiveSDK;
+			sourceTree = "<group>";
+		};
+		AC2E6CC41CCDF9E0008E6D52 /* live */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CC51CCDFA06008E6D52 /* LiveViewController.h */,
+				AC2E6CC61CCDFA06008E6D52 /* LiveViewController.m */,
+				AC2E6CC71CCDFA06008E6D52 /* LiveViewController.xib */,
+				ACA82B611CCE37A5005A6A12 /* LiveRegisterViewController.h */,
+				ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */,
+				ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */,
+			);
+			path = live;
+			sourceTree = "<group>";
+		};
+		AC2E6CCA1CCDFAC2008E6D52 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CCB1CCDFAE1008E6D52 /* Utility.h */,
+				AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
+		AC2E6CCE1CCE001A008E6D52 /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CCF1CCE0031008E6D52 /* AlertManager.h */,
+				AC2E6CD01CCE0031008E6D52 /* AlertManager.m */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
+		AC33448C1CCD1B2B009C7323 = {
+			isa = PBXGroup;
+			children = (
+				AC3344B31CCD1CBF009C7323 /* MLeaksFinder */,
+				AC3344971CCD1B2B009C7323 /* Mars */,
+				AC3344961CCD1B2B009C7323 /* Products */,
+				F290F2E7D45C8B80D7EF81A0 /* Pods */,
+				8BB46A368132D85A1DA305D6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AC3344961CCD1B2B009C7323 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344951CCD1B2B009C7323 /* Mars.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC3344971CCD1B2B009C7323 /* Mars */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344D51CCD1D47009C7323 /* PresentationLayer */,
+				AC3344D41CCD1D3A009C7323 /* BusinessLogicLayer */,
+				AC3344D31CCD1D06009C7323 /* PersistenceLayer */,
+				AC33449E1CCD1B2B009C7323 /* ViewController.h */,
+				AC33449F1CCD1B2B009C7323 /* ViewController.m */,
+				AC3344A11CCD1B2B009C7323 /* Main.storyboard */,
+				AC3344A71CCD1B2B009C7323 /* Assets.xcassets */,
+				AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */,
+				AC3344AC1CCD1B2B009C7323 /* Info.plist */,
+				AC3344981CCD1B2B009C7323 /* Supporting Files */,
+			);
+			path = Mars;
+			sourceTree = "<group>";
+		};
+		AC3344981CCD1B2B009C7323 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344991CCD1B2B009C7323 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC3344B31CCD1CBF009C7323 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344B41CCD1CFA009C7323 /* MLeaksFinder */,
+				AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC3344B41CCD1CFA009C7323 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344B51CCD1CFA009C7323 /* MLeaksFinder.h */,
+				AC3344B61CCD1CFA009C7323 /* NSObject+MemoryLeak.h */,
+				AC3344B71CCD1CFA009C7323 /* NSObject+MemoryLeak.m */,
+				AC3344B81CCD1CFA009C7323 /* UINavigationController+MemoryLeak.h */,
+				AC3344B91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m */,
+				AC3344BA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.h */,
+				AC3344BB1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m */,
+				AC3344BC1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.h */,
+				AC3344BD1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m */,
+				AC3344BE1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.h */,
+				AC3344BF1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m */,
+				AC3344C01CCD1CFA009C7323 /* UIView+MemoryLeak.h */,
+				AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */,
+				AC3344C21CCD1CFA009C7323 /* UIViewController+MemoryLeak.h */,
+				AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC3344C51CCD1CFA009C7323 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344D21CCD1CFA009C7323 /* libMLeaksFinder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC3344D31CCD1D06009C7323 /* PersistenceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6C8B1CCDC591008E6D52 /* CoreData */,
+			);
+			path = PersistenceLayer;
+			sourceTree = "<group>";
+		};
+		AC3344D41CCD1D3A009C7323 /* BusinessLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E6CB61CCDE7DA008E6D52 /* Other */,
+				AC2E6C871CCDC55D008E6D52 /* DAO */,
+				AC2E6C831CCDC4E0008E6D52 /* Database */,
+				AC2E6C7D1CCDC3FF008E6D52 /* Network */,
+			);
+			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		AC3344D51CCD1D47009C7323 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				ACA82B6E1CCE6019005A6A12 /* watch */,
+				AC2E6CC41CCDF9E0008E6D52 /* live */,
+				AC3344D61CCD1D87009C7323 /* appDelegate */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		AC3344D61CCD1D87009C7323 /* appDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				AC3344D71CCD1DBF009C7323 /* AppDelegate.h */,
+				AC3344D81CCD1DBF009C7323 /* AppDelegate.m */,
+			);
+			path = appDelegate;
+			sourceTree = "<group>";
+		};
+		ACA82B6E1CCE6019005A6A12 /* watch */ = {
+			isa = PBXGroup;
+			children = (
+				ACA82B6F1CCE602F005A6A12 /* WatchViewController.h */,
+				ACA82B701CCE602F005A6A12 /* WatchViewController.m */,
+				ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */,
+			);
+			path = watch;
+			sourceTree = "<group>";
+		};
+		F290F2E7D45C8B80D7EF81A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */,
+				84D753B4790BB36FC8123013 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC3344941CCD1B2B009C7323 /* Mars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3344AF1CCD1B2B009C7323 /* Build configuration list for PBXNativeTarget "Mars" */;
+			buildPhases = (
+				FB5D9993FCA4B1DE2B651563 /* Check Pods Manifest.lock */,
+				AC3344911CCD1B2B009C7323 /* Sources */,
+				AC3344921CCD1B2B009C7323 /* Frameworks */,
+				AC3344931CCD1B2B009C7323 /* Resources */,
+				9D2F52D72628BAA4FCD48200 /* Embed Pods Frameworks */,
+				D1C4F2A687A8E6DAAD3D6E2B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mars;
+			productName = Mars;
+			productReference = AC3344951CCD1B2B009C7323 /* Mars.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC33448D1CCD1B2B009C7323 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Muggins_;
+				TargetAttributes = {
+					AC3344941CCD1B2B009C7323 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = BSR7J239R5;
+					};
+				};
+			};
+			buildConfigurationList = AC3344901CCD1B2B009C7323 /* Build configuration list for PBXProject "Mars" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC33448C1CCD1B2B009C7323;
+			productRefGroup = AC3344961CCD1B2B009C7323 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC3344C51CCD1CFA009C7323 /* Products */;
+					ProjectRef = AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				AC3344941CCD1B2B009C7323 /* Mars */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC3344D21CCD1CFA009C7323 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC3344D11CCD1CFA009C7323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC3344931CCD1B2B009C7323 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
+				AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */,
+				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
+				AC3344A31CCD1B2B009C7323 /* Main.storyboard in Resources */,
+				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
+				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D2F52D72628BAA4FCD48200 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1C4F2A687A8E6DAAD3D6E2B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB5D9993FCA4B1DE2B651563 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC3344911CCD1B2B009C7323 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */,
+				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
+				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
+				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
+				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
+				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
+				AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */,
+				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
+				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
+				AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */,
+				AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */,
+				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
+				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
+				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
+				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
+				AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */,
+				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
+				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
+				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
+				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
+				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
+				AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */,
+				AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC3344A11CCD1B2B009C7323 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC3344A21CCD1B2B009C7323 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC3344AA1CCD1B2B009C7323 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC3344AD1CCD1B2B009C7323 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC3344AE1CCD1B2B009C7323 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC3344B01CCD1B2B009C7323 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Mars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		AC3344B11CCD1B2B009C7323 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D753B4790BB36FC8123013 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Mars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC3344901CCD1B2B009C7323 /* Build configuration list for PBXProject "Mars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3344AD1CCD1B2B009C7323 /* Debug */,
+				AC3344AE1CCD1B2B009C7323 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC3344AF1CCD1B2B009C7323 /* Build configuration list for PBXNativeTarget "Mars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3344B01CCD1B2B009C7323 /* Debug */,
+				AC3344B11CCD1B2B009C7323 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC2E6C8C1CCDC5CE008E6D52 /* Mars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC2E6C8D1CCDC5CE008E6D52 /* Mars.xcdatamodel */,
+			);
+			currentVersion = AC2E6C8D1CCDC5CE008E6D52 /* Mars.xcdatamodel */;
+			path = Mars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AC33448D1CCD1B2B009C7323 /* Project object */;
+}
