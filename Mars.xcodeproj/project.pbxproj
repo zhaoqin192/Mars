@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E5AAA8AC4F4ECC025F5949 /* libPods.a */; };
+		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -34,7 +34,6 @@
 		AC2E6CD61CCE1416008E6D52 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		AC33449A1CCD1B2B009C7323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344991CCD1B2B009C7323 /* main.m */; };
 		AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC33449F1CCD1B2B009C7323 /* ViewController.m */; };
-		AC3344A31CCD1B2B009C7323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A11CCD1B2B009C7323 /* Main.storyboard */; };
 		AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A71CCD1B2B009C7323 /* Assets.xcassets */; };
 		AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */; };
 		AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344B71CCD1CFA009C7323 /* NSObject+MemoryLeak.m */; };
@@ -45,6 +44,15 @@
 		AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */; };
 		AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */; };
 		AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344D81CCD1DBF009C7323 /* AppDelegate.m */; };
+		ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4A1CD737BD000196E1 /* Account.storyboard */; };
+		ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4C1CD73955000196E1 /* Scheme.storyboard */; };
+		ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */; };
+		ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B501CD73B65000196E1 /* Exercise.storyboard */; };
+		ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */; };
+		ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */; };
+		ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */; };
+		ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B621CD73DEC000196E1 /* SchemeViewController.m */; };
+		ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B641CD73E9E000196E1 /* Main.storyboard */; };
 		ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */; };
 		ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */; };
 		ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B701CCE602F005A6A12 /* WatchViewController.m */; };
@@ -63,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2D81FF0C4221A00AF484407E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -110,7 +119,6 @@
 		AC3344991CCD1B2B009C7323 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC33449E1CCD1B2B009C7323 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AC33449F1CCD1B2B009C7323 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AC3344A21CCD1B2B009C7323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC3344A71CCD1B2B009C7323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC3344AA1CCD1B2B009C7323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC3344AC1CCD1B2B009C7323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,13 +140,25 @@
 		AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
 		AC3344D71CCD1DBF009C7323 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC3344D81CCD1DBF009C7323 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ACA11B4A1CD737BD000196E1 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		ACA11B4C1CD73955000196E1 /* Scheme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scheme.storyboard; sourceTree = "<group>"; };
+		ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Measurement.storyboard; sourceTree = "<group>"; };
+		ACA11B501CD73B65000196E1 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
+		ACA11B581CD73D6F000196E1 /* MeasurementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasurementViewController.h; sourceTree = "<group>"; };
+		ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasurementViewController.m; sourceTree = "<group>"; };
+		ACA11B5B1CD73DA7000196E1 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
+		ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		ACA11B5E1CD73DC6000196E1 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		ACA11B611CD73DEC000196E1 /* SchemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchemeViewController.h; sourceTree = "<group>"; };
+		ACA11B621CD73DEC000196E1 /* SchemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchemeViewController.m; sourceTree = "<group>"; };
+		ACA11B641CD73E9E000196E1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ACA82B611CCE37A5005A6A12 /* LiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRegisterViewController.h; sourceTree = "<group>"; };
 		ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRegisterViewController.m; sourceTree = "<group>"; };
 		ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveRegisterViewController.xib; sourceTree = "<group>"; };
 		ACA82B6F1CCE602F005A6A12 /* WatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchViewController.h; sourceTree = "<group>"; };
 		ACA82B701CCE602F005A6A12 /* WatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchViewController.m; sourceTree = "<group>"; };
 		ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchViewController.xib; sourceTree = "<group>"; };
-		D6E5AAA8AC4F4ECC025F5949 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +178,7 @@
 				AC2E6CA31CCDDD0B008E6D52 /* CoreMedia.framework in Frameworks */,
 				AC2E6CA11CCDDD01008E6D52 /* MediaPlayer.framework in Frameworks */,
 				AC2E6C9F1CCDDCF2008E6D52 /* OpenGLES.framework in Frameworks */,
-				2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */,
+				19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +202,7 @@
 				AC2E6CA21CCDDD0B008E6D52 /* CoreMedia.framework */,
 				AC2E6CA01CCDDD01008E6D52 /* MediaPlayer.framework */,
 				AC2E6C9E1CCDDCF2008E6D52 /* OpenGLES.framework */,
-				D6E5AAA8AC4F4ECC025F5949 /* libPods.a */,
+				2D81FF0C4221A00AF484407E /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -311,7 +331,6 @@
 				AC3344D31CCD1D06009C7323 /* PersistenceLayer */,
 				AC33449E1CCD1B2B009C7323 /* ViewController.h */,
 				AC33449F1CCD1B2B009C7323 /* ViewController.m */,
-				AC3344A11CCD1B2B009C7323 /* Main.storyboard */,
 				AC3344A71CCD1B2B009C7323 /* Assets.xcassets */,
 				AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */,
 				AC3344AC1CCD1B2B009C7323 /* Info.plist */,
@@ -389,6 +408,11 @@
 		AC3344D51CCD1D47009C7323 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ACA11B571CD73D14000196E1 /* measurement */,
+				ACA11B561CD73CF2000196E1 /* exercise */,
+				ACA11B551CD73CC0000196E1 /* scheme */,
+				ACA11B541CD73CAD000196E1 /* account */,
+				ACA11B481CD736E9000196E1 /* storyboard */,
 				ACA82B6E1CCE6019005A6A12 /* watch */,
 				AC2E6CC41CCDF9E0008E6D52 /* live */,
 				AC3344D61CCD1D87009C7323 /* appDelegate */,
@@ -403,6 +427,54 @@
 				AC3344D81CCD1DBF009C7323 /* AppDelegate.m */,
 			);
 			path = appDelegate;
+			sourceTree = "<group>";
+		};
+		ACA11B481CD736E9000196E1 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				ACA11B641CD73E9E000196E1 /* Main.storyboard */,
+				ACA11B4A1CD737BD000196E1 /* Account.storyboard */,
+				ACA11B4C1CD73955000196E1 /* Scheme.storyboard */,
+				ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */,
+				ACA11B501CD73B65000196E1 /* Exercise.storyboard */,
+			);
+			path = storyboard;
+			sourceTree = "<group>";
+		};
+		ACA11B541CD73CAD000196E1 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				ACA11B5E1CD73DC6000196E1 /* AccountViewController.h */,
+				ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
+		ACA11B551CD73CC0000196E1 /* scheme */ = {
+			isa = PBXGroup;
+			children = (
+				ACA11B611CD73DEC000196E1 /* SchemeViewController.h */,
+				ACA11B621CD73DEC000196E1 /* SchemeViewController.m */,
+			);
+			path = scheme;
+			sourceTree = "<group>";
+		};
+		ACA11B561CD73CF2000196E1 /* exercise */ = {
+			isa = PBXGroup;
+			children = (
+				ACA11B5B1CD73DA7000196E1 /* ExerciseViewController.h */,
+				ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */,
+			);
+			path = exercise;
+			sourceTree = "<group>";
+		};
+		ACA11B571CD73D14000196E1 /* measurement */ = {
+			isa = PBXGroup;
+			children = (
+				ACA11B581CD73D6F000196E1 /* MeasurementViewController.h */,
+				ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */,
+			);
+			path = measurement;
 			sourceTree = "<group>";
 		};
 		ACA82B6E1CCE6019005A6A12 /* watch */ = {
@@ -501,12 +573,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
-				AC3344A31CCD1B2B009C7323 /* Main.storyboard in Resources */,
+				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
+				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
+				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
+				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,19 +644,23 @@
 				AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
+				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
 				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
 				AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */,
+				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
 				AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */,
 				AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */,
+				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
 				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
 				AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */,
+				ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
@@ -594,14 +674,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC3344A11CCD1B2B009C7323 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC3344A21CCD1B2B009C7323 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

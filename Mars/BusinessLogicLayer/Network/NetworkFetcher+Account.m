@@ -50,8 +50,6 @@ static BOOL debueMessage = YES;
         failure(@"网络异常");
     }];
     
-    
-    
 }
 
 + (void)accountAuthCodeWithPhone:(NSString *)phone
