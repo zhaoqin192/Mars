@@ -51,10 +51,22 @@
 - (void)configureFootButton {
     if (![self.myTitle isEqualToString:@"填写资料"]) {
         [self.footButton setTitle:@"退出系统" forState:UIControlStateNormal];
+        [self.footButton removeAllTargets];
+        [self.footButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
         [self.footButton setTitle:@"提交" forState:UIControlStateNormal];
+        [self.footButton removeAllTargets];
+        [self.footButton addTarget:self action:@selector(commitButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     }
+}
+
+- (void)logOut {
+    NSLog(@"log out");
+}
+
+- (void)commitButtonClicked {
+    NSLog(@"commit");
 }
 
 #pragma mark - Table view data source

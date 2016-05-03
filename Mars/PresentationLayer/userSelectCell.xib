@@ -23,6 +23,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         <state key="normal" title="女生"/>
+                        <connections>
+                            <action selector="rightButtonClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MQ4-QF-yHF"/>
+                        </connections>
                     </button>
                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqw-dF-z0V">
                         <rect key="frame" x="231" y="12" width="30" height="25"/>
@@ -33,6 +36,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         <state key="normal" title="男生"/>
+                        <connections>
+                            <action selector="leftButtonClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1up-xp-AG1"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-we-0Ge">
                         <rect key="frame" x="15" y="16" width="28" height="17"/>

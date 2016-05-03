@@ -11,9 +11,9 @@
 @interface userSelectCell ()
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (nonatomic, strong) UIButton *selectButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightButtonWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftButtonWidthConstraint;
-@property (nonatomic, strong) UIButton *selectButton;
 @end
 
 @implementation userSelectCell
@@ -22,6 +22,23 @@
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self configureButton];
+}
+- (IBAction)leftButtonClicked {
+    if (self.selectButton == self.leftButton) {
+        return;
+    }
+    [self configureButton];
+}
+
+- (IBAction)rightButtonClicked {
+    if (self.selectButton == self.rightButton) {
+        return;
+    }
+    self.selectButton = self.rightButton;
+    self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#48E4C2"];
+    [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+    self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
 }
 
 - (void)configureButton {
