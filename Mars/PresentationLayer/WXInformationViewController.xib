@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXInformationViewController">
             <connections>
+                <outlet property="footButton" destination="9DU-74-WM8" id="rKi-dv-tWb"/>
                 <outlet property="tableView" destination="eBA-T7-4ye" id="xDv-Gi-Sxe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,18 +18,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eBA-T7-4ye">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="pY8-cv-aEe"/>
                         <outlet property="delegate" destination="-1" id="HfO-kK-cDT"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-74-WM8">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="提交">
+                        <color key="titleColor" red="1" green="0.55686274509803924" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="9DU-74-WM8" secondAttribute="trailing" id="5lM-hV-R4C"/>
+                <constraint firstItem="9DU-74-WM8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GqR-uK-WeE"/>
+                <constraint firstAttribute="bottom" secondItem="9DU-74-WM8" secondAttribute="bottom" id="Oyf-XQ-1pw"/>
+                <constraint firstItem="9DU-74-WM8" firstAttribute="top" secondItem="eBA-T7-4ye" secondAttribute="bottom" id="URd-MU-hMV"/>
                 <constraint firstItem="eBA-T7-4ye" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nrb-xR-qtE"/>
-                <constraint firstAttribute="bottom" secondItem="eBA-T7-4ye" secondAttribute="bottom" id="per-ad-AIX"/>
+                <constraint firstAttribute="bottom" secondItem="eBA-T7-4ye" secondAttribute="bottom" constant="50" id="per-ad-AIX"/>
                 <constraint firstItem="eBA-T7-4ye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vtU-C6-5GP"/>
                 <constraint firstAttribute="trailing" secondItem="eBA-T7-4ye" secondAttribute="trailing" id="wbm-Xo-WVo"/>
             </constraints>

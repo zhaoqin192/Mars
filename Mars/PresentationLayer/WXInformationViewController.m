@@ -9,11 +9,13 @@
 #import "WXInformationViewController.h"
 #import "ActionSheetStringPicker.h"
 #import "UserDetailViewController.h"
+#import "RDVTabBarController.h"
 #import "userIconCell.h"
-
+#import "userSelectCell.h"
 @interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *footButton;
 
 @end
 
@@ -23,12 +25,28 @@
     [super viewDidLoad];
     self.navigationItem.title = self.myTitle;
     [self configureTableView];
+    [self configureFootButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
 }
 
 - (void)configureTableView {
     [self.tableView registerNib:[UINib nibWithNibName:@"userIconCell" bundle:nil] forCellReuseIdentifier:@"userIconCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"userSelectCell" bundle:nil] forCellReuseIdentifier:@"userSelectCell"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+}
+
+- (void)configureFootButton {
+    if (![self.myTitle isEqualToString:@"填写资料"]) {
+        [self.footButton setTitle:@"退出系统" forState:UIControlStateNormal];
+    }
+    else {
+        [self.footButton setTitle:@"提交" forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Table view data source
@@ -47,58 +65,131 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    if (indexPath.row == 0 && indexPath.section == 0) {
-        cell = (userIconCell *)[self.tableView dequeueReusableCellWithIdentifier:@"userIconCell"];
-    }
-    else{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
-        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-        [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
-    }
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:{
-                userIconCell *ucell = (userIconCell *)cell;
-                // ucell.iconUrl = self.myAccount.avatar;
-                return ucell;
+                userIconCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"userIconCell"];
+                return cell;
+            }
+                break;
+            case 1:{
+                UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                cell.textLabel.text = @"昵称";
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                return cell;
                 break;
             }
-            case 1:
-                cell.textLabel.text = @"昵称";
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                //  cell.detailTextLabel.text = self.myAccount.name;
-                break;
-            case 2:
+            case 2:{
+                UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"手机号";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                // cell.detailTextLabel.text = self.myAccount.sex;
+                return cell;
                 break;
+            }
         }
     }
     else {
-        switch (indexPath.row) {
-            case 0:
-                cell.textLabel.text = @"性别";
-                break;
-            case 1:
-                cell.textLabel.text = @"年纪";
-                //  cell.detailTextLabel.text = self.myAccount.name;
-                break;
-            case 2:
-                cell.textLabel.text = @"省份";
-                //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                // cell.detailTextLabel.text = self.myAccount.sex;
-                break;
-            case 3:
-                cell.textLabel.text = @"高中";
-                // cell.detailTextLabel.text = self.myAccount.sex;
-                break;
+        if ([self.myTitle isEqualToString:@"填写资料"]) {
+            switch (indexPath.row) {
+                case 0:{
+                    userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
+                    cell.leftButtonName = @"男生";
+                    cell.rightButtonName = @"女生";
+                    cell.contentLabel.text = @"性别";
+                    return cell;
+                    break;
+                }
+                case 1:{
+                    userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
+                    cell.leftButtonName = @"应届";
+                    cell.rightButtonName = @"复读";
+                    cell.contentLabel.text = @"年纪";
+                    return cell;
+                    break;
+                }
+                case 2:{
+                    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = @"省份";
+                    cell.detailTextLabel.text = @"未选择";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    return cell;
+                    break;
+                }
+                case 3:{
+                    userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
+                    cell.leftButtonName = @"普高";
+                    cell.rightButtonName = @"艺术高中";
+                    cell.contentLabel.text = @"高中";
+                    return cell;
+                    break;
+                }
+            }
+        }
+        else {
+            switch (indexPath.row) {
+                case 0:{
+                    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = @"性别";
+                    //cell.detailTextLabel.text = @"未选择";
+                    return cell;
+                    break;
+                }
+                case 1:{
+                    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = @"年纪";
+                    //cell.detailTextLabel.text = @"未选择";
+                    return cell;
+                    break;
+                }
+                case 2:{
+                    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = @"省份";
+                    //cell.detailTextLabel.text = @"未选择";
+                    return cell;
+                    break;
+                }
+                case 3:{
+                    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+                    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = @"高中";
+                    //cell.detailTextLabel.text = @"未选择";
+                    return cell;
+                    break;
+                }
+            }
         }
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell layoutIfNeeded];
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -144,7 +235,10 @@
             editLabel.textAlignment = NSTextAlignmentRight;
             editLabel.userInteractionEnabled = YES;
             [editLabel bk_whenTapped:^{
-                NSLog(@"编辑模式");
+                self.myTitle = @"填写资料";
+                self.navigationItem.title = @"填写资料";
+                [self configureFootButton];
+                [self.tableView reloadData];
             }];
             [view addSubview:editLabel];
             return view;

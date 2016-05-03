@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
+		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
+		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -93,6 +95,9 @@
 /* Begin PBXFileReference section */
 		073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2D81FF0C4221A00AF484407E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
+		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
+		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -336,6 +341,9 @@
 				30B602731CD874B1003ED671 /* userIconCell.h */,
 				30B602741CD874B1003ED671 /* userIconCell.m */,
 				30B602751CD874B1003ED671 /* userIconCell.xib */,
+				3057B1C91CD8B503008172DD /* userSelectCell.h */,
+				3057B1CA1CD8B503008172DD /* userSelectCell.m */,
+				3057B1CB1CD8B503008172DD /* userSelectCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -730,6 +738,7 @@
 			files = (
 				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
+				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
@@ -803,6 +812,7 @@
 			files = (
 				AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */,
 				30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */,
+				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
