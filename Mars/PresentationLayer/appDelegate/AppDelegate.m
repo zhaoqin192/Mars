@@ -13,8 +13,11 @@
 #import "AccountDao.h"
 #import "Account.h"
 
+#import "RootTabViewController.h"
+#import "YFStartView.h"
+#import "StartButtomView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <EAIntroDelegate>
 
 @end
 
@@ -36,11 +39,84 @@
     
     [EasyLiveSDK registWithAppKey:appkey appsecret:appsecret];
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    LiveViewController *vc = [[LiveViewController alloc] init];
-    self.window.rootViewController = vc;
+    self.window = [[UIWindow alloc] init];
+    self.window.rootViewController = [[RootTabViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    [self configureHUD];
+    
+    //暂时不开引导页和启动页
+    [self configureStartView];
+     [self configureIntroView];
     return YES;
+}
+
+- (void)configureHUD{
+    [[SVProgressHUD appearance] setDefaultStyle:SVProgressHUDStyleDark];
+    [[SVProgressHUD appearance] setDefaultMaskType:SVProgressHUDMaskTypeClear];
+}
+
+- (void)configureStartView{
+    YFStartView *startView = [YFStartView startView];
+    startView.isAllowRandomImage = YES;
+    startView.randomImages = [NSMutableArray arrayWithObjects:@"startImage4", @"startImage2", @"startImage1", @"startImage3", nil];
+    startView.logoPosition = LogoPositionButtom;
+    StartButtomView *startButtomView = [[[NSBundle mainBundle] loadNibNamed:@"StartButtomView" owner:self options:nil] lastObject];
+    startView.logoView = startButtomView;
+    [startView configYFStartView];
+}
+
+- (void)configureIntroView{
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.title = @"Hello world";
+    page1.desc = @"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
+    
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.title = @"This is page 2";
+    page2.titlePositionY = kScreenHeight/2 - 10;
+    page2.desc = @"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    page2.descPositionY = kScreenHeight/2 - 50;
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title2"]];
+    page2.titleIconPositionY = 70;
+    
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.title = @"This is page 3";
+    page3.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
+    page3.titlePositionY = 220;
+    page3.desc = @"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    page3.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
+    page3.descPositionY = 200;
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title3"]];
+    page3.titleIconPositionY = 100;
+    
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"This is page 4";
+    page4.desc = @"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:[UIScreen mainScreen].bounds andPages:@[page1,page2,page3,page4]];
+    intro.bgImage = [UIImage imageNamed:@"bg2"];
+    
+    intro.pageControlY = 250.f;
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btn setFrame:CGRectMake(0, 0, 230, 40)];
+    [btn setTitle:@"SKIP NOW" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.layer.borderWidth = 2.f;
+    btn.layer.cornerRadius = 10;
+    btn.layer.borderColor = [[UIColor whiteColor] CGColor];
+    intro.skipButton = btn;
+    intro.skipButtonY = 60.f;
+    intro.skipButtonAlignment = EAViewAlignmentCenter;
+    
+    [intro setDelegate:self];
+    [intro showInView:self.window.rootViewController.view animateDuration:0.3];
+}
+
+- (void)introDidFinish:(EAIntroView *)introView {
+    NSLog(@"introDidFinish callback");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -85,13 +85,33 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/AFNetworking.framework"
+  install_framework "Pods/BlocksKit.framework"
+  install_framework "Pods/EAIntroView.framework"
+  install_framework "Pods/EARestrictedScrollView.framework"
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/MJExtension.framework"
+  install_framework "Pods/RDVTabBarController.framework"
+  install_framework "Pods/ReactiveCocoa.framework"
+  install_framework "Pods/SDCycleScrollView.framework"
+  install_framework "Pods/SDWebImage.framework"
+  install_framework "Pods/SVProgressHUD.framework"
   install_framework "Pods/SocketIOClientSwift.framework"
+  install_framework "Pods/YFStartView.framework"
+  install_framework "Pods/YYCategories.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/AFNetworking.framework"
+  install_framework "Pods/BlocksKit.framework"
+  install_framework "Pods/EAIntroView.framework"
+  install_framework "Pods/EARestrictedScrollView.framework"
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/MJExtension.framework"
+  install_framework "Pods/RDVTabBarController.framework"
+  install_framework "Pods/ReactiveCocoa.framework"
+  install_framework "Pods/SDCycleScrollView.framework"
+  install_framework "Pods/SDWebImage.framework"
+  install_framework "Pods/SVProgressHUD.framework"
   install_framework "Pods/SocketIOClientSwift.framework"
+  install_framework "Pods/YFStartView.framework"
+  install_framework "Pods/YYCategories.framework"
 fi

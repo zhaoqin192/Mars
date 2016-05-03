@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E5AAA8AC4F4ECC025F5949 /* libPods.a */; };
-		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
+		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
+		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
+		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
+		30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B6024E1CD83F5D003ED671 /* StartButtomView.xib */; };
+		30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602531CD83F80003ED671 /* RootTabViewController.m */; };
+		30B602571CD83F80003ED671 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602551CD83F80003ED671 /* testViewController.m */; };
+		30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6025C1CD84111003ED671 /* Assets.xcassets */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -34,8 +39,6 @@
 		AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */; };
 		AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CD01CCE0031008E6D52 /* AlertManager.m */; };
 		AC33449A1CCD1B2B009C7323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344991CCD1B2B009C7323 /* main.m */; };
-		AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC33449F1CCD1B2B009C7323 /* ViewController.m */; };
-		AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A71CCD1B2B009C7323 /* Assets.xcassets */; };
 		AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */; };
 		AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344B71CCD1CFA009C7323 /* NSObject+MemoryLeak.m */; };
 		AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344B91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m */; };
@@ -73,6 +76,17 @@
 /* Begin PBXFileReference section */
 		073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2D81FF0C4221A00AF484407E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
+		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
+		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
+		30B6024D1CD83F5D003ED671 /* StartButtomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartButtomView.m; sourceTree = "<group>"; };
+		30B6024E1CD83F5D003ED671 /* StartButtomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartButtomView.xib; sourceTree = "<group>"; };
+		30B602521CD83F80003ED671 /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
+		30B602531CD83F80003ED671 /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
+		30B602541CD83F80003ED671 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		30B602551CD83F80003ED671 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		30B602581CD83FB0003ED671 /* Mars.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mars.pch; sourceTree = "<group>"; };
+		30B6025C1CD84111003ED671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -118,9 +132,6 @@
 		AC2E6CD41CCE1416008E6D52 /* libEasyLiveSDK_iphone_simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEasyLiveSDK_iphone_simulator.a; path = Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone_simulator.a; sourceTree = "<group>"; };
 		AC3344951CCD1B2B009C7323 /* Mars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3344991CCD1B2B009C7323 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC33449E1CCD1B2B009C7323 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AC33449F1CCD1B2B009C7323 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AC3344A71CCD1B2B009C7323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC3344AA1CCD1B2B009C7323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC3344AC1CCD1B2B009C7323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC3344B51CCD1CFA009C7323 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
@@ -186,6 +197,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30B602451CD83F32003ED671 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				30B602521CD83F80003ED671 /* RootTabViewController.h */,
+				30B602531CD83F80003ED671 /* RootTabViewController.m */,
+				30B602541CD83F80003ED671 /* testViewController.h */,
+				30B602551CD83F80003ED671 /* testViewController.m */,
+				30B602471CD83F39003ED671 /* ThirdParty */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		30B602471CD83F39003ED671 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				30B602511CD83F68003ED671 /* StartButtomView */,
+				30B602481CD83F53003ED671 /* XTSegmentControl */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		30B602481CD83F53003ED671 /* XTSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				30B602491CD83F53003ED671 /* XTSegmentControl.h */,
+				30B6024A1CD83F53003ED671 /* XTSegmentControl.m */,
+			);
+			path = XTSegmentControl;
+			sourceTree = "<group>";
+		};
+		30B602511CD83F68003ED671 /* StartButtomView */ = {
+			isa = PBXGroup;
+			children = (
+				30B6024C1CD83F5D003ED671 /* StartButtomView.h */,
+				30B6024D1CD83F5D003ED671 /* StartButtomView.m */,
+				30B6024E1CD83F5D003ED671 /* StartButtomView.xib */,
+			);
+			name = StartButtomView;
+			sourceTree = "<group>";
+		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,11 +381,6 @@
 				AC3344D51CCD1D47009C7323 /* PresentationLayer */,
 				AC3344D41CCD1D3A009C7323 /* BusinessLogicLayer */,
 				AC3344D31CCD1D06009C7323 /* PersistenceLayer */,
-				AC33449E1CCD1B2B009C7323 /* ViewController.h */,
-				AC33449F1CCD1B2B009C7323 /* ViewController.m */,
-				AC3344A71CCD1B2B009C7323 /* Assets.xcassets */,
-				AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */,
-				AC3344AC1CCD1B2B009C7323 /* Info.plist */,
 				AC3344981CCD1B2B009C7323 /* Supporting Files */,
 			);
 			path = Mars;
@@ -343,6 +389,10 @@
 		AC3344981CCD1B2B009C7323 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				30B602581CD83FB0003ED671 /* Mars.pch */,
+				30B6025C1CD84111003ED671 /* Assets.xcassets */,
+				AC3344AC1CCD1B2B009C7323 /* Info.plist */,
+				AC3344A91CCD1B2B009C7323 /* LaunchScreen.storyboard */,
 				AC3344991CCD1B2B009C7323 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -409,6 +459,7 @@
 		AC3344D51CCD1D47009C7323 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				30B602451CD83F32003ED671 /* ui */,
 				ACA11B571CD73D14000196E1 /* measurement */,
 				ACA11B561CD73CF2000196E1 /* exercise */,
 				ACA11B551CD73CC0000196E1 /* scheme */,
@@ -576,7 +627,8 @@
 			files = (
 				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
-				AC3344A81CCD1B2B009C7323 /* Assets.xcassets in Resources */,
+				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
+				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
@@ -647,9 +699,10 @@
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
+				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
+				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
-				AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */,
 				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
@@ -658,6 +711,7 @@
 				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
+				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,
 				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
 				AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */,
@@ -666,6 +720,7 @@
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
+				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */,
 				AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */,
@@ -775,6 +830,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = Mars/Mars.pch;
 				INFOPLIST_FILE = Mars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -795,6 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = Mars/Mars.pch;
 				INFOPLIST_FILE = Mars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
