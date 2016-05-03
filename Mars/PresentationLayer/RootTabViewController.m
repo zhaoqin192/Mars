@@ -9,6 +9,7 @@
 #import "RootTabViewController.h"
 #import "RDVTabBarItem.h"
 #import "testViewController.h"
+#import "WXMeViewController.h"
 @interface RootTabViewController ()
 
 @end
@@ -23,25 +24,25 @@
 #pragma mark Private_M
 
 - (void)setupViewControllers {
-    UIViewController *vc = [[UIViewController alloc] init];
+    WXMeViewController *meVC = [[WXMeViewController alloc] init];
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
     testViewController *test = [[testViewController alloc] init];
-    [self setViewControllers:@[vvc,vc,vvc,test]];
+    [self setViewControllers:@[vvc,vvc,test,meVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
 
 - (void)customizeTabBarForController {
-  //  UIImage *backgroundImage = [UIImage imageNamed:@"tabbar_background"];
+    UIImage *backgroundImage = [UIImage imageWithColor:[UIColor colorWithHexString:@"#FFFFFF"]];
     NSArray *tabBarItemImages = @[@"计划", @"测试", @"练习", @"我的"];
     NSArray *tabBarItemTitles = @[@"计划", @"测试", @"练习", @"我的"];
     
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
-     //item.titlePositionAdjustment = UIOffsetMake(0, 3);
-      //  [item setBackgroundSelectedImage:backgroundImage withUnselectedImage:backgroundImage];
+        item.titlePositionAdjustment = UIOffsetMake(0, 3);
+        [item setBackgroundSelectedImage:backgroundImage withUnselectedImage:backgroundImage];
         UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_2",
                                                       [tabBarItemImages objectAtIndex:index]]];
         UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_1",

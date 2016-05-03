@@ -15,6 +15,8 @@
 		30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602531CD83F80003ED671 /* RootTabViewController.m */; };
 		30B602571CD83F80003ED671 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602551CD83F80003ED671 /* testViewController.m */; };
 		30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6025C1CD84111003ED671 /* Assets.xcassets */; };
+		30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602621CD847B2003ED671 /* WXMeViewController.m */; };
+		30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602631CD847B2003ED671 /* WXMeViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -87,6 +89,9 @@
 		30B602551CD83F80003ED671 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		30B602581CD83FB0003ED671 /* Mars.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mars.pch; sourceTree = "<group>"; };
 		30B6025C1CD84111003ED671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30B602611CD847B2003ED671 /* WXMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeViewController.h; sourceTree = "<group>"; };
+		30B602621CD847B2003ED671 /* WXMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeViewController.m; sourceTree = "<group>"; };
+		30B602631CD847B2003ED671 /* WXMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -200,6 +205,7 @@
 		30B602451CD83F32003ED671 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				30B6025F1CD84784003ED671 /* Me */,
 				30B602521CD83F80003ED671 /* RootTabViewController.h */,
 				30B602531CD83F80003ED671 /* RootTabViewController.m */,
 				30B602541CD83F80003ED671 /* testViewController.h */,
@@ -235,6 +241,16 @@
 				30B6024E1CD83F5D003ED671 /* StartButtomView.xib */,
 			);
 			name = StartButtomView;
+			sourceTree = "<group>";
+		};
+		30B6025F1CD84784003ED671 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				30B602611CD847B2003ED671 /* WXMeViewController.h */,
+				30B602621CD847B2003ED671 /* WXMeViewController.m */,
+				30B602631CD847B2003ED671 /* WXMeViewController.xib */,
+			);
+			name = Me;
 			sourceTree = "<group>";
 		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
@@ -636,6 +652,7 @@
 				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
+				30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +717,7 @@
 				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
 				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
+				30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */,
 				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
