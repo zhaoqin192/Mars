@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C39C937F0A5F19F8FD60827 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E5AAA8AC4F4ECC025F5949 /* libPods.a */; };
+		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -31,7 +32,6 @@
 		AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2E6CC71CCDFA06008E6D52 /* LiveViewController.xib */; };
 		AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */; };
 		AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6CD01CCE0031008E6D52 /* AlertManager.m */; };
-		AC2E6CD61CCE1416008E6D52 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		AC33449A1CCD1B2B009C7323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344991CCD1B2B009C7323 /* main.m */; };
 		AC3344A01CCD1B2B009C7323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC33449F1CCD1B2B009C7323 /* ViewController.m */; };
 		AC3344A31CCD1B2B009C7323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3344A11CCD1B2B009C7323 /* Main.storyboard */; };
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2E6CD61CCE1416008E6D52 /* libEasyLiveSDK_iphone.a in Frameworks */,
+				30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */,
 				AC2E6CB31CCDDD61008E6D52 /* libc++.tbd in Frameworks */,
 				AC2E6CB11CCDDD57008E6D52 /* libc.tbd in Frameworks */,
 				AC2E6CAF1CCDDD4B008E6D52 /* libz.tbd in Frameworks */,
@@ -458,7 +458,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BSR7J239R5;
+						DevelopmentTeam = 2R3U88FFZP;
 					};
 				};
 			};
@@ -709,7 +709,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -729,7 +729,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
