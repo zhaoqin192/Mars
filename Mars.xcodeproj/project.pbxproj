@@ -10,6 +10,7 @@
 		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
+		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -19,7 +20,6 @@
 		30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6025C1CD84111003ED671 /* Assets.xcassets */; };
 		30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602621CD847B2003ED671 /* WXMeViewController.m */; };
 		30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602631CD847B2003ED671 /* WXMeViewController.xib */; };
-		30B602701CD874A7003ED671 /* UserInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6026D1CD874A7003ED671 /* UserInformationViewController.m */; };
 		30B602711CD874A7003ED671 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6026F1CD874A7003ED671 /* UserDetailViewController.m */; };
 		30B602761CD874B1003ED671 /* userIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602741CD874B1003ED671 /* userIconCell.m */; };
 		30B602771CD874B1003ED671 /* userIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602751CD874B1003ED671 /* userIconCell.xib */; };
@@ -31,7 +31,6 @@
 		30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602881CD87510003ED671 /* ActionSheetStringPicker.m */; };
 		30B602931CD87510003ED671 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6028A1CD87510003ED671 /* DistancePickerView.m */; };
 		30B602941CD87510003ED671 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6028C1CD87510003ED671 /* SWActionSheet.m */; };
-		30B602991CD877FB003ED671 /* UserInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602981CD877FB003ED671 /* UserInformationViewController.xib */; };
 		30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */; };
 		30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
@@ -98,6 +97,7 @@
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
+		3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -112,8 +112,6 @@
 		30B602611CD847B2003ED671 /* WXMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeViewController.h; sourceTree = "<group>"; };
 		30B602621CD847B2003ED671 /* WXMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeViewController.m; sourceTree = "<group>"; };
 		30B602631CD847B2003ED671 /* WXMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeViewController.xib; sourceTree = "<group>"; };
-		30B6026C1CD874A7003ED671 /* UserInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformationViewController.h; sourceTree = "<group>"; };
-		30B6026D1CD874A7003ED671 /* UserInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformationViewController.m; sourceTree = "<group>"; };
 		30B6026E1CD874A7003ED671 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
 		30B6026F1CD874A7003ED671 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 		30B602731CD874B1003ED671 /* userIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userIconCell.h; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 		30B6028A1CD87510003ED671 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		30B6028B1CD87510003ED671 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		30B6028C1CD87510003ED671 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
-		30B602981CD877FB003ED671 /* UserInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInformationViewController.xib; sourceTree = "<group>"; };
 		30B6029A1CD87C4A003ED671 /* WXInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInformationViewController.h; sourceTree = "<group>"; };
 		30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInformationViewController.m; sourceTree = "<group>"; };
 		30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInformationViewController.xib; sourceTree = "<group>"; };
@@ -231,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */,
 				30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */,
 				AC2E6CB31CCDDD61008E6D52 /* libc++.tbd in Frameworks */,
 				AC2E6CB11CCDDD57008E6D52 /* libc.tbd in Frameworks */,
@@ -296,9 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				30B602951CD87582003ED671 /* cell */,
-				30B6026C1CD874A7003ED671 /* UserInformationViewController.h */,
-				30B6026D1CD874A7003ED671 /* UserInformationViewController.m */,
-				30B602981CD877FB003ED671 /* UserInformationViewController.xib */,
 				30B6026E1CD874A7003ED671 /* UserDetailViewController.h */,
 				30B6026F1CD874A7003ED671 /* UserDetailViewController.m */,
 				30B6029A1CD87C4A003ED671 /* WXInformationViewController.h */,
@@ -351,6 +346,7 @@
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */,
 				AC2E6CD21CCE1416008E6D52 /* libEasyLiveSDK_simulator.a */,
 				AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */,
 				AC2E6CD41CCE1416008E6D52 /* libEasyLiveSDK_iphone_simulator.a */,
@@ -745,7 +741,6 @@
 				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
-				30B602991CD877FB003ED671 /* UserInformationViewController.xib in Resources */,
 				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
@@ -852,7 +847,6 @@
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				30B602901CD87510003ED671 /* ActionSheetDistancePicker.m in Sources */,
 				AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */,
-				30B602701CD874A7003ED671 /* UserInformationViewController.m in Sources */,
 				AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,9 @@
 #import "RDVTabBarController.h"
 #import "userIconCell.h"
 #import "userSelectCell.h"
+
+#import <MobileCoreServices/UTCoreTypes.h>
+
 @interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -247,6 +250,18 @@
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:{
+                UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相册上传", @"拍摄", nil];
+                [actionSheet showInView:self.view];
+                break;
+            }
+        }
+    }
+}
+
 
 #pragma mark UIActionSheetDelegate M
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -257,15 +272,25 @@
     picker.delegate = self;
     picker.allowsEditing = YES;//设置可编辑
     
-    if (buttonIndex == 0) {
+    if (buttonIndex == 1) {
         //        拍照
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }else if (buttonIndex == 1){
+    }else if (buttonIndex == 0){
         //        相册
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     }
     [self presentViewController:picker animated:YES completion:nil];//进入照相界面
     
+}
+
+-(void)willPresentActionSheet:(UIActionSheet *)actionSheet {
+    SEL selector = NSSelectorFromString(@"_alertController");
+    if ([actionSheet respondsToSelector:selector]) {
+        UIAlertController *alertController = [actionSheet valueForKey:@"_alertController"];
+        if ([alertController isKindOfClass:[UIAlertController class]]) {
+            alertController.view.tintColor = [UIColor colorWithHexString:@"#333333"];
+        }
+    }
 }
 
 
@@ -274,30 +299,30 @@
     
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *editedImage, *imageToUse;
-    // Handle a still image picked from a photo album
-    //    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
-    //        == kCFCompareEqualTo) {
-    //
-    //        editedImage = (UIImage *) [info objectForKey:
-    //                                   UIImagePickerControllerEditedImage];
-    //        originalImage = (UIImage *) [info objectForKey:
-    //                                     UIImagePickerControllerOriginalImage];
-    //
-    //        if (editedImage) {
-    //            imageToUse = editedImage;
-    //        } else {
-    //            imageToUse = originalImage;
-    //        }
-    //        // Do something with imageToUse
-    //    }
-    //    [picker dismissViewControllerAnimated:YES completion:^{
-    //        [NetworkRequest uploadAvatar:imageToUse success:^{
-    //            [self loadData];
-    //        } failure:^{
-    //            [SVProgressHUD showErrorWithStatus:@"更新头像失败，请重新尝试"];
-    //            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5f];
-    //        }];
-    //    }];
+  //   Handle a still image picked from a photo album
+        if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
+            == kCFCompareEqualTo) {
+    
+            editedImage = (UIImage *) [info objectForKey:
+                                       UIImagePickerControllerEditedImage];
+            originalImage = (UIImage *) [info objectForKey:
+                                         UIImagePickerControllerOriginalImage];
+    
+            if (editedImage) {
+                imageToUse = editedImage;
+            } else {
+                imageToUse = originalImage;
+            }
+            // Do something with imageToUse
+        }
+        [picker dismissViewControllerAnimated:YES completion:^{
+//            [NetworkRequest uploadAvatar:imageToUse success:^{
+//                [self loadData];
+//            } failure:^{
+//                [SVProgressHUD showErrorWithStatus:@"更新头像失败，请重新尝试"];
+//                [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5f];
+//            }];
+        }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
