@@ -46,8 +46,8 @@
     [self configureHUD];
     
     //暂时不开引导页和启动页
-    [self configureStartView];
-     [self configureIntroView];
+//    [self configureStartView];
+//     [self configureIntroView];
     return YES;
 }
 

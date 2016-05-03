@@ -28,26 +28,28 @@
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
     testViewController *test = [[testViewController alloc] init];
-    [self setViewControllers:@[vc,vc,vc,vvc,test]];
+    [self setViewControllers:@[vvc,vc,vvc,test]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
 
 - (void)customizeTabBarForController {
-    UIImage *backgroundImage = [UIImage imageNamed:@"tabbar_background"];
-    NSArray *tabBarItemImages = @[@"project", @"task", @"tweet", @"privatemessage", @"me"];
-    NSArray *tabBarItemTitles = @[@"项目", @"任务", @"冒泡", @"消息", @"我"];
+  //  UIImage *backgroundImage = [UIImage imageNamed:@"tabbar_background"];
+    NSArray *tabBarItemImages = @[@"计划", @"测试", @"练习", @"我的"];
+    NSArray *tabBarItemTitles = @[@"计划", @"测试", @"练习", @"我的"];
     
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {
-        item.titlePositionAdjustment = UIOffsetMake(0, 3);
-        [item setBackgroundSelectedImage:backgroundImage withUnselectedImage:backgroundImage];
-        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
+     //item.titlePositionAdjustment = UIOffsetMake(0, 3);
+      //  [item setBackgroundSelectedImage:backgroundImage withUnselectedImage:backgroundImage];
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_2",
                                                       [tabBarItemImages objectAtIndex:index]]];
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_1",
                                                         [tabBarItemImages objectAtIndex:index]]];
         [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
         [item setTitle:[tabBarItemTitles objectAtIndex:index]];
+        item.selectedTitleAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#383F4D"]};
+        item.unselectedTitleAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#ACB0C7"]};
         index++;
     }
 }
