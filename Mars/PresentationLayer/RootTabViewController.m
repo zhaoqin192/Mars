@@ -25,11 +25,13 @@
 
 - (void)setupViewControllers {
     WXMeViewController *meVC = [[WXMeViewController alloc] init];
+    UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
+    
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
     testViewController *test = [[testViewController alloc] init];
-    [self setViewControllers:@[vvc,vvc,test,meVC]];
+    [self setViewControllers:@[vvc,vvc,test,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }

@@ -44,11 +44,17 @@
     [self.window makeKeyAndVisible];
     
     [self configureHUD];
-    
+    [self configureNavigationItem];
     //暂时不开引导页和启动页
 //    [self configureStartView];
 //     [self configureIntroView];
     return YES;
+}
+
+- (void)configureNavigationItem{
+    [[UINavigationBar appearance]  setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance]  setTintColor:[UIColor colorWithHexString:@"#333333"]];
+    [[UINavigationBar appearance]  setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithHexString:@"#333333"],NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0]}];
 }
 
 - (void)configureHUD{

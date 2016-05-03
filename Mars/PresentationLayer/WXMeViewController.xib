@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="iconImage" destination="psp-SM-7fJ" id="BYt-Wd-MeI"/>
                 <outlet property="nameLabel" destination="zBR-HI-4lt" id="eb4-Ib-zZt"/>
+                <outlet property="titleImageView" destination="Wn4-fZ-0nJ" id="jFL-tB-hmU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,6 +20,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的页面cover图" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-fZ-0nJ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="270" id="QO0-fM-EPD"/>
                     </constraints>
