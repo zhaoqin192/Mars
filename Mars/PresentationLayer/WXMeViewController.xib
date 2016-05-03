@@ -76,16 +76,82 @@
                                 <constraint firstAttribute="height" constant="1" id="Roz-Tj-dQm"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="计划" translatesAutoresizingMaskIntoConstraints="NO" id="aur-tL-RWX">
+                            <rect key="frame" x="53" y="13" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="6gS-5g-sFd"/>
+                                <constraint firstAttribute="height" constant="30" id="kpf-gS-woc"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="测试" translatesAutoresizingMaskIntoConstraints="NO" id="exQ-DH-Roq">
+                            <rect key="frame" x="123" y="13" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Qkz-GZ-xj8"/>
+                                <constraint firstAttribute="height" constant="30" id="hBV-wv-nRT"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="预约" translatesAutoresizingMaskIntoConstraints="NO" id="EKc-gC-Oso">
+                            <rect key="frame" x="201" y="13" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="rUW-9b-WGU"/>
+                                <constraint firstAttribute="height" constant="30" id="u1a-Pz-vy1"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="练习" translatesAutoresizingMaskIntoConstraints="NO" id="IOi-fh-4t7">
+                            <rect key="frame" x="271" y="13" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="H8X-yo-ctZ"/>
+                                <constraint firstAttribute="height" constant="30" id="jUE-hN-fqu"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计划" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-4X-sf2">
+                            <rect key="frame" x="54" y="53" width="28" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHr-sb-Ngl">
+                            <rect key="frame" x="124" y="53" width="28" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLb-V8-gWz">
+                            <rect key="frame" x="202" y="53" width="28" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="练习" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mum-6g-IWm">
+                            <rect key="frame" x="272" y="53" width="28" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Ph6-JW-5fY" firstAttribute="leading" secondItem="IyH-6B-HiD" secondAttribute="leading" id="0yH-d2-GNM"/>
+                        <constraint firstItem="ZHr-sb-Ngl" firstAttribute="top" secondItem="exQ-DH-Roq" secondAttribute="bottom" constant="10" id="5UD-Ib-fyq"/>
+                        <constraint firstItem="mum-6g-IWm" firstAttribute="centerX" secondItem="IOi-fh-4t7" secondAttribute="centerX" id="8gl-YY-tma"/>
+                        <constraint firstItem="ZHr-sb-Ngl" firstAttribute="centerX" secondItem="exQ-DH-Roq" secondAttribute="centerX" id="9oM-An-vXH"/>
+                        <constraint firstItem="zLb-V8-gWz" firstAttribute="centerX" secondItem="EKc-gC-Oso" secondAttribute="centerX" id="CKv-jd-twM"/>
+                        <constraint firstItem="EKc-gC-Oso" firstAttribute="top" secondItem="O1m-Yh-c9t" secondAttribute="top" constant="13" id="Dtd-8A-MDC"/>
                         <constraint firstItem="IyH-6B-HiD" firstAttribute="leading" secondItem="O1m-Yh-c9t" secondAttribute="leading" constant="5" id="Hvx-vf-Ki9"/>
                         <constraint firstAttribute="trailing" secondItem="9Li-GT-TmV" secondAttribute="trailing" id="J1U-1d-u0l"/>
+                        <constraint firstItem="mum-6g-IWm" firstAttribute="top" secondItem="IOi-fh-4t7" secondAttribute="bottom" constant="10" id="JZE-39-r6g"/>
+                        <constraint firstItem="IOi-fh-4t7" firstAttribute="leading" secondItem="EKc-gC-Oso" secondAttribute="trailing" constant="40" id="LdC-31-czL"/>
                         <constraint firstAttribute="bottom" secondItem="9Li-GT-TmV" secondAttribute="bottom" id="Lxi-GK-hAm"/>
+                        <constraint firstItem="cR3-4X-sf2" firstAttribute="top" secondItem="aur-tL-RWX" secondAttribute="bottom" constant="10" id="Q72-Pr-KHu"/>
+                        <constraint firstItem="exQ-DH-Roq" firstAttribute="top" secondItem="O1m-Yh-c9t" secondAttribute="top" constant="13" id="XM2-tw-3kM"/>
+                        <constraint firstItem="aur-tL-RWX" firstAttribute="top" secondItem="O1m-Yh-c9t" secondAttribute="top" constant="13" id="brf-ge-eQu"/>
                         <constraint firstItem="9Li-GT-TmV" firstAttribute="leading" secondItem="O1m-Yh-c9t" secondAttribute="leading" id="dze-bb-hqa"/>
+                        <constraint firstItem="IOi-fh-4t7" firstAttribute="top" secondItem="O1m-Yh-c9t" secondAttribute="top" constant="13" id="eyR-Y2-yBs"/>
+                        <constraint firstItem="cR3-4X-sf2" firstAttribute="centerX" secondItem="aur-tL-RWX" secondAttribute="centerX" id="gLF-Ez-daq"/>
                         <constraint firstAttribute="height" constant="137" id="gv6-sG-J5t"/>
                         <constraint firstItem="9Li-GT-TmV" firstAttribute="top" secondItem="IyH-6B-HiD" secondAttribute="bottom" id="nRS-pq-LBu"/>
+                        <constraint firstItem="exQ-DH-Roq" firstAttribute="leading" secondItem="aur-tL-RWX" secondAttribute="trailing" constant="40" id="pLh-19-N4W"/>
+                        <constraint firstItem="zLb-V8-gWz" firstAttribute="top" secondItem="EKc-gC-Oso" secondAttribute="bottom" constant="10" id="qvK-gc-6tm"/>
                         <constraint firstAttribute="trailing" secondItem="IyH-6B-HiD" secondAttribute="trailing" constant="5" id="xdv-Fn-ev1"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -249,8 +315,10 @@
                 <constraint firstItem="O1m-Yh-c9t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="222" id="cDN-R3-TR1"/>
                 <constraint firstItem="zBR-HI-4lt" firstAttribute="top" secondItem="psp-SM-7fJ" secondAttribute="bottom" constant="20" id="cy5-Xq-M6e"/>
                 <constraint firstItem="O1m-Yh-c9t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="n1V-aI-Pxs"/>
+                <constraint firstItem="EKc-gC-Oso" firstAttribute="trailing" secondItem="zBR-HI-4lt" secondAttribute="trailing" constant="20" id="ok6-Cq-dPP"/>
                 <constraint firstItem="9On-pz-aA7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rYM-VA-O65"/>
                 <constraint firstItem="Wn4-fZ-0nJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uBf-hk-P5A"/>
+                <constraint firstItem="exQ-DH-Roq" firstAttribute="leading" secondItem="zBR-HI-4lt" secondAttribute="leading" constant="-20" id="vDa-7p-Aiu"/>
                 <constraint firstAttribute="trailing" secondItem="9On-pz-aA7" secondAttribute="trailing" id="x7k-FO-8KO"/>
                 <constraint firstItem="9On-pz-aA7" firstAttribute="top" secondItem="O1m-Yh-c9t" secondAttribute="bottom" constant="25" id="yaw-ga-Utv"/>
             </constraints>
@@ -260,5 +328,9 @@
     <resources>
         <image name="cell_more_icon" width="7" height="13"/>
         <image name="我的页面cover图" width="375" height="270"/>
+        <image name="测试" width="30" height="30"/>
+        <image name="练习" width="30" height="30"/>
+        <image name="计划" width="30" height="30"/>
+        <image name="预约" width="30" height="30"/>
     </resources>
 </document>
