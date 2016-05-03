@@ -12,7 +12,7 @@
 #import "RDVTabBarController.h"
 #import "userIconCell.h"
 #import "userSelectCell.h"
-
+#import "WXInformationDetailViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
 @interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate>
@@ -29,6 +29,11 @@
     self.navigationItem.title = self.myTitle;
     [self configureTableView];
     [self configureFootButton];
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -256,6 +261,18 @@
             case 0:{
                 UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相册上传", @"拍摄", nil];
                 [actionSheet showInView:self.view];
+                break;
+            }
+            case 1:{
+                WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
+                vc.myTitle = @"修改昵称";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+            case 2:{
+                WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
+                vc.myTitle = @"修改手机号";
+                [self.navigationController pushViewController:vc animated:YES];
                 break;
             }
         }
