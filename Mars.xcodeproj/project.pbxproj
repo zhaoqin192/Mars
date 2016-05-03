@@ -13,6 +13,8 @@
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
 		3057B1DC1CD8DDCF008172DD /* WXInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1DA1CD8DDCF008172DD /* WXInformationDetailViewController.m */; };
 		3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1DB1CD8DDCF008172DD /* WXInformationDetailViewController.xib */; };
+		3057B1E41CD8E86D008172DD /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1E11CD8E86D008172DD /* Address.plist */; };
+		3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1E31CD8E86D008172DD /* CityPickView.m */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -22,7 +24,6 @@
 		30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6025C1CD84111003ED671 /* Assets.xcassets */; };
 		30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602621CD847B2003ED671 /* WXMeViewController.m */; };
 		30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602631CD847B2003ED671 /* WXMeViewController.xib */; };
-		30B602711CD874A7003ED671 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6026F1CD874A7003ED671 /* UserDetailViewController.m */; };
 		30B602761CD874B1003ED671 /* userIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602741CD874B1003ED671 /* userIconCell.m */; };
 		30B602771CD874B1003ED671 /* userIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602751CD874B1003ED671 /* userIconCell.xib */; };
 		30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6027D1CD87510003ED671 /* AbstractActionSheetPicker.m */; };
@@ -103,6 +104,9 @@
 		3057B1D91CD8DDCF008172DD /* WXInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInformationDetailViewController.h; sourceTree = "<group>"; };
 		3057B1DA1CD8DDCF008172DD /* WXInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInformationDetailViewController.m; sourceTree = "<group>"; };
 		3057B1DB1CD8DDCF008172DD /* WXInformationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInformationDetailViewController.xib; sourceTree = "<group>"; };
+		3057B1E11CD8E86D008172DD /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
+		3057B1E21CD8E86D008172DD /* CityPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickView.h; sourceTree = "<group>"; };
+		3057B1E31CD8E86D008172DD /* CityPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickView.m; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -117,8 +121,6 @@
 		30B602611CD847B2003ED671 /* WXMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeViewController.h; sourceTree = "<group>"; };
 		30B602621CD847B2003ED671 /* WXMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeViewController.m; sourceTree = "<group>"; };
 		30B602631CD847B2003ED671 /* WXMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeViewController.xib; sourceTree = "<group>"; };
-		30B6026E1CD874A7003ED671 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
-		30B6026F1CD874A7003ED671 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 		30B602731CD874B1003ED671 /* userIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userIconCell.h; sourceTree = "<group>"; };
 		30B602741CD874B1003ED671 /* userIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userIconCell.m; sourceTree = "<group>"; };
 		30B602751CD874B1003ED671 /* userIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userIconCell.xib; sourceTree = "<group>"; };
@@ -253,6 +255,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3057B1E01CD8E86D008172DD /* pincker */ = {
+			isa = PBXGroup;
+			children = (
+				3057B1E11CD8E86D008172DD /* Address.plist */,
+				3057B1E21CD8E86D008172DD /* CityPickView.h */,
+				3057B1E31CD8E86D008172DD /* CityPickView.m */,
+			);
+			path = pincker;
+			sourceTree = "<group>";
+		};
 		30B602451CD83F32003ED671 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +281,7 @@
 		30B602471CD83F39003ED671 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				3057B1E01CD8E86D008172DD /* pincker */,
 				30B6027B1CD87510003ED671 /* ActionSheetPicker */,
 				30B602511CD83F68003ED671 /* StartButtomView */,
 				30B602481CD83F53003ED671 /* XTSegmentControl */,
@@ -299,8 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				30B602951CD87582003ED671 /* cell */,
-				30B6026E1CD874A7003ED671 /* UserDetailViewController.h */,
-				30B6026F1CD874A7003ED671 /* UserDetailViewController.m */,
 				3057B1D91CD8DDCF008172DD /* WXInformationDetailViewController.h */,
 				3057B1DA1CD8DDCF008172DD /* WXInformationDetailViewController.m */,
 				3057B1DB1CD8DDCF008172DD /* WXInformationDetailViewController.xib */,
@@ -743,6 +754,7 @@
 				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
+				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
@@ -849,10 +861,10 @@
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
-				30B602711CD874A7003ED671 /* UserDetailViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,
+				3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				30B602901CD87510003ED671 /* ActionSheetDistancePicker.m in Sources */,

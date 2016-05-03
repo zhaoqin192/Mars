@@ -8,18 +8,18 @@
 
 #import "WXInformationViewController.h"
 #import "ActionSheetStringPicker.h"
-#import "UserDetailViewController.h"
 #import "RDVTabBarController.h"
 #import "userIconCell.h"
 #import "userSelectCell.h"
 #import "WXInformationDetailViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "CityPickView.h"
 
-@interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate,CityPickViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *footButton;
-
+@property (nonatomic,strong) CityPickView *pickView;
 @end
 
 @implementation WXInformationViewController
@@ -34,6 +34,9 @@
         back.title = @"";
         back;
     });
+    self.pickView = [[CityPickView alloc] initWithFrame:CGRectMake(0, kScreenHeight, self.view.bounds.size.width, 180)];;
+    self.pickView.delegate = self;
+    [self.view addSubview:self.pickView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -67,6 +70,21 @@
 
 - (void)commitButtonClicked {
     NSLog(@"commit");
+}
+
+- (void)cancel {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.pickView.backgroundColor = [UIColor whiteColor];
+        self.pickView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 270);
+    } completion:nil];
+}
+
+- (void)selectCity:(NSString *)city{
+    NSLog(@"%@",city);
+}
+
+- (void)fetchDetail:(NSString *)province city:(NSString *)city district:(NSString *)district{
+    NSLog(@"fetch");
 }
 
 #pragma mark - Table view data source
@@ -287,6 +305,14 @@
                 [self.navigationController pushViewController:vc animated:YES];
                 break;
             }
+        }
+    }
+    if(indexPath.section == 1) {
+        if ([self.myTitle isEqualToString:@"填写资料"] && indexPath.row == 2) {
+            [UIView animateWithDuration:0.25 animations:^{
+                self.pickView.backgroundColor = [UIColor whiteColor];
+                self.pickView.frame = CGRectMake(0, kScreenHeight-270, kScreenWidth, 270);
+            } completion:nil];
         }
     }
 }
