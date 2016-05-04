@@ -15,6 +15,8 @@
 		3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1DB1CD8DDCF008172DD /* WXInformationDetailViewController.xib */; };
 		3057B1E41CD8E86D008172DD /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1E11CD8E86D008172DD /* Address.plist */; };
 		3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1E31CD8E86D008172DD /* CityPickView.m */; };
+		3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B20E1CD9D3EE008172DD /* WXLoginViewController.m */; };
+		3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -107,6 +109,9 @@
 		3057B1E11CD8E86D008172DD /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
 		3057B1E21CD8E86D008172DD /* CityPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickView.h; sourceTree = "<group>"; };
 		3057B1E31CD8E86D008172DD /* CityPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickView.m; sourceTree = "<group>"; };
+		3057B20D1CD9D3EE008172DD /* WXLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoginViewController.h; sourceTree = "<group>"; };
+		3057B20E1CD9D3EE008172DD /* WXLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginViewController.m; sourceTree = "<group>"; };
+		3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLoginViewController.xib; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -265,9 +270,20 @@
 			path = pincker;
 			sourceTree = "<group>";
 		};
+		3057B20B1CD9D3CE008172DD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3057B20D1CD9D3EE008172DD /* WXLoginViewController.h */,
+				3057B20E1CD9D3EE008172DD /* WXLoginViewController.m */,
+				3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		30B602451CD83F32003ED671 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				3057B20B1CD9D3CE008172DD /* Login */,
 				30B6025F1CD84784003ED671 /* Me */,
 				30B602521CD83F80003ED671 /* RootTabViewController.h */,
 				30B602531CD83F80003ED671 /* RootTabViewController.m */,
@@ -762,6 +778,7 @@
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
 				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
+				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
@@ -857,6 +874,7 @@
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
 				AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */,
 				ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */,
+				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,

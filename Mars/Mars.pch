@@ -17,6 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "EAIntroView.h"
 #import "BlocksKit+UIKit.h"
+#import "MBProgressHUD.h"
 
 #define kScreen_Bounds [UIScreen mainScreen].bounds
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height

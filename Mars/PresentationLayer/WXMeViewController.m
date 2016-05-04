@@ -8,6 +8,7 @@
 
 #import "WXMeViewController.h"
 #import "WXInformationViewController.h"
+#import "WXLoginViewController.h"
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
@@ -44,6 +45,8 @@
         WXInformationViewController *vc = [[WXInformationViewController alloc] init];
         vc.myTitle = @"我的资料";
         [self.navigationController pushViewController:vc animated:YES];
+//        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     self.iconImage.layer.cornerRadius = self.iconImage.width/2;
