@@ -7,6 +7,7 @@
 //
 
 #import "WXVideoViewController.h"
+#import "VideoCell.h"
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -24,6 +25,9 @@
 }
 
 - (void)configureTableView {
+    self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+    self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([VideoCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([VideoCell class])];
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
         if (self.leftSwipe) {
             self.leftSwipe();
@@ -31,7 +35,6 @@
     }];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.myTableView addGestureRecognizer:leftSwipe];
-    
 }
 
 
@@ -71,16 +74,17 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UITableViewCell alloc] init];
+    VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
+    return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 125;
+}
 
 
 @end

@@ -46,6 +46,9 @@
 		30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E991CDDA833003C91A5 /* OrderCell.xib */; };
 		30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E9D1CDDB3DF003C91A5 /* WXVideoViewController.m */; };
 		30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E9E1CDDB3DF003C91A5 /* WXVideoViewController.xib */; };
+		30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EA21CDDD2E7003C91A5 /* VideoCell.m */; };
+		30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */; };
+		30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -169,6 +172,11 @@
 		30FD1E9C1CDDB3DF003C91A5 /* WXVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXVideoViewController.h; sourceTree = "<group>"; };
 		30FD1E9D1CDDB3DF003C91A5 /* WXVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXVideoViewController.m; sourceTree = "<group>"; };
 		30FD1E9E1CDDB3DF003C91A5 /* WXVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXVideoViewController.xib; sourceTree = "<group>"; };
+		30FD1EA11CDDD2E7003C91A5 /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
+		30FD1EA21CDDD2E7003C91A5 /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		30FD1EA61CDDE330003C91A5 /* WXInsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInsetLabel.h; sourceTree = "<group>"; };
+		30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInsetLabel.m; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -412,6 +420,8 @@
 				30FD1E9C1CDDB3DF003C91A5 /* WXVideoViewController.h */,
 				30FD1E9D1CDDB3DF003C91A5 /* WXVideoViewController.m */,
 				30FD1E9E1CDDB3DF003C91A5 /* WXVideoViewController.xib */,
+				30FD1EA61CDDE330003C91A5 /* WXInsetLabel.h */,
+				30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -422,6 +432,9 @@
 				30FD1E971CDDA833003C91A5 /* OrderCell.h */,
 				30FD1E981CDDA833003C91A5 /* OrderCell.m */,
 				30FD1E991CDDA833003C91A5 /* OrderCell.xib */,
+				30FD1EA11CDDD2E7003C91A5 /* VideoCell.h */,
+				30FD1EA21CDDD2E7003C91A5 /* VideoCell.m */,
+				30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -818,6 +831,7 @@
 				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
+				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
@@ -902,6 +916,7 @@
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
+				30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */,
 				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
 				30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */,
 				30B6028E1CD87510003ED671 /* ActionSheetCustomPicker.m in Sources */,
@@ -936,6 +951,7 @@
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
+				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,
 				3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */,
