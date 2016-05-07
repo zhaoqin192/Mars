@@ -32,5 +32,6 @@
 
 #define WXGreenColor [UIColor colorWithHexString:@"#48E4C2"]
 #define WXTextGrayColor [UIColor colorWithHexString:@"#666666"]
+#define WXTextBlackColor [UIColor colorWithHexString:@"#333333"]
 
 #endif /* Mars_pch */

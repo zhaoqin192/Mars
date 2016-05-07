@@ -7,11 +7,13 @@
 //
 
 #import "WXExercisesViewController.h"
+#import "WXOrderViewController.h"
 
 @interface WXExercisesViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *videoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (nonatomic, strong) UILabel *selectLabel;
+@property (nonatomic, strong) WXOrderViewController *orderVC;
 @end
 
 @implementation WXExercisesViewController
@@ -20,6 +22,12 @@
     [super viewDidLoad];
     self.navigationItem.title = @"练习";
     [self configureUI];
+    [self configureChildController];
+}
+
+- (void)configureChildController {
+    self.orderVC = [[WXOrderViewController alloc] init];
+    [self addChildViewController:self.orderVC];
 }
 
 - (void)configureUI {
@@ -56,6 +64,8 @@
         rightLine.hidden = NO;
         UIImageView *leftLine = [self.view viewWithTag:10];
         leftLine.hidden = YES;
+        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
+        [self.view addSubview:self.orderVC.view];
     }];
 }
 

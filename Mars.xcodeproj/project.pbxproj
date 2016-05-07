@@ -40,6 +40,10 @@
 		30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */; };
 		30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */; };
 		30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */; };
+		30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */; };
+		30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E931CDDA762003C91A5 /* WXOrderViewController.xib */; };
+		30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E981CDDA833003C91A5 /* OrderCell.m */; };
+		30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E991CDDA833003C91A5 /* OrderCell.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -154,6 +158,12 @@
 		30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXExercisesViewController.h; sourceTree = "<group>"; };
 		30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXExercisesViewController.m; sourceTree = "<group>"; };
 		30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXExercisesViewController.xib; sourceTree = "<group>"; };
+		30FD1E911CDDA762003C91A5 /* WXOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXOrderViewController.h; sourceTree = "<group>"; };
+		30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXOrderViewController.m; sourceTree = "<group>"; };
+		30FD1E931CDDA762003C91A5 /* WXOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXOrderViewController.xib; sourceTree = "<group>"; };
+		30FD1E971CDDA833003C91A5 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		30FD1E981CDDA833003C91A5 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		30FD1E991CDDA833003C91A5 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -387,11 +397,25 @@
 		30FD1E8B1CDD998D003C91A5 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
+				30FD1E961CDDA80C003C91A5 /* cell */,
 				30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */,
 				30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */,
 				30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */,
+				30FD1E911CDDA762003C91A5 /* WXOrderViewController.h */,
+				30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */,
+				30FD1E931CDDA762003C91A5 /* WXOrderViewController.xib */,
 			);
 			name = Exercises;
+			sourceTree = "<group>";
+		};
+		30FD1E961CDDA80C003C91A5 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1E971CDDA833003C91A5 /* OrderCell.h */,
+				30FD1E981CDDA833003C91A5 /* OrderCell.m */,
+				30FD1E991CDDA833003C91A5 /* OrderCell.xib */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
@@ -795,7 +819,9 @@
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
 				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
+				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
 				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
+				30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
@@ -878,6 +904,7 @@
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
 				3057B1DC1CD8DDCF008172DD /* WXInformationDetailViewController.m in Sources */,
+				30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
 				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
@@ -897,6 +924,7 @@
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
+				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,

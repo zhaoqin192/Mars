@@ -53,8 +53,8 @@
 
 - (void)configureNavigationItem{
     [[UINavigationBar appearance]  setBarTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance]  setTintColor:[UIColor colorWithHexString:@"#333333"]];
-    [[UINavigationBar appearance]  setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithHexString:@"#333333"],NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0]}];
+    [[UINavigationBar appearance]  setTintColor:WXTextBlackColor];
+    [[UINavigationBar appearance]  setTitleTextAttributes:@{NSForegroundColorAttributeName: WXTextBlackColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0]}];
 }
 
 - (void)configureHUD{

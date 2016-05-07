@@ -342,7 +342,7 @@
     if ([actionSheet respondsToSelector:selector]) {
         UIAlertController *alertController = [actionSheet valueForKey:@"_alertController"];
         if ([alertController isKindOfClass:[UIAlertController class]]) {
-            alertController.view.tintColor = [UIColor colorWithHexString:@"#333333"];
+            alertController.view.tintColor = WXTextBlackColor;
         }
     }
 }

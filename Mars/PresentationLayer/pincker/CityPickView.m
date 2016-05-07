@@ -55,7 +55,7 @@
         label.text = @"选择省份";
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont boldSystemFontOfSize:17];
-        label.textColor = [UIColor colorWithHexString:@"#333333"];
+        label.textColor = WXTextBlackColor;
         [view addSubview:label];
         
         UIButton *sureButton = [UIButton buttonWithType:UIButtonTypeSystem];
