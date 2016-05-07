@@ -23,7 +23,7 @@
     button.frame = CGRectMake(0, 0, 40, 30);
     [button setTitle:@"保存" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
-    [button setTitleColor:[UIColor colorWithHexString:@"#48E4C2"] forState:UIControlStateNormal];
+    [button setTitleColor:WXGreenColor forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 

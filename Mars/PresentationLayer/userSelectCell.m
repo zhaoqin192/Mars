@@ -35,7 +35,7 @@
         return;
     }
     self.selectButton = self.rightButton;
-    self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#48E4C2"];
+    self.rightButton.backgroundColor = WXGreenColor;
     [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
@@ -43,7 +43,7 @@
 
 - (void)configureButton {
     self.selectButton = self.leftButton;
-    self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#48E4C2"];
+    self.leftButton.backgroundColor = WXGreenColor;
     [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];

@@ -36,15 +36,15 @@ static NSInteger count = 60;
 - (void)configureCodeButtonAndLoginButton {
     self.codeButton.titleLabel.font = [UIFont systemFontOfSize:12];
     self.codeButton.layer.borderWidth = 1;
-    self.codeButton.layer.borderColor = [UIColor colorWithHexString:@"#48E4C2"].CGColor;
-    [self.codeButton setTitleColor:[UIColor colorWithHexString:@"#48E4C2"] forState:UIControlStateNormal];
+    self.codeButton.layer.borderColor = WXGreenColor.CGColor;
+    [self.codeButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     [self.codeButton setTitleColor:[UIColor colorWithHexString:@"#cccccc"] forState:UIControlStateDisabled];
     
     //self.loginButton.enabled = NO;
     [self.loginButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     [self.loginButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateDisabled];
     [self.loginButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#F0F0F0"]] forState:UIControlStateDisabled];
-    [self.loginButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#48E4C2"]] forState:UIControlStateNormal];
+    [self.loginButton setBackgroundImage:[UIImage imageWithColor:WXGreenColor] forState:UIControlStateNormal];
     self.loginButton.titleLabel.font = [UIFont systemFontOfSize:16];
     self.loginButton.layer.cornerRadius = self.loginButton.height/2;
     self.loginButton.layer.masksToBounds = YES;
@@ -66,7 +66,7 @@ static NSInteger count = 60;
         [self.timer invalidate];
         self.codeButton.enabled = YES;
         [self.codeButton setTitle:@"再次发送" forState:UIControlStateNormal];
-        self.codeButton.layer.borderColor = [UIColor colorWithHexString:@"#48E4C2"].CGColor;
+        self.codeButton.layer.borderColor = WXGreenColor.CGColor;
     }
     [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒",(long)count] forState:UIControlStateDisabled];
     count--;

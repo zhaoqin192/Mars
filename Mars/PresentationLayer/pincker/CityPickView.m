@@ -41,7 +41,7 @@
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         cancelButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [cancelButton setTitleColor:[UIColor colorWithHexString:@"#666666"] forState:UIControlStateNormal];
+        [cancelButton setTitleColor:WXTextGrayColor forState:UIControlStateNormal];
         cancelButton.frame = CGRectMake(15, 0, 40, 30);
         cancelButton.centerY = view.centerY;
         [cancelButton bk_whenTapped:^{
@@ -61,7 +61,7 @@
         UIButton *sureButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [sureButton setTitle:@"确认" forState:UIControlStateNormal];
         sureButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [sureButton setTitleColor:[UIColor colorWithHexString:@"#48E4C2"] forState:UIControlStateNormal];
+        [sureButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         sureButton.frame = CGRectMake(kScreenWidth-15-40, 0, 40, 30);
         sureButton.centerY = view.centerY;
         sureButton.titleLabel.textAlignment = NSTextAlignmentRight;

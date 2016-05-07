@@ -38,6 +38,8 @@
 		30B602941CD87510003ED671 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6028C1CD87510003ED671 /* SWActionSheet.m */; };
 		30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */; };
 		30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */; };
+		30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */; };
+		30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -149,6 +151,9 @@
 		30B6029A1CD87C4A003ED671 /* WXInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInformationViewController.h; sourceTree = "<group>"; };
 		30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInformationViewController.m; sourceTree = "<group>"; };
 		30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInformationViewController.xib; sourceTree = "<group>"; };
+		30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXExercisesViewController.h; sourceTree = "<group>"; };
+		30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXExercisesViewController.m; sourceTree = "<group>"; };
+		30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXExercisesViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -283,12 +288,13 @@
 		30B602451CD83F32003ED671 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				3057B20B1CD9D3CE008172DD /* Login */,
-				30B6025F1CD84784003ED671 /* Me */,
 				30B602521CD83F80003ED671 /* RootTabViewController.h */,
 				30B602531CD83F80003ED671 /* RootTabViewController.m */,
 				30B602541CD83F80003ED671 /* testViewController.h */,
 				30B602551CD83F80003ED671 /* testViewController.m */,
+				30FD1E8B1CDD998D003C91A5 /* Exercises */,
+				3057B20B1CD9D3CE008172DD /* Login */,
+				30B6025F1CD84784003ED671 /* Me */,
 				30B602471CD83F39003ED671 /* ThirdParty */,
 			);
 			name = ui;
@@ -376,6 +382,16 @@
 				3057B1CB1CD8B503008172DD /* userSelectCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		30FD1E8B1CDD998D003C91A5 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */,
+				30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */,
+				30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */,
+			);
+			name = Exercises;
 			sourceTree = "<group>";
 		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
@@ -771,6 +787,7 @@
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
+				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
@@ -862,6 +879,7 @@
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
 				3057B1DC1CD8DDCF008172DD /* WXInformationDetailViewController.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
+				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */,
 				AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */,

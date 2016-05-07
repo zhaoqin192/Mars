@@ -8,7 +8,6 @@
 
 #import "WXInformationViewController.h"
 #import "ActionSheetStringPicker.h"
-#import "RDVTabBarController.h"
 #import "userIconCell.h"
 #import "userSelectCell.h"
 #import "WXInformationDetailViewController.h"
@@ -113,7 +112,7 @@
             case 1:{
                 UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                 cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                [cell.textLabel setTextColor:WXTextGrayColor];
                 cell.textLabel.text = @"昵称";
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -123,7 +122,7 @@
             case 2:{
                 UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                 cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                [cell.textLabel setTextColor:WXTextGrayColor];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"手机号";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -154,9 +153,9 @@
                 case 2:{
                     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.textLabel setTextColor:WXTextGrayColor];
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"省份";
                     cell.detailTextLabel.text = @"未选择";
@@ -179,9 +178,9 @@
                 case 0:{
                     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.textLabel setTextColor:WXTextGrayColor];
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"性别";
                     //cell.detailTextLabel.text = @"未选择";
@@ -191,9 +190,9 @@
                 case 1:{
                     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.textLabel setTextColor:WXTextGrayColor];
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"年纪";
                     //cell.detailTextLabel.text = @"未选择";
@@ -203,9 +202,9 @@
                 case 2:{
                     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.textLabel setTextColor:WXTextGrayColor];
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"省份";
                     //cell.detailTextLabel.text = @"未选择";
@@ -215,9 +214,9 @@
                 case 3:{
                     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
                     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.textLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.textLabel setTextColor:WXTextGrayColor];
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"#666666"]];
+                    [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"高中";
                     //cell.detailTextLabel.text = @"未选择";
@@ -250,7 +249,7 @@
             UILabel *label = [[UILabel alloc] init];
             label.text = @"以下资料是为您提供更恰当的指导，我们会严格保密";
             label.font = [UIFont systemFontOfSize:12];
-            label.textColor = [UIColor colorWithHexString:@"#666666"];
+            label.textColor = WXTextGrayColor;
             label.frame = CGRectMake(15, 15, kScreenWidth, 12);
             [view addSubview:label];
             return view;
@@ -261,14 +260,14 @@
             UILabel *label = [[UILabel alloc] init];
             label.text = @"详细资料";
             label.font = [UIFont systemFontOfSize:12];
-            label.textColor = [UIColor colorWithHexString:@"#666666"];
+            label.textColor = WXTextGrayColor;
             label.frame = CGRectMake(15, 15, kScreenWidth/2, 12);
             [view addSubview:label];
             
             UILabel *editLabel = [[UILabel alloc] init];
             editLabel.text = @"编辑";
             editLabel.font = [UIFont systemFontOfSize:12];
-            editLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+            editLabel.textColor = WXTextGrayColor;
             editLabel.frame = CGRectMake(kScreenWidth/2-15, 15, kScreenWidth/2, 12);
             editLabel.textAlignment = NSTextAlignmentRight;
             editLabel.userInteractionEnabled = YES;
