@@ -194,7 +194,7 @@
                     cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    cell.textLabel.text = @"年纪";
+                    cell.textLabel.text = @"年级";
                     //cell.detailTextLabel.text = @"未选择";
                     return cell;
                     break;

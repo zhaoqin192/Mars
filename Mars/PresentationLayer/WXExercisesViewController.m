@@ -8,12 +8,14 @@
 
 #import "WXExercisesViewController.h"
 #import "WXOrderViewController.h"
+#import "WXVideoViewController.h"
 
 @interface WXExercisesViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *videoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (nonatomic, strong) UILabel *selectLabel;
 @property (nonatomic, strong) WXOrderViewController *orderVC;
+@property (nonatomic, strong) WXVideoViewController *videoVC;
 @end
 
 @implementation WXExercisesViewController
@@ -27,7 +29,20 @@
 
 - (void)configureChildController {
     self.orderVC = [[WXOrderViewController alloc] init];
+    __weak typeof(self)weakSelf = self;
+    self.orderVC.rightSwipe = ^{
+        [weakSelf labelTapped:weakSelf.videoLabel];
+    };
     [self addChildViewController:self.orderVC];
+    
+    self.videoVC = [[WXVideoViewController alloc] init];
+    self.videoVC.leftSwipe = ^{
+        [weakSelf labelTapped:weakSelf.orderLabel];
+    };
+    [self addChildViewController:self.videoVC];
+    
+    self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
+    [self.view addSubview:self.videoVC.view];
 }
 
 - (void)configureUI {
@@ -41,6 +56,16 @@
     rightLine.hidden = YES;
     
     [self.videoLabel bk_whenTapped:^{
+        [self labelTapped:self.videoLabel];
+    }];
+    
+    [self.orderLabel bk_whenTapped:^{
+        [self labelTapped:self.orderLabel];
+    }];
+}
+
+- (void)labelTapped:(UILabel *)label {
+    if (label == self.videoLabel){
         if (self.selectLabel == self.videoLabel) {
             return ;
         }
@@ -51,9 +76,10 @@
         leftLine.hidden = NO;
         UIImageView *rightLine = [self.view viewWithTag:11];
         rightLine.hidden = YES;
-    }];
-    
-    [self.orderLabel bk_whenTapped:^{
+        self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
+        [self.view addSubview:self.videoVC.view];
+    }
+    else {
         if (self.selectLabel == self.orderLabel) {
             return ;
         }
@@ -66,7 +92,7 @@
         leftLine.hidden = YES;
         self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
         [self.view addSubview:self.orderVC.view];
-    }];
+    }
 }
 
 @end

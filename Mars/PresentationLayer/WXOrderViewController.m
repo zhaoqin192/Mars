@@ -23,6 +23,13 @@
 - (void)configureCollectionView {
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
     [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OrderCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([OrderCell class])];
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        if (self.rightSwipe) {
+            self.rightSwipe();
+        }
+    }];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.myCollectionView addGestureRecognizer:rightSwipe];
 }
 
 #pragma mark - UICollectionViewDataSource

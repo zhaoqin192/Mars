@@ -1,5 +1,5 @@
 //
-//  WXOrderViewController.h
+//  WXVideoViewController.h
 //  Mars
 //
 //  Created by 王霄 on 16/5/7.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WXOrderViewController : UIViewController
-@property (nonatomic, copy) void(^rightSwipe)();
+@interface WXVideoViewController : UIViewController
+@property (nonatomic, copy) void(^leftSwipe)();
 @end

@@ -38,7 +38,7 @@ static NSInteger count = 60;
     self.codeButton.layer.borderWidth = 1;
     self.codeButton.layer.borderColor = WXGreenColor.CGColor;
     [self.codeButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-    [self.codeButton setTitleColor:[UIColor colorWithHexString:@"#cccccc"] forState:UIControlStateDisabled];
+    [self.codeButton setTitleColor:WXLineColor forState:UIControlStateDisabled];
     
     //self.loginButton.enabled = NO;
     [self.loginButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
@@ -74,7 +74,7 @@ static NSInteger count = 60;
 
 - (IBAction)codeButtonClicked {
     self.codeButton.enabled = NO;
-    self.codeButton.layer.borderColor = [UIColor colorWithHexString:@"#cccccc"].CGColor;
+    self.codeButton.layer.borderColor = WXLineColor.CGColor;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^(NSTimer * _Nonnull timer) {
         [self startTimer];
     } repeats:YES];
