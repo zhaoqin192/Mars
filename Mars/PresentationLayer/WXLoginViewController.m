@@ -7,41 +7,43 @@
 //
 
 #import "WXLoginViewController.h"
-#import "MBProgressHUD.h"
-#import "ReactiveCocoa.h"
+#import "WXRegisterViewController.h"
 
 @interface WXLoginViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *codeButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
-@property (nonatomic, strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UILabel *forgetPasswordLabel;
 @end
 
-static NSInteger count = 60;
 @implementation WXLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"登录";
-    [self configureCodeButtonAndLoginButton];
+    [self configureNavigationBar];
+    [self configureForgetPasswordLabelAndLoginButton];
     [self.phoneTextField becomeFirstResponder];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [self.timer invalidate];
-    count = 60;
+- (void)configureNavigationBar {
+    self.navigationItem.title = @"登录";
+    UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [registerButton setTitle:@"注册" forState:UIControlStateNormal];
+    [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
+    registerButton.frame = CGRectMake(0, 0, 40, 30);
+    [registerButton bk_whenTapped:^{
+        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
 }
 
-- (void)configureCodeButtonAndLoginButton {
-    self.codeButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    self.codeButton.layer.borderWidth = 1;
-    self.codeButton.layer.borderColor = WXGreenColor.CGColor;
-    [self.codeButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-    [self.codeButton setTitleColor:WXLineColor forState:UIControlStateDisabled];
+- (void)configureForgetPasswordLabelAndLoginButton {
+    self.forgetPasswordLabel.userInteractionEnabled = YES;
+    [self.forgetPasswordLabel bk_whenTapped:^{
+        [self showForgetPasswordActionSheet];
+    }];
     
-    //self.loginButton.enabled = NO;
     [self.loginButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     [self.loginButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateDisabled];
     [self.loginButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#F0F0F0"]] forState:UIControlStateDisabled];
@@ -57,42 +59,21 @@ static NSInteger count = 60;
     
 }
 
+- (void)showForgetPasswordActionSheet {
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"" message:@"请联系客服"  preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *phoneNum = [UIAlertAction actionWithTitle:@"400-100-1100" style:UIAlertActionStyleDefault handler:nil];
+    [alertViewController addAction:cancel];
+    [alertViewController addAction:phoneNum];
+    [self presentViewController:alertViewController animated:YES completion:nil];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
 
-- (void)startTimer {
-    if (count == 0) {
-        count = 60;
-        [self.timer invalidate];
-        self.codeButton.enabled = YES;
-        [self.codeButton setTitle:@"再次发送" forState:UIControlStateNormal];
-        self.codeButton.layer.borderColor = WXGreenColor.CGColor;
-    }
-    [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒",(long)count] forState:UIControlStateDisabled];
-    count--;
-}
-
-- (IBAction)codeButtonClicked {
-    self.codeButton.enabled = NO;
-    self.codeButton.layer.borderColor = WXLineColor.CGColor;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^(NSTimer * _Nonnull timer) {
-        [self startTimer];
-    } repeats:YES];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = @"验证码已发送";
-    [hud hide:YES afterDelay:3.f];
-//    [SVProgressHUD showInfoWithStatus:@"验证码已发送"];
-//    [self performSelector:@selector(dismiss) withObject:nil afterDelay:2];
-}
-
-//- (void)dismiss {
-//    [SVProgressHUD dismiss];
-//}
-
 - (IBAction)loginButtonClicked {
-    
+    NSLog(@"button clicked");
 }
 
 @end

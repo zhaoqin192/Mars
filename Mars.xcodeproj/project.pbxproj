@@ -49,6 +49,8 @@
 		30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EA21CDDD2E7003C91A5 /* VideoCell.m */; };
 		30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */; };
 		30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */; };
+		30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EB11CDF86B5003C91A5 /* WXRegisterViewController.m */; };
+		30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EB51CDF8722003C91A5 /* WXRegisterViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -179,6 +181,9 @@
 		30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		30FD1EA61CDDE330003C91A5 /* WXInsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInsetLabel.h; sourceTree = "<group>"; };
 		30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInsetLabel.m; sourceTree = "<group>"; };
+		30FD1EB01CDF86B5003C91A5 /* WXRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRegisterViewController.h; sourceTree = "<group>"; };
+		30FD1EB11CDF86B5003C91A5 /* WXRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRegisterViewController.m; sourceTree = "<group>"; };
+		30FD1EB51CDF8722003C91A5 /* WXRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRegisterViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -322,6 +327,7 @@
 				30B602541CD83F80003ED671 /* testViewController.h */,
 				30B602551CD83F80003ED671 /* testViewController.m */,
 				30FD1E8B1CDD998D003C91A5 /* Exercises */,
+				30FD1EAF1CDF867E003C91A5 /* Register */,
 				3057B20B1CD9D3CE008172DD /* Login */,
 				30B6025F1CD84784003ED671 /* Me */,
 				30B602471CD83F39003ED671 /* ThirdParty */,
@@ -443,6 +449,16 @@
 				30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		30FD1EAF1CDF867E003C91A5 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1EB01CDF86B5003C91A5 /* WXRegisterViewController.h */,
+				30FD1EB11CDF86B5003C91A5 /* WXRegisterViewController.m */,
+				30FD1EB51CDF8722003C91A5 /* WXRegisterViewController.xib */,
+			);
+			name = Register;
 			sourceTree = "<group>";
 		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
@@ -819,7 +835,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BSR7J239R5;
+						DevelopmentTeam = 2R3U88FFZP;
 					};
 				};
 			};
@@ -870,6 +886,7 @@
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
+				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
@@ -987,6 +1004,7 @@
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */,
+				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
 				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,

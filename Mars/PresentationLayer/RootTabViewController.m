@@ -25,10 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    if (![accountDao isExist]) {
-        self.view.hidden = YES;
-    }
+//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//    if (![accountDao isExist]) {
+//        self.view.hidden = YES;
+//    }
     
     [self setupViewControllers];
 }

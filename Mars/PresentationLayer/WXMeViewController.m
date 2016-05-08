@@ -43,11 +43,11 @@
 - (void)configureIconImageAndLabel {
     self.titleImageView.userInteractionEnabled = YES;
     [self.titleImageView bk_whenTapped:^{
-        WXInformationViewController *vc = [[WXInformationViewController alloc] init];
-        vc.myTitle = @"我的资料";
-        [self.navigationController pushViewController:vc animated:YES];
-//        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+//        WXInformationViewController *vc = [[WXInformationViewController alloc] init];
+//        vc.myTitle = @"我的资料";
 //        [self.navigationController pushViewController:vc animated:YES];
+        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     self.iconImage.layer.cornerRadius = self.iconImage.width/2;
