@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^NetworkFetcherCompletionHandler)();
+typedef void(^NetworkFetcherCompletionHandler)(NSDictionary *response);
 typedef void(^NetworkFetcherErrorHandler)(NSString *error);
 
 @interface NetworkFetcher : NSObject

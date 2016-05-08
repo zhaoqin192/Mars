@@ -9,7 +9,7 @@ pod 'Socket.IO-Client-Swift', '~> 6.1.0'
 
 pod 'RDVTabBarController'
 pod 'BlocksKit', '2.2.5'
-pod 'ReactiveCocoa', '2.3.1'
+pod 'ReactiveCocoa', '4.1.0'
 pod 'YYCategories'
 pod 'SVProgressHUD'
 pod 'SDCycleScrollView', '~> 1.61'

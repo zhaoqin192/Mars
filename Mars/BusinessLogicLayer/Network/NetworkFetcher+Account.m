@@ -16,10 +16,10 @@
 
 @implementation NetworkFetcher (Account)
 
-static NSString *URLPREFIX = @"http://yyzwt.cn:12345/";
+static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
 static BOOL debueMessage = YES;
 
-+ (void)accountLoginWithPhone:(NSString *)phone
++ (void)accountSignInWithPhone:(NSString *)phone
                      password:(NSString *)password
                       success:(NetworkFetcherCompletionHandler)success
                       failure:(NetworkFetcherErrorHandler)failure {
@@ -34,51 +34,32 @@ static BOOL debueMessage = YES;
             NSLog(@"%@", responseObject);
         }
         
-        NSDictionary *dic = responseObject;
-        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
-            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-            Account *account = [accountDao fetchAccount];
-            account.phone = phone;
-            account.password = password;
-            account.token = dic[@"sid"];
-            [accountDao save];
-            success();
-        }else{
-            failure([dic objectForKey:@"error"]);
-        }
+        success(responseObject);
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(@"网络异常");
     }];
     
 }
 
-+ (void)accountAuthCodeWithPhone:(NSString *)phone
-                         success:(NetworkFetcherCompletionHandler)success
-                         failure:(NetworkFetcherErrorHandler)failure {
-    
-}
 
-+ (void)accountRegisteWithPhone:(NSString *)phone
-                       password:(NSString *)password
-                        success:(NetworkFetcherCompletionHandler)success
-                        failure:(NetworkFetcherErrorHandler)failure {
-    
++ (void)accountSignUpWithPhone:(NSString *)phone
+                      password:(NSString *)password
+                        userID:(NSString *)userID
+                     sessionID:(NSString *)sessionID
+                       success:(NetworkFetcherCompletionHandler)success
+                       failure:(NetworkFetcherErrorHandler)failure {
+
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"user/index/register"]];
-    NSDictionary *parameters = @{@"phone": phone, @"passwd": password};
+    NSDictionary *parameters = @{@"phone": phone, @"passwd": password, @"yzb_user_id": userID, @"yzb_session_id": sessionID};
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (debueMessage) {
             NSLog(@"%@", responseObject);
         }
-        
-        NSDictionary *dic = responseObject;
-        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
-            success();
-        }else{
-            failure([dic objectForKey:@"error"]);
-        }
+        success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(@"网络异常");
     }];

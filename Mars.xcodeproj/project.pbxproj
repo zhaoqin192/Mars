@@ -82,6 +82,8 @@
 		AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */; };
 		AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */; };
 		AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344D81CCD1DBF009C7323 /* AppDelegate.m */; };
+		AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */; };
+		AC7B3AF01CDF62750039C2A5 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */; };
 		ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4A1CD737BD000196E1 /* Account.storyboard */; };
 		ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4C1CD73955000196E1 /* Scheme.storyboard */; };
 		ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */; };
@@ -242,6 +244,10 @@
 		AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
 		AC3344D71CCD1DBF009C7323 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC3344D81CCD1DBF009C7323 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
+		AC7B3AEC1CDF626E0039C2A5 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
+		AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
+		AC7B3AEF1CDF62750039C2A5 /* SignInViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewModel.h; sourceTree = "<group>"; };
 		ACA11B4A1CD737BD000196E1 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		ACA11B4C1CD73955000196E1 /* Scheme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scheme.storyboard; sourceTree = "<group>"; };
 		ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Measurement.storyboard; sourceTree = "<group>"; };
@@ -651,6 +657,7 @@
 		AC3344D41CCD1D3A009C7323 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC7B3AE11CDF5AFD0039C2A5 /* ViewModel */,
 				AC2E6CB61CCDE7DA008E6D52 /* Other */,
 				AC2E6C871CCDC55D008E6D52 /* DAO */,
 				AC2E6C831CCDC4E0008E6D52 /* Database */,
@@ -682,6 +689,33 @@
 				AC3344D81CCD1DBF009C7323 /* AppDelegate.m */,
 			);
 			path = appDelegate;
+			sourceTree = "<group>";
+		};
+		AC7B3AE11CDF5AFD0039C2A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC7B3AEA1CDF62430039C2A5 /* signUp */,
+				AC7B3AE91CDF62300039C2A5 /* signIn */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC7B3AE91CDF62300039C2A5 /* signIn */ = {
+			isa = PBXGroup;
+			children = (
+				AC7B3AEF1CDF62750039C2A5 /* SignInViewModel.h */,
+				AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */,
+			);
+			path = signIn;
+			sourceTree = "<group>";
+		};
+		AC7B3AEA1CDF62430039C2A5 /* signUp */ = {
+			isa = PBXGroup;
+			children = (
+				AC7B3AEC1CDF626E0039C2A5 /* SignUpViewModel.h */,
+				AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */,
+			);
+			path = signUp;
 			sourceTree = "<group>";
 		};
 		ACA11B481CD736E9000196E1 /* storyboard */ = {
@@ -785,7 +819,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2R3U88FFZP;
+						DevelopmentTeam = BSR7J239R5;
 					};
 				};
 			};
@@ -944,6 +978,7 @@
 				AC3344C81CCD1CFA009C7323 /* NSObject+MemoryLeak.m in Sources */,
 				ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
+				AC7B3AF01CDF62750039C2A5 /* SignInViewModel.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
@@ -951,6 +986,7 @@
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
+				AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,
@@ -1074,7 +1110,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1095,7 +1131,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

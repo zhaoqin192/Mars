@@ -18,21 +18,11 @@
  *  @param success
  *  @param failure
  */
-+ (void)accountLoginWithPhone:(NSString *)phone
++ (void)accountSignInWithPhone:(NSString *)phone
                      password:(NSString *)password
                       success:(NetworkFetcherCompletionHandler)success
                       failure:(NetworkFetcherErrorHandler)failure;
 
-/**
- *  发送验证码
- *
- *  @param phone
- *  @param success
- *  @param failure
- */
-+ (void)accountAuthCodeWithPhone:(NSString *)phone
-                         success:(NetworkFetcherCompletionHandler)success
-                         failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  手机注册
@@ -42,8 +32,10 @@
  *  @param success
  *  @param failure
  */
-+ (void)accountRegisteWithPhone:(NSString *)phone
++ (void)accountSignUpWithPhone:(NSString *)phone
                        password:(NSString *)password
+                         userID:(NSString *)userID
+                      sessionID:(NSString *)sessionID
                         success:(NetworkFetcherCompletionHandler)success
                         failure:(NetworkFetcherErrorHandler)failure;
 

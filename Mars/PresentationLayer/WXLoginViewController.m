@@ -8,6 +8,7 @@
 
 #import "WXLoginViewController.h"
 #import "MBProgressHUD.h"
+#import "ReactiveCocoa.h"
 
 @interface WXLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *codeButton;
