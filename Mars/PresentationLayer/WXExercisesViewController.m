@@ -25,6 +25,11 @@
     self.navigationItem.title = @"练习";
     [self configureUI];
     [self configureChildController];
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -65,6 +65,8 @@
 		30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EDD1CE09FE5003C91A5 /* userOrderCell.xib */; };
 		30FD1EE31CE0B3AB003C91A5 /* WXPreorderResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EE11CE0B3AB003C91A5 /* WXPreorderResultViewController.m */; };
 		30FD1EE41CE0B3AB003C91A5 /* WXPreorderResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */; };
+		30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */; };
+		30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -219,6 +221,9 @@
 		30FD1EE01CE0B3AB003C91A5 /* WXPreorderResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPreorderResultViewController.h; sourceTree = "<group>"; };
 		30FD1EE11CE0B3AB003C91A5 /* WXPreorderResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXPreorderResultViewController.m; sourceTree = "<group>"; };
 		30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXPreorderResultViewController.xib; sourceTree = "<group>"; };
+		30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCourseVideoViewController.h; sourceTree = "<group>"; };
+		30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCourseVideoViewController.m; sourceTree = "<group>"; };
+		30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCourseVideoViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -483,6 +488,9 @@
 				30FD1EE01CE0B3AB003C91A5 /* WXPreorderResultViewController.h */,
 				30FD1EE11CE0B3AB003C91A5 /* WXPreorderResultViewController.m */,
 				30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */,
+				30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */,
+				30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */,
+				30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -947,6 +955,7 @@
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
+				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
@@ -1060,6 +1069,7 @@
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
+				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
 				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,

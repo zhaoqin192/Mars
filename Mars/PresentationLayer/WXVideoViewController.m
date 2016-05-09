@@ -8,6 +8,7 @@
 
 #import "WXVideoViewController.h"
 #import "VideoCell.h"
+#import "WXCourseVideoViewController.h"
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -84,6 +85,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 125;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

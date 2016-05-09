@@ -80,6 +80,7 @@ static NSInteger count = 60;
         self.codeButton.enabled = YES;
         [self.codeButton setTitle:@"再次发送" forState:UIControlStateNormal];
         self.codeButton.layer.borderColor = WXGreenColor.CGColor;
+        [self.codeButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     }];
     
     [_viewModel.signUpSuccessObject subscribeNext:^(id x) {
@@ -114,6 +115,7 @@ static NSInteger count = 60;
         [self.codeTextField becomeFirstResponder];
         self.codeButton.enabled = NO;
         self.codeButton.layer.borderColor = WXLineColor.CGColor;
+        [self.codeButton setTitleColor:WXLineColor forState:UIControlStateNormal];
     }];
     
     [[_registerButton rac_signalForControlEvents:UIControlEventTouchUpInside]
