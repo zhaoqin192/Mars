@@ -68,7 +68,8 @@
     // 然后取出另外一台手机跑起来,使用另外的账号登陆
     // 这样就可以观看直播
     // 观看录播可以保持vid不变，但在直播结束的时候必须保存视频
-    self.videoID = @"gjL9FERygcbEA";
+//    self.videoID = @"kRJLfwe3lcVay";
+    self.videoID = @"jZjehY2WRivg";
     
     UIView *playerContinerView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:playerContinerView];
@@ -80,6 +81,10 @@
     [_player watchstartWithParams:@{SDK_SESSION_ID: _account.sessionID, SDK_VID: self.videoID} start:^{
         
     } complete:^(NSInteger responseCode, NSDictionary *result) {
+        
+        NSLog(@"%ld", responseCode);
+        NSLog(@"%@", result);
+        
         switch (responseCode) {
             case SDK_ERROR_SESSION_ID:
                 NSLog(@"sessionid无效,请注册");
@@ -119,6 +124,9 @@
             
         } complete:^(NSInteger responseCode, NSDictionary *result) {
             
+            NSLog(@"%ld", responseCode);
+            NSLog(@"%@", result);
+            
         }];
     }
     
@@ -127,6 +135,7 @@
 
 - (IBAction)startWatch:(id)sender {
     [self setUpPlayer];
+    NSLog(@"%@", _account.sessionID);
 }
 
 #pragma mark - EasyLivePlayerDelegate
@@ -135,6 +144,7 @@
     NSLog(@"state = %ld", (long)state);
     switch (state) {
         case EasyLivePlayerStateNeedToReconnect:
+            NSLog(@"需要重连");
             [player reconnect];
             break;
         case EasyLivePlayerComplete:
@@ -150,6 +160,7 @@
             NSLog(@"播放中");
             break;
         default:
+            NSLog(@"网络状况不佳，播放失败");
             break;
     }
 }

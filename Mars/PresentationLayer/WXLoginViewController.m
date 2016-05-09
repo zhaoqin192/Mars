@@ -8,12 +8,16 @@
 
 #import "WXLoginViewController.h"
 #import "WXRegisterViewController.h"
+#import "SignInViewModel.h"
+#import "LiveViewController.h"
 
 @interface WXLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *forgetPasswordLabel;
+@property (nonatomic, strong) SignInViewModel *viewModel;
+
 @end
 
 @implementation WXLoginViewController
@@ -23,6 +27,39 @@
     [self configureNavigationBar];
     [self configureForgetPasswordLabelAndLoginButton];
     [self.phoneTextField becomeFirstResponder];
+    
+    [self bindViewModel];
+    [self onClickEvent];
+}
+
+- (void)bindViewModel {
+    _viewModel = [[SignInViewModel alloc] init];
+    RAC(_viewModel, phone) = _phoneTextField.rac_textSignal;
+    RAC(_viewModel, password) = _codeTextField.rac_textSignal;
+    RAC(_loginButton, enabled) = [_viewModel buttonIsValid];
+    
+    @weakify(self)
+    [_viewModel.successObject subscribeNext:^(id x) {
+        @strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [_viewModel.failureObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+}
+
+- (void)onClickEvent {
+    @weakify(self)
+    [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        [self.viewModel signIn];
+    }];
 }
 
 - (void)configureNavigationBar {
@@ -32,7 +69,9 @@
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
     [registerButton bk_whenTapped:^{
-        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
+//        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+        LiveViewController *vc = [[LiveViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
@@ -58,11 +97,6 @@
     self.loginButton.layer.cornerRadius = self.loginButton.height/2;
     self.loginButton.layer.masksToBounds = YES;
     
-    RAC(self.loginButton,enabled) = [RACSignal combineLatest:@[self.phoneTextField.rac_textSignal,self.codeTextField.rac_textSignal]
-        reduce:^id(NSString *phone,NSString *code){
-        return @([phone length] > 0 && [code length] > 0);
-    }];
-    
 }
 
 - (void)showForgetPasswordActionSheet {
@@ -78,8 +112,5 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)loginButtonClicked {
-    NSLog(@"button clicked");
-}
 
 @end

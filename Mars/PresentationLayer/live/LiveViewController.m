@@ -188,7 +188,12 @@ static BOOL debugMessage = YES;
 
 - (IBAction)stopLive:(id)sender {
     
-    [_encoder shutDown];
+    [self.encoder livestopWithParams:@{SDK_SESSION_ID: _account.sessionID} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
+        
+        NSLog(@"%ld", (long)responseCode);
+        NSLog(@"%@", result);
+        
+    }];
 
     
 }

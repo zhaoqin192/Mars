@@ -27,15 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *appkey = @"MsHWzKM4YpUd3pBK";
-    NSString *appsecret = @"bU47yATdyy0UNExYLjNBVPBwS7hB3WbE";
-    
-//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-//    Account *account = [accountDao fetchAccount];
-//    account.sessionID = @"eZmiW03pQ20FJl0pPvWMIAsALH2TJ5au";
-//    account.userID = @"97498187";
-//    [accountDao save];
-    
+    NSString *appkey = @"Tu1h3b0L3O1Yrc3J";
+    NSString *appsecret = @"n0asfkGucl13E7r7BxJSFEPg67pYchwa";
     
     [EasyLiveSDK registWithAppKey:appkey appsecret:appsecret];
     

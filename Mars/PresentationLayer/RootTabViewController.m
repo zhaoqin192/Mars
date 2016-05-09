@@ -11,9 +11,6 @@
 #import "testViewController.h"
 #import "WXMeViewController.h"
 #import "WXExercisesViewController.h"
-#import "DatabaseManager.h"
-#import "AccountDao.h"  
-#import "WXLoginViewController.h"
 
 
 @interface RootTabViewController ()
@@ -25,23 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-//    if (![accountDao isExist]) {
-//        self.view.hidden = YES;
-//    }
-    
     [self setupViewControllers];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    if (self.view.isHidden) {
-        WXLoginViewController *loginVC = [[WXLoginViewController alloc] init];
-        [self presentViewController:loginVC animated:NO completion:^{
-            self.view.hidden = NO;
-        }];
-    }
-    
 }
 
 #pragma mark Private_M

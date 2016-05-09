@@ -77,7 +77,7 @@ typedef NS_ENUM (NSInteger, EasyLiveEncoderState)
  *          必填参数
  *              SDK_SESSION_ID : sessionid，用户会话id
  *  @param complete
- *          vid : 直播视频的vid
+ *          vid : 直播视频的vid, 注意如果要保存 vid 建议在编码器回调 state = EasyLiveEncoderStateConnected 时候才保存
  *  @return
  */
 - (NSString *)livestartWithParams:(NSDictionary *)param
@@ -87,7 +87,7 @@ typedef NS_ENUM (NSInteger, EasyLiveEncoderState)
 /**
  *  停止直播
  *
- *  @param param
+ *  @param param    
  *          必填参数
  *              SDK_SESSION_ID  : sessionid，用户会话id
  *          选填参数

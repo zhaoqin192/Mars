@@ -19,6 +19,7 @@
 @property (nonatomic, strong) RACSignal *passwordSignal;
 @property (nonatomic, strong) RACSignal *rePasswordSignal;
 @property (nonatomic, strong) NSString *smsID;
+@property (nonatomic, strong) NSString *phoneToken;
 
 @end
 
@@ -62,36 +63,34 @@
     
     RACSignal *isValid = [RACSignal combineLatest:@[_phoneSignal, _authCodeSignal, _passwordSignal, _rePasswordSignal]
                           reduce:^id(NSString *phone, NSString *code, NSString *password, NSString *rePassword){
-                              return @(phone.length == 11 && code.length > 0 && password > 0 && rePassword > 0);
+                              return @(phone.length == 11 && code.length > 0 && password.length > 0 && rePassword.length > 0);
                           }];
     return isValid;
 }
 
 - (void)sendAuthCode {
     
-    NSString *phoneString = [NSString stringWithFormat:@"86_%@", _phone];
+    _phoneToken = [NSString stringWithFormat:@"86_%@", _phone];
     
-    [EasyLiveSDK getSmsCodeWithParams:@{SDK_SMS_TYPE: @0, SDK_PHONE: phoneString} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
+    [EasyLiveSDK getSmsCodeWithParams:@{SDK_SMS_TYPE: @0, SDK_PHONE: _phoneToken} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         
-        NSLog(@"%@", result);
-
+        
         if (responseCode == SDK_REQUEST_OK) {
             _smsID = result[@"sms_id"];
             
             BOOL registed = [result[@"registered"] boolValue];
             if (registed) {
-                NSLog(@"该用户已经注册");
                 [_authCodeFailureObject sendNext:@"该用户已经注册"];
             } else {
                 [_authCodeSuccessObject sendNext:nil];
             }
             
         } else if (responseCode == SDK_ERROR_SMS_INTERVAL){
-            NSLog(@"发送短信次数太频繁");
             [_authCodeFailureObject sendNext:@"发送短信次数太频繁"];
         } else if (responseCode == SDK_ERROR_PHONE_ERROR){
-            NSLog(@"手机号码格式不对");
             [_authCodeFailureObject sendNext:@"手机号码格式不对"];
+        } else {
+            [_authCodeFailureObject sendNext:@"该用户已经注册"];
         }
         
     }];
@@ -100,20 +99,21 @@
 
 - (void)signUp {
     
+    if (![_password isEqualToString:_rePassword]) {
+        [_signUpFailureObject sendNext:@"两次密码不一致"];
+        return;
+    }
+    
     [EasyLiveSDK verifySmsWithParams:@{SDK_SMS_SMSID: _smsID, SDK_SMS_CODE: _authCode} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         
-        NSLog(@"%@", result);
         
         if (responseCode == SDK_ERROR_SMS_CODE_VERIFY) {
-            NSLog(@"验证码不正确");
             [_signUpFailureObject sendNext:@"验证码不正确"];
         } else if (responseCode == SDK_REQUEST_OK){
-            NSLog(@"验证通过");
             
-            [EasyLiveSDK registerWithParams:@{SDK_REGIST_TOKE: _phone, SDK_REGIST_NICKNAME: _phone} start:^{
+            [EasyLiveSDK registerWithParams:@{SDK_REGIST_TOKE: _phoneToken, SDK_REGIST_NICKNAME: _phone} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
                 
-            } complete:^(NSInteger responseCode, NSDictionary *result) {
-
+                NSLog(@"%@", result);
                 
                 if (responseCode == SDK_REQUEST_OK) {
             
@@ -130,16 +130,15 @@
                      }];
                     
                 } else if (responseCode == SDK_ERROR_REGISTER_SMS){
-                    NSLog(@"必须通过短信验证才能注册");
+                    [_signUpFailureObject sendNext:@"必须通过短信验证才能注册"];
                 } else if (responseCode == SDK_INFO_PHONE_HAVE_REGISTERED) {
-                    NSLog(@"用户已经存在");
+                    [_authCodeFailureObject sendNext:@"该用户已经存在"];
                 } else {
-                    NSLog(@"请求失败 %ld", responseCode);
+                    [_authCodeFailureObject sendNext:@"该用户已经存在"];
                 }
             }];
 
         } else {
-            NSLog(@"请求失败 %ld", responseCode);
             [_errorObject sendNext:@"网络异常"];
         }
     }];

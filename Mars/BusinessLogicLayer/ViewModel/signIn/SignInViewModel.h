@@ -16,7 +16,6 @@
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) RACSubject *successObject;
 @property (nonatomic, strong) RACSubject *failureObject;
-@property (nonatomic, strong) RACSubject *errorObject;
 
 - (id)buttonIsValid;
 
