@@ -32,6 +32,16 @@
     [self onClickEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 - (void)bindViewModel {
     _viewModel = [[SignInViewModel alloc] init];
     RAC(_viewModel, phone) = _phoneTextField.rac_textSignal;
@@ -69,10 +79,10 @@
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
     [registerButton bk_whenTapped:^{
-//        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
-//        [self.navigationController pushViewController:vc animated:YES];
-        LiveViewController *vc = [[LiveViewController alloc] init];
+        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+//        LiveViewController *vc = [[LiveViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
     

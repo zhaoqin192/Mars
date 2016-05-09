@@ -36,9 +36,15 @@ static NSInteger count = 60;
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
     [self.timer invalidate];
     self.timer = nil;
     count = 60;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)bindViewModel {
