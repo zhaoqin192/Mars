@@ -8,6 +8,7 @@
 
 #import "WXOrderViewController.h"
 #import "OrderCell.h"
+#import "WXTeacherInformationViewController.h"
 
 @interface WXOrderViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
@@ -50,7 +51,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%zd",indexPath.row);
+    WXTeacherInformationViewController *vc = [[WXTeacherInformationViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

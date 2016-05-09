@@ -51,6 +51,8 @@
 		30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */; };
 		30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EB11CDF86B5003C91A5 /* WXRegisterViewController.m */; };
 		30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EB51CDF8722003C91A5 /* WXRegisterViewController.xib */; };
+		30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EBC1CE02C37003C91A5 /* WXTeacherInformationViewController.m */; };
+		30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EBD1CE02C37003C91A5 /* WXTeacherInformationViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -184,6 +186,9 @@
 		30FD1EB01CDF86B5003C91A5 /* WXRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRegisterViewController.h; sourceTree = "<group>"; };
 		30FD1EB11CDF86B5003C91A5 /* WXRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRegisterViewController.m; sourceTree = "<group>"; };
 		30FD1EB51CDF8722003C91A5 /* WXRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRegisterViewController.xib; sourceTree = "<group>"; };
+		30FD1EBB1CE02C37003C91A5 /* WXTeacherInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTeacherInformationViewController.h; sourceTree = "<group>"; };
+		30FD1EBC1CE02C37003C91A5 /* WXTeacherInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTeacherInformationViewController.m; sourceTree = "<group>"; };
+		30FD1EBD1CE02C37003C91A5 /* WXTeacherInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTeacherInformationViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -434,6 +439,9 @@
 				30FD1E9E1CDDB3DF003C91A5 /* WXVideoViewController.xib */,
 				30FD1EA61CDDE330003C91A5 /* WXInsetLabel.h */,
 				30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */,
+				30FD1EBB1CE02C37003C91A5 /* WXTeacherInformationViewController.h */,
+				30FD1EBC1CE02C37003C91A5 /* WXTeacherInformationViewController.m */,
+				30FD1EBD1CE02C37003C91A5 /* WXTeacherInformationViewController.xib */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -888,6 +896,7 @@
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
+				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
@@ -1011,6 +1020,7 @@
 				3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
+				30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */,
 				30B602901CD87510003ED671 /* ActionSheetDistancePicker.m in Sources */,
 				AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */,
 				AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */,
