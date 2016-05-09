@@ -57,6 +57,16 @@ static NSInteger count = 60;
     RAC(_codeButton, enabled) = [_viewModel codeButtonIsValid];
     RAC(_codeButton, alpha) = [_viewModel codeButtonAlpha];
     RAC(_registerButton, enabled) = [_viewModel signUpButtonIsValid];
+    [RACObserve(_codeButton, enabled) subscribeNext:^(id x) {
+        if ([x  isEqual: @(1)]) {
+            self.codeButton.layer.borderColor = WXGreenColor.CGColor;
+            [self.codeButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
+        }
+        else {
+            self.codeButton.layer.borderColor = WXLineColor.CGColor;
+            [self.codeButton setTitleColor:WXLineColor forState:UIControlStateDisabled];
+        }
+    }];
     
     @weakify(self)
     [_viewModel.authCodeSuccessObject subscribeNext:^(id x) {
@@ -152,10 +162,13 @@ static NSInteger count = 60;
         [self.timer invalidate];
         self.codeButton.enabled = YES;
         [self.codeButton setTitle:@"再次发送" forState:UIControlStateNormal];
-        self.codeButton.layer.borderColor = WXGreenColor.CGColor;
+        [self.codeButton setTitle:@"再次发送" forState:UIControlStateDisabled];
+       // self.codeButton.layer.borderColor = WXGreenColor.CGColor;
     }
-    [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒",(long)count] forState:UIControlStateDisabled];
-    count--;
+    else {
+        [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒",(long)count] forState:UIControlStateDisabled];
+        count--;
+    }
 }
 
 - (void)codeButtonClicked {
