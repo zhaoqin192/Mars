@@ -27,6 +27,11 @@
     [self configureChildController];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 - (void)configureChildController {
     self.orderVC = [[WXOrderViewController alloc] init];
     __weak typeof(self)weakSelf = self;
@@ -41,7 +46,7 @@
     };
     [self addChildViewController:self.videoVC];
     
-    self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
+    self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
     [self.view addSubview:self.videoVC.view];
 }
 
@@ -76,7 +81,7 @@
         leftLine.hidden = NO;
         UIImageView *rightLine = [self.view viewWithTag:11];
         rightLine.hidden = YES;
-        self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
+        self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
         [self.view addSubview:self.videoVC.view];
     }
     else {
@@ -90,7 +95,7 @@
         rightLine.hidden = NO;
         UIImageView *leftLine = [self.view viewWithTag:10];
         leftLine.hidden = YES;
-        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
+        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115);
         [self.view addSubview:self.orderVC.view];
     }
 }

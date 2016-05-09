@@ -9,6 +9,7 @@
 #import "WXPreorderCourseViewController.h"
 #import "PreOrderCourseCell.h"
 #import "WXSelectTimeCell.h"
+#import "WXPreorderResultViewController.h"
 
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -23,6 +24,16 @@
     [self configureTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 - (void)configureNavigationBar {
     self.navigationItem.title = @"预约课程";
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -30,15 +41,10 @@
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
     [registerButton bk_whenTapped:^{
-        NSLog(@"commit ");
+        WXPreorderResultViewController *vc = [[WXPreorderResultViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
-    
-//    self.navigationItem.backBarButtonItem = ({
-//        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-//        back.title = @"";
-//        back;
-//    });
 }
 
 - (void)configureTableView {
