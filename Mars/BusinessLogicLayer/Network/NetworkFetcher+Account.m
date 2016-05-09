@@ -26,7 +26,7 @@ static BOOL debueMessage = YES;
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"user/index/login"]];
-    NSDictionary *parameters = @{@"phone": phone, @"passwd": password};
+    NSDictionary *parameters = @{@"phone": phone, @"password": password};
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -52,13 +52,14 @@ static BOOL debueMessage = YES;
 
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"user/index/register"]];
-    NSDictionary *parameters = @{@"phone": phone, @"passwd": password, @"yzb_user_id": userID, @"yzb_session_id": sessionID};
+    NSDictionary *parameters = @{@"phone": phone, @"password": password, @"yzb_user_id": userID, @"yzb_session_id": sessionID};
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (debueMessage) {
             NSLog(@"%@", responseObject);
         }
+        
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(@"网络异常");

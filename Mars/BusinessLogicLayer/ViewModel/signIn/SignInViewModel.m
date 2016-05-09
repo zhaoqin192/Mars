@@ -31,7 +31,6 @@
         _passwordSignal = RACObserve(self, password);
         _successObject = [RACSubject subject];
         _failureObject = [RACSubject subject];
-        _errorObject = [RACSubject subject];
     }
     return self;
     
@@ -64,7 +63,7 @@
             [_failureObject sendNext:@"用户名或密码不正确"];
         }
     } failure:^(NSString *error) {
-        [_errorObject sendNext:@"网络异常"];
+        [_failureObject sendNext:@"网络异常"];
     }];
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="codeButton" destination="5DZ-ah-hUV" id="lEJ-v7-Y02"/>
                 <outlet property="codeTextField" destination="9Km-6t-Ov6" id="c2S-tD-5Wx"/>
+                <outlet property="passwordTextField" destination="hak-oV-kgg" id="8d0-tl-WVV"/>
                 <outlet property="phoneTextField" destination="qhe-dl-xYg" id="exU-eZ-Cjt"/>
+                <outlet property="rePasswordTextField" destination="fY7-Jx-7bV" id="A7c-eF-iYo"/>
                 <outlet property="registerButton" destination="5IR-TU-MWm" id="vhO-YH-6wU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Hyn-ip-NF3"/>
             </connections>
