@@ -7,6 +7,7 @@
 //
 
 #import "WXTeacherInformationViewController.h"
+#import "WXPreorderCourseViewController.h"
 
 @interface WXTeacherInformationViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -21,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureIconViewAndLabel];
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -51,7 +57,8 @@
     [self.introduceLabel sizeToFit];
     
     [self.preorderButton bk_whenTapped:^{
-        NSLog(@"预约");
+        WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     self.backButton.userInteractionEnabled = YES;
