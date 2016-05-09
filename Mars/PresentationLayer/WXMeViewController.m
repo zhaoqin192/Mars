@@ -9,11 +9,17 @@
 #import "WXMeViewController.h"
 #import "WXInformationViewController.h"
 #import "WXLoginViewController.h"
+#import "WXMeOrderViewController.h"
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *planView;
+@property (weak, nonatomic) IBOutlet UIImageView *testView;
+@property (weak, nonatomic) IBOutlet UIImageView *orderView;
+@property (weak, nonatomic) IBOutlet UIImageView *exercisesView;
+
 @end
 
 @implementation WXMeViewController
@@ -27,6 +33,7 @@
         back;
     });
     [self configureIconImageAndLabel];
+    [self configureMiddleView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -57,6 +64,14 @@
     self.iconImage.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     
     [self.nameLabel setTextColor:[UIColor colorWithHexString:@"#999999"]];
+}
+
+- (void)configureMiddleView {
+    self.orderView.userInteractionEnabled = YES;
+    [self.orderView bk_whenTapped:^{
+        WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 

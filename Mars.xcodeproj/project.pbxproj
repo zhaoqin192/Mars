@@ -59,6 +59,10 @@
 		30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EC91CE05933003C91A5 /* PreOrderCourseCell.xib */; };
 		30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */; };
 		30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */; };
+		30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */; };
+		30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */; };
+		30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EDC1CE09FE5003C91A5 /* userOrderCell.m */; };
+		30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EDD1CE09FE5003C91A5 /* userOrderCell.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -204,6 +208,12 @@
 		30FD1ECC1CE06A70003C91A5 /* WXSelectTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSelectTimeCell.h; sourceTree = "<group>"; };
 		30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSelectTimeCell.m; sourceTree = "<group>"; };
 		30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXSelectTimeCell.xib; sourceTree = "<group>"; };
+		30FD1ED51CE09EA2003C91A5 /* WXMeOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeOrderViewController.h; sourceTree = "<group>"; };
+		30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeOrderViewController.m; sourceTree = "<group>"; };
+		30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeOrderViewController.xib; sourceTree = "<group>"; };
+		30FD1EDB1CE09FE5003C91A5 /* userOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userOrderCell.h; sourceTree = "<group>"; };
+		30FD1EDC1CE09FE5003C91A5 /* userOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userOrderCell.m; sourceTree = "<group>"; };
+		30FD1EDD1CE09FE5003C91A5 /* userOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userOrderCell.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -399,6 +409,9 @@
 				30B602611CD847B2003ED671 /* WXMeViewController.h */,
 				30B602621CD847B2003ED671 /* WXMeViewController.m */,
 				30B602631CD847B2003ED671 /* WXMeViewController.xib */,
+				30FD1ED51CE09EA2003C91A5 /* WXMeOrderViewController.h */,
+				30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */,
+				30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -436,6 +449,9 @@
 				3057B1C91CD8B503008172DD /* userSelectCell.h */,
 				3057B1CA1CD8B503008172DD /* userSelectCell.m */,
 				3057B1CB1CD8B503008172DD /* userSelectCell.xib */,
+				30FD1EDB1CE09FE5003C91A5 /* userOrderCell.h */,
+				30FD1EDC1CE09FE5003C91A5 /* userOrderCell.m */,
+				30FD1EDD1CE09FE5003C91A5 /* userOrderCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -926,6 +942,7 @@
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
+				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
@@ -942,6 +959,7 @@
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
+				30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */,
 				3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */,
 				30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */,
 				30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */,
@@ -1031,6 +1049,7 @@
 				AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */,
 				AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */,
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
+				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
@@ -1052,6 +1071,7 @@
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
+				30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */,
 				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,

@@ -7,8 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXMeViewController">
             <connections>
+                <outlet property="exercisesView" destination="IOi-fh-4t7" id="Ama-MG-0m7"/>
                 <outlet property="iconImage" destination="psp-SM-7fJ" id="BYt-Wd-MeI"/>
                 <outlet property="nameLabel" destination="zBR-HI-4lt" id="eb4-Ib-zZt"/>
+                <outlet property="orderView" destination="EKc-gC-Oso" id="B5B-o6-d8O"/>
+                <outlet property="planView" destination="aur-tL-RWX" id="sPj-GL-QhR"/>
+                <outlet property="testView" destination="exQ-DH-Roq" id="WqW-Vw-ap6"/>
                 <outlet property="titleImageView" destination="Wn4-fZ-0nJ" id="jFL-tB-hmU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
