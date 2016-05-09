@@ -30,13 +30,6 @@
     NSString *appkey = @"Tu1h3b0L3O1Yrc3J";
     NSString *appsecret = @"n0asfkGucl13E7r7BxJSFEPg67pYchwa";
     
-//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-//    Account *account = [accountDao fetchAccount];
-//    account.sessionID = @"eZmiW03pQ20FJl0pPvWMIAsALH2TJ5au";
-//    account.userID = @"97498187";
-//    [accountDao save];
-    
-    
     [EasyLiveSDK registWithAppKey:appkey appsecret:appsecret];
     
     self.window = [[UIWindow alloc] init];

@@ -44,7 +44,7 @@
  *  @param start 请求开始
  *  @param complete 完成的回调
  *          responseCode        操作码
- *          result              服务器返回的数据
+ *          result              服务器返回的数据 
  *                              sms_id      :   短信id
  *                              registered  :   表示用户是否已经注册过，1表示已经注册，0表示未注册
  *
@@ -73,7 +73,7 @@
 /**
  *  用户注册
  *
- *  @param params
+ *  @param params   
  *          必填参数
  *              SDK_REGIST_TOKE     : 用户的token信息，唯一标识某个用户，目前仅支持手机号 ( 如: 86_13800000000 )
  *              SDK_REGIST_NICKNAME : 用户昵称
@@ -98,7 +98,7 @@
 /**
  *  登陆
  *
- *  @param params
+ *  @param params   
  *          必填参数
  *              SDK_REGIST_TOKE : 用户的token信息，唯一标识某个用户，目前仅支持手机号，string ( 如: 86_13800000000 )
  *              SDK_USER_ID     : 用户id，string

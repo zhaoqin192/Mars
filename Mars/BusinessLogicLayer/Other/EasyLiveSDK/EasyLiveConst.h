@@ -61,6 +61,7 @@
 #define PLAYER_ERROR_VIDEO_NOT_EXISTS             202   //视频已经删除
 #define PLAYER_ERROR_WATCH_START                  203   //视频请求播放失败
 #define PLAYER_ERROR_WATCH_STOP                   204   // 视频请求失败
+#define PLAYER_ERROR_VIDEO_NOT_CREATED            205   // 视频还没创建成功,由于上次直播启动失败没推成功
 
 #define SDK_INFO_LOGIN_SUCCESS                    1     //登录成功
 #define SDK_INFO_PHONE_HAVE_REGISTERED            2     //用户已经注册

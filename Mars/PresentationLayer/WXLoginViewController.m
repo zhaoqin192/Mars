@@ -9,6 +9,7 @@
 #import "WXLoginViewController.h"
 #import "WXRegisterViewController.h"
 #import "SignInViewModel.h"
+#import "LiveViewController.h"
 
 @interface WXLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -68,7 +69,9 @@
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
     [registerButton bk_whenTapped:^{
-        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
+//        WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+        LiveViewController *vc = [[LiveViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
