@@ -36,6 +36,12 @@
         [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
+    
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
 }
 
 - (void)configureForgetPasswordLabelAndLoginButton {
