@@ -73,6 +73,24 @@
 		30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */; };
 		30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */; };
 		30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */; };
+		30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F661CE211AE003C91A5 /* RankPictureCell.m */; };
+		30FD1F6D1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F6C1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m */; };
+		30FD1F761CE21247003C91A5 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F701CE21247003C91A5 /* SDBrowserImageView.m */; };
+		30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F721CE21247003C91A5 /* SDPhotoBrowser.m */; };
+		30FD1F781CE21247003C91A5 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F751CE21247003C91A5 /* SDWaitingView.m */; };
+		30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F7B1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F7D1CE2125C003C91A5 /* UIView+SDAutoLayout.m */; };
+		30FD1F8D1CE21FC7003C91A5 /* pbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F821CE21FC7003C91A5 /* pbg.jpg */; };
+		30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F831CE21FC7003C91A5 /* pic0.jpg */; };
+		30FD1F8F1CE21FC7003C91A5 /* pic1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F841CE21FC7003C91A5 /* pic1.jpg */; };
+		30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F851CE21FC7003C91A5 /* pic2.jpg */; };
+		30FD1F911CE21FC7003C91A5 /* pic3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F861CE21FC7003C91A5 /* pic3.jpg */; };
+		30FD1F921CE21FC7003C91A5 /* pic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F871CE21FC7003C91A5 /* pic4.jpg */; };
+		30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F881CE21FC7003C91A5 /* pic5.jpg */; };
+		30FD1F941CE21FC7003C91A5 /* pic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F891CE21FC7003C91A5 /* pic6.jpg */; };
+		30FD1F951CE21FC7003C91A5 /* pic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8A1CE21FC7003C91A5 /* pic7.jpg */; };
+		30FD1F961CE21FC7003C91A5 /* pic8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */; };
+		30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8C1CE21FC7003C91A5 /* picon.jpg */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -239,6 +257,32 @@
 		30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHighGradeViewController.h; sourceTree = "<group>"; };
 		30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHighGradeViewController.m; sourceTree = "<group>"; };
 		30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXHighGradeViewController.xib; sourceTree = "<group>"; };
+		30FD1F651CE211AE003C91A5 /* RankPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankPictureCell.h; sourceTree = "<group>"; };
+		30FD1F661CE211AE003C91A5 /* RankPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankPictureCell.m; sourceTree = "<group>"; };
+		30FD1F6B1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeiXinPhotoContainerView.h; sourceTree = "<group>"; };
+		30FD1F6C1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWeiXinPhotoContainerView.m; sourceTree = "<group>"; };
+		30FD1F6F1CE21247003C91A5 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		30FD1F701CE21247003C91A5 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		30FD1F711CE21247003C91A5 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		30FD1F721CE21247003C91A5 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		30FD1F731CE21247003C91A5 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		30FD1F741CE21247003C91A5 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		30FD1F751CE21247003C91A5 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		30FD1F7A1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		30FD1F7B1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		30FD1F7C1CE2125C003C91A5 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		30FD1F7D1CE2125C003C91A5 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		30FD1F821CE21FC7003C91A5 /* pbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pbg.jpg; sourceTree = "<group>"; };
+		30FD1F831CE21FC7003C91A5 /* pic0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic0.jpg; sourceTree = "<group>"; };
+		30FD1F841CE21FC7003C91A5 /* pic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic1.jpg; sourceTree = "<group>"; };
+		30FD1F851CE21FC7003C91A5 /* pic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic2.jpg; sourceTree = "<group>"; };
+		30FD1F861CE21FC7003C91A5 /* pic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic3.jpg; sourceTree = "<group>"; };
+		30FD1F871CE21FC7003C91A5 /* pic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic4.jpg; sourceTree = "<group>"; };
+		30FD1F881CE21FC7003C91A5 /* pic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic5.jpg; sourceTree = "<group>"; };
+		30FD1F891CE21FC7003C91A5 /* pic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic6.jpg; sourceTree = "<group>"; };
+		30FD1F8A1CE21FC7003C91A5 /* pic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic7.jpg; sourceTree = "<group>"; };
+		30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic8.jpg; sourceTree = "<group>"; };
+		30FD1F8C1CE21FC7003C91A5 /* picon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picon.jpg; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -393,6 +437,9 @@
 		30B602471CD83F39003ED671 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				30FD1F811CE21FC7003C91A5 /* TimeLineImages */,
+				30FD1F791CE2125C003C91A5 /* SDAutoLayout */,
+				30FD1F6E1CE21247003C91A5 /* SDPhotoBrowser */,
 				30FD1EC11CE03F66003C91A5 /* WXInsetLabel */,
 				3057B1E01CD8E86D008172DD /* pincker */,
 				30B6027B1CD87510003ED671 /* ActionSheetPicker */,
@@ -484,7 +531,7 @@
 		30FD1E8B1CDD998D003C91A5 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				30FD1E961CDDA80C003C91A5 /* cell */,
+				30FD1F801CE212AB003C91A5 /* view */,
 				30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */,
 				30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */,
 				30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */,
@@ -534,6 +581,8 @@
 				30FD1F591CE1C30B003C91A5 /* RankVideoCell.h */,
 				30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */,
 				30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */,
+				30FD1F651CE211AE003C91A5 /* RankPictureCell.h */,
+				30FD1F661CE211AE003C91A5 /* RankPictureCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -555,6 +604,59 @@
 				30FD1EA71CDDE330003C91A5 /* WXInsetLabel.m */,
 			);
 			name = WXInsetLabel;
+			sourceTree = "<group>";
+		};
+		30FD1F6E1CE21247003C91A5 /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1F6F1CE21247003C91A5 /* SDBrowserImageView.h */,
+				30FD1F701CE21247003C91A5 /* SDBrowserImageView.m */,
+				30FD1F711CE21247003C91A5 /* SDPhotoBrowser.h */,
+				30FD1F721CE21247003C91A5 /* SDPhotoBrowser.m */,
+				30FD1F731CE21247003C91A5 /* SDPhotoBrowserConfig.h */,
+				30FD1F741CE21247003C91A5 /* SDWaitingView.h */,
+				30FD1F751CE21247003C91A5 /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		30FD1F791CE2125C003C91A5 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1F7A1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.h */,
+				30FD1F7B1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */,
+				30FD1F7C1CE2125C003C91A5 /* UIView+SDAutoLayout.h */,
+				30FD1F7D1CE2125C003C91A5 /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
+		30FD1F801CE212AB003C91A5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1E961CDDA80C003C91A5 /* cell */,
+				30FD1F6B1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.h */,
+				30FD1F6C1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		30FD1F811CE21FC7003C91A5 /* TimeLineImages */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1F821CE21FC7003C91A5 /* pbg.jpg */,
+				30FD1F831CE21FC7003C91A5 /* pic0.jpg */,
+				30FD1F841CE21FC7003C91A5 /* pic1.jpg */,
+				30FD1F851CE21FC7003C91A5 /* pic2.jpg */,
+				30FD1F861CE21FC7003C91A5 /* pic3.jpg */,
+				30FD1F871CE21FC7003C91A5 /* pic4.jpg */,
+				30FD1F881CE21FC7003C91A5 /* pic5.jpg */,
+				30FD1F891CE21FC7003C91A5 /* pic6.jpg */,
+				30FD1F8A1CE21FC7003C91A5 /* pic7.jpg */,
+				30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */,
+				30FD1F8C1CE21FC7003C91A5 /* picon.jpg */,
+			);
+			path = TimeLineImages;
 			sourceTree = "<group>";
 		};
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
@@ -974,11 +1076,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
+				30FD1F921CE21FC7003C91A5 /* pic4.jpg in Resources */,
+				30FD1F951CE21FC7003C91A5 /* pic7.jpg in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
 				30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
+				30FD1F911CE21FC7003C91A5 /* pic3.jpg in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
@@ -987,6 +1092,7 @@
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
+				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
 				30FD1F571CE1C233003C91A5 /* WXRankViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
@@ -994,17 +1100,24 @@
 				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
+				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
+				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
+				30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */,
 				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
+				30FD1F961CE21FC7003C91A5 /* pic8.jpg in Resources */,
+				30FD1F8F1CE21FC7003C91A5 /* pic1.jpg in Resources */,
 				30FD1EE41CE0B3AB003C91A5 /* WXPreorderResultViewController.xib in Resources */,
 				30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */,
+				30FD1F8D1CE21FC7003C91A5 /* pbg.jpg in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
 				30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */,
 				3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */,
+				30FD1F941CE21FC7003C91A5 /* pic6.jpg in Resources */,
 				30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */,
 				30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */,
 				30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */,
@@ -1066,6 +1179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30FD1F761CE21247003C91A5 /* SDBrowserImageView.m in Sources */,
 				AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */,
 				30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */,
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
@@ -1082,12 +1196,15 @@
 				30B6028E1CD87510003ED671 /* ActionSheetCustomPicker.m in Sources */,
 				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
+				30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */,
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
 				30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */,
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
+				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
 				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
+				30FD1F781CE21247003C91A5 /* SDWaitingView.m in Sources */,
 				3057B1DC1CD8DDCF008172DD /* WXInformationDetailViewController.m in Sources */,
 				30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
@@ -1112,6 +1229,8 @@
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
+				30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */,
+				30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
@@ -1125,6 +1244,7 @@
 				AC3344C91CCD1CFA009C7323 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,
 				3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */,
+				30FD1F6D1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */,
