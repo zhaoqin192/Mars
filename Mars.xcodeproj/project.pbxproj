@@ -67,6 +67,12 @@
 		30FD1EE41CE0B3AB003C91A5 /* WXPreorderResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */; };
 		30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */; };
 		30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */; };
+		30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F541CE1C233003C91A5 /* WXRankViewController.m */; };
+		30FD1F571CE1C233003C91A5 /* WXRankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */; };
+		30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */; };
+		30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */; };
+		30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */; };
+		30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -224,6 +230,15 @@
 		30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCourseVideoViewController.h; sourceTree = "<group>"; };
 		30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCourseVideoViewController.m; sourceTree = "<group>"; };
 		30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCourseVideoViewController.xib; sourceTree = "<group>"; };
+		30FD1F531CE1C233003C91A5 /* WXRankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRankViewController.h; sourceTree = "<group>"; };
+		30FD1F541CE1C233003C91A5 /* WXRankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankViewController.m; sourceTree = "<group>"; };
+		30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRankViewController.xib; sourceTree = "<group>"; };
+		30FD1F591CE1C30B003C91A5 /* RankVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankVideoCell.h; sourceTree = "<group>"; };
+		30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankVideoCell.m; sourceTree = "<group>"; };
+		30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankVideoCell.xib; sourceTree = "<group>"; };
+		30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHighGradeViewController.h; sourceTree = "<group>"; };
+		30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHighGradeViewController.m; sourceTree = "<group>"; };
+		30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXHighGradeViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -491,6 +506,12 @@
 				30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */,
 				30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */,
 				30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */,
+				30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */,
+				30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */,
+				30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */,
+				30FD1F531CE1C233003C91A5 /* WXRankViewController.h */,
+				30FD1F541CE1C233003C91A5 /* WXRankViewController.m */,
+				30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -510,6 +531,9 @@
 				30FD1ECC1CE06A70003C91A5 /* WXSelectTimeCell.h */,
 				30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */,
 				30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */,
+				30FD1F591CE1C30B003C91A5 /* RankVideoCell.h */,
+				30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */,
+				30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -953,14 +977,17 @@
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
+				30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
+				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
+				30FD1F571CE1C233003C91A5 /* WXRankViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
@@ -1045,6 +1072,7 @@
 				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
+				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
 				30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */,
@@ -1055,6 +1083,7 @@
 				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				AC3344CC1CCD1CFA009C7323 /* UITabBarController+MemoryLeak.m in Sources */,
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
+				30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */,
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
 				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
@@ -1083,6 +1112,7 @@
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
+				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,

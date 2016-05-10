@@ -9,6 +9,7 @@
 #import "WXVideoViewController.h"
 #import "VideoCell.h"
 #import "WXCourseVideoViewController.h"
+#import "WXHighGradeViewController.h"
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -88,8 +89,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([self.selectButton.titleLabel.text isEqualToString:@"课程讲解"]) {
+        WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        WXHighGradeViewController *vc = [[WXHighGradeViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
