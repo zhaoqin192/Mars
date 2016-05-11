@@ -43,18 +43,18 @@
 }
 
 - (void)bindViewModel {
-    _viewModel = [[SignInViewModel alloc] init];
-    RAC(_viewModel, phone) = _phoneTextField.rac_textSignal;
-    RAC(_viewModel, password) = _codeTextField.rac_textSignal;
-    RAC(_loginButton, enabled) = [_viewModel buttonIsValid];
+    self.viewModel = [[SignInViewModel alloc] init];
+    RAC(self.viewModel, phone) = self.phoneTextField.rac_textSignal;
+    RAC(self.viewModel, password) = self.codeTextField.rac_textSignal;
+    RAC(self.loginButton, enabled) = [self.viewModel buttonIsValid];
     
     @weakify(self)
-    [_viewModel.successObject subscribeNext:^(id x) {
+    [self.viewModel.successObject subscribeNext:^(id x) {
         @strongify(self)
         [self.navigationController popViewControllerAnimated:YES];
     }];
     
-    [_viewModel.failureObject subscribeNext:^(NSString *message) {
+    [self.viewModel.failureObject subscribeNext:^(NSString *message) {
         @strongify(self)
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
@@ -65,7 +65,7 @@
 
 - (void)onClickEvent {
     @weakify(self)
-    [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
         [self.viewModel signIn];
@@ -78,7 +78,9 @@
     [registerButton setTitle:@"注册" forState:UIControlStateNormal];
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
+    @weakify(self)
     [registerButton bk_whenTapped:^{
+        @strongify(self)
         WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
 //        LiveViewController *vc = [[LiveViewController alloc] init];
@@ -95,7 +97,9 @@
 
 - (void)configureForgetPasswordLabelAndLoginButton {
     self.forgetPasswordLabel.userInteractionEnabled = YES;
+    @weakify(self)
     [self.forgetPasswordLabel bk_whenTapped:^{
+        @strongify(self)
         [self showForgetPasswordActionSheet];
     }];
     

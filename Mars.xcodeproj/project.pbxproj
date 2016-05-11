@@ -124,8 +124,10 @@
 		AC3344CD1CCD1CFA009C7323 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C11CCD1CFA009C7323 /* UIView+MemoryLeak.m */; };
 		AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344C31CCD1CFA009C7323 /* UIViewController+MemoryLeak.m */; };
 		AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3344D81CCD1DBF009C7323 /* AppDelegate.m */; };
-		AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */; };
-		AC7B3AF01CDF62750039C2A5 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */; };
+		AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */; };
+		AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */; };
+		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
+		AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */; };
 		ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4A1CD737BD000196E1 /* Account.storyboard */; };
 		ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4C1CD73955000196E1 /* Scheme.storyboard */; };
 		ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */; };
@@ -348,10 +350,14 @@
 		AC3344C41CCD1CFA009C7323 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
 		AC3344D71CCD1DBF009C7323 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC3344D81CCD1DBF009C7323 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
-		AC7B3AEC1CDF626E0039C2A5 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
-		AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
-		AC7B3AEF1CDF62750039C2A5 /* SignInViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewModel.h; sourceTree = "<group>"; };
+		AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
+		AC7AF3E21CE38CA800F69110 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
+		AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
+		AC7AF3E41CE38CA800F69110 /* SignInViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewModel.h; sourceTree = "<group>"; };
+		AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewModel.m; sourceTree = "<group>"; };
+		AC7AF3E61CE38CA800F69110 /* InformationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewModel.h; sourceTree = "<group>"; };
+		AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualViewModel.m; sourceTree = "<group>"; };
+		AC7AF3E81CE38CA800F69110 /* IndividualViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualViewModel.h; sourceTree = "<group>"; };
 		ACA11B4A1CD737BD000196E1 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		ACA11B4C1CD73955000196E1 /* Scheme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scheme.storyboard; sourceTree = "<group>"; };
 		ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Measurement.storyboard; sourceTree = "<group>"; };
@@ -905,31 +911,27 @@
 			path = appDelegate;
 			sourceTree = "<group>";
 		};
+		AC7AF3DF1CE38C9000F69110 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */,
+				AC7AF3E21CE38CA800F69110 /* SignUpViewModel.h */,
+				AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */,
+				AC7AF3E41CE38CA800F69110 /* SignInViewModel.h */,
+				AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */,
+				AC7AF3E61CE38CA800F69110 /* InformationViewModel.h */,
+				AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */,
+				AC7AF3E81CE38CA800F69110 /* IndividualViewModel.h */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
 		AC7B3AE11CDF5AFD0039C2A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AC7B3AEA1CDF62430039C2A5 /* signUp */,
-				AC7B3AE91CDF62300039C2A5 /* signIn */,
+				AC7AF3DF1CE38C9000F69110 /* account */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AC7B3AE91CDF62300039C2A5 /* signIn */ = {
-			isa = PBXGroup;
-			children = (
-				AC7B3AEF1CDF62750039C2A5 /* SignInViewModel.h */,
-				AC7B3AEE1CDF62750039C2A5 /* SignInViewModel.m */,
-			);
-			path = signIn;
-			sourceTree = "<group>";
-		};
-		AC7B3AEA1CDF62430039C2A5 /* signUp */ = {
-			isa = PBXGroup;
-			children = (
-				AC7B3AEC1CDF626E0039C2A5 /* SignUpViewModel.h */,
-				AC7B3AEB1CDF626E0039C2A5 /* SignUpViewModel.m */,
-			);
-			path = signUp;
 			sourceTree = "<group>";
 		};
 		ACA11B481CD736E9000196E1 /* storyboard */ = {
@@ -1202,6 +1204,7 @@
 				AC3344CE1CCD1CFA009C7323 /* UIViewController+MemoryLeak.m in Sources */,
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
 				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
+				AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
 				30FD1F781CE21247003C91A5 /* SDWaitingView.m in Sources */,
@@ -1209,6 +1212,7 @@
 				30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
 				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
+				AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				AC3344CA1CCD1CFA009C7323 /* UIPageViewController+MemoryLeak.m in Sources */,
 				AC3344CB1CCD1CFA009C7323 /* UISplitViewController+MemoryLeak.m in Sources */,
@@ -1216,6 +1220,7 @@
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
+				AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
 				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,
@@ -1225,7 +1230,6 @@
 				ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */,
 				30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
-				AC7B3AF01CDF62750039C2A5 /* SignInViewModel.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
@@ -1237,7 +1241,7 @@
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
-				AC7B3AED1CDF626E0039C2A5 /* SignUpViewModel.m in Sources */,
+				AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
 				30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */,
 				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "WXInformationDetailViewController.h"
 
-@interface WXInformationDetailViewController ()
+@interface WXInformationDetailViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
@@ -25,8 +25,23 @@
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     [button setTitleColor:WXGreenColor forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    @weakify(self)
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        [self.delegateSignal sendNext:self.textField.text];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    self.textField.delegate = self;
+    self.textField.text = self.originContent;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder]; // Dismiss the keyboard.
+    // Execute any additional code
+    
+    return YES;
+}
 
 
 @end

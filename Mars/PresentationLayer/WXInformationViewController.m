@@ -13,35 +13,107 @@
 #import "WXInformationDetailViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "CityPickView.h"
+#import "InformationViewModel.h"
 
-@interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate,CityPickViewDelegate>
+
+@interface WXInformationViewController () <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate,CityPickViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *footButton;
-@property (nonatomic,strong) CityPickView *pickView;
+@property (nonatomic, strong) CityPickView *pickView;
+@property (nonatomic, strong) InformationViewModel *viewModel;
+
 @end
 
 @implementation WXInformationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.myTitle;
-    [self configureTableView];
-    [self configureFootButton];
+
     self.navigationItem.backBarButtonItem = ({
         UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
         back.title = @"";
         back;
     });
+    [self configureTableView];
+    
     self.pickView = [[CityPickView alloc] initWithFrame:CGRectMake(0, kScreenHeight, self.view.bounds.size.width, 180)];;
     self.pickView.delegate = self;
     [self.view addSubview:self.pickView];
+    
+    [self bindViewModel];
+    [self onClickEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
 }
+
+- (void)bindViewModel {
+    
+    self.viewModel = [[InformationViewModel alloc] init];
+    @weakify(self)
+    [self.viewModel.successObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = message;
+        hud.mode = MBProgressHUDModeText;
+        [hud showAnimated:YES whileExecutingBlock:^{
+            sleep(1.5);
+        } completionBlock:^{
+            @strongify(self)
+            [hud removeFromSuperview];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+    
+    [self.viewModel.failureObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = message;
+        hud.mode = MBProgressHUDModeText;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
+    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = message;
+        hud.mode = MBProgressHUDModeText;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
+    [RACObserve(self, state) subscribeNext:^(NSNumber *state) {
+        @strongify(self)
+        if ([state isEqualToNumber:@0]) {
+            self.navigationItem.title = @"填写资料";
+            [self.footButton setTitle:@"提交" forState:UIControlStateNormal];
+        } else if ([state isEqualToNumber:@1]) {
+            self.navigationItem.title = @"我的资料";
+            [self.footButton setTitle:@"退出账户" forState:UIControlStateNormal];
+        } else {
+            self.navigationItem.title = @"我的资料";
+            [self.footButton setTitle:@"提交" forState:UIControlStateNormal];
+        }
+    }];
+    
+}
+
+- (void)onClickEvent {
+    @weakify(self)
+    [[self.footButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        if ([self.state isEqualToNumber:@1]) {
+            [self.viewModel signOut];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self.viewModel commitInfo];
+        }
+    }];
+}
+
 
 - (void)configureTableView {
     [self.tableView registerNib:[UINib nibWithNibName:@"userIconCell" bundle:nil] forCellReuseIdentifier:@"userIconCell"];
@@ -50,40 +122,27 @@
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
 }
 
-- (void)configureFootButton {
-    if (![self.myTitle isEqualToString:@"填写资料"]) {
-        [self.footButton setTitle:@"退出系统" forState:UIControlStateNormal];
-        [self.footButton removeAllTargets];
-        [self.footButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
-    }
-    else {
-        [self.footButton setTitle:@"提交" forState:UIControlStateNormal];
-        [self.footButton removeAllTargets];
-        [self.footButton addTarget:self action:@selector(commitButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    }
-}
-
-- (void)logOut {
-    NSLog(@"log out");
-}
-
-- (void)commitButtonClicked {
-    NSLog(@"commit");
-}
-
 - (void)cancel {
+    @weakify(self)
     [UIView animateWithDuration:0.25 animations:^{
+        @strongify(self)
         self.pickView.backgroundColor = [UIColor whiteColor];
         self.pickView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 270);
     } completion:nil];
 }
 
 - (void)selectCity:(NSString *)city{
-    NSLog(@"%@",city);
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)fetchDetail:(NSString *)province city:(NSString *)city district:(NSString *)district{
-    NSLog(@"fetch");
+    self.viewModel.province = province;
+    self.viewModel.city = city;
+    self.viewModel.district = district;
+    
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table view data source
@@ -106,6 +165,7 @@
         switch (indexPath.row) {
             case 0:{
                 userIconCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"userIconCell"];
+                [cell.myImageView setImage:self.viewModel.avatarImage];
                 return cell;
             }
                 break;
@@ -116,6 +176,7 @@
                 cell.textLabel.text = @"昵称";
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.detailTextLabel.text = self.viewModel.nickname;
                 return cell;
                 break;
             }
@@ -125,20 +186,29 @@
                 [cell.textLabel setTextColor:WXTextGrayColor];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"手机号";
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.accessoryType = UITableViewCellSelectionStyleNone;
+                cell.detailTextLabel.text = self.viewModel.phone;
                 return cell;
                 break;
             }
         }
     }
     else {
-        if ([self.myTitle isEqualToString:@"填写资料"]) {
+        if (![self.state isEqualToNumber:@1]) {
             switch (indexPath.row) {
                 case 0:{
                     userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
                     cell.leftButtonName = @"男生";
                     cell.rightButtonName = @"女生";
                     cell.contentLabel.text = @"性别";
+                    cell.delegateSingal = [RACSubject subject];
+                    @weakify(self)
+                    [cell.delegateSingal subscribeNext:^(NSNumber *message) {
+                        @strongify(self)
+                        self.viewModel.sex = message;
+                    }];
+                    [cell selectOption:self.viewModel.sex];
+                    
                     return cell;
                     break;
                 }
@@ -147,6 +217,14 @@
                     cell.leftButtonName = @"应届";
                     cell.rightButtonName = @"复读";
                     cell.contentLabel.text = @"年纪";
+                    cell.delegateSingal = [RACSubject subject];
+                    @weakify(self)
+                    [cell.delegateSingal subscribeNext:^(NSNumber *message) {
+                        @strongify(self)
+                        self.viewModel.age = message;
+                    }];
+                    [cell selectOption:self.viewModel.age];
+                    
                     return cell;
                     break;
                 }
@@ -158,8 +236,12 @@
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"省份";
-                    cell.detailTextLabel.text = @"未选择";
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    if (self.viewModel.province == nil) {
+                        cell.detailTextLabel.text = @"未选择";
+                    } else {
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", self.viewModel.province, self.viewModel.city, self.viewModel.district];
+                    }
                     return cell;
                     break;
                 }
@@ -168,6 +250,14 @@
                     cell.leftButtonName = @"普高";
                     cell.rightButtonName = @"艺术高中";
                     cell.contentLabel.text = @"高中";
+                    cell.delegateSingal = [RACSubject subject];
+                    @weakify(self)
+                    [cell.delegateSingal subscribeNext:^(NSNumber *message) {
+                        @strongify(self)
+                        self.viewModel.school = message;
+                    }];
+                    [cell selectOption:self.viewModel.school];
+
                     return cell;
                     break;
                 }
@@ -183,7 +273,15 @@
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"性别";
-                    //cell.detailTextLabel.text = @"未选择";
+                    if (self.viewModel.sex == nil) {
+                        cell.detailTextLabel.text = @"未选择";
+                    } else {
+                        if ([self.viewModel.sex isEqualToNumber:@0]) {
+                            cell.detailTextLabel.text = @"男生";
+                        } else {
+                            cell.detailTextLabel.text = @"女生";
+                        }
+                    }
                     return cell;
                     break;
                 }
@@ -195,7 +293,15 @@
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"年级";
-                    //cell.detailTextLabel.text = @"未选择";
+                    if (self.viewModel.age == nil) {
+                        cell.detailTextLabel.text = @"未选择";
+                    } else {
+                        if ([self.viewModel.age isEqualToNumber:@0]) {
+                            cell.detailTextLabel.text = @"应届";
+                        } else {
+                            cell.detailTextLabel.text = @"复读";
+                        }
+                    }
                     return cell;
                     break;
                 }
@@ -207,7 +313,12 @@
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"省份";
-                    //cell.detailTextLabel.text = @"未选择";
+                    if (_viewModel.province == nil) {
+                        cell.detailTextLabel.text = @"未选择";
+                    } else {
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", self.viewModel.province, self.viewModel.city, self.viewModel.district];
+                    }
+
                     return cell;
                     break;
                 }
@@ -219,7 +330,15 @@
                     [cell.detailTextLabel setTextColor:WXTextGrayColor];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textLabel.text = @"高中";
-                    //cell.detailTextLabel.text = @"未选择";
+                    if (self.viewModel.school == nil) {
+                        cell.detailTextLabel.text = @"未选择";
+                    } else {
+                        if ([self.viewModel.sex isEqualToNumber:@0]) {
+                            cell.detailTextLabel.text = @"普高";
+                        } else {
+                            cell.detailTextLabel.text = @"艺术高中";
+                        }
+                    }
                     return cell;
                     break;
                 }
@@ -243,7 +362,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        if ([self.myTitle isEqualToString:@"填写资料"]) {
+        if (![self.state isEqualToNumber:@1]) {
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 37)];
             view.backgroundColor = self.tableView.backgroundColor;
             UILabel *label = [[UILabel alloc] init];
@@ -271,10 +390,11 @@
             editLabel.frame = CGRectMake(kScreenWidth/2-15, 15, kScreenWidth/2, 12);
             editLabel.textAlignment = NSTextAlignmentRight;
             editLabel.userInteractionEnabled = YES;
+            @weakify(self)
             [editLabel bk_whenTapped:^{
-                self.myTitle = @"填写资料";
-                self.navigationItem.title = @"填写资料";
-                [self configureFootButton];
+                //修改为“我的资料”，提交状态
+                @strongify(self)
+                self.state = @2;
                 [self.tableView reloadData];
             }];
             [view addSubview:editLabel];
@@ -288,26 +408,61 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:{
-                UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相册上传", @"拍摄", nil];
-                [actionSheet showInView:self.view];
+
+                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                picker.delegate = self;
+                picker.allowsEditing = YES;//设置可编辑
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle: UIAlertControllerStyleActionSheet];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                
+                UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"相册上传" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                    [self presentViewController:picker animated:YES completion:nil];//进入照相界面
+                }];
+                
+                UIAlertAction *archiveAction = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:picker animated:YES completion:nil];//进入照相界面
+                }];
+                
+                [alertController addAction:cancelAction];
+                [alertController addAction:deleteAction];
+                [alertController addAction:archiveAction];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+                self.state = @2;
+                
                 break;
             }
             case 1:{
                 WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
                 vc.myTitle = @"修改昵称";
+                if (self.viewModel.nickname != nil) {
+                    vc.originContent = self.viewModel.nickname;
+                } else {
+                    vc.originContent = @"";
+                }
+                vc.delegateSignal = [RACSubject subject];
+                @weakify(self)
+                [vc.delegateSignal subscribeNext:^(NSString *message) {
+                    @strongify(self)
+                    self.viewModel.nickname = message;
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                }];
                 [self.navigationController pushViewController:vc animated:YES];
+                self.state = @2;
                 break;
             }
             case 2:{
-                WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
-                vc.myTitle = @"修改手机号";
-                [self.navigationController pushViewController:vc animated:YES];
+                
                 break;
             }
         }
     }
     if(indexPath.section == 1) {
-        if ([self.myTitle isEqualToString:@"填写资料"] && indexPath.row == 2) {
+        if (![self.state isEqualToNumber:@1] && indexPath.row == 2) {
             [UIView animateWithDuration:0.25 animations:^{
                 self.pickView.backgroundColor = [UIColor whiteColor];
                 self.pickView.frame = CGRectMake(0, kScreenHeight-270, kScreenWidth, 270);
@@ -316,52 +471,15 @@
     }
 }
 
-
-#pragma mark UIActionSheetDelegate M
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 2) {
-        return;
-    }
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;//设置可编辑
-    
-    if (buttonIndex == 1) {
-        //        拍照
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }else if (buttonIndex == 0){
-        //        相册
-        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    }
-    [self presentViewController:picker animated:YES completion:nil];//进入照相界面
-    
-}
-
--(void)willPresentActionSheet:(UIActionSheet *)actionSheet {
-    SEL selector = NSSelectorFromString(@"_alertController");
-    if ([actionSheet respondsToSelector:selector]) {
-        UIAlertController *alertController = [actionSheet valueForKey:@"_alertController"];
-        if ([alertController isKindOfClass:[UIAlertController class]]) {
-            alertController.view.tintColor = WXTextBlackColor;
-        }
-    }
-}
-
-
 #pragma mark UIImagePickerControllerDelegate
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    
+
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *editedImage, *imageToUse;
-  //   Handle a still image picked from a photo album
-        if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
-            == kCFCompareEqualTo) {
-    
-            editedImage = (UIImage *) [info objectForKey:
-                                       UIImagePickerControllerEditedImage];
-            originalImage = (UIImage *) [info objectForKey:
-                                         UIImagePickerControllerOriginalImage];
-    
+    //Handle a still image picked from a photo album
+        if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+            editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+            originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
             if (editedImage) {
                 imageToUse = editedImage;
             } else {
@@ -369,19 +487,17 @@
             }
             // Do something with imageToUse
         }
+        @weakify(self)
         [picker dismissViewControllerAnimated:YES completion:^{
-//            [NetworkRequest uploadAvatar:imageToUse success:^{
-//                [self loadData];
-//            } failure:^{
-//                [SVProgressHUD showErrorWithStatus:@"更新头像失败，请重新尝试"];
-//                [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5f];
-//            }];
+            @strongify(self)
+            self.viewModel.avatarImage = imageToUse;
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
         }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end

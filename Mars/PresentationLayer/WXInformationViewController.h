@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface WXInformationViewController : UIViewController
-@property (nonatomic, copy) NSString *myTitle;
+
+/**
+ *  个人信息状态，0为“填写资料”，1为“我的资料”,2为“我的资料”可编辑
+ */
+@property (nonatomic, strong) NSNumber *state;
+
 @end

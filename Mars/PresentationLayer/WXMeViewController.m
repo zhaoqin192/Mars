@@ -10,6 +10,7 @@
 #import "WXInformationViewController.h"
 #import "WXLoginViewController.h"
 #import "WXMeOrderViewController.h"
+#import "IndividualViewModel.h"
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *testView;
 @property (weak, nonatomic) IBOutlet UIImageView *orderView;
 @property (weak, nonatomic) IBOutlet UIImageView *exercisesView;
+@property (nonatomic, strong) IndividualViewModel *viewModel;
 
 @end
 
@@ -27,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+    
     self.navigationItem.backBarButtonItem = ({
         UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
         back.title = @"";
@@ -34,12 +37,16 @@
     });
     [self configureIconImageAndLabel];
     [self configureMiddleView];
+    
+    [self bindViewModel];
+    [self onClickEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
     [self.navigationController setNavigationBarHidden:YES];
+    [self.viewModel updateStatus];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -47,15 +54,41 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)bindViewModel {
+    _viewModel = [[IndividualViewModel alloc] init];
+    @weakify(self)
+    [_viewModel.nameObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        [self.nameLabel setText:message];
+    }];
+    
+    [_viewModel.avatarObject subscribeNext:^(UIImage *avatarImage) {
+        @strongify(self)
+        [self.iconImage setImage:avatarImage];
+    }];
+    
+}
+
+- (void)onClickEvent {
+    
+    
+    [self.titleImageView bk_whenTapped:^{
+        if ([_viewModel isExist]) {
+            WXInformationViewController *vc = [[WXInformationViewController alloc] init];
+            //0为我的资料，1为填写资料
+            vc.state = @1;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+    
+}
+
+
 - (void)configureIconImageAndLabel {
     self.titleImageView.userInteractionEnabled = YES;
-    [self.titleImageView bk_whenTapped:^{
-//        WXInformationViewController *vc = [[WXInformationViewController alloc] init];
-//        vc.myTitle = @"我的资料";
-//        [self.navigationController pushViewController:vc animated:YES];
-        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
     
     self.iconImage.layer.cornerRadius = self.iconImage.width/2;
     self.iconImage.layer.masksToBounds = YES;

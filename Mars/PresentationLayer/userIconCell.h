@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface userIconCell : UITableViewCell
-@property (nonatomic, copy) NSString *iconUrl;
+@property (weak, nonatomic) IBOutlet UIImageView *myImageView;
+
 @end

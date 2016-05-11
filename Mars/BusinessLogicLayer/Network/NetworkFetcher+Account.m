@@ -18,7 +18,7 @@
 @implementation NetworkFetcher (Account)
 
 static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
-static BOOL debueMessage = YES;
+static BOOL debueMessage = NO;
 
 + (void)accountSignInWithPhone:(NSString *)phone
                      password:(NSString *)password
@@ -95,8 +95,50 @@ static BOOL debueMessage = YES;
     
 }
 
-+ (void)accountFetchInfoWithSuccess:(NetworkFetcherCompletionHandler)success
-                            failure:(NetworkFetcherErrorHandler)failure{
++ (void)accountUploadInfoWithAvatar:(UIImage *)avatar
+                           nickname:(NSString *)nickname
+                              phone:(NSString *)phone
+                                sex:(NSNumber *)sex
+                                age:(NSNumber *)age
+                           province:(NSString *)province
+                               city:(NSString *)city
+                           district:(NSString *)district
+                             school:(NSNumber *)school
+                              token:(NSString *)token
+                            success:(NetworkFetcherCompletionHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"user/index/edit"]];
+    NSData *imageData = UIImageJPEGRepresentation(avatar, 0.001);
+    
+    NSDictionary *parameters = @{@"user_name": nickname, @"phone": phone, @"sex": sex, @"age": age, @"province": province, @"city": city, @"district": district, @"degree": school, @"sid": token};
+    
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        
+        [formData appendPartWithFileData:imageData name:@"photo" fileName:fileName mimeType:@"image/png"];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (debueMessage) {
+            NSLog(@"%@", responseObject);
+        }
+        
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(@"网络异常");
+    }];
+
+    
+}
+
++ (void)accountFetchInfoWithToken:(NSString *)token
+                          success:(NetworkFetcherCompletionHandler)success
+                          failure:(NetworkFetcherErrorHandler)failure {
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"user/index/info"]];
@@ -112,22 +154,12 @@ static BOOL debueMessage = YES;
             NSLog(@"%@", responseObject);
         }
         
-        NSDictionary *dic = responseObject;
-        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
-            
-        }else{
-            failure([dic objectForKey:@"error"]);
-        }
+        success(responseObject);
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(@"网络异常");
     }];
-}
 
-+ (void)accountUploadInfoWithNickname:(NSString *)nickname
-                                  sex:(NSNumber *)sex
-                               avatar:(NSString *)avatar
-                              success:(NetworkFetcherCompletionHandler)success
-                              failure:(NetworkFetcherErrorHandler)failure {
     
 }
 

@@ -12,4 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (nonatomic, copy) NSString *leftButtonName;
 @property (nonatomic, copy) NSString *rightButtonName;
+@property (nonatomic, strong) RACSubject *delegateSingal;
+
+- (void)selectOption:(NSNumber *)select;
+
 @end

@@ -9,7 +9,7 @@
 #import "userIconCell.h"
 
 @interface userIconCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *myImageView;
+
 @end
 
 @implementation userIconCell
@@ -22,8 +22,9 @@
     self.myImageView.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
 }
 
-- (void)setIconUrl:(NSString *)iconUrl{
-    _iconUrl = iconUrl;
-    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:self.iconUrl] placeholderImage:[UIImage imageNamed:@"iconholder"] completed:nil];
-}
+//- (void)setIconUrl:(NSString *)iconUrl{
+//    _iconUrl = iconUrl;
+//    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:self.iconUrl] placeholderImage:[UIImage imageNamed:@"iconholder"] completed:nil];
+//}
+
 @end

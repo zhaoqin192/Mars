@@ -28,6 +28,7 @@
         return;
     }
     [self configureButton];
+    [self.delegateSingal sendNext:@0];
 }
 
 - (IBAction)rightButtonClicked {
@@ -39,6 +40,7 @@
     [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    [self.delegateSingal sendNext:@1];
 }
 
 - (void)configureButton {
@@ -64,5 +66,14 @@
     self.rightButtonWidthConstraint.constant = size.width + 20;
     [self.rightButton layoutIfNeeded];
 }
+
+- (void)selectOption:(NSNumber *)select {
+    if ([select isEqualToNumber:@0]) {
+        [self leftButtonClicked];
+    } else {
+        [self rightButtonClicked];
+    }
+}
+
 
 @end

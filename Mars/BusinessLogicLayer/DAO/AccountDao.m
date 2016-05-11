@@ -25,7 +25,7 @@
 - (Account *)fetchAccount{
     NSArray *array = [self fetchAccountArray];
     if (array.count == 0) {
-        return [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appContext];;
+        return [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appContext];
     }else{
         return [array objectAtIndex:0];
     }
@@ -33,7 +33,7 @@
 
 - (BOOL)isExist{
     NSArray *array = [self fetchAccountArray];
-    if (array.count != 0) {
+    if ([array count] != 0) {
         return YES;
     }else{
         return NO;

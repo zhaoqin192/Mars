@@ -52,23 +52,37 @@
 /**
  *  获取用户信息
  */
-+ (void)accountFetchInfoWithSuccess:(NetworkFetcherCompletionHandler)success
-                            failure:(NetworkFetcherErrorHandler)failure;
++ (void)accountFetchInfoWithToken:(NSString *)token
+                          success:(NetworkFetcherCompletionHandler)success
+                          failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  上传用户信息
  *
- *  @param nickname
- *  @param sex
  *  @param avatar
+ *  @param nickname
+ *  @param phone
+ *  @param sex
+ *  @param age
+ *  @param province
+ *  @param city
+ *  @param district
+ *  @param school
  *  @param success
  *  @param failure
  */
-+ (void)accountUploadInfoWithNickname:(NSString *)nickname
-                                  sex:(NSNumber *)sex
-                               avatar:(NSString *)avatar
-                              success:(NetworkFetcherCompletionHandler)success
-                              failure:(NetworkFetcherErrorHandler)failure;
++ (void)accountUploadInfoWithAvatar:(UIImage *)avatar
+                           nickname:(NSString *)nickname
+                              phone:(NSString *)phone
+                                sex:(NSNumber *)sex
+                                age:(NSNumber *)age
+                           province:(NSString *)province
+                               city:(NSString *)city
+                           district:(NSString *)district
+                             school:(NSNumber *)school
+                              token:(NSString *)token
+                            success:(NetworkFetcherCompletionHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure;
 
 
 

@@ -3,7 +3,7 @@
 //  Mars
 //
 //  Created by zhaoqin on 5/8/16.
-//  Copyright © 2016 Muggins_. All rights reserved.
+//  Copyright © 2016 Mugginsself.. All rights reserved.
 //
 
 #import "SignInViewModel.h"
@@ -27,10 +27,10 @@
     
     self = [super init];
     if (self) {
-        _phoneSignal = RACObserve(self, phone);
-        _passwordSignal = RACObserve(self, password);
-        _successObject = [RACSubject subject];
-        _failureObject = [RACSubject subject];
+        self.phoneSignal = RACObserve(self, phone);
+        self.passwordSignal = RACObserve(self, password);
+        self.successObject = [RACSubject subject];
+        self.failureObject = [RACSubject subject];
     }
     return self;
     
@@ -38,7 +38,7 @@
 
 - (id)buttonIsValid {
     
-    RACSignal *isValid = [RACSignal combineLatest:@[_phoneSignal, _passwordSignal]
+    RACSignal *isValid = [RACSignal combineLatest:@[self.phoneSignal, self.passwordSignal]
                           reduce:^id(NSString *phone, NSString *password){
                               return @(phone.length == 11 && password.length > 0);
                           }];
@@ -47,23 +47,25 @@
 }
 
 - (void)signIn {
-    
-    [NetworkFetcher accountSignInWithPhone:_phone password:_password success:^(NSDictionary *response) {
+    @weakify(self)
+    [NetworkFetcher accountSignInWithPhone:self.phone password:self.password success:^(NSDictionary *response) {
+        @strongify(self)
         if ([response[@"code"] isEqualToString:@"200"]) {
             AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
             Account *account = [accountDao fetchAccount];
-            account.phone = _phone;
-            account.password = _password;
+            account.phone = self.phone;
+            account.password = self.password;
             account.token = response[@"sid"];
-            account.sessionID = response[@"yzb_session_id"];
-            account.userID = response[@"yzb_user_id"];
+            account.sessionID = response[@"yzbself.sessionself.id"];
+            account.userID = response[@"yzbself.userself.id"];
             [accountDao save];
-            [_successObject sendNext:nil];
+            [self.successObject sendNext:nil];
         } else {
-            [_failureObject sendNext:@"用户名或密码不正确"];
+            [self.failureObject sendNext:@"用户名或密码不正确"];
         }
     } failure:^(NSString *error) {
-        [_failureObject sendNext:@"网络异常"];
+        @strongify(self)
+        [self.failureObject sendNext:@"网络异常"];
     }];
 }
 
