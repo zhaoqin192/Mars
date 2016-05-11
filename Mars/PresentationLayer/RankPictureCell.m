@@ -46,7 +46,7 @@
     _nameLabel.font = [UIFont systemFontOfSize:14];
     [_nameLabel setText:@"陈晓明"];
     [_nameLabel setTextColor:[UIColor colorWithHexString:@"#333333"]];
-    [self.contentView addSubview:_nameLabel];
+    [self.contentView addSubview:_nameLabel]; 
     
     _contentLabel = [[UILabel alloc] init];
     _contentLabel.font = [UIFont systemFontOfSize:12];

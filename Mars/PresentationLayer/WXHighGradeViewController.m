@@ -10,6 +10,9 @@
 #import "WXRankViewController.h"
 
 @interface WXHighGradeViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *moreButton;
+@property (weak, nonatomic) IBOutlet UIView *moreContentView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 
 @end
 
@@ -23,11 +26,26 @@
         back.title = @"";
         back;
     });
+    
+    self.moreButton.userInteractionEnabled = YES; 
+    [self.moreButton bk_whenTapped:^{
+        WXRankViewController *vc = [[WXRankViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    self.iconView.layer.cornerRadius = self.iconView.width/2;
+    self.iconView.layer.masksToBounds = YES;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    WXRankViewController *vc = [[WXRankViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 
 @end

@@ -72,7 +72,6 @@
 		30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */; };
 		30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */; };
 		30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */; };
-		30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */; };
 		30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F661CE211AE003C91A5 /* RankPictureCell.m */; };
 		30FD1F6D1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F6C1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m */; };
 		30FD1F761CE21247003C91A5 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F701CE21247003C91A5 /* SDBrowserImageView.m */; };
@@ -91,6 +90,7 @@
 		30FD1F951CE21FC7003C91A5 /* pic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8A1CE21FC7003C91A5 /* pic7.jpg */; };
 		30FD1F961CE21FC7003C91A5 /* pic8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */; };
 		30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8C1CE21FC7003C91A5 /* picon.jpg */; };
+		30FD1FC71CE32D43003C91A5 /* WXHighGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -256,7 +256,6 @@
 		30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankVideoCell.xib; sourceTree = "<group>"; };
 		30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHighGradeViewController.h; sourceTree = "<group>"; };
 		30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHighGradeViewController.m; sourceTree = "<group>"; };
-		30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXHighGradeViewController.xib; sourceTree = "<group>"; };
 		30FD1F651CE211AE003C91A5 /* RankPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankPictureCell.h; sourceTree = "<group>"; };
 		30FD1F661CE211AE003C91A5 /* RankPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankPictureCell.m; sourceTree = "<group>"; };
 		30FD1F6B1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeiXinPhotoContainerView.h; sourceTree = "<group>"; };
@@ -283,6 +282,7 @@
 		30FD1F8A1CE21FC7003C91A5 /* pic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic7.jpg; sourceTree = "<group>"; };
 		30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic8.jpg; sourceTree = "<group>"; };
 		30FD1F8C1CE21FC7003C91A5 /* picon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picon.jpg; sourceTree = "<group>"; };
+		30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXHighGradeViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -555,7 +555,7 @@
 				30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */,
 				30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */,
 				30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */,
-				30FD1F601CE1C826003C91A5 /* WXHighGradeViewController.xib */,
+				30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */,
 				30FD1F531CE1C233003C91A5 /* WXRankViewController.h */,
 				30FD1F541CE1C233003C91A5 /* WXRankViewController.m */,
 				30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */,
@@ -1081,7 +1081,6 @@
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
-				30FD1F621CE1C826003C91A5 /* WXHighGradeViewController.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
 				30FD1F911CE21FC7003C91A5 /* pic3.jpg in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
@@ -1115,6 +1114,7 @@
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
+				30FD1FC71CE32D43003C91A5 /* WXHighGradeViewController.xib in Resources */,
 				30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */,
 				3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */,
 				30FD1F941CE21FC7003C91A5 /* pic6.jpg in Resources */,
