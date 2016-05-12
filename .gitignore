@@ -24,6 +24,7 @@ xcuserdata
 *.xcscmblueprint
 .DS_Store
 /Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone.a
+/MLeaksFinder
 
 ## Obj-C/Swift specific
 *.hmap
