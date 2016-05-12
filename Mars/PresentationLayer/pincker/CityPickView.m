@@ -44,7 +44,9 @@
         [cancelButton setTitleColor:WXTextGrayColor forState:UIControlStateNormal];
         cancelButton.frame = CGRectMake(15, 0, 40, 30);
         cancelButton.centerY = view.centerY;
+        @weakify(self)
         [cancelButton bk_whenTapped:^{
+            @strongify(self)
             [self.delegate cancel];
         }];
         [view addSubview:cancelButton];
@@ -66,6 +68,7 @@
         sureButton.centerY = view.centerY;
         sureButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [sureButton bk_whenTapped:^{
+            @strongify(self)
             [self selectjia];
         }];
         [view addSubview:sureButton];

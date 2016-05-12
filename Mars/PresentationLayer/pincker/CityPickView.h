@@ -19,6 +19,6 @@
 
 @interface CityPickView : UIView
 
-@property (nonatomic,assign) id<CityPickViewDelegate>delegate;
+@property (nonatomic, weak) id<CityPickViewDelegate>delegate;
 
 @end
