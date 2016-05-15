@@ -10,4 +10,7 @@
 
 @interface OrderCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+
 @end

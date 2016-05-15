@@ -10,4 +10,6 @@
 
 @interface WXPreorderCourseViewController : UIViewController
 
+@property (nonatomic, strong) NSString *teacherID;
+
 @end

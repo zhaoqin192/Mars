@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *selectLabel;
 @property (nonatomic, strong) WXOrderViewController *orderVC;
 @property (nonatomic, strong) WXVideoViewController *videoVC;
+
 @end
 
 @implementation WXExercisesViewController
@@ -30,6 +31,7 @@
         back.title = @"";
         back;
     });
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

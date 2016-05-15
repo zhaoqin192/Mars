@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -87,24 +87,14 @@
                 <constraint firstAttribute="trailing" secondItem="Y5X-he-yTL" secondAttribute="trailing" constant="15" id="SV8-6a-Tdh"/>
                 <constraint firstItem="Y5X-he-yTL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="UCo-L1-0na"/>
                 <constraint firstItem="RHi-Ik-in6" firstAttribute="leading" secondItem="6Or-fk-hrr" secondAttribute="trailing" constant="5" id="UZ3-KV-PDJ"/>
-                <constraint firstItem="vVv-Du-TbR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="bxY-5W-CUW"/>
                 <constraint firstItem="9Bn-RW-uUe" firstAttribute="top" secondItem="vVv-Du-TbR" secondAttribute="bottom" constant="20" id="ecT-A6-2sf"/>
                 <constraint firstItem="Y5X-he-yTL" firstAttribute="top" secondItem="RHi-Ik-in6" secondAttribute="bottom" constant="15" id="kZV-6b-tNn"/>
-                <constraint firstItem="HsN-Ao-6nd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="54" id="tMU-yp-KwW"/>
-                <constraint firstItem="6Or-fk-hrr" firstAttribute="top" secondItem="zY7-u6-iB5" secondAttribute="bottom" constant="20" id="w4S-xD-1r4"/>
                 <constraint firstItem="HsN-Ao-6nd" firstAttribute="centerX" secondItem="vVv-Du-TbR" secondAttribute="centerX" id="xuO-hO-th4"/>
                 <constraint firstItem="6Or-fk-hrr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="xvp-LJ-UYj"/>
                 <constraint firstItem="9Bn-RW-uUe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="yfA-QH-Gen"/>
                 <constraint firstItem="Hd4-8T-kBU" firstAttribute="centerY" secondItem="9Bn-RW-uUe" secondAttribute="centerY" id="yhT-Kv-CBJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="bxY-5W-CUW"/>
-                    <exclude reference="tMU-yp-KwW"/>
-                    <exclude reference="w4S-xD-1r4"/>
-                </mask>
-            </variation>
         </view>
     </objects>
     <resources>

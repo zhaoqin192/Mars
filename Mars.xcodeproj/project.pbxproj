@@ -91,6 +91,11 @@
 		30FD1F961CE21FC7003C91A5 /* pic8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8B1CE21FC7003C91A5 /* pic8.jpg */; };
 		30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F8C1CE21FC7003C91A5 /* picon.jpg */; };
 		30FD1FC71CE32D43003C91A5 /* WXHighGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */; };
+		AC1B06511CE4274300C0E9B3 /* NetworkFetcher+Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1B06501CE4274300C0E9B3 /* NetworkFetcher+Exercise.m */; };
+		AC1B06591CE42C1800C0E9B3 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1B06581CE42C1800C0E9B3 /* VideoModel.m */; };
+		AC1B065C1CE479AA00C0E9B3 /* VideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1B065B1CE479AA00C0E9B3 /* VideoViewModel.m */; };
+		AC2E425A1CE6B2D800027BCD /* LessonTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E42591CE6B2D800027BCD /* LessonTimeModel.m */; };
+		AC2E425E1CE6E5F600027BCD /* LessonDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E425D1CE6E5F600027BCD /* LessonDateModel.m */; };
 		AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C801CCDC422008E6D52 /* NetworkManager.m */; };
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
@@ -121,19 +126,14 @@
 		AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */; };
 		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
 		AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */; };
-		ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4A1CD737BD000196E1 /* Account.storyboard */; };
-		ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4C1CD73955000196E1 /* Scheme.storyboard */; };
-		ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */; };
-		ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B501CD73B65000196E1 /* Exercise.storyboard */; };
-		ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */; };
-		ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */; };
-		ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */; };
-		ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA11B621CD73DEC000196E1 /* SchemeViewController.m */; };
-		ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA11B641CD73E9E000196E1 /* Main.storyboard */; };
 		ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */; };
 		ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */; };
 		ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B701CCE602F005A6A12 /* WatchViewController.m */; };
 		ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */; };
+		ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB947601CE5FCDD009FA179 /* PreorderViewModel.m */; };
+		ACB947641CE6008E009FA179 /* LessonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB947631CE6008E009FA179 /* LessonModel.m */; };
+		ACBE21751CE498F000F2A912 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE21741CE498F000F2A912 /* TeacherModel.m */; };
+		ACBE21781CE49E7300F2A912 /* TeacherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE21771CE49E7300F2A912 /* TeacherViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -269,6 +269,16 @@
 		30FD1F8C1CE21FC7003C91A5 /* picon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picon.jpg; sourceTree = "<group>"; };
 		30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXHighGradeViewController.xib; sourceTree = "<group>"; };
 		84D753B4790BB36FC8123013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AC1B064F1CE4274300C0E9B3 /* NetworkFetcher+Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Exercise.h"; sourceTree = "<group>"; };
+		AC1B06501CE4274300C0E9B3 /* NetworkFetcher+Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Exercise.m"; sourceTree = "<group>"; };
+		AC1B06571CE42C1800C0E9B3 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		AC1B06581CE42C1800C0E9B3 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		AC1B065A1CE479AA00C0E9B3 /* VideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewModel.h; sourceTree = "<group>"; };
+		AC1B065B1CE479AA00C0E9B3 /* VideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewModel.m; sourceTree = "<group>"; };
+		AC2E42581CE6B2D800027BCD /* LessonTimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonTimeModel.h; sourceTree = "<group>"; };
+		AC2E42591CE6B2D800027BCD /* LessonTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonTimeModel.m; sourceTree = "<group>"; };
+		AC2E425C1CE6E5F600027BCD /* LessonDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonDateModel.h; sourceTree = "<group>"; };
+		AC2E425D1CE6E5F600027BCD /* LessonDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonDateModel.m; sourceTree = "<group>"; };
 		AC2E6C7F1CCDC422008E6D52 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC2E6C801CCDC422008E6D52 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		AC2E6C841CCDC531008E6D52 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
@@ -325,25 +335,20 @@
 		AC7AF3E61CE38CA800F69110 /* InformationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewModel.h; sourceTree = "<group>"; };
 		AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualViewModel.m; sourceTree = "<group>"; };
 		AC7AF3E81CE38CA800F69110 /* IndividualViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualViewModel.h; sourceTree = "<group>"; };
-		ACA11B4A1CD737BD000196E1 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
-		ACA11B4C1CD73955000196E1 /* Scheme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scheme.storyboard; sourceTree = "<group>"; };
-		ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Measurement.storyboard; sourceTree = "<group>"; };
-		ACA11B501CD73B65000196E1 /* Exercise.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
-		ACA11B581CD73D6F000196E1 /* MeasurementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasurementViewController.h; sourceTree = "<group>"; };
-		ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasurementViewController.m; sourceTree = "<group>"; };
-		ACA11B5B1CD73DA7000196E1 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
-		ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
-		ACA11B5E1CD73DC6000196E1 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
-		ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
-		ACA11B611CD73DEC000196E1 /* SchemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchemeViewController.h; sourceTree = "<group>"; };
-		ACA11B621CD73DEC000196E1 /* SchemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchemeViewController.m; sourceTree = "<group>"; };
-		ACA11B641CD73E9E000196E1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ACA82B611CCE37A5005A6A12 /* LiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRegisterViewController.h; sourceTree = "<group>"; };
 		ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRegisterViewController.m; sourceTree = "<group>"; };
 		ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveRegisterViewController.xib; sourceTree = "<group>"; };
 		ACA82B6F1CCE602F005A6A12 /* WatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchViewController.h; sourceTree = "<group>"; };
 		ACA82B701CCE602F005A6A12 /* WatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchViewController.m; sourceTree = "<group>"; };
 		ACA82B721CCE61CF005A6A12 /* WatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchViewController.xib; sourceTree = "<group>"; };
+		ACB9475F1CE5FCDD009FA179 /* PreorderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreorderViewModel.h; sourceTree = "<group>"; };
+		ACB947601CE5FCDD009FA179 /* PreorderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreorderViewModel.m; sourceTree = "<group>"; };
+		ACB947621CE6008E009FA179 /* LessonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonModel.h; sourceTree = "<group>"; };
+		ACB947631CE6008E009FA179 /* LessonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonModel.m; sourceTree = "<group>"; };
+		ACBE21731CE498F000F2A912 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
+		ACBE21741CE498F000F2A912 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
+		ACBE21761CE49E7300F2A912 /* TeacherViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherViewModel.h; sourceTree = "<group>"; };
+		ACBE21771CE49E7300F2A912 /* TeacherViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,12 +528,12 @@
 				30FD1EE01CE0B3AB003C91A5 /* WXPreorderResultViewController.h */,
 				30FD1EE11CE0B3AB003C91A5 /* WXPreorderResultViewController.m */,
 				30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */,
+				30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */,
 				30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */,
 				30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */,
 				30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */,
 				30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */,
 				30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */,
-				30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */,
 				30FD1F531CE1C233003C91A5 /* WXRankViewController.h */,
 				30FD1F541CE1C233003C91A5 /* WXRankViewController.m */,
 				30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */,
@@ -655,6 +660,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC1B06521CE4299F00C0E9B3 /* exercise */ = {
+			isa = PBXGroup;
+			children = (
+				AC1B065A1CE479AA00C0E9B3 /* VideoViewModel.h */,
+				AC1B065B1CE479AA00C0E9B3 /* VideoViewModel.m */,
+				ACBE21761CE49E7300F2A912 /* TeacherViewModel.h */,
+				ACBE21771CE49E7300F2A912 /* TeacherViewModel.m */,
+				ACB9475F1CE5FCDD009FA179 /* PreorderViewModel.h */,
+				ACB947601CE5FCDD009FA179 /* PreorderViewModel.m */,
+			);
+			path = exercise;
+			sourceTree = "<group>";
+		};
+		AC1B06561CE42BC500C0E9B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC1B06571CE42C1800C0E9B3 /* VideoModel.h */,
+				AC1B06581CE42C1800C0E9B3 /* VideoModel.m */,
+				ACBE21731CE498F000F2A912 /* TeacherModel.h */,
+				ACBE21741CE498F000F2A912 /* TeacherModel.m */,
+				ACB947621CE6008E009FA179 /* LessonModel.h */,
+				ACB947631CE6008E009FA179 /* LessonModel.m */,
+				AC2E425C1CE6E5F600027BCD /* LessonDateModel.h */,
+				AC2E425D1CE6E5F600027BCD /* LessonDateModel.m */,
+				AC2E42581CE6B2D800027BCD /* LessonTimeModel.h */,
+				AC2E42591CE6B2D800027BCD /* LessonTimeModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AC2E6C7D1CCDC3FF008E6D52 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +699,8 @@
 				AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */,
 				AC2E6C9B1CCDD964008E6D52 /* NetworkFetcher+Account.h */,
 				AC2E6C9C1CCDD964008E6D52 /* NetworkFetcher+Account.m */,
+				AC1B064F1CE4274300C0E9B3 /* NetworkFetcher+Exercise.h */,
+				AC1B06501CE4274300C0E9B3 /* NetworkFetcher+Exercise.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -796,6 +833,7 @@
 		AC3344D31CCD1D06009C7323 /* PersistenceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC1B06561CE42BC500C0E9B3 /* Model */,
 				AC2E6C8B1CCDC591008E6D52 /* CoreData */,
 			);
 			path = PersistenceLayer;
@@ -817,11 +855,6 @@
 			isa = PBXGroup;
 			children = (
 				30B602451CD83F32003ED671 /* ui */,
-				ACA11B571CD73D14000196E1 /* measurement */,
-				ACA11B561CD73CF2000196E1 /* exercise */,
-				ACA11B551CD73CC0000196E1 /* scheme */,
-				ACA11B541CD73CAD000196E1 /* account */,
-				ACA11B481CD736E9000196E1 /* storyboard */,
 				ACA82B6E1CCE6019005A6A12 /* watch */,
 				AC2E6CC41CCDF9E0008E6D52 /* live */,
 				AC3344D61CCD1D87009C7323 /* appDelegate */,
@@ -856,57 +889,10 @@
 		AC7B3AE11CDF5AFD0039C2A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AC1B06521CE4299F00C0E9B3 /* exercise */,
 				AC7AF3DF1CE38C9000F69110 /* account */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		ACA11B481CD736E9000196E1 /* storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				ACA11B641CD73E9E000196E1 /* Main.storyboard */,
-				ACA11B4A1CD737BD000196E1 /* Account.storyboard */,
-				ACA11B4C1CD73955000196E1 /* Scheme.storyboard */,
-				ACA11B4E1CD73B15000196E1 /* Measurement.storyboard */,
-				ACA11B501CD73B65000196E1 /* Exercise.storyboard */,
-			);
-			path = storyboard;
-			sourceTree = "<group>";
-		};
-		ACA11B541CD73CAD000196E1 /* account */ = {
-			isa = PBXGroup;
-			children = (
-				ACA11B5E1CD73DC6000196E1 /* AccountViewController.h */,
-				ACA11B5F1CD73DC6000196E1 /* AccountViewController.m */,
-			);
-			path = account;
-			sourceTree = "<group>";
-		};
-		ACA11B551CD73CC0000196E1 /* scheme */ = {
-			isa = PBXGroup;
-			children = (
-				ACA11B611CD73DEC000196E1 /* SchemeViewController.h */,
-				ACA11B621CD73DEC000196E1 /* SchemeViewController.m */,
-			);
-			path = scheme;
-			sourceTree = "<group>";
-		};
-		ACA11B561CD73CF2000196E1 /* exercise */ = {
-			isa = PBXGroup;
-			children = (
-				ACA11B5B1CD73DA7000196E1 /* ExerciseViewController.h */,
-				ACA11B5C1CD73DA7000196E1 /* ExerciseViewController.m */,
-			);
-			path = exercise;
-			sourceTree = "<group>";
-		};
-		ACA11B571CD73D14000196E1 /* measurement */ = {
-			isa = PBXGroup;
-			children = (
-				ACA11B581CD73D6F000196E1 /* MeasurementViewController.h */,
-				ACA11B591CD73D6F000196E1 /* MeasurementViewController.m */,
-			);
-			path = measurement;
 			sourceTree = "<group>";
 		};
 		ACA82B6E1CCE6019005A6A12 /* watch */ = {
@@ -988,7 +974,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACA11B4F1CD73B15000196E1 /* Measurement.storyboard in Resources */,
 				30FD1F921CE21FC7003C91A5 /* pic4.jpg in Resources */,
 				30FD1F951CE21FC7003C91A5 /* pic7.jpg in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
@@ -1009,12 +994,9 @@
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
-				ACA11B651CD73E9E000196E1 /* Main.storyboard in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
-				ACA11B511CD73B65000196E1 /* Exercise.storyboard in Resources */,
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
-				ACA11B4D1CD73955000196E1 /* Scheme.storyboard in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
 				30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */,
@@ -1025,7 +1007,6 @@
 				30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */,
 				30FD1F8D1CE21FC7003C91A5 /* pbg.jpg in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
-				ACA11B4B1CD737BD000196E1 /* Account.storyboard in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
 				30FD1FC71CE32D43003C91A5 /* WXHighGradeViewController.xib in Resources */,
 				30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */,
@@ -1094,12 +1075,12 @@
 			files = (
 				30FD1F761CE21247003C91A5 /* SDBrowserImageView.m in Sources */,
 				30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */,
+				AC1B06511CE4274300C0E9B3 /* NetworkFetcher+Exercise.m in Sources */,
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
-				ACA11B5A1CD73D6F000196E1 /* MeasurementViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
 				30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */,
 				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
@@ -1111,8 +1092,9 @@
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
 				30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */,
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
-				ACA11B631CD73DEC000196E1 /* SchemeViewController.m in Sources */,
 				AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */,
+				ACBE21751CE498F000F2A912 /* TeacherModel.m in Sources */,
+				AC2E425A1CE6B2D800027BCD /* LessonTimeModel.m in Sources */,
 				ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */,
 				AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */,
 				30FD1F781CE21247003C91A5 /* SDWaitingView.m in Sources */,
@@ -1121,19 +1103,21 @@
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
 				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
 				AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */,
+				AC1B06591CE42C1800C0E9B3 /* VideoModel.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
-				ACA11B601CD73DC6000196E1 /* AccountViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
 				AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
+				ACB947641CE6008E009FA179 /* LessonModel.m in Sources */,
 				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,
 				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
+				AC1B065C1CE479AA00C0E9B3 /* VideoViewModel.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
-				ACA11B5D1CD73DA7000196E1 /* ExerciseViewController.m in Sources */,
 				30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */,
+				AC2E425E1CE6E5F600027BCD /* LessonDateModel.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
@@ -1146,6 +1130,7 @@
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
+				ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */,
 				AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
 				30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */,
@@ -1158,6 +1143,7 @@
 				30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */,
 				30B602901CD87510003ED671 /* ActionSheetDistancePicker.m in Sources */,
 				AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */,
+				ACBE21781CE49E7300F2A912 /* TeacherViewModel.m in Sources */,
 				AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

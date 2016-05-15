@@ -8,12 +8,20 @@
 
 #import "WXTeacherInformationViewController.h"
 #import "WXPreorderCourseViewController.h"
+#import "TeacherModel.h"
 
 @interface WXTeacherInformationViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *preorderButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *hour;
+@property (weak, nonatomic) IBOutlet UILabel *valuation;
+@property (weak, nonatomic) IBOutlet UILabel *booking;
+@property (weak, nonatomic) IBOutlet UILabel *describe;
+
+
 
 @end
 
@@ -48,7 +56,14 @@
     self.iconView.layer.borderWidth = 2;
     self.iconView.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     
-    NSString *labelText = @"写实画法，构图完整，造型准确，结构严谨，刻画分表现生动，整体感强写实画法，构图完整，造型准确，结构严谨，刻画分表现生动，整体感强。";
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:self.teacherModel.avatar]];
+    self.describe.text = self.teacherModel.describe;
+    self.name.text = self.teacherModel.name;
+    self.hour.text = [NSString stringWithFormat:@"已授%@课时", self.teacherModel.hour];
+    self.valuation.text = self.teacherModel.valuation;
+    self.booking.text = [NSString stringWithFormat:@"预约%@次", self.teacherModel.booking];
+    
+    NSString *labelText = self.teacherModel.introduce;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:5];//调整行间距
@@ -56,13 +71,17 @@
     self.introduceLabel.attributedText = attributedString;
     [self.introduceLabel sizeToFit];
     
+    @weakify(self)
     [self.preorderButton bk_whenTapped:^{
+        @strongify(self)
         WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+        vc.teacherID = self.teacherModel.identifier;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     
     self.backButton.userInteractionEnabled = YES;
     [self.backButton bk_whenTapped:^{
+        @strongify(self)
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

@@ -10,4 +10,15 @@
 
 @interface WXSelectTimeCell : UITableViewCell
 
+@property (nonatomic, strong) NSMutableArray *dateArray;
+@property (nonatomic, strong) NSMutableArray *timeArray;
+@property (nonatomic, strong) RACSubject *dateObject;
+@property (nonatomic, strong) RACSubject *timeObject;
+
+- (void)updateCell;
+
+- (void)clearTime;
+
+- (void)clearDateAndTime;
+
 @end

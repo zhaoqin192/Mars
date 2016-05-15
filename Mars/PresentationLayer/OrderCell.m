@@ -8,20 +8,14 @@
 
 #import "OrderCell.h"
 
-@interface OrderCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-
-@end
-
 @implementation OrderCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.iconView.layer.cornerRadius = self.iconView.width/2;
-    self.iconView.layer.masksToBounds = YES;
-    self.iconView.backgroundColor = [UIColor grayColor];
-    self.nameLabel.textColor = WXTextBlackColor;
+    self.avatar.layer.cornerRadius = self.avatar.width/2;
+    self.avatar.layer.masksToBounds = YES;
+    self.avatar.backgroundColor = [UIColor grayColor];
+    self.name.textColor = WXTextBlackColor;
 }
 
 @end

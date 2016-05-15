@@ -21,7 +21,9 @@
     self.navigationItem.title = @"结束考试";
     self.orderButton.layer.cornerRadius = self.orderButton.height/2;
     self.orderButton.layer.masksToBounds = YES;
+    @weakify(self)
     [self.orderButton bk_whenTapped:^{
+        @strongify(self)
         WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
@@ -31,6 +33,7 @@
     [commitButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     commitButton.frame = CGRectMake(0, 0, 40, 30);
     [commitButton bk_whenTapped:^{
+        @strongify(self)
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];

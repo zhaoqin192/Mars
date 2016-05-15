@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,9 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXTeacherInformationViewController">
             <connections>
                 <outlet property="backButton" destination="Xlw-u0-vxo" id="Pjn-SZ-8H9"/>
+                <outlet property="booking" destination="das-2B-PPP" id="RGW-68-3ea"/>
+                <outlet property="describe" destination="NCB-R8-Kn5" id="qi9-Bd-diX"/>
+                <outlet property="hour" destination="bfM-mJ-RAm" id="8iG-Qv-mgP"/>
                 <outlet property="iconView" destination="6V7-AA-HT0" id="r6u-oW-huV"/>
                 <outlet property="introduceLabel" destination="SrM-ML-4YZ" id="svO-cM-4AE"/>
+                <outlet property="name" destination="OKd-mL-Ppy" id="M6T-fI-ZZf"/>
                 <outlet property="preorderButton" destination="mLa-iU-cHg" id="jc7-Js-W2v"/>
+                <outlet property="valuation" destination="utO-2I-Z6A" id="eQ1-Cc-wUr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

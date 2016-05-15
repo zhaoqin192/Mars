@@ -9,9 +9,12 @@
 #import "WXOrderViewController.h"
 #import "OrderCell.h"
 #import "WXTeacherInformationViewController.h"
+#import "TeacherViewModel.h"
+#import "TeacherModel.h"
 
 @interface WXOrderViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
+@property (nonatomic, strong) TeacherViewModel *viewModel;
 @end
 
 @implementation WXOrderViewController
@@ -19,12 +22,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureCollectionView];
+    
+    [self bindViewModel];
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.viewModel fetchCachedTeacherArray];
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [self.viewModel cachedTeacherArray];
+    
+}
+
+- (void)bindViewModel {
+    self.viewModel = [[TeacherViewModel alloc] init];
+    
+    @weakify(self)
+    [self.viewModel.teacherSuccessObject subscribeNext:^(id x) {
+        @strongify(self)
+        [self.myCollectionView reloadData];
+    }];
+    
+    [self.viewModel.teacherFailureObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+}
+
 
 - (void)configureCollectionView {
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
     [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OrderCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([OrderCell class])];
+    @weakify(self)
     UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
         if (self.rightSwipe) {
             self.rightSwipe();
         }
@@ -37,12 +77,16 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    return [self.viewModel.teacherArray count];;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TeacherModel *model = [self.viewModel.teacherArray objectAtIndex:indexPath.row];
     OrderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([OrderCell class]) forIndexPath:indexPath];
+    [cell.avatar sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
+    
+    cell.name.text = model.name;
     return cell;
 }
 
@@ -52,12 +96,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     WXTeacherInformationViewController *vc = [[WXTeacherInformationViewController alloc] init];
+    vc.teacherModel = [self.viewModel.teacherArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
-
-
-
 
 @end

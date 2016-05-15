@@ -10,10 +10,16 @@
 #import "PreOrderCourseCell.h"
 #import "WXSelectTimeCell.h"
 #import "WXPreorderResultViewController.h"
+#import "PreorderViewModel.h"
+#import "LessonModel.h"
+#import "LessonDateModel.h"
+#import "LessonTimeModel.h"
 
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) PreOrderCourseCell *selectCell;
+@property (nonatomic, strong) PreorderViewModel *viewModel;
+
 @end
 
 @implementation WXPreorderCourseViewController
@@ -22,6 +28,8 @@
     [super viewDidLoad];
     [self configureNavigationBar];
     [self configureTableView];
+    
+    [self bindViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -34,13 +42,36 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
+- (void)bindViewModel {
+    self.viewModel = [[PreorderViewModel alloc] init];
+    
+    @weakify(self)
+    [self.viewModel.successObject subscribeNext:^(id x) {
+        @strongify(self)
+        [self.myTableView reloadData];
+    }];
+    
+    [self.viewModel.failureObject subscribeNext:^(id x) {
+        
+    }];
+    
+    [self.viewModel.errorObject subscribeNext:^(id x) {
+        
+    }];
+    
+    [self.viewModel fetcheTeacherLesson:self.teacherID];
+    
+}
+
 - (void)configureNavigationBar {
     self.navigationItem.title = @"预约课程";
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [registerButton setTitle:@"提交" forState:UIControlStateNormal];
     [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, 0, 40, 30);
+    @weakify(self)
     [registerButton bk_whenTapped:^{
+        @strongify(self)
         WXPreorderResultViewController *vc = [[WXPreorderResultViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
@@ -62,12 +93,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return 2;
+            return [self.viewModel.lessonModelArray count];
             break;
         case 1:
             return 2;
+            break;
         case 2:
             return 1;
+            break;
     }
     return 0;
 }
@@ -75,19 +108,43 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         WXSelectTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([WXSelectTimeCell class])];
+        cell.dateArray = self.viewModel.lessonDateModelArray;
+        cell.timeArray = self.viewModel.lessonTimeModelArray;
+        [cell clearDateAndTime];
+        [cell updateCell];
+        @weakify(self)
+        [cell.timeObject subscribeNext:^(LessonTimeModel *model) {
+            @strongify(self)
+            self.viewModel.lessonTimeModel = model;
+        }];
+        @weakify(cell)
+        [cell.dateObject subscribeNext:^(LessonDateModel *model) {
+            @strongify(self)
+            @strongify(cell)
+            self.viewModel.lessonDateModel = model;
+            self.viewModel.lessonTimeModelArray = model.lessonTimeModelArray;
+            [cell clearTime];
+            [cell updateCell];
+            
+            
+//            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+//            [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+        }];
+        
         return cell;
     }
     else {
         if (indexPath.section == 0) {
+            LessonModel *lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
             PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
+            cell.contentLabel.text = lessonModel.name;
             return cell;
-        }
-        else {
+        } else {
             PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
             if (indexPath.row == 0) {
                 cell.contentLabel.text = @"手机号码：18810465931";
-            }
-            else {
+            } else {
                 cell.contentLabel.text = @"姓名：夏苒苒";
             }
             return cell;
@@ -131,7 +188,7 @@
     return view;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         return nil;
     }
@@ -147,6 +204,13 @@
         self.selectCell.isSelect = !self.selectCell.isSelect;
         self.selectCell = cell;
         cell.isSelect = !cell.isSelect;
+        self.viewModel.lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
+        self.viewModel.lessonDateModelArray = self.viewModel.lessonModel.lessonDateArray;
+        self.viewModel.lessonDateModel = [self.viewModel.lessonDateModelArray objectAtIndex:0];
+        self.viewModel.lessonTimeModelArray = self.viewModel.lessonDateModel.lessonTimeModelArray;
+        self.viewModel.lessonTimeModel = [self.viewModel.lessonTimeModelArray objectAtIndex:0];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+        [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
