@@ -5,11 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXVideoViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCategoryTestViewController">
             <connections>
-                <outlet property="courseButton" destination="LdL-Kr-tPZ" id="ToB-K8-V8R"/>
-                <outlet property="myTableView" destination="g6J-Ug-YpT" id="PrD-bh-KjG"/>
-                <outlet property="videoButton" destination="Mzv-8p-hZH" id="y0X-tY-OqH"/>
+                <outlet property="boostTestButton" destination="Mzv-8p-hZH" id="iAf-Ft-uvc"/>
+                <outlet property="myTableView" destination="g6J-Ug-YpT" id="Met-XR-F48"/>
+                <outlet property="simulateTestButton" destination="wlb-KE-PBn" id="WbC-5a-Exk"/>
+                <outlet property="unitTestButton" destination="LdL-Kr-tPZ" id="BGa-Wa-aFU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,7 +32,7 @@
                         <constraint firstAttribute="width" constant="70" id="8td-EY-Bck"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="课程讲解"/>
+                    <state key="normal" title="单元测"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzv-8p-hZH">
                     <rect key="frame" x="100" y="12" width="70" height="27"/>
@@ -39,16 +40,25 @@
                         <constraint firstAttribute="width" constant="70" id="h9i-7M-TlR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="高分视频"/>
+                    <state key="normal" title="进阶测"/>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6J-Ug-YpT">
                     <rect key="frame" x="0.0" y="52" width="375" height="615"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="dMI-Mo-7ci"/>
-                        <outlet property="delegate" destination="-1" id="t8O-2S-YFf"/>
+                        <outlet property="dataSource" destination="-1" id="Mnl-s7-7FT"/>
+                        <outlet property="delegate" destination="-1" id="9oQ-Ct-zVw"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlb-KE-PBn">
+                    <rect key="frame" x="185" y="12" width="70" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="AYl-Gi-1dK"/>
+                        <constraint firstAttribute="width" constant="70" id="yNn-cH-T0I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="模拟考"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -57,6 +67,7 @@
                 <constraint firstItem="ukp-NF-VUg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7vI-Ma-hjr"/>
                 <constraint firstAttribute="trailing" secondItem="ukp-NF-VUg" secondAttribute="trailing" id="ARq-lP-jLL"/>
                 <constraint firstAttribute="bottom" secondItem="g6J-Ug-YpT" secondAttribute="bottom" id="Cc7-6n-7cC"/>
+                <constraint firstItem="wlb-KE-PBn" firstAttribute="centerY" secondItem="Mzv-8p-hZH" secondAttribute="centerY" id="F9R-Wb-WVq"/>
                 <constraint firstItem="ukp-NF-VUg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="IPh-ea-ObB"/>
                 <constraint firstItem="g6J-Ug-YpT" firstAttribute="top" secondItem="ukp-NF-VUg" secondAttribute="bottom" constant="1" id="MEZ-aY-ggW"/>
                 <constraint firstItem="Mzv-8p-hZH" firstAttribute="centerY" secondItem="LdL-Kr-tPZ" secondAttribute="centerY" id="NoM-EJ-MMO"/>
@@ -64,6 +75,7 @@
                 <constraint firstItem="Mzv-8p-hZH" firstAttribute="leading" secondItem="LdL-Kr-tPZ" secondAttribute="trailing" constant="15" id="YYM-bj-jz2"/>
                 <constraint firstItem="LdL-Kr-tPZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="e6b-ok-9b1"/>
                 <constraint firstAttribute="trailing" secondItem="g6J-Ug-YpT" secondAttribute="trailing" id="fD5-J9-GhI"/>
+                <constraint firstItem="wlb-KE-PBn" firstAttribute="leading" secondItem="Mzv-8p-hZH" secondAttribute="trailing" constant="15" id="rK2-dq-L7u"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

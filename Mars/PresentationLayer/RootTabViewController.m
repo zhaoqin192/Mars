@@ -11,7 +11,7 @@
 #import "testViewController.h"
 #import "WXMeViewController.h"
 #import "WXExercisesViewController.h"
-
+#import "WXTestViewController.h"
 
 @interface RootTabViewController ()
 
@@ -32,13 +32,14 @@
     UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
     WXExercisesViewController *exercisesVC = [[WXExercisesViewController alloc] init];
     UINavigationController *exercisesNVC = [[UINavigationController alloc] initWithRootViewController:exercisesVC];
+    WXTestViewController *testVC = [[WXTestViewController alloc] init];
+    UINavigationController *testNVC = [[UINavigationController alloc] initWithRootViewController:testVC];
     
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
-    testViewController *test = [[testViewController alloc] init];
     
-    [self setViewControllers:@[vvc,test,exercisesNVC,meNVC]];
+    [self setViewControllers:@[vvc,testNVC,exercisesNVC,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
