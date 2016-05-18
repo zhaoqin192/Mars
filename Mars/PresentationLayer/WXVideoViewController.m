@@ -129,10 +129,14 @@
     if (select) {
         [button setTitleColor:WXTextBlackColor forState:UIControlStateNormal];
         [button setTitleColor:WXTextBlackColor forState:UIControlStateHighlighted];
+        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
+        imageView.image = [UIImage imageNamed:@"Combined Shape2"];
     }
     else {
         [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateHighlighted];
+        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
+        imageView.image = [UIImage imageNamed:@"Combined Shape"];
     }
 }
 
