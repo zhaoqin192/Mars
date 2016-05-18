@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"练习";
+    self.navigationItem.title = @"知识库";
     [self configureUI];
     [self configureChildController];
     self.navigationItem.backBarButtonItem = ({

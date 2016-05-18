@@ -47,7 +47,7 @@
 - (void)customizeTabBarForController {
     UIImage *backgroundImage = [UIImage imageWithColor:[UIColor colorWithHexString:@"#FFFFFF"]];
     NSArray *tabBarItemImages = @[@"计划", @"测试", @"练习", @"我的"];
-    NSArray *tabBarItemTitles = @[@"计划", @"测试", @"练习", @"我的"];
+    NSArray *tabBarItemTitles = @[@"计划", @"测试", @"知识库", @"我的"];
     
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {

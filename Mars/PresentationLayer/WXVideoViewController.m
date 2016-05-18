@@ -125,44 +125,44 @@
     [self.myTableView addGestureRecognizer:leftSwipe];
 }
 
+- (void)configureButtonSelect:(BOOL)select button:(UIButton *)button {
+    if (select) {
+        [button setTitleColor:WXTextBlackColor forState:UIControlStateNormal];
+        [button setTitleColor:WXTextBlackColor forState:UIControlStateHighlighted];
+    }
+    else {
+        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateHighlighted];
+    }
+}
+
 
 - (void)configureButton {
-    self.selectButton = self.courseButton;
-    [self.courseButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-    self.courseButton.layer.borderWidth = 1;
-    self.courseButton.layer.borderColor = WXGreenColor.CGColor;
+    [self configureButtonSelect:NO button:self.courseButton];
+    [self configureButtonSelect:NO button:self.videoButton];
     
-    @weakify(self)
     [self.courseButton bk_whenTapped:^{
-        @strongify(self)
         if (self.selectButton == self.courseButton) {
-            self.viewModel.videoArray = self.viewModel.courseVideoArray;
-            [self.myTableView reloadData];
-            return ;
+            [self configureButtonSelect:NO button:self.courseButton];
+            self.selectButton = nil;
         }
-        self.selectButton = self.courseButton;
-        [self.courseButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-        self.courseButton.layer.borderColor = WXGreenColor.CGColor;
-        [self.videoButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-        self.videoButton.layer.borderColor = WXLineColor.CGColor;
+        else {
+            self.selectButton = self.courseButton;
+            [self configureButtonSelect:YES button:self.courseButton];
+            [self configureButtonSelect:NO button:self.videoButton];
+        }
     }];
     
-    [self.videoButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-    self.videoButton.layer.borderWidth = 1;
-    self.videoButton.layer.borderColor = WXLineColor.CGColor;
-    
     [self.videoButton bk_whenTapped:^{
-        @strongify(self)
         if (self.selectButton == self.videoButton) {
-//            self.viewModel.videoArray = self.viewModel.remarkableVideoArray;
-//            [self.myTableView reloadData];
-            return ;
+            [self configureButtonSelect:NO button:self.videoButton];
+            self.selectButton = nil;
         }
-        self.selectButton = self.videoButton;
-        [self.videoButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-        self.videoButton.layer.borderColor = WXGreenColor.CGColor;
-        [self.courseButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-        self.courseButton.layer.borderColor = WXLineColor.CGColor;
+        else {
+            self.selectButton = self.videoButton;
+            [self configureButtonSelect:YES button:self.videoButton];
+            [self configureButtonSelect:NO button:self.courseButton];
+        }
     }];
 }
 
