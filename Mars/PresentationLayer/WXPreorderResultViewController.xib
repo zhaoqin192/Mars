@@ -19,28 +19,21 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="结束考试card素材" translatesAutoresizingMaskIntoConstraints="NO" id="4Mh-vz-XAK">
                     <rect key="frame" x="10" y="76" width="355" height="511"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="结束考试_图形" translatesAutoresizingMaskIntoConstraints="NO" id="BzV-PD-0tH">
-                    <rect key="frame" x="89" y="166" width="197" height="90"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="90" id="qPx-8x-1UY"/>
-                        <constraint firstAttribute="width" constant="197" id="yr9-ZC-K8G"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约申请成功！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFH-o1-PqL">
-                    <rect key="frame" x="128" y="301" width="119" height="21"/>
+                    <rect key="frame" x="128" y="166" width="119" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.28235294117647058" green="0.89411764705882346" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稍后我们的客服将与您联系" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZM-3y-pte">
-                    <rect key="frame" x="91" y="337" width="192" height="20"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <rect key="frame" x="85" y="202" width="204" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您保持通讯设备畅通" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd7-L9-lfA">
-                    <rect key="frame" x="107" y="362" width="160" height="20"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <rect key="frame" x="102" y="228" width="170" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -55,35 +48,62 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您也可以关注我们的微信客服账号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKa-fZ-XP1">
+                    <rect key="frame" x="98" y="287" width="180" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清艺艺考" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2j-iN-Wny">
+                    <rect key="frame" x="154" y="427" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4MQ-qW-Nvs">
+                    <rect key="frame" x="138" y="317" width="100" height="100"/>
+                    <color key="backgroundColor" red="0.74117647060000003" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="aQx-Vu-EXD"/>
+                        <constraint firstAttribute="height" constant="100" id="l1r-t9-Q5x"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="4Mh-vz-XAK" secondAttribute="bottom" constant="80" id="22F-wb-6bW"/>
-                <constraint firstItem="BzV-PD-0tH" firstAttribute="top" secondItem="4Mh-vz-XAK" secondAttribute="top" constant="90" id="9aG-zi-VU4"/>
+                <constraint firstItem="RFH-o1-PqL" firstAttribute="top" secondItem="4Mh-vz-XAK" secondAttribute="top" constant="90" id="4ZR-N4-8yu"/>
+                <constraint firstItem="lKa-fZ-XP1" firstAttribute="top" secondItem="Nd7-L9-lfA" secondAttribute="bottom" constant="38" id="Cki-Kk-osb"/>
                 <constraint firstItem="4Mh-vz-XAK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Cs6-mS-HIl"/>
+                <constraint firstItem="yZM-3y-pte" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F40-Kq-g3j"/>
                 <constraint firstItem="yZM-3y-pte" firstAttribute="centerX" secondItem="RFH-o1-PqL" secondAttribute="centerX" id="FrY-dA-AWF"/>
+                <constraint firstItem="4MQ-qW-Nvs" firstAttribute="top" secondItem="lKa-fZ-XP1" secondAttribute="bottom" constant="15" id="IXr-FP-lou"/>
                 <constraint firstItem="Nd7-L9-lfA" firstAttribute="top" secondItem="yZM-3y-pte" secondAttribute="bottom" constant="5" id="NFh-fn-ehX"/>
+                <constraint firstItem="y2j-iN-Wny" firstAttribute="top" secondItem="4MQ-qW-Nvs" secondAttribute="bottom" constant="10" id="Ohz-Cs-EQ6"/>
+                <constraint firstItem="4MQ-qW-Nvs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="asg-u1-kcI"/>
                 <constraint firstItem="yZM-3y-pte" firstAttribute="top" secondItem="RFH-o1-PqL" secondAttribute="bottom" constant="15" id="bVx-tH-djI"/>
                 <constraint firstItem="OIM-9p-qXL" firstAttribute="bottom" secondItem="4Mh-vz-XAK" secondAttribute="bottom" constant="-35" id="cKQ-WL-Mzp"/>
                 <constraint firstItem="OIM-9p-qXL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cQT-Lu-3pc"/>
-                <constraint firstItem="RFH-o1-PqL" firstAttribute="top" secondItem="BzV-PD-0tH" secondAttribute="bottom" constant="45" id="dvp-4k-Cfm"/>
+                <constraint firstItem="RFH-o1-PqL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f8Q-Rl-Ytl"/>
                 <constraint firstItem="Nd7-L9-lfA" firstAttribute="centerX" secondItem="yZM-3y-pte" secondAttribute="centerX" id="fLF-Ia-DwY"/>
+                <constraint firstItem="yZM-3y-pte" firstAttribute="top" secondItem="RFH-o1-PqL" secondAttribute="bottom" constant="15" id="gQQ-cL-cuA"/>
                 <constraint firstItem="OIM-9p-qXL" firstAttribute="trailing" secondItem="4Mh-vz-XAK" secondAttribute="trailing" constant="-35" id="gSj-3D-C25"/>
                 <constraint firstItem="4Mh-vz-XAK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="hTm-36-DHr"/>
-                <constraint firstItem="BzV-PD-0tH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iWe-qu-eef"/>
-                <constraint firstItem="RFH-o1-PqL" firstAttribute="centerX" secondItem="BzV-PD-0tH" secondAttribute="centerX" id="ovy-f9-Xbq"/>
+                <constraint firstItem="y2j-iN-Wny" firstAttribute="centerX" secondItem="4MQ-qW-Nvs" secondAttribute="centerX" id="lYi-qb-p1G"/>
+                <constraint firstItem="lKa-fZ-XP1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mwx-lR-hGC"/>
                 <constraint firstAttribute="trailing" secondItem="4Mh-vz-XAK" secondAttribute="trailing" constant="10" id="vcf-AO-9uX"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="FrY-dA-AWF"/>
+                    <exclude reference="bVx-tH-djI"/>
                     <exclude reference="gSj-3D-C25"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
-        <image name="结束考试_图形" width="197" height="90"/>
         <image name="结束考试card素材" width="80" height="158"/>
     </resources>
 </document>
