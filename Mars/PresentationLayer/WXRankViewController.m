@@ -2,58 +2,67 @@
 //  WXRankViewController.m
 //  Mars
 //
-//  Created by 王霄 on 16/5/10.
+//  Created by 王霄 on 16/5/19.
 //  Copyright © 2016年 Muggins_. All rights reserved.
 //
 
 #import "WXRankViewController.h"
-#import "RankVideoCell.h"
-#import "RankPictureCell.h"
-#import "UITableView+SDAutoTableViewCellHeight.h"
-#import "UIView+SDAutoLayout.h"
+#import "RankCCell.h"
 
-@interface WXRankViewController () <UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@interface WXRankViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
+@property (strong, nonatomic)  UICollectionView *myCollectionView;
 @end
 
 @implementation WXRankViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"排行";
-    self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
-    [self configureTableView];
+    self.navigationItem.title = @"排行榜";
+    [self configureCollectionView];
 }
 
-- (void)configureTableView {
-    self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
-    self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([RankVideoCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([RankVideoCell class])];
-    [self.myTableView registerClass:[RankPictureCell class] forCellReuseIdentifier:NSStringFromClass([RankPictureCell class])];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
-#pragma mark - UITableViewDataSource
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (void)configureCollectionView {
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    flowLayout.minimumInteritemSpacing = 15;
+    flowLayout.minimumLineSpacing = 15;
+    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:flowLayout];
+    self.myCollectionView.delegate = self;
+    self.myCollectionView.dataSource = self;
+    self.myCollectionView.backgroundColor = [UIColor whiteColor];
+    [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([RankCCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([RankCCell class])];
+    [self.view addSubview:self.myCollectionView];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section {
     return 10;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < 4) {
-        RankPictureCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RankPictureCell class])];
-        cell.indexPath = indexPath;
-        return cell;
-    }
-    RankVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RankVideoCell class])];
-    cell.indexPath = indexPath;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    RankCCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RankCCell class]) forIndexPath:indexPath];
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < 4) {
-        return 232 + 95 + 95;
-    }
-    return [RankVideoCell cellHeight];
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(165, 200);
 }
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(15, 15, 15, 15);
+}
+
 
 @end

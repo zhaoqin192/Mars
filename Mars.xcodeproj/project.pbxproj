@@ -44,6 +44,10 @@
 		30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018251CE9F8BF00E50B23 /* WXNormalTestViewController.xib */; };
 		30D0182B1CE9F98100E50B23 /* WXCategoryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018291CE9F98100E50B23 /* WXCategoryTestViewController.m */; };
 		30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D0182D1CE9FED400E50B23 /* WXCategoryTestViewController.xib */; };
+		30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018421CED8B2100E50B23 /* WXRankViewController.m */; };
+		30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018431CED8B2100E50B23 /* WXRankViewController.xib */; };
+		30D018491CED8C7600E50B23 /* RankCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018471CED8C7600E50B23 /* RankCCell.m */; };
+		30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018481CED8C7600E50B23 /* RankCCell.xib */; };
 		30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */; };
 		30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */; };
 		30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */; };
@@ -73,8 +77,6 @@
 		30FD1EE41CE0B3AB003C91A5 /* WXPreorderResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EE21CE0B3AB003C91A5 /* WXPreorderResultViewController.xib */; };
 		30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */; };
 		30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */; };
-		30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F541CE1C233003C91A5 /* WXRankViewController.m */; };
-		30FD1F571CE1C233003C91A5 /* WXRankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */; };
 		30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */; };
 		30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */; };
 		30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */; };
@@ -204,6 +206,12 @@
 		30D018281CE9F98100E50B23 /* WXCategoryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryTestViewController.h; sourceTree = "<group>"; };
 		30D018291CE9F98100E50B23 /* WXCategoryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryTestViewController.m; sourceTree = "<group>"; };
 		30D0182D1CE9FED400E50B23 /* WXCategoryTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryTestViewController.xib; sourceTree = "<group>"; };
+		30D018411CED8B2100E50B23 /* WXRankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRankViewController.h; sourceTree = "<group>"; };
+		30D018421CED8B2100E50B23 /* WXRankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankViewController.m; sourceTree = "<group>"; };
+		30D018431CED8B2100E50B23 /* WXRankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRankViewController.xib; sourceTree = "<group>"; };
+		30D018461CED8C7600E50B23 /* RankCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCCell.h; sourceTree = "<group>"; };
+		30D018471CED8C7600E50B23 /* RankCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCCell.m; sourceTree = "<group>"; };
+		30D018481CED8C7600E50B23 /* RankCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankCCell.xib; sourceTree = "<group>"; };
 		30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXExercisesViewController.h; sourceTree = "<group>"; };
 		30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXExercisesViewController.m; sourceTree = "<group>"; };
 		30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXExercisesViewController.xib; sourceTree = "<group>"; };
@@ -248,9 +256,6 @@
 		30FD1EE81CE0D09D003C91A5 /* WXCourseVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCourseVideoViewController.h; sourceTree = "<group>"; };
 		30FD1EE91CE0D09D003C91A5 /* WXCourseVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCourseVideoViewController.m; sourceTree = "<group>"; };
 		30FD1EEA1CE0D09D003C91A5 /* WXCourseVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCourseVideoViewController.xib; sourceTree = "<group>"; };
-		30FD1F531CE1C233003C91A5 /* WXRankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRankViewController.h; sourceTree = "<group>"; };
-		30FD1F541CE1C233003C91A5 /* WXRankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankViewController.m; sourceTree = "<group>"; };
-		30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRankViewController.xib; sourceTree = "<group>"; };
 		30FD1F591CE1C30B003C91A5 /* RankVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankVideoCell.h; sourceTree = "<group>"; };
 		30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankVideoCell.m; sourceTree = "<group>"; };
 		30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankVideoCell.xib; sourceTree = "<group>"; };
@@ -566,9 +571,9 @@
 				30FD1F5E1CE1C826003C91A5 /* WXHighGradeViewController.h */,
 				30FD1F5F1CE1C826003C91A5 /* WXHighGradeViewController.m */,
 				30FD1FC61CE32D43003C91A5 /* WXHighGradeViewController.xib */,
-				30FD1F531CE1C233003C91A5 /* WXRankViewController.h */,
-				30FD1F541CE1C233003C91A5 /* WXRankViewController.m */,
-				30FD1F551CE1C233003C91A5 /* WXRankViewController.xib */,
+				30D018411CED8B2100E50B23 /* WXRankViewController.h */,
+				30D018421CED8B2100E50B23 /* WXRankViewController.m */,
+				30D018431CED8B2100E50B23 /* WXRankViewController.xib */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -593,6 +598,9 @@
 				30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */,
 				30FD1F651CE211AE003C91A5 /* RankPictureCell.h */,
 				30FD1F661CE211AE003C91A5 /* RankPictureCell.m */,
+				30D018461CED8C7600E50B23 /* RankCCell.h */,
+				30D018471CED8C7600E50B23 /* RankCCell.m */,
+				30D018481CED8C7600E50B23 /* RankCCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1023,13 +1031,14 @@
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
-				30FD1F571CE1C233003C91A5 /* WXRankViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
 				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
+				30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */,
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
+				30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */,
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
@@ -1125,7 +1134,6 @@
 				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */,
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
-				30FD1F561CE1C233003C91A5 /* WXRankViewController.m in Sources */,
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
 				AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */,
 				ACBE21751CE498F000F2A912 /* TeacherModel.m in Sources */,
@@ -1158,6 +1166,7 @@
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
 				30B602931CD87510003ED671 /* DistancePickerView.m in Sources */,
+				30D018491CED8C7600E50B23 /* RankCCell.m in Sources */,
 				30D0182B1CE9F98100E50B23 /* WXCategoryTestViewController.m in Sources */,
 				30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
@@ -1167,6 +1176,7 @@
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
+				30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */,
 				ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */,
 				AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
