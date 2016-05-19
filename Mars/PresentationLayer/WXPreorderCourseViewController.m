@@ -17,7 +17,6 @@
 
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (nonatomic, strong) PreOrderCourseCell *selectCell;
 @property (nonatomic, strong) PreorderViewModel *viewModel;
 
 @end
@@ -87,74 +86,54 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return [self.viewModel.lessonModelArray count];
-            break;
-        case 1:
-            return 2;
-            break;
-        case 2:
-            return 1;
-            break;
+    if (section == 0) {
+        return 2;
     }
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         WXSelectTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([WXSelectTimeCell class])];
-        cell.dateArray = self.viewModel.lessonDateModelArray;
-        cell.timeArray = self.viewModel.lessonTimeModelArray;
-        [cell clearDateAndTime];
-        [cell updateCell];
-        @weakify(self)
-        [cell.timeObject subscribeNext:^(LessonTimeModel *model) {
-            @strongify(self)
-            self.viewModel.lessonTimeModel = model;
-        }];
-        @weakify(cell)
-        [cell.dateObject subscribeNext:^(LessonDateModel *model) {
-            @strongify(self)
-            @strongify(cell)
-            self.viewModel.lessonDateModel = model;
-            self.viewModel.lessonTimeModelArray = model.lessonTimeModelArray;
-            [cell clearTime];
-            [cell updateCell];
-            
-            
-//            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-//            [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
-            
-        }];
+//        cell.dateArray = self.viewModel.lessonDateModelArray;
+//        cell.timeArray = self.viewModel.lessonTimeModelArray;
+//        [cell clearDateAndTime];
+//        [cell updateCell];
+//        @weakify(self)
+//        [cell.timeObject subscribeNext:^(LessonTimeModel *model) {
+//            @strongify(self)
+//            self.viewModel.lessonTimeModel = model;
+//        }];
+//        @weakify(cell)
+//        [cell.dateObject subscribeNext:^(LessonDateModel *model) {
+//            @strongify(self)
+//            @strongify(cell)
+//            self.viewModel.lessonDateModel = model;
+//            self.viewModel.lessonTimeModelArray = model.lessonTimeModelArray;
+//            [cell clearTime];
+//            [cell updateCell];
+//        }];
         
         return cell;
     }
     else {
-        if (indexPath.section == 0) {
-            LessonModel *lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
-            PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
-            cell.contentLabel.text = lessonModel.name;
-            return cell;
+        PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
+        if (indexPath.row == 0) {
+            cell.contentLabel.text = @"手机号码：18810465931";
         } else {
-            PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
-            if (indexPath.row == 0) {
-                cell.contentLabel.text = @"手机号码：18810465931";
-            } else {
-                cell.contentLabel.text = @"姓名：夏苒苒";
-            }
-            return cell;
+            cell.contentLabel.text = @"姓名：夏苒苒";
         }
+        return cell;
     }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         return 155;
     }
     return 50;
@@ -177,9 +156,6 @@
     label.frame = CGRectMake(15, 14, kScreenWidth, 12);
     [view addSubview:label];
     if (section == 0) {
-        label.text = @"选择课程";
-    }
-    else if (section == 1) {
         label.text = @"您的联系方式";
     }
     else {
@@ -188,30 +164,16 @@
     return view;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        return nil;
-    }
-    return indexPath;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        PreOrderCourseCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (cell == self.selectCell) {
-            return;
-        }
-        self.selectCell.isSelect = !self.selectCell.isSelect;
-        self.selectCell = cell;
-        cell.isSelect = !cell.isSelect;
-        self.viewModel.lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
-        self.viewModel.lessonDateModelArray = self.viewModel.lessonModel.lessonDateArray;
-        self.viewModel.lessonDateModel = [self.viewModel.lessonDateModelArray objectAtIndex:0];
-        self.viewModel.lessonTimeModelArray = self.viewModel.lessonDateModel.lessonTimeModelArray;
-        self.viewModel.lessonTimeModel = [self.viewModel.lessonTimeModelArray objectAtIndex:0];
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-        [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
+//    if (indexPath.section == 0) {
+//        self.viewModel.lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
+//        self.viewModel.lessonDateModelArray = self.viewModel.lessonModel.lessonDateArray;
+//        self.viewModel.lessonDateModel = [self.viewModel.lessonDateModelArray objectAtIndex:0];
+//        self.viewModel.lessonTimeModelArray = self.viewModel.lessonDateModel.lessonTimeModelArray;
+//        self.viewModel.lessonTimeModel = [self.viewModel.lessonTimeModelArray objectAtIndex:0];
+//        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+//        [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }
 }
 
 @end
