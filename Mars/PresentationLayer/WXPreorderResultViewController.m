@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     self.navigationItem.title = @"结束考试";
     self.orderButton.layer.cornerRadius = self.orderButton.height/2;
     self.orderButton.layer.masksToBounds = YES;

@@ -7,6 +7,7 @@
 //
 
 #import "WXCourseVideoViewController.h"
+#import "WXPreorderCourseViewController.h"
 
 @interface WXCourseVideoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -41,5 +42,9 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
+- (IBAction)orderButtonClicked {
+    WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
