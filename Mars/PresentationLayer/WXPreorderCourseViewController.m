@@ -29,7 +29,7 @@
     [self configureNavigationBar];
     [self configureTableView];
     
-    [self bindViewModel];
+  //  [self bindViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

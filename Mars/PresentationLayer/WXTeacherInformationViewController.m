@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *hour;
-@property (weak, nonatomic) IBOutlet UILabel *valuation;
 @property (weak, nonatomic) IBOutlet UILabel *booking;
 @property (weak, nonatomic) IBOutlet UILabel *describe;
 
@@ -60,7 +59,6 @@
     self.describe.text = self.teacherModel.describe;
     self.name.text = self.teacherModel.name;
     self.hour.text = [NSString stringWithFormat:@"已授%@课时", self.teacherModel.hour];
-    self.valuation.text = self.teacherModel.valuation;
     self.booking.text = [NSString stringWithFormat:@"预约%@次", self.teacherModel.booking];
     
     NSString *labelText = self.teacherModel.introduce;
