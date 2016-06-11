@@ -10,6 +10,8 @@
 		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
 		302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */; };
 		302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */; };
+		302243271D0C5E350054B5E1 /* WXTestTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243251D0C5E350054B5E1 /* WXTestTextFieldCell.m */; };
+		302243281D0C5E350054B5E1 /* WXTestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243261D0C5E350054B5E1 /* WXTestTextFieldCell.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -156,6 +158,9 @@
 		3022431F1D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestNormalCategoryCell.h; sourceTree = "<group>"; };
 		302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestNormalCategoryCell.m; sourceTree = "<group>"; };
 		302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestNormalCategoryCell.xib; sourceTree = "<group>"; };
+		302243241D0C5E350054B5E1 /* WXTestTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestTextFieldCell.h; sourceTree = "<group>"; };
+		302243251D0C5E350054B5E1 /* WXTestTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestTextFieldCell.m; sourceTree = "<group>"; };
+		302243261D0C5E350054B5E1 /* WXTestTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestTextFieldCell.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -417,6 +422,9 @@
 				3022431F1D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.h */,
 				302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */,
 				302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */,
+				302243241D0C5E350054B5E1 /* WXTestTextFieldCell.h */,
+				302243251D0C5E350054B5E1 /* WXTestTextFieldCell.m */,
+				302243261D0C5E350054B5E1 /* WXTestTextFieldCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1052,6 +1060,7 @@
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
+				302243281D0C5E350054B5E1 /* WXTestTextFieldCell.xib in Resources */,
 				30FD1F911CE21FC7003C91A5 /* pic3.jpg in Resources */,
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
@@ -1224,6 +1233,7 @@
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,
 				3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */,
 				30FD1F6D1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m in Sources */,
+				302243271D0C5E350054B5E1 /* WXTestTextFieldCell.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */,

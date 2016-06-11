@@ -134,6 +134,7 @@
 - (void)selectCity:(NSString *)city{
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
     [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self cancel];
 }
 
 - (void)fetchDetail:(NSString *)province city:(NSString *)city district:(NSString *)district{
@@ -216,7 +217,7 @@
                     userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
                     cell.leftButtonName = @"应届";
                     cell.rightButtonName = @"复读";
-                    cell.contentLabel.text = @"年纪";
+                    cell.contentLabel.text = @"年级";
                     cell.delegateSingal = [RACSubject subject];
                     @weakify(self)
                     [cell.delegateSingal subscribeNext:^(NSNumber *message) {
