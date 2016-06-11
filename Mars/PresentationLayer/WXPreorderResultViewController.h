@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXPreorderResultViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isOffLine;
 @end
