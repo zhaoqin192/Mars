@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19FF0166EA5F04FC78716F66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81FF0C4221A00AF484407E /* Pods.framework */; };
+		302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */; };
+		302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -151,6 +153,9 @@
 /* Begin PBXFileReference section */
 		073841563CD7FFD4B1802571 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2D81FF0C4221A00AF484407E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3022431F1D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestNormalCategoryCell.h; sourceTree = "<group>"; };
+		302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestNormalCategoryCell.m; sourceTree = "<group>"; };
+		302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestNormalCategoryCell.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -406,6 +411,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3022431E1D0C3BC10054B5E1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3022431F1D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.h */,
+				302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */,
+				302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +555,7 @@
 		30D0181B1CE9F68600E50B23 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				3022431E1D0C3BC10054B5E1 /* cell */,
 				30D0181C1CE9F6B000E50B23 /* WXTestViewController.h */,
 				30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */,
 				30D018211CE9F6E900E50B23 /* WXTestViewController.xib */,
@@ -1049,6 +1065,7 @@
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
+				302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
@@ -1190,6 +1207,7 @@
 				30D0182B1CE9F98100E50B23 /* WXCategoryTestViewController.m in Sources */,
 				30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */,
 				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,

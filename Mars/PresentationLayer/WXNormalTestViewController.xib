@@ -7,8 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXNormalTestViewController">
             <connections>
-                <outlet property="offLineTestButton" destination="arM-9h-Scd" id="c57-JF-VCi"/>
-                <outlet property="onLineTestButton" destination="hAQ-i3-0t4" id="Q5A-0h-f3r"/>
+                <outlet property="myTableView" destination="VFG-PW-XBf" id="3zp-nw-0jk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,16 +16,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAQ-i3-0t4">
-                    <rect key="frame" x="121" y="217" width="133" height="30"/>
-                    <state key="normal" title="在线测试"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arM-9h-Scd">
-                    <rect key="frame" x="121" y="325" width="133" height="30"/>
-                    <state key="normal" title="线下测试"/>
-                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFG-PW-XBf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5Ri-HA-Z6s"/>
+                        <outlet property="delegate" destination="-1" id="18l-9T-xNf"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VFG-PW-XBf" secondAttribute="trailing" id="bK2-Su-Pba"/>
+                <constraint firstItem="VFG-PW-XBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gXh-cu-ovk"/>
+                <constraint firstAttribute="bottom" secondItem="VFG-PW-XBf" secondAttribute="bottom" id="hJy-b1-ccA"/>
+                <constraint firstItem="VFG-PW-XBf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xHR-Dy-Ryb"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="270.5" y="396.5"/>
         </view>

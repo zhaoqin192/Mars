@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
+   // self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self configureUI];
     [self configureChildController];
     self.navigationItem.backBarButtonItem = ({
@@ -87,7 +88,7 @@
         leftLine.hidden = NO;
         UIImageView *rightLine = [self.view viewWithTag:11];
         rightLine.hidden = YES;
-        self.normalVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
+        self.normalVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
         [self.view addSubview:self.normalVC.view];
     }
     else {
@@ -101,7 +102,7 @@
         rightLine.hidden = NO;
         UIImageView *leftLine = [self.view viewWithTag:10];
         leftLine.hidden = YES;
-        self.categoryVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115);
+        self.categoryVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
         [self.view addSubview:self.categoryVC.view];
     }
 }
