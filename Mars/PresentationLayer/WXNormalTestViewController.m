@@ -8,6 +8,7 @@
 
 #import "WXNormalTestViewController.h"
 #import "WXTestOffLineViewController.h"
+#import "WXTestOnLineViewController.h"
 
 @interface WXNormalTestViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *onLineTestButton;
@@ -25,6 +26,11 @@
 - (void)configureButton {
     [self.offLineTestButton bk_whenTapped:^{
         WXTestOffLineViewController *vc = [[WXTestOffLineViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    [self.onLineTestButton bk_whenTapped:^{
+        WXTestOnLineViewController *vc = [[WXTestOnLineViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

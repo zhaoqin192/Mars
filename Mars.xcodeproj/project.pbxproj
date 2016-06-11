@@ -50,6 +50,8 @@
 		30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018481CED8C7600E50B23 /* RankCCell.xib */; };
 		30D0184E1CEDAC6200E50B23 /* WXTestOffLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */; };
 		30D0184F1CEDAC6200E50B23 /* WXTestOffLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */; };
+		30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */; };
+		30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */; };
 		30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */; };
 		30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */; };
 		30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */; };
@@ -217,6 +219,9 @@
 		30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOffLineViewController.h; sourceTree = "<group>"; };
 		30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOffLineViewController.m; sourceTree = "<group>"; };
 		30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOffLineViewController.xib; sourceTree = "<group>"; };
+		30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnLineViewController.h; sourceTree = "<group>"; };
+		30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnLineViewController.m; sourceTree = "<group>"; };
+		30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOnLineViewController.xib; sourceTree = "<group>"; };
 		30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXExercisesViewController.h; sourceTree = "<group>"; };
 		30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXExercisesViewController.m; sourceTree = "<group>"; };
 		30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXExercisesViewController.xib; sourceTree = "<group>"; };
@@ -547,6 +552,9 @@
 				30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */,
 				30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */,
 				30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */,
+				30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */,
+				30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */,
+				30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -1034,6 +1042,7 @@
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
+				30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */,
 				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
 				30D0184F1CEDAC6200E50B23 /* WXTestOffLineViewController.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
@@ -1132,6 +1141,7 @@
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
+				30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
