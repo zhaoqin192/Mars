@@ -10,6 +10,7 @@
 #import "WXTestOffLineViewController.h"
 #import "WXTestOnLineViewController.h"
 #import "WXTestNormalCategoryCell.h"
+#import "WXTestEntertainmentViewController.h"
 
 @interface WXNormalTestViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -31,7 +32,7 @@
             self.leftSwipe();
         }
     }];
-    leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.myTableView addGestureRecognizer:leftSwipe];
 }
 
@@ -48,7 +49,8 @@
             cell.contentLabel.text = @"趣味测试题";
             cell.detailContentLabel.text = @"一分钟判定你的天赋在哪里~";
             cell.buttonClicked = ^{
-                NSLog(@"quwei");
+                WXTestEntertainmentViewController *vc = [[WXTestEntertainmentViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             };
             break;
         }

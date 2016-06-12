@@ -88,7 +88,7 @@
             self.rightSwipe();
         }
     }];
-    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.myTableView addGestureRecognizer:leftSwipe];
 }
 

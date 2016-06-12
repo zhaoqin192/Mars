@@ -14,6 +14,8 @@
 		302243281D0C5E350054B5E1 /* WXTestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243261D0C5E350054B5E1 /* WXTestTextFieldCell.xib */; };
 		3022432C1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */; };
 		3022432D1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */; };
+		302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */; };
+		302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -166,6 +168,9 @@
 		302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnLineResultViewController.h; sourceTree = "<group>"; };
 		3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnLineResultViewController.m; sourceTree = "<group>"; };
 		3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOnLineResultViewController.xib; sourceTree = "<group>"; };
+		302243311D0CFB590054B5E1 /* WXTestEntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestEntertainmentViewController.h; sourceTree = "<group>"; };
+		302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestEntertainmentViewController.m; sourceTree = "<group>"; };
+		302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestEntertainmentViewController.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -434,6 +439,38 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		3022432F1D0CFB260054B5E1 /* normalTest */ = {
+			isa = PBXGroup;
+			children = (
+				30D018231CE9F8BF00E50B23 /* WXNormalTestViewController.h */,
+				30D018241CE9F8BF00E50B23 /* WXNormalTestViewController.m */,
+				30D018251CE9F8BF00E50B23 /* WXNormalTestViewController.xib */,
+				30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */,
+				30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */,
+				30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */,
+				30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */,
+				30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */,
+				30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */,
+				302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */,
+				3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */,
+				3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */,
+				302243311D0CFB590054B5E1 /* WXTestEntertainmentViewController.h */,
+				302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */,
+				302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */,
+			);
+			name = normalTest;
+			sourceTree = "<group>";
+		};
+		302243301D0CFB340054B5E1 /* categoryTest */ = {
+			isa = PBXGroup;
+			children = (
+				30D018281CE9F98100E50B23 /* WXCategoryTestViewController.h */,
+				30D018291CE9F98100E50B23 /* WXCategoryTestViewController.m */,
+				30D0182D1CE9FED400E50B23 /* WXCategoryTestViewController.xib */,
+			);
+			name = categoryTest;
+			sourceTree = "<group>";
+		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,21 +609,8 @@
 				30D0181C1CE9F6B000E50B23 /* WXTestViewController.h */,
 				30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */,
 				30D018211CE9F6E900E50B23 /* WXTestViewController.xib */,
-				30D018231CE9F8BF00E50B23 /* WXNormalTestViewController.h */,
-				30D018241CE9F8BF00E50B23 /* WXNormalTestViewController.m */,
-				30D018251CE9F8BF00E50B23 /* WXNormalTestViewController.xib */,
-				30D018281CE9F98100E50B23 /* WXCategoryTestViewController.h */,
-				30D018291CE9F98100E50B23 /* WXCategoryTestViewController.m */,
-				30D0182D1CE9FED400E50B23 /* WXCategoryTestViewController.xib */,
-				30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */,
-				30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */,
-				30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */,
-				30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */,
-				30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */,
-				30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */,
-				302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */,
-				3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */,
-				3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */,
+				3022432F1D0CFB260054B5E1 /* normalTest */,
+				302243301D0CFB340054B5E1 /* categoryTest */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -1080,6 +1104,7 @@
 				30D0184F1CEDAC6200E50B23 /* WXTestOffLineViewController.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
+				302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
 				302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */,
@@ -1218,6 +1243,7 @@
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
 				30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */,
 				AC2E425E1CE6E5F600027BCD /* LessonDateModel.m in Sources */,
+				302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,

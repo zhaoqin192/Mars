@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXTestEntertainmentViewController">
+            <connections>
+                <outlet property="frontButton" destination="AJs-Kb-LTE" id="4B6-xD-Jc0"/>
+                <outlet property="nextButton" destination="9hT-rm-eIT" id="av9-cn-HFl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="widthConstraint" destination="iKU-3n-tWe" id="bA5-gH-moP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVt-Eq-7rM">
+                    <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-Kb-LTE">
+                            <rect key="frame" x="25" y="18" width="100" height="45"/>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="Tck-m2-LvD"/>
+                                <constraint firstAttribute="width" constant="100" id="iKU-3n-tWe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="上一题">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hT-rm-eIT">
+                            <rect key="frame" x="250" y="18" width="100" height="45"/>
+                            <color key="backgroundColor" red="0.28235294117647058" green="0.89411764705882346" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="vZ1-AV-a2S"/>
+                                <constraint firstAttribute="height" constant="45" id="yVv-RF-CIJ"/>
+                            </constraints>
+                            <state key="normal" title="下一题">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="vZ1-AV-a2S"/>
+                                </mask>
+                            </variation>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AJs-Kb-LTE" firstAttribute="centerY" secondItem="mVt-Eq-7rM" secondAttribute="centerY" id="8na-Lo-CSr"/>
+                        <constraint firstAttribute="trailing" secondItem="9hT-rm-eIT" secondAttribute="trailing" constant="25" id="DSq-VF-qAW"/>
+                        <constraint firstItem="9hT-rm-eIT" firstAttribute="centerY" secondItem="mVt-Eq-7rM" secondAttribute="centerY" id="H4Q-X6-t57"/>
+                        <constraint firstAttribute="height" constant="80" id="ZjQ-rU-q8B"/>
+                        <constraint firstItem="AJs-Kb-LTE" firstAttribute="leading" secondItem="mVt-Eq-7rM" secondAttribute="leading" constant="25" id="hPm-Vv-gyJ"/>
+                        <constraint firstItem="9hT-rm-eIT" firstAttribute="width" secondItem="AJs-Kb-LTE" secondAttribute="width" id="n6j-eW-FTK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mVt-Eq-7rM" secondAttribute="trailing" id="CL7-fN-CsR"/>
+                <constraint firstItem="mVt-Eq-7rM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lvT-ug-pSo"/>
+                <constraint firstAttribute="bottom" secondItem="mVt-Eq-7rM" secondAttribute="bottom" id="sxZ-Yw-YTM"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>
