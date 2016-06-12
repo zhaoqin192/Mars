@@ -16,6 +16,11 @@
 		3022432D1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */; };
 		302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */; };
 		302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */; };
+		302243391D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */; };
+		3022433A1D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */; };
+		3022433E1D0D3AEE0054B5E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022433D1D0D3AEE0054B5E1 /* NSArray+Log.m */; };
+		302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */; };
+		302243441D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -171,6 +176,14 @@
 		302243311D0CFB590054B5E1 /* WXTestEntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestEntertainmentViewController.h; sourceTree = "<group>"; };
 		302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestEntertainmentViewController.m; sourceTree = "<group>"; };
 		302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestEntertainmentViewController.xib; sourceTree = "<group>"; };
+		302243361D0D2C990054B5E1 /* WXCategoryCommonTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryCommonTestViewController.h; sourceTree = "<group>"; };
+		302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryCommonTestViewController.m; sourceTree = "<group>"; };
+		302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryCommonTestViewController.xib; sourceTree = "<group>"; };
+		3022433C1D0D3AEE0054B5E1 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		3022433D1D0D3AEE0054B5E1 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		302243401D0D4C550054B5E1 /* WXCategoryPaidTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryPaidTestViewController.h; sourceTree = "<group>"; };
+		302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryPaidTestViewController.m; sourceTree = "<group>"; };
+		302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPaidTestViewController.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -467,8 +480,23 @@
 				30D018281CE9F98100E50B23 /* WXCategoryTestViewController.h */,
 				30D018291CE9F98100E50B23 /* WXCategoryTestViewController.m */,
 				30D0182D1CE9FED400E50B23 /* WXCategoryTestViewController.xib */,
+				302243361D0D2C990054B5E1 /* WXCategoryCommonTestViewController.h */,
+				302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */,
+				302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */,
+				302243401D0D4C550054B5E1 /* WXCategoryPaidTestViewController.h */,
+				302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */,
+				302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */,
 			);
 			name = categoryTest;
+			sourceTree = "<group>";
+		};
+		3022433F1D0D3AF40054B5E1 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				3022433C1D0D3AEE0054B5E1 /* NSArray+Log.h */,
+				3022433D1D0D3AEE0054B5E1 /* NSArray+Log.m */,
+			);
+			name = Log;
 			sourceTree = "<group>";
 		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
@@ -511,6 +539,7 @@
 		30B602471CD83F39003ED671 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				3022433F1D0D3AF40054B5E1 /* Log */,
 				30FD1F811CE21FC7003C91A5 /* TimeLineImages */,
 				30FD1F791CE2125C003C91A5 /* SDAutoLayout */,
 				30FD1F6E1CE21247003C91A5 /* SDPhotoBrowser */,
@@ -1118,6 +1147,7 @@
 				30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */,
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
+				3022433A1D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
 				30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */,
 				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
@@ -1133,6 +1163,7 @@
 				30FD1EDF1CE09FE5003C91A5 /* userOrderCell.xib in Resources */,
 				3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */,
 				3022432D1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib in Resources */,
+				302243441D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib in Resources */,
 				30FD1F941CE21FC7003C91A5 /* pic6.jpg in Resources */,
 				30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */,
 				30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */,
@@ -1231,6 +1262,7 @@
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
+				302243391D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
 				AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
@@ -1251,6 +1283,7 @@
 				30D018491CED8C7600E50B23 /* RankCCell.m in Sources */,
 				30D0182B1CE9F98100E50B23 /* WXCategoryTestViewController.m in Sources */,
 				30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */,
+				3022433E1D0D3AEE0054B5E1 /* NSArray+Log.m in Sources */,
 				30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */,
 				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
@@ -1258,6 +1291,7 @@
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
+				302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */,
 				ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */,

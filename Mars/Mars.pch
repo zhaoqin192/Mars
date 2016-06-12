@@ -18,7 +18,13 @@
 #import "RDVTabBarController.h"
 #import "MBProgressHUD.h"
 #import "ReactiveCocoa.h"
+#import "AFNetworking.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "Account.h"
+#import "NetworkManager.h"
 
+#define URL_PREFIX  @"http://101.200.135.129/zhanshibang/index.php/"
 #define kScreen_Bounds [UIScreen mainScreen].bounds
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width

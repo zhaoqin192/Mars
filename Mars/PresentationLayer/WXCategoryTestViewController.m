@@ -24,13 +24,36 @@
     [super viewDidLoad];
     [self configureButton];
     [self configureTableView];
+    [self loadData:@"unit"];
+}
+
+- (void)loadData:(NSString *)category {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"fenlei":category};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        NSDictionary *dic = responseObject;
+        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
+            [accountDao deleteAccount];
+        }else{
+            NSLog(@"%@",[dic objectForKey:@"error"]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"网络异常 %@",error);
+    }];
 }
 
 - (void)configureButton {
-    self.selectButton = self.unitTestButton;
-    [self.unitTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-    self.unitTestButton.layer.borderWidth = 1;
-    self.unitTestButton.layer.borderColor = WXGreenColor.CGColor;
+    self.selectButton = self.simulateTestButton;
+    [self.simulateTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
+    self.simulateTestButton.layer.borderWidth = 1;
+    self.simulateTestButton.layer.borderColor = WXGreenColor.CGColor;
     
     @weakify(self)
     [self.unitTestButton bk_whenTapped:^{
@@ -43,14 +66,15 @@
         self.selectButton = self.unitTestButton;
         [self.unitTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.unitTestButton.layer.borderColor = WXGreenColor.CGColor;
+        NSLog(@"单元测");
     }];
     
     [self.boostTestButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
     self.boostTestButton.layer.borderWidth = 1;
     self.boostTestButton.layer.borderColor = WXLineColor.CGColor;
-    [self.simulateTestButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-    self.simulateTestButton.layer.borderWidth = 1;
-    self.simulateTestButton.layer.borderColor = WXLineColor.CGColor;
+    [self.unitTestButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    self.unitTestButton.layer.borderWidth = 1;
+    self.unitTestButton.layer.borderColor = WXLineColor.CGColor;
     
     [self.boostTestButton bk_whenTapped:^{
         @strongify(self)
@@ -62,6 +86,7 @@
         self.selectButton = self.boostTestButton;
         [self.boostTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.boostTestButton.layer.borderColor = WXGreenColor.CGColor;
+        NSLog(@"进阶测");
     }];
     
     [self.simulateTestButton bk_whenTapped:^{
@@ -74,6 +99,7 @@
         self.selectButton = self.simulateTestButton;
         [self.simulateTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.simulateTestButton.layer.borderColor = WXGreenColor.CGColor;
+        NSLog(@"模拟测");
     }];
     
     
