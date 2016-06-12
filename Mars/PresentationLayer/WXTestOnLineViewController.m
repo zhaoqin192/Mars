@@ -14,12 +14,15 @@
 @interface WXTestOnLineViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,CityPickViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) CityPickView *pickView;
+@property (nonatomic, copy) NSString *address;
 @end
 
 @implementation WXTestOnLineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+    self.address = @"未选择";
     self.navigationItem.title = @"线上测试";
     self.navigationItem.backBarButtonItem = ({
         UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
@@ -147,7 +150,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"省份";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.detailTextLabel.text = @"未选择";
+                cell.detailTextLabel.text = self.address;
                 return cell;
                 break;
             }
@@ -177,6 +180,7 @@
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
                     NSLog(@"%@",text);
                 }];
+                return cell;
                 break;
             }
             case 1:{
@@ -187,6 +191,7 @@
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
                     NSLog(@"%@",text);
                 }];
+                return cell;
                 break;
             }
             case 2:{
@@ -215,6 +220,7 @@
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
                     NSLog(@"%@",text);
                 }];
+                return cell;
                 break;
             }
             case 1:{
@@ -224,6 +230,7 @@
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
                     NSLog(@"%@",text);
                 }];
+                return cell;
                 break;
             }
         }
@@ -289,10 +296,11 @@
 }
 
 - (void)selectCity:(NSString *)city{
-//    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
-//    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     NSLog(@"%@",city);
+    self.address = city;
     [self cancel];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+    [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)fetchDetail:(NSString *)province city:(NSString *)city district:(NSString *)district{
