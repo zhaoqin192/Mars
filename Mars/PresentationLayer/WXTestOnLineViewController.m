@@ -10,6 +10,7 @@
 #import "WXTestTextFieldCell.h"
 #import "userSelectCell.h"
 #import "CityPickView.h"
+#import "WXTestOnLineResultViewController.h"
 
 @interface WXTestOnLineViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,CityPickViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -36,7 +37,8 @@
         commitButton.frame = CGRectMake(0, 0, 40, 30);
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
         [commitButton bk_whenTapped:^{
-            NSLog(@"提交");
+            WXTestOnLineResultViewController *vc = [[WXTestOnLineResultViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         item;
     });
@@ -242,7 +244,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 37.0;
+    return 42.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
