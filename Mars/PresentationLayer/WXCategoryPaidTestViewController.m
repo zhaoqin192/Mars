@@ -9,6 +9,7 @@
 #import "WXCategoryPaidTestViewController.h"
 
 @interface WXCategoryPaidTestViewController ()
+@property (weak, nonatomic) IBOutlet UIView *containView;
 
 @end
 
