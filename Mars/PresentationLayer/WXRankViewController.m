@@ -21,16 +21,6 @@
     [self configureCollectionView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 - (void)configureCollectionView {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 15;

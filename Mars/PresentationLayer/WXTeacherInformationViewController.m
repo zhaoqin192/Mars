@@ -39,13 +39,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 - (void)configureIconViewAndLabel {

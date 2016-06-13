@@ -25,16 +25,6 @@
     [self configureButton];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 - (void)configureButton {
     self.widthConstraint.constant = (kScreenWidth - 70)/2;
     self.frontButton.layer.cornerRadius = self.frontButton.height/2;

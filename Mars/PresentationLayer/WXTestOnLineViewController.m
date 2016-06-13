@@ -51,16 +51,6 @@
     [self.view addSubview:self.pickView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 - (void)configureTableView {
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([WXTestTextFieldCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([WXTestTextFieldCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:@"userSelectCell" bundle:nil] forCellReuseIdentifier:@"userSelectCell"];

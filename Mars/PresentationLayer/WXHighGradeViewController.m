@@ -37,15 +37,5 @@
     self.iconView.layer.masksToBounds = YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 
 @end

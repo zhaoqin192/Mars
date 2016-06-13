@@ -8,6 +8,7 @@
 
 #import "WXCategoryTestViewController.h"
 #import "VideoCell.h"
+#import "WXCategoryPaidTestViewController.h"
 
 @interface WXCategoryTestViewController ()
 <UITableViewDelegate,UITableViewDataSource>
@@ -24,30 +25,30 @@
     [super viewDidLoad];
     [self configureButton];
     [self configureTableView];
-    [self loadData:@"unit"];
+   // [self loadData:@"unit"];
 }
 
-- (void)loadData:(NSString *)category {
-    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
-                                 @"fenlei":category};
-    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        
-        NSDictionary *dic = responseObject;
-        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
-            [accountDao deleteAccount];
-        }else{
-            NSLog(@"%@",[dic objectForKey:@"error"]);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"网络异常 %@",error);
-    }];
-}
+//- (void)loadData:(NSString *)category {
+//    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+//    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test"]];
+//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//    Account *account = [accountDao fetchAccount];
+//    NSDictionary *parameters = @{@"sid": account.token,
+//                                 @"fenlei":category};
+//    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSLog(@"%@", responseObject);
+//        
+//        NSDictionary *dic = responseObject;
+//        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
+//            [accountDao deleteAccount];
+//        }else{
+//            NSLog(@"%@",[dic objectForKey:@"error"]);
+//        }
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"网络异常 %@",error);
+//    }];
+//}
 
 - (void)configureButton {
     self.selectButton = self.simulateTestButton;
@@ -131,6 +132,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 125;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

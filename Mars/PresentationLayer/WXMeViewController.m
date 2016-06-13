@@ -44,7 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
+    [self.rdv_tabBarController setTabBarHidden:NO];
     [self.navigationController setNavigationBarHidden:YES];
     [self.viewModel updateStatus];
 }
@@ -52,6 +52,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)bindViewModel {

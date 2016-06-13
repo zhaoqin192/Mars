@@ -28,16 +28,6 @@
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([userOrderCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([userOrderCell class])];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

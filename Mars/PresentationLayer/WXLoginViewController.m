@@ -32,16 +32,6 @@
     [self onClickEvent];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 - (void)bindViewModel {
     self.viewModel = [[SignInViewModel alloc] init];
     RAC(self.viewModel, phone) = self.phoneTextField.rac_textSignal;

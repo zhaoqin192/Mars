@@ -32,16 +32,6 @@
     [self.contentLabel sizeToFit];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
 - (IBAction)orderButtonClicked {
     WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];

@@ -39,6 +39,11 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
 - (void)configureChildController {
     self.categoryVC = [[WXCategoryTestViewController alloc] init];
     __weak typeof(self)weakSelf = self;
