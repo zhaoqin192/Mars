@@ -40,7 +40,6 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
-        [self.navigationItem setHidesBackButton:YES];
         self.navigationItem.backBarButtonItem = ({
             UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
             back.title = @"";

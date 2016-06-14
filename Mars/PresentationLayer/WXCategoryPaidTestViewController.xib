@@ -205,6 +205,9 @@
                                             <exclude reference="Bnu-fi-Ubw"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="joinButtonClicked" destination="-1" eventType="touchUpInside" id="EDo-cd-z76"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名费：10元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxj-Wq-S1K">
                                     <rect key="frame" x="30" y="623" width="103" height="21"/>

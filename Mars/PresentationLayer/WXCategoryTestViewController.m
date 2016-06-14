@@ -136,7 +136,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+  //  WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
     WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
