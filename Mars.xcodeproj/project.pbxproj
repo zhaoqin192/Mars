@@ -21,6 +21,8 @@
 		3022433E1D0D3AEE0054B5E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022433D1D0D3AEE0054B5E1 /* NSArray+Log.m */; };
 		302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */; };
 		302243441D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */; };
+		302243631D0FEABF0054B5E1 /* WXRankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243601D0FEABF0054B5E1 /* WXRankView.m */; };
+		302243641D0FEABF0054B5E1 /* WXRankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243621D0FEABF0054B5E1 /* WXRankView.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -184,6 +186,9 @@
 		302243401D0D4C550054B5E1 /* WXCategoryPaidTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryPaidTestViewController.h; sourceTree = "<group>"; };
 		302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryPaidTestViewController.m; sourceTree = "<group>"; };
 		302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPaidTestViewController.xib; sourceTree = "<group>"; };
+		302243601D0FEABF0054B5E1 /* WXRankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankView.m; sourceTree = "<group>"; };
+		302243611D0FEABF0054B5E1 /* WXRankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRankView.h; sourceTree = "<group>"; };
+		302243621D0FEABF0054B5E1 /* WXRankView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXRankView.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -499,6 +504,16 @@
 			name = Log;
 			sourceTree = "<group>";
 		};
+		3022435F1D0FEAAD0054B5E1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				302243611D0FEABF0054B5E1 /* WXRankView.h */,
+				302243601D0FEABF0054B5E1 /* WXRankView.m */,
+				302243621D0FEABF0054B5E1 /* WXRankView.xib */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +547,7 @@
 				3057B20B1CD9D3CE008172DD /* Login */,
 				30B6025F1CD84784003ED671 /* Me */,
 				30B602471CD83F39003ED671 /* ThirdParty */,
+				3022435F1D0FEAAD0054B5E1 /* Other */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -1148,6 +1164,7 @@
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
 				3022433A1D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib in Resources */,
+				302243641D0FEABF0054B5E1 /* WXRankView.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
 				30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */,
 				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
@@ -1233,6 +1250,7 @@
 				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */,
+				302243631D0FEABF0054B5E1 /* WXRankView.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WXRankView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已参与人员排行榜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAG-kw-I9E">
+                    <rect key="frame" x="132" y="0.0" width="112" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="x4U-X0-HVm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="41l-5B-ISQ">
+                    <rect key="frame" x="195" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="KZX-fd-AtR"/>
+                        <constraint firstAttribute="height" constant="35" id="aIf-Ym-Jvq"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="M4k-nc-nY4">
+                    <rect key="frame" x="145" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="lhG-Fz-XgN"/>
+                        <constraint firstAttribute="height" constant="35" id="pYG-VB-Lz5"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="8MA-ir-41Q">
+                    <rect key="frame" x="95" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="HHj-Ny-Ebq"/>
+                        <constraint firstAttribute="width" constant="35" id="Les-r4-9Jv"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="ylO-FP-oIn">
+                    <rect key="frame" x="45" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="6bF-cW-j9a"/>
+                        <constraint firstAttribute="width" constant="35" id="DaA-FK-g7F"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="Het-Uj-lRb">
+                    <rect key="frame" x="245" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="Fm8-VR-nnM"/>
+                        <constraint firstAttribute="height" constant="35" id="JjL-cP-rek"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-Tc-Uc7">
+                    <rect key="frame" x="295" y="37" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="3LD-ED-JNZ"/>
+                        <constraint firstAttribute="height" constant="35" id="SOR-tg-w5O"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="M4k-nc-nY4" firstAttribute="centerY" secondItem="8MA-ir-41Q" secondAttribute="centerY" id="5Um-EV-zMq"/>
+                <constraint firstItem="41l-5B-ISQ" firstAttribute="centerY" secondItem="Het-Uj-lRb" secondAttribute="centerY" id="7t7-3Z-flP"/>
+                <constraint firstItem="8MA-ir-41Q" firstAttribute="leading" secondItem="ylO-FP-oIn" secondAttribute="trailing" constant="15" id="A7c-LU-a2R"/>
+                <constraint firstItem="sJy-Tc-Uc7" firstAttribute="leading" secondItem="Het-Uj-lRb" secondAttribute="trailing" constant="15" id="Azq-Kb-95H"/>
+                <constraint firstItem="M4k-nc-nY4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-25" id="EYj-rF-dJw"/>
+                <constraint firstItem="M4k-nc-nY4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-32" id="EfM-Oq-rMd"/>
+                <constraint firstItem="M4k-nc-nY4" firstAttribute="top" secondItem="XAG-kw-I9E" secondAttribute="bottom" constant="20" id="MYh-ul-Bz0"/>
+                <constraint firstItem="XAG-kw-I9E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NkZ-HE-tNn"/>
+                <constraint firstItem="XAG-kw-I9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NlE-qF-TSs"/>
+                <constraint firstItem="sJy-Tc-Uc7" firstAttribute="centerY" secondItem="Het-Uj-lRb" secondAttribute="centerY" id="ccv-gi-itR"/>
+                <constraint firstItem="8MA-ir-41Q" firstAttribute="centerY" secondItem="ylO-FP-oIn" secondAttribute="centerY" id="exH-vo-4X0"/>
+                <constraint firstItem="Het-Uj-lRb" firstAttribute="leading" secondItem="41l-5B-ISQ" secondAttribute="trailing" constant="15" id="f7W-6B-Gzx"/>
+                <constraint firstItem="41l-5B-ISQ" firstAttribute="leading" secondItem="M4k-nc-nY4" secondAttribute="trailing" constant="15" id="jBC-Dh-x3k"/>
+                <constraint firstItem="41l-5B-ISQ" firstAttribute="centerY" secondItem="M4k-nc-nY4" secondAttribute="centerY" id="juo-t9-Ppg"/>
+                <constraint firstItem="M4k-nc-nY4" firstAttribute="leading" secondItem="8MA-ir-41Q" secondAttribute="trailing" constant="15" id="k9S-0K-2eL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="EfM-Oq-rMd"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="头像区域更多icon" width="35" height="35"/>
+    </resources>
+</document>

@@ -7,6 +7,7 @@
 //
 
 #import "WXCategoryCommonTestViewController.h"
+#import "WXRankView.h"
 
 @interface WXCategoryCommonTestViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *tipsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rankBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIView *myRankView;
 
 @end
 
@@ -23,7 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.isHaveCommit = YES;
+    WXRankView *rankView = [WXRankView rankView];
+    rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    [self.myRankView addSubview:rankView];
+   // self.isWaitForGrade = YES;
     if (self.isWaitForGrade) {
         [self hidenCommitView];
         self.tipsLabel.hidden = YES;
