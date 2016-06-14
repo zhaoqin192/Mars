@@ -45,6 +45,7 @@
 }
 
 - (void)configureNavigationItem{
+    //[[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance]  setBarTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance]  setTintColor:WXTextBlackColor];
     [[UINavigationBar appearance]  setTitleTextAttributes:@{NSForegroundColorAttributeName: WXTextBlackColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0]}];

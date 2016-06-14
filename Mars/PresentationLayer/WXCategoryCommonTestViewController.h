@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WXCategoryCommonTestViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isWaitForGrade;
+@property (nonatomic, assign) BOOL isHaveCommit;
 @end

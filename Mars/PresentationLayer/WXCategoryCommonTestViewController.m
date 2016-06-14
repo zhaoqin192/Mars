@@ -9,6 +9,13 @@
 #import "WXCategoryCommonTestViewController.h"
 
 @interface WXCategoryCommonTestViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *productView;
+@property (weak, nonatomic) IBOutlet UIView *commitView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commitHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *tipsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *joinButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rankBottomConstraint;
 
 @end
 
@@ -16,12 +23,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    //self.isHaveCommit = YES;
+    if (self.isWaitForGrade) {
+        [self hidenCommitView];
+        self.tipsLabel.hidden = YES;
+        self.joinButton.hidden = YES;
+        self.rankBottomConstraint.constant = 44;
+        [self.view layoutIfNeeded];
+    }
+    else if (self.isHaveCommit) {
+        self.tipsLabel.hidden = YES;
+        self.joinButton.hidden = YES;
+        self.rankBottomConstraint.constant = 44;
+        [self.view layoutIfNeeded];
+    }
+    else {
+        [self hidenProductView];
+        [self hidenCommitView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)hidenProductView {
+    self.productView.hidden = YES;
+    self.productHeightConstraint.constant = 0;
+    [self.view layoutIfNeeded];
+}
+
+- (void)hidenCommitView {
+    self.commitView.hidden = YES;
+    self.commitHeightConstraint.constant = 0;
+    [self.view layoutIfNeeded];
 }
 
 /*

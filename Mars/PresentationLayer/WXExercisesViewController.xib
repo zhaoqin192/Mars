@@ -66,7 +66,6 @@
                 <constraint firstItem="DMG-sn-AwI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ptR-7V-Uwc"/>
                 <constraint firstItem="DMG-sn-AwI" firstAttribute="top" secondItem="O0d-tO-ySV" secondAttribute="bottom" constant="-1" id="xeC-ex-eMx"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">

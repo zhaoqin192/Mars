@@ -9,6 +9,7 @@
 #import "WXCategoryTestViewController.h"
 #import "VideoCell.h"
 #import "WXCategoryPaidTestViewController.h"
+#import "WXCategoryCommonTestViewController.h"
 
 @interface WXCategoryTestViewController ()
 <UITableViewDelegate,UITableViewDataSource>
@@ -135,7 +136,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+//    WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+    WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
