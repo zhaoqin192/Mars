@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Muggins_. All rights reserved.
 //
 
-#import "RDVTabBarController.h"
+#import <UIKit/UIKit.h>
 
-@interface RootTabViewController : RDVTabBarController<RDVTabBarControllerDelegate>
+@interface RootTabViewController : UITabBarController
 
 @end

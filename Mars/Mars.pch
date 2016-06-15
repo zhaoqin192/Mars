@@ -15,7 +15,6 @@
 #import "UIImageView+WebCache.h"
 #import "EAIntroView.h"
 #import "BlocksKit+UIKit.h"
-#import "RDVTabBarController.h"
 #import "MBProgressHUD.h"
 #import "ReactiveCocoa.h"
 #import "AFNetworking.h"
