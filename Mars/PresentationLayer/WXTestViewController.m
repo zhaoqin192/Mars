@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
-   // self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self configureUI];
     [self configureChildController];
     self.navigationItem.backBarButtonItem = ({
@@ -31,17 +30,16 @@
         back.title = @"";
         back;
     });
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)configureChildController {

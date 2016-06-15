@@ -59,7 +59,15 @@
         __weak typeof(self)weakSelf = self;
         
         _joinView.thinkButtonTapped = ^{
-            NSLog(@"think");
+            [UIView animateWithDuration:0.25 animations:^{
+                weakSelf.joinView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            } completion:^(BOOL finished) {
+                [weakSelf.joinButton setTitle:@"上传作品" forState:UIControlStateNormal];
+                [weakSelf.joinButton removeAllTargets];
+                [weakSelf.joinButton bk_whenTapped:^{
+                    NSLog(@"upload");
+                }];
+            }];
         };
         
         _joinView.playButtonTapped = ^{

@@ -37,7 +37,7 @@ NSString *const HomeViewControllerIdentifier = @"HomeViewController";
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
+//    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 - (void)configureTableView {

@@ -5,7 +5,6 @@ target "Mars" do
     pod 'AFNetworking', '~> 3.0'
     pod 'MJExtension'
     pod 'MBProgressHUD', '~> 0.9.2'
-    pod 'RDVTabBarController'
     pod 'BlocksKit', '2.2.5'
     pod 'ReactiveCocoa', '2.5'
     pod 'YYCategories'

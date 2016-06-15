@@ -36,12 +36,12 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.rdv_tabBarController setTabBarHidden:NO];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.rdv_tabBarController setTabBarHidden:YES];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)configureChildController {
