@@ -27,6 +27,8 @@
 		302243691D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243671D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib */; };
 		302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022438F1D11079F0054B5E1 /* WXTestJoinView.m */; };
 		302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243911D1107AF0054B5E1 /* WXTestJoinView.xib */; };
+		302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */; };
+		302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -199,6 +201,9 @@
 		3022438E1D11079F0054B5E1 /* WXTestJoinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestJoinView.h; sourceTree = "<group>"; };
 		3022438F1D11079F0054B5E1 /* WXTestJoinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestJoinView.m; sourceTree = "<group>"; };
 		302243911D1107AF0054B5E1 /* WXTestJoinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestJoinView.xib; sourceTree = "<group>"; };
+		302243931D1110220054B5E1 /* WXCategoryPlayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryPlayResultViewController.h; sourceTree = "<group>"; };
+		302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryPlayResultViewController.m; sourceTree = "<group>"; };
+		302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPlayResultViewController.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -498,6 +503,9 @@
 				302243361D0D2C990054B5E1 /* WXCategoryCommonTestViewController.h */,
 				302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */,
 				302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */,
+				302243931D1110220054B5E1 /* WXCategoryPlayResultViewController.h */,
+				302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */,
+				302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */,
 				302243401D0D4C550054B5E1 /* WXCategoryPaidTestViewController.h */,
 				302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */,
 				302243421D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib */,
@@ -1180,6 +1188,7 @@
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
 				302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
+				302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
 				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
@@ -1281,6 +1290,7 @@
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
+				302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */,
 				30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */,
 				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
 				30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */,

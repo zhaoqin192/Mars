@@ -9,6 +9,7 @@
 #import "WXCategoryCommonTestViewController.h"
 #import "WXRankView.h"
 #import "WXTestJoinView.h"
+#import "WXCategoryPlayResultViewController.h"
 
 @interface WXCategoryCommonTestViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
@@ -55,6 +56,7 @@
         _joinView = [WXTestJoinView joinView];
         _joinView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
         [self.view addSubview:_joinView];
+        __weak typeof(self)weakSelf = self;
         
         _joinView.thinkButtonTapped = ^{
             NSLog(@"think");
@@ -62,8 +64,10 @@
         
         _joinView.playButtonTapped = ^{
             NSLog(@"play");
+            //直播完后进入这个controller
+            WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
         };
-        __weak typeof(self)weakSelf = self;
         _joinView.dismiss = ^{
             [UIView animateWithDuration:0.25 animations:^{
                 weakSelf.joinView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
