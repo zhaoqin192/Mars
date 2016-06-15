@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="190"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_message" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-md-IRj">
+                    <rect key="frame" x="10" y="165" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="7Ci-7q-nR0"/>
+                        <constraint firstAttribute="width" constant="20" id="9dY-KR-sgA"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYH-bt-SjK">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="OBb-8C-FTr"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_leave" translatesAutoresizingMaskIntoConstraints="NO" id="I9k-Dv-kyR">
+                    <rect key="frame" x="570" y="165" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="QgT-Ky-0rQ"/>
+                        <constraint firstAttribute="height" constant="20" id="hVS-fm-iCJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="默认达人”小明“" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiY-nD-JQw">
+                    <rect key="frame" x="35" y="165" width="530" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.47843137254901957" green="0.47450980392156861" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uYH-bt-SjK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8H4-th-Ost"/>
+                <constraint firstItem="I9k-Dv-kyR" firstAttribute="top" secondItem="uYH-bt-SjK" secondAttribute="bottom" constant="5" id="CG9-aR-zzg"/>
+                <constraint firstItem="uYH-bt-SjK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CjR-0V-9VJ"/>
+                <constraint firstItem="OcN-md-IRj" firstAttribute="top" secondItem="uYH-bt-SjK" secondAttribute="bottom" constant="5" id="IJK-iW-iJR"/>
+                <constraint firstItem="AiY-nD-JQw" firstAttribute="top" secondItem="uYH-bt-SjK" secondAttribute="bottom" constant="5" id="QR1-qP-9uu"/>
+                <constraint firstItem="I9k-Dv-kyR" firstAttribute="leading" secondItem="AiY-nD-JQw" secondAttribute="trailing" constant="5" id="Qvw-Qj-m3v"/>
+                <constraint firstAttribute="trailing" secondItem="I9k-Dv-kyR" secondAttribute="trailing" constant="10" id="flW-Kx-EUe"/>
+                <constraint firstItem="AiY-nD-JQw" firstAttribute="leading" secondItem="OcN-md-IRj" secondAttribute="trailing" constant="5" id="ijB-gk-NKn"/>
+                <constraint firstAttribute="bottom" secondItem="AiY-nD-JQw" secondAttribute="bottom" constant="5" id="nZV-Ha-Gss"/>
+                <constraint firstAttribute="trailing" secondItem="uYH-bt-SjK" secondAttribute="trailing" id="nzv-Vb-4bD"/>
+                <constraint firstItem="OcN-md-IRj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="saR-kh-owP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundView" destination="uYH-bt-SjK" id="Fgy-5X-ZU2"/>
+                <outlet property="broadcastLabel" destination="AiY-nD-JQw" id="JdP-FY-oK3"/>
+            </connections>
+            <point key="canvasLocation" x="325" y="398"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_leave" width="5" height="9"/>
+        <image name="home_message" width="16" height="12"/>
+    </resources>
+</document>

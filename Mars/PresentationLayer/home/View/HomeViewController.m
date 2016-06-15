@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeViewModel.h"
 #import "SDCycleScrollView.h"
+//#import "HomeHeadView.m"
 
 
 NSString *const HomeViewControllerIdentifier = @"HomeViewController";
@@ -28,6 +29,7 @@ NSString *const HomeViewControllerIdentifier = @"HomeViewController";
     self.navigationItem.title = @"首页";
     [self bindViewModel];
     
+    [self configureTableView];
     
     [[self.viewModel requestBanner]
      subscribeNext:^(id x) {
@@ -35,16 +37,30 @@ NSString *const HomeViewControllerIdentifier = @"HomeViewController";
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-//    [self.rdv_tabBarController setTabBarHidden:NO];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)configureTableView {
-    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 160.0f / kScreenWidth * 375) delegate:self placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
     
     self.scrollAdView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
-    self.tableView.tableHeaderView = self.scrollAdView;
+//    self.tableView.tableHeaderView = self.scrollAdView;
+    
+//    HomeHeadView *headView = [[HomeHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 190.0f / kScreenWidth * 375)];
+//    HomeHeadView *headView = [[[NSBundle mainBundle] loadNibNamed:HomeHeadViewIdentifier owner:self options:nil] firstObject];
+    
+    
+//    [headView.backgroundView addSubview:self.scrollAdView];
+//    self.tableView.tableHeaderView = headView;
+    
+    
 }
 
 - (void)bindViewModel {
