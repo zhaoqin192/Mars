@@ -150,12 +150,28 @@
         vc.isWaitForGrade = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else {
+    else if(indexPath.row == 3) {
         WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
         vc.isHaveCommit = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
+    else if(indexPath.row == 4) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 5) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        vc.isWaitForGrade = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 6) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        vc.isHaveCommit = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

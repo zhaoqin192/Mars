@@ -19,8 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIView *tipsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rankBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *myRankView;
 @property (nonatomic, strong) WXTestJoinView *joinView;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *regularButton;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -31,7 +36,15 @@
     WXRankView *rankView = [WXRankView rankView];
     rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
     [self.myRankView addSubview:rankView];
-   // self.isWaitForGrade = YES;
+    if (self.isHaveImage) {
+        self.regularButton.hidden = YES;
+        self.contentLabel.hidden = YES;
+        self.titleViewHeightConstraint.constant = 220;
+        [self.view layoutIfNeeded];
+    }
+    else {
+        self.titleImageView.hidden = YES;
+    }
     if (self.isWaitForGrade) {
         [self hidenCommitView];
         self.tipsLabel.hidden = YES;
