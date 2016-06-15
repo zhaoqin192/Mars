@@ -12,6 +12,7 @@
 #import "WXMeViewController.h"
 #import "WXExercisesViewController.h"
 #import "WXTestViewController.h"
+#import "HomeViewController.h"
 
 @interface RootTabViewController ()
 
@@ -35,11 +36,11 @@
     WXTestViewController *testVC = [[WXTestViewController alloc] init];
     UINavigationController *testNVC = [[UINavigationController alloc] initWithRootViewController:testVC];
     
-    UIViewController *vvc = [[UIViewController alloc] init];
-    vvc.view.backgroundColor = [UIColor redColor];
-    vvc.tabBarItem.badgeValue = @"1";
+    UIStoryboard *homeStoryboard = [UIStoryboard storyboardWithName:@"home" bundle:nil];
+    HomeViewController *homeVC = [homeStoryboard instantiateViewControllerWithIdentifier:HomeViewControllerIdentifier];
+    UINavigationController *homeRoot = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
-    [self setViewControllers:@[vvc,testNVC,exercisesNVC,meNVC]];
+    [self setViewControllers:@[homeRoot, testNVC, exercisesNVC, meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
