@@ -36,13 +36,13 @@
         [self hidenCommitView];
         self.tipsLabel.hidden = YES;
         self.joinButton.hidden = YES;
-        self.rankBottomConstraint.constant = 44;
+        self.rankBottomConstraint.constant = 20;
         [self.view layoutIfNeeded];
     }
     else if (self.isHaveCommit) {
         self.tipsLabel.hidden = YES;
         self.joinButton.hidden = YES;
-        self.rankBottomConstraint.constant = 44;
+        self.rankBottomConstraint.constant = 20;
         [self.view layoutIfNeeded];
     }
     else {
