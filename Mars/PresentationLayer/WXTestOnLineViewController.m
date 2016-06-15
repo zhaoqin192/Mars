@@ -53,7 +53,7 @@
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     
     self.myTableView.tableFooterView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 110)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 130)];
         view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
         
         UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
