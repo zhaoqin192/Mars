@@ -21,12 +21,6 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"测试";
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-    
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
 }
 - (IBAction)joinButtonClicked {
     WXCategoryPaidResultViewController *vc = [[WXCategoryPaidResultViewController alloc] init];

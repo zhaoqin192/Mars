@@ -29,12 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-    
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
     [self configureIconImageAndLabel];
     [self configureMiddleView];
     
@@ -44,7 +38,6 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController setNavigationBarHidden:YES];
     [self.viewModel updateStatus];
 }
@@ -52,7 +45,6 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)bindViewModel {

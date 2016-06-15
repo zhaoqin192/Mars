@@ -21,11 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"高分视频";
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
     
     self.moreButton.userInteractionEnabled = YES; 
     [self.moreButton bk_whenTapped:^{

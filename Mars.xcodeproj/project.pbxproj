@@ -29,6 +29,7 @@
 		302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243911D1107AF0054B5E1 /* WXTestJoinView.xib */; };
 		302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */; };
 		302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */; };
+		3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243991D1137360054B5E1 /* XMGNavigationController.m */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -204,6 +205,8 @@
 		302243931D1110220054B5E1 /* WXCategoryPlayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryPlayResultViewController.h; sourceTree = "<group>"; };
 		302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryPlayResultViewController.m; sourceTree = "<group>"; };
 		302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPlayResultViewController.xib; sourceTree = "<group>"; };
+		302243981D1137360054B5E1 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
+		302243991D1137360054B5E1 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 			children = (
 				30B602521CD83F80003ED671 /* RootTabViewController.h */,
 				30B602531CD83F80003ED671 /* RootTabViewController.m */,
+				302243981D1137360054B5E1 /* XMGNavigationController.h */,
+				302243991D1137360054B5E1 /* XMGNavigationController.m */,
 				30B602541CD83F80003ED671 /* testViewController.h */,
 				30B602551CD83F80003ED671 /* testViewController.m */,
 				30D0181B1CE9F68600E50B23 /* Test */,
@@ -1326,6 +1331,7 @@
 				30D0184E1CEDAC6200E50B23 /* WXTestOffLineViewController.m in Sources */,
 				ACB947641CE6008E009FA179 /* LessonModel.m in Sources */,
 				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,
+				3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */,
 				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
 				AC1B065C1CE479AA00C0E9B3 /* VideoViewModel.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,

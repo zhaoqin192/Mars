@@ -40,11 +40,6 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
-        self.navigationItem.backBarButtonItem = ({
-            UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-            back.title = @"";
-            back;
-        });
     }
     else {
         self.navigationItem.title = @"线下测试";

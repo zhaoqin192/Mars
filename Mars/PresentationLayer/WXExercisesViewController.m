@@ -26,22 +26,7 @@
     self.navigationItem.title = @"知识库";
     [self configureUI];
     [self configureChildController];
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
     
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    self.tabBarController.tabBar.hidden = NO;
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)configureChildController {
