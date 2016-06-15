@@ -8,6 +8,7 @@
 
 #import "WXCategoryCommonTestViewController.h"
 #import "WXRankView.h"
+#import "WXTestJoinView.h"
 
 @interface WXCategoryCommonTestViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
@@ -18,13 +19,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rankBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIView *myRankView;
-
+@property (nonatomic, strong) WXTestJoinView *joinView;
 @end
 
 @implementation WXCategoryCommonTestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"测试";
     WXRankView *rankView = [WXRankView rankView];
     rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
     [self.myRankView addSubview:rankView];
@@ -48,9 +50,27 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (WXTestJoinView *)joinView {
+    if (!_joinView) {
+        _joinView = [WXTestJoinView joinView];
+        _joinView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+        [self.view addSubview:_joinView];
+        
+        _joinView.thinkButtonTapped = ^{
+            NSLog(@"think");
+        };
+        
+        _joinView.playButtonTapped = ^{
+            NSLog(@"play");
+        };
+        __weak typeof(self)weakSelf = self;
+        _joinView.dismiss = ^{
+            [UIView animateWithDuration:0.25 animations:^{
+                weakSelf.joinView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+            } completion:nil];
+        };
+    }
+    return _joinView;
 }
 
 - (void)hidenProductView {
@@ -63,6 +83,11 @@
     self.commitView.hidden = YES;
     self.commitHeightConstraint.constant = 0;
     [self.view layoutIfNeeded];
+}
+- (IBAction)joinButtonClicked {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.joinView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    } completion:nil];
 }
 
 /*

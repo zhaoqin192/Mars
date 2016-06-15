@@ -25,6 +25,8 @@
 		302243641D0FEABF0054B5E1 /* WXRankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243621D0FEABF0054B5E1 /* WXRankView.xib */; };
 		302243681D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243661D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m */; };
 		302243691D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243671D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib */; };
+		302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022438F1D11079F0054B5E1 /* WXTestJoinView.m */; };
+		302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243911D1107AF0054B5E1 /* WXTestJoinView.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -194,6 +196,9 @@
 		302243651D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryPaidResultViewController.h; sourceTree = "<group>"; };
 		302243661D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryPaidResultViewController.m; sourceTree = "<group>"; };
 		302243671D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPaidResultViewController.xib; sourceTree = "<group>"; };
+		3022438E1D11079F0054B5E1 /* WXTestJoinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestJoinView.h; sourceTree = "<group>"; };
+		3022438F1D11079F0054B5E1 /* WXTestJoinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestJoinView.m; sourceTree = "<group>"; };
+		302243911D1107AF0054B5E1 /* WXTestJoinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestJoinView.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -522,6 +527,17 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		3022438D1D11077B0054B5E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3022431E1D0C3BC10054B5E1 /* cell */,
+				3022438E1D11079F0054B5E1 /* WXTestJoinView.h */,
+				3022438F1D11079F0054B5E1 /* WXTestJoinView.m */,
+				302243911D1107AF0054B5E1 /* WXTestJoinView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,7 +674,7 @@
 		30D0181B1CE9F68600E50B23 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				3022431E1D0C3BC10054B5E1 /* cell */,
+				3022438D1D11077B0054B5E1 /* View */,
 				30D0181C1CE9F6B000E50B23 /* WXTestViewController.h */,
 				30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */,
 				30D018211CE9F6E900E50B23 /* WXTestViewController.xib */,
@@ -1152,6 +1168,7 @@
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */,
+				302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
 				30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */,
 				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
@@ -1289,6 +1306,7 @@
 				AC1B06591CE42C1800C0E9B3 /* VideoModel.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
+				302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				302243391D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
