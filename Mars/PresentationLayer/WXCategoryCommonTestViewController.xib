@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCategoryCommonTestViewController">
             <connections>
                 <outlet property="commitHeightConstraint" destination="TWX-N3-Giu" id="L8B-Hf-eH1"/>
-                <outlet property="commitView" destination="LRP-GE-giR" id="r90-u5-rYz"/>
+                <outlet property="commitView" destination="LRP-GE-giR" id="SAr-VL-cHu"/>
                 <outlet property="contentLabel" destination="yxi-PY-Vuc" id="teC-41-HmN"/>
                 <outlet property="joinButton" destination="ChM-zP-EFP" id="mlz-sQ-pXr"/>
                 <outlet property="myRankView" destination="cNB-yj-tQs" id="jgy-Sw-7xx"/>

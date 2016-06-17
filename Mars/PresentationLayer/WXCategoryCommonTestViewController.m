@@ -33,9 +33,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
+    [self configureRankView];
+    [self configureImage];
+    [self configureTestStatus];
+    [self.commitView bk_whenTapped:^{
+        NSLog(@"commit");
+    }];
+}
+
+- (void)configureRankView {
     WXRankView *rankView = [WXRankView rankView];
     rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
     [self.myRankView addSubview:rankView];
+}
+
+- (void)configureImage {
     if (self.isHaveImage) {
         self.regularButton.hidden = YES;
         self.contentLabel.hidden = YES;
@@ -45,6 +57,9 @@
     else {
         self.titleImageView.hidden = YES;
     }
+}
+
+- (void)configureTestStatus {
     if (self.isWaitForGrade) {
         [self hidenCommitView];
         self.tipsLabel.hidden = YES;

@@ -195,7 +195,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.selectButton.titleLabel.text isEqualToString:@"课程讲解"]) {
+    if (indexPath.row % 2 == 0) {
         WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }

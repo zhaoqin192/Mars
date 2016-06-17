@@ -687,10 +687,10 @@
 		30D0181B1CE9F68600E50B23 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				3022438D1D11077B0054B5E1 /* View */,
 				30D0181C1CE9F6B000E50B23 /* WXTestViewController.h */,
 				30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */,
 				30D018211CE9F6E900E50B23 /* WXTestViewController.xib */,
+				3022438D1D11077B0054B5E1 /* View */,
 				3022432F1D0CFB260054B5E1 /* normalTest */,
 				302243301D0CFB340054B5E1 /* categoryTest */,
 			);
