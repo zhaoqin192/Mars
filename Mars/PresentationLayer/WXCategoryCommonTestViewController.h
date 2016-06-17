@@ -11,4 +11,5 @@
 @interface WXCategoryCommonTestViewController : UIViewController
 @property (nonatomic, assign) BOOL isWaitForGrade;
 @property (nonatomic, assign) BOOL isHaveCommit;
+@property (nonatomic, assign) BOOL isHaveImage;
 @end

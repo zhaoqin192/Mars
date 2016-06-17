@@ -20,11 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"线下测试";
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
-        item.title = @"";
-        item;
-    });
+   
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     
     RAC(self.commitButton,enabled) = [RACSignal combineLatest:@[self.phoneTF.rac_textSignal,self.nameTF.rac_textSignal] reduce:^(NSString *phone,NSString *name){

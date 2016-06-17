@@ -136,9 +136,42 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  //  WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
-    WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.row == 0) {
+        WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    else if(indexPath.row == 1) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 2) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isWaitForGrade = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 3) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveCommit = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 4) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 5) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        vc.isWaitForGrade = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(indexPath.row == 6) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveImage = YES;
+        vc.isHaveCommit = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

@@ -29,12 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
     [self configureTableView];
     
     self.pickView = [[CityPickView alloc] initWithFrame:CGRectMake(0, kScreenHeight, self.view.bounds.size.width, 180)];;

@@ -74,7 +74,6 @@
     
     @weakify(self)
     [EasyLiveSDK getSmsCodeWithParams:@{SDK_SMS_TYPE: @0, SDK_PHONE: self.phoneToken} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
-        NSLog(@"%d",responseCode);
         @strongify(self)
         if (responseCode == SDK_REQUEST_OK) {
             self.smsID = result[@"smsself.id"];

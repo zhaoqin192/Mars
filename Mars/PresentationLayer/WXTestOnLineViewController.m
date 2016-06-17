@@ -25,11 +25,7 @@
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     self.address = @"未选择";
     self.navigationItem.title = @"线上测试";
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
-        item.title = @"";
-        item;
-    });
+    
     self.navigationItem.rightBarButtonItem = ({
         UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [commitButton setTitle:@"提交" forState:UIControlStateNormal];
@@ -57,7 +53,7 @@
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     
     self.myTableView.tableFooterView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 150)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 130)];
         view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
         
         UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];

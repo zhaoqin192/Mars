@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  ZSBHomeViewController.h
 //  Mars
 //
 //  Created by zhaoqin on 6/15/16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const HomeViewControllerIdentifier;
+extern NSString *const ZSBHomeViewControllerIdentifier;
 
-@interface HomeViewController : UIViewController
+@interface ZSBHomeViewController : UIViewController
 
 @end

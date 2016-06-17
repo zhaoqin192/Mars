@@ -29,11 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureIconViewAndLabel];
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
