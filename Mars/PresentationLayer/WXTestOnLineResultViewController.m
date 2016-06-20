@@ -7,6 +7,8 @@
 //
 
 #import "WXTestOnLineResultViewController.h"
+#import "WXCategoryTestViewController.h"
+#import "WXTestKnowledgeViewController.h"
 
 @interface WXTestOnLineResultViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
@@ -72,6 +74,47 @@
         }
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:{
+                WXCategoryTestViewController *vc = [[WXCategoryTestViewController alloc] init];
+                vc.title = @"单元测试";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+            case 1:{
+                WXCategoryTestViewController *vc = [[WXCategoryTestViewController alloc] init];
+                vc.title = @"进阶测试";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+            case 2:{
+                WXCategoryTestViewController *vc = [[WXCategoryTestViewController alloc] init];
+                vc.title = @"模拟测试";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+        }
+    }
+    else {
+        switch (indexPath.row) {
+            case 0:{
+                WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
+                vc.myTitle = @"素描知识";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+            case 1:{
+                WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
+                vc.myTitle = @"色彩知识";
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
