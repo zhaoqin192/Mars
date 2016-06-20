@@ -12,7 +12,7 @@
 #import "WXCategoryPlayResultViewController.h"
 #import "WXCategoryCommitViewController.h"
 
-@interface WXCategoryCommonTestViewController ()
+@interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *productView;
 @property (weak, nonatomic) IBOutlet UIView *commitView;
@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *regularButton;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
-
+@property (nonatomic, copy) NSArray *assets;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -95,7 +95,7 @@
                 [weakSelf.joinButton setTitle:@"上传作品" forState:UIControlStateNormal];
                 [weakSelf.joinButton removeAllTargets];
                 [weakSelf.joinButton bk_whenTapped:^{
-                    NSLog(@"upload");
+                    [weakSelf showActionSheet];
                 }];
             }];
         };
@@ -141,5 +141,84 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)showActionSheet {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请选择考卷类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *uploadVideo = [UIAlertAction actionWithTitle:@"上传视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showPicker:PHAssetMediaTypeVideo];
+    }];
+    UIAlertAction *uploadImage = [UIAlertAction actionWithTitle:@"上传图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showPicker:PHAssetMediaTypeImage];
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:uploadVideo];
+    [alertVC addAction:uploadImage];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+#pragma mark - ImagePicker
+
+- (void)showPicker:(PHAssetMediaType *)type {
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // init picker
+            CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
+            
+            // set delegate
+            picker.delegate = self;
+            
+            // create options for fetching photo only
+            PHFetchOptions *fetchOptions = [PHFetchOptions new];
+            fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", type];
+            
+            // assign options
+            picker.assetsFetchOptions = fetchOptions;
+            
+            // to present picker as a form sheet in iPad
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+                picker.modalPresentationStyle = UIModalPresentationFormSheet;
+            
+            // present picker
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        });
+    }];
+}
+
+// implement should select asset delegate
+- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset
+{
+    NSInteger max = 3;
+    
+    // show alert gracefully
+    if (picker.selectedAssets.count >= max)
+    {
+        UIAlertController *alert =
+        [UIAlertController alertControllerWithTitle:@"Attention"
+                                            message:[NSString stringWithFormat:@"Please select not more than %ld assets", (long)max]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action =
+        [UIAlertAction actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                               handler:nil];
+        
+        [alert addAction:action];
+        
+        [picker presentViewController:alert animated:YES completion:nil];
+    }
+    
+    // limit selection to max
+    return (picker.selectedAssets.count < max);
+}
+
+- (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.assets = [NSMutableArray arrayWithArray:assets];
+    NSLog(@"%d",self.assets.count);
+}
 
 @end

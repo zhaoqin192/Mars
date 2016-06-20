@@ -12,10 +12,11 @@
 #import "CityPickView.h"
 #import "WXTestOnLineResultViewController.h"
 
-@interface WXTestOnLineViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,CityPickViewDelegate>
+@interface WXTestOnLineViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,CityPickViewDelegate,CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) CityPickView *pickView;
 @property (nonatomic, copy) NSString *address;
+@property (nonatomic, copy) NSArray *assets;
 @end
 
 @implementation WXTestOnLineViewController
@@ -63,7 +64,7 @@
         [uploadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         uploadButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [uploadButton bk_whenTapped:^{
-            NSLog(@"upload");
+            [self showPicker];
         }];
         [view addSubview:uploadButton];
         
@@ -76,6 +77,71 @@
         view;
     });
 }
+
+#pragma mark - ImagePicker
+
+- (void)showPicker {
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // init picker
+            CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
+            
+            // set delegate
+            picker.delegate = self;
+            
+            // create options for fetching photo only
+            PHFetchOptions *fetchOptions = [PHFetchOptions new];
+            fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
+            
+            // assign options
+            picker.assetsFetchOptions = fetchOptions;
+            
+            // to present picker as a form sheet in iPad
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+                picker.modalPresentationStyle = UIModalPresentationFormSheet;
+            
+            // present picker
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        });
+    }];
+}
+
+// implement should select asset delegate
+- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset
+{
+    NSInteger max = 3;
+    
+    // show alert gracefully
+    if (picker.selectedAssets.count >= max)
+    {
+        UIAlertController *alert =
+        [UIAlertController alertControllerWithTitle:@"Attention"
+                                            message:[NSString stringWithFormat:@"Please select not more than %ld assets", (long)max]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action =
+        [UIAlertAction actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                               handler:nil];
+        
+        [alert addAction:action];
+        
+        [picker presentViewController:alert animated:YES completion:nil];
+    }
+    
+    // limit selection to max
+    return (picker.selectedAssets.count < max);
+}
+
+- (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.assets = [NSMutableArray arrayWithArray:assets];
+    NSLog(@"%d",self.assets.count);
+}
+
 
 #pragma mark - UITableViewDataSource
 
