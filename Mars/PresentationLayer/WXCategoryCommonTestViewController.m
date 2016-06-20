@@ -10,6 +10,7 @@
 #import "WXRankView.h"
 #import "WXTestJoinView.h"
 #import "WXCategoryPlayResultViewController.h"
+#import "WXCategoryCommitViewController.h"
 
 @interface WXCategoryCommonTestViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
@@ -37,7 +38,8 @@
     [self configureImage];
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
-        NSLog(@"commit");
+        WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 

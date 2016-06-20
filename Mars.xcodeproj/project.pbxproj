@@ -32,6 +32,8 @@
 		3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243991D1137360054B5E1 /* XMGNavigationController.m */; };
 		302243AA1D1796B20054B5E1 /* WXTestKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243A81D1796B20054B5E1 /* WXTestKnowledgeViewController.m */; };
 		302243AB1D1796B20054B5E1 /* WXTestKnowledgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243A91D1796B20054B5E1 /* WXTestKnowledgeViewController.xib */; };
+		302243AF1D179FD70054B5E1 /* WXCategoryCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243AD1D179FD70054B5E1 /* WXCategoryCommitViewController.m */; };
+		302243B01D179FD70054B5E1 /* WXCategoryCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243AE1D179FD70054B5E1 /* WXCategoryCommitViewController.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -222,6 +224,9 @@
 		302243A71D1796B20054B5E1 /* WXTestKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestKnowledgeViewController.h; sourceTree = "<group>"; };
 		302243A81D1796B20054B5E1 /* WXTestKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestKnowledgeViewController.m; sourceTree = "<group>"; };
 		302243A91D1796B20054B5E1 /* WXTestKnowledgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestKnowledgeViewController.xib; sourceTree = "<group>"; };
+		302243AC1D179FD70054B5E1 /* WXCategoryCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryCommitViewController.h; sourceTree = "<group>"; };
+		302243AD1D179FD70054B5E1 /* WXCategoryCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryCommitViewController.m; sourceTree = "<group>"; };
+		302243AE1D179FD70054B5E1 /* WXCategoryCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryCommitViewController.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -560,6 +565,9 @@
 				302243651D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.h */,
 				302243661D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m */,
 				302243671D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.xib */,
+				302243AC1D179FD70054B5E1 /* WXCategoryCommitViewController.h */,
+				302243AD1D179FD70054B5E1 /* WXCategoryCommitViewController.m */,
+				302243AE1D179FD70054B5E1 /* WXCategoryCommitViewController.xib */,
 			);
 			name = categoryTest;
 			sourceTree = "<group>";
@@ -1308,6 +1316,7 @@
 				30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */,
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
+				302243B01D179FD70054B5E1 /* WXCategoryCommitViewController.xib in Resources */,
 				3022433A1D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib in Resources */,
 				302243641D0FEABF0054B5E1 /* WXRankView.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
@@ -1468,6 +1477,7 @@
 				302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */,
+				302243AF1D179FD70054B5E1 /* WXCategoryCommitViewController.m in Sources */,
 				ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */,
 				AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
