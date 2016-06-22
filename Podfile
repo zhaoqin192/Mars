@@ -13,4 +13,5 @@ target "Mars" do
     pod 'EAIntroView', '~> 2.8.0'
     pod 'SDWebImage'
     pod 'YFStartView'
+    pod 'NJKWebViewProgress'
 end

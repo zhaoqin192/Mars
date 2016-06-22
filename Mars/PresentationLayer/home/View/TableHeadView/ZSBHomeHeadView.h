@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ZSBHomeHeadView : UIView
-@property (weak, nonatomic) IBOutlet UIView *scrollBackground;
 @property (weak, nonatomic) IBOutlet UILabel *broadcastLabel;
+@property (weak, nonatomic) IBOutlet UIView *broadcastView;
+@property (nonatomic, strong) void(^contentClicked)(NSInteger index);
 
 - (void)updateAdvertisementWithData:(NSArray *)titleArray;
 
