@@ -12,9 +12,11 @@
 
 @property (nonatomic, strong) NSArray *bannerArray;
 @property (nonatomic, strong) NSArray *adArray;
-
-- (RACSignal *)requestBanner;
-
-- (RACSignal *)requestAD;
+@property (nonatomic, strong) NSArray *testArray;
+@property (nonatomic, strong) NSArray *knowledgeArray;
+@property (nonatomic, strong) RACCommand *bannerCommand;
+@property (nonatomic, strong) RACCommand *advertisementCommand;
+@property (nonatomic, strong) RACCommand *hotCommand;
+@property (nonatomic, strong) RACSubject *errorObject;
 
 @end
