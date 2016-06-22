@@ -19,4 +19,6 @@
 @property (nonatomic, strong) RACCommand *hotCommand;
 @property (nonatomic, strong) RACSubject *errorObject;
 
+- (void)cacheData;
+
 @end

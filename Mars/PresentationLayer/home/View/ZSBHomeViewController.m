@@ -39,6 +39,11 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     [self configureTableView];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.viewModel cacheData];
+}
+
 - (void)bindViewModel {
     self.viewModel = [[ZSBHomeViewModel alloc] init];
 

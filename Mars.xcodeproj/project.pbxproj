@@ -167,6 +167,7 @@
 		AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CD8E1D1A8942003B4DB5 /* WXTestKnowledgeViewController.m */; };
 		AC66CD951D1A8974003B4DB5 /* WXCategoryCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CD921D1A8974003B4DB5 /* WXCategoryCommitViewController.xib */; };
 		AC66CD961D1A8974003B4DB5 /* WXCategoryCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CD931D1A8974003B4DB5 /* WXCategoryCommitViewController.m */; };
+		AC66CD9B1D1AA79B003B4DB5 /* ZSBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CD9A1D1AA79B003B4DB5 /* ZSBCacheManager.m */; };
 		AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */; };
 		AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */; };
 		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
@@ -448,6 +449,8 @@
 		AC66CD921D1A8974003B4DB5 /* WXCategoryCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryCommitViewController.xib; sourceTree = "<group>"; };
 		AC66CD931D1A8974003B4DB5 /* WXCategoryCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryCommitViewController.m; sourceTree = "<group>"; };
 		AC66CD941D1A8974003B4DB5 /* WXCategoryCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryCommitViewController.h; sourceTree = "<group>"; };
+		AC66CD991D1AA79B003B4DB5 /* ZSBCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBCacheManager.h; sourceTree = "<group>"; };
+		AC66CD9A1D1AA79B003B4DB5 /* ZSBCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBCacheManager.m; sourceTree = "<group>"; };
 		AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
 		AC7AF3E21CE38CA800F69110 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
 		AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
@@ -1033,6 +1036,8 @@
 			children = (
 				AC2E6CCB1CCDFAE1008E6D52 /* Utility.h */,
 				AC2E6CCC1CCDFAE1008E6D52 /* Utility.m */,
+				AC66CD991D1AA79B003B4DB5 /* ZSBCacheManager.h */,
+				AC66CD9A1D1AA79B003B4DB5 /* ZSBCacheManager.m */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -1490,6 +1495,7 @@
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
+				AC66CD9B1D1AA79B003B4DB5 /* ZSBCacheManager.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
 				302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,

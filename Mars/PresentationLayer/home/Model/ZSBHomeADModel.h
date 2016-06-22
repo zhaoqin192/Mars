@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZSBHomeADModel : NSObject
+@interface ZSBHomeADModel : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *identifier;

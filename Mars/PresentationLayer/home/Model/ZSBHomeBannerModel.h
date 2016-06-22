@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZSBHomeBannerModel : NSObject
+@interface ZSBHomeBannerModel : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *imageUrl;

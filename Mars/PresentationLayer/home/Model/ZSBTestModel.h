@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZSBTestModel : NSObject
+@interface ZSBTestModel : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *title;

@@ -7,6 +7,7 @@
 //
 
 #import "MJExtension.h"
+#import "ZSBCacheManager.h"
 #import "ZSBHomeADModel.h"
 #import "ZSBHomeBannerModel.h"
 #import "ZSBHomeViewModel.h"
@@ -24,6 +25,15 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
                                                      id input) {
             return [RACSignal createSignal:^RACDisposable *(
                                   id<RACSubscriber> subscriber) {
+
+                self.bannerArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeBanner"];
+                if (self.bannerArray) {
+                    NSMutableArray *array = [[NSMutableArray alloc] init];
+                    for (ZSBHomeBannerModel *model in self.bannerArray) {
+                        [array addObject:model.imageUrl];
+                    }
+                    [subscriber sendNext:array];
+                }
                 AFHTTPSessionManager *manager =
                     [[NetworkManager sharedInstance] fetchSessionManager];
                 NSURL *url = [NSURL
@@ -68,6 +78,16 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
 
             return [RACSignal createSignal:^RACDisposable *(
                                   id<RACSubscriber> subscriber) {
+
+                self.adArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeAdvertisement"];
+                if (self.adArray) {
+                    NSMutableArray *array = [[NSMutableArray alloc] init];
+                    for (ZSBHomeADModel *model in self.adArray) {
+                        [array addObject:model.title];
+                    }
+                    [subscriber sendNext:array];
+                }
+
                 AFHTTPSessionManager *manager =
                     [[NetworkManager sharedInstance] fetchSessionManager];
                 NSURL *url = [NSURL
@@ -109,6 +129,13 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
 
             return [RACSignal createSignal:^RACDisposable *(
                                   id<RACSubscriber> subscriber) {
+
+                self.testArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeTest"];
+                self.knowledgeArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeKnowledge"];
+                if (self.testArray || self.knowledgeArray) {
+                    [subscriber sendNext:nil];
+                }
+
                 AFHTTPSessionManager *manager =
                     [[NetworkManager sharedInstance] fetchSessionManager];
                 NSURL *url = [NSURL
@@ -165,6 +192,13 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
         ]] subscribe:self.errorObject];
     }
     return self;
+}
+
+- (void)cacheData {
+    [ZSBCacheManager cacheWithData:self.bannerArray fileName:@"HomeBanner"];
+    [ZSBCacheManager cacheWithData:self.adArray fileName:@"HomeAdvertisement"];
+    [ZSBCacheManager cacheWithData:self.testArray fileName:@"HomeTest"];
+    [ZSBCacheManager cacheWithData:self.knowledgeArray fileName:@"HomeKnowledge"];
 }
 
 @end

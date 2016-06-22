@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZSBKnowledgeModel : NSObject
+@interface ZSBKnowledgeModel : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *videoID;
