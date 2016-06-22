@@ -7,9 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXMeViewController">
             <connections>
+                <outlet property="aboutUsView" destination="1Yz-Gt-4GN" id="A84-EC-p6W"/>
+                <outlet property="applyTeacherView" destination="JD4-fw-oKu" id="1YT-ae-GbV"/>
+                <outlet property="contactUsView" destination="UXt-n6-zv3" id="sMn-zr-cDG"/>
                 <outlet property="iconImage" destination="psp-SM-7fJ" id="BYt-Wd-MeI"/>
                 <outlet property="nameLabel" destination="zBR-HI-4lt" id="eb4-Ib-zZt"/>
+                <outlet property="orderLabel" destination="zLb-V8-gWz" id="sp9-VU-cDJ"/>
                 <outlet property="orderView" destination="EKc-gC-Oso" id="B5B-o6-d8O"/>
+                <outlet property="settingView" destination="iYA-n2-Jeb" id="qxW-ps-qfy"/>
+                <outlet property="testLabel" destination="ZHr-sb-Ngl" id="fnq-zy-hyo"/>
                 <outlet property="testView" destination="exQ-DH-Roq" id="WqW-Vw-ap6"/>
                 <outlet property="titleImageView" destination="Wn4-fZ-0nJ" id="jFL-tB-hmU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

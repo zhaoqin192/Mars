@@ -16,11 +16,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *planView;
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *testView;
+@property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *orderView;
-@property (weak, nonatomic) IBOutlet UIImageView *exercisesView;
 @property (nonatomic, strong) IndividualViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet UIView *settingView;
+@property (weak, nonatomic) IBOutlet UIView *aboutUsView;
+@property (weak, nonatomic) IBOutlet UIView *contactUsView;
+@property (weak, nonatomic) IBOutlet UIView *applyTeacherView;
 
 @end
 
@@ -94,10 +98,41 @@
 
 - (void)configureMiddleView {
     self.orderView.userInteractionEnabled = YES;
+    self.orderLabel.userInteractionEnabled = YES;
     [self.orderView bk_whenTapped:^{
         WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    [self.orderLabel bk_whenTapped:^{
+        WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    self.testView.userInteractionEnabled = YES;
+    self.testLabel.userInteractionEnabled = YES;
+    [self.testLabel bk_whenTapped:^{
+        NSLog(@"test");
+    }];
+    [self.testView bk_whenTapped:^{
+        NSLog(@"test");
+    }];
+    
+    [self.settingView bk_whenTapped:^{
+        NSLog(@"设置");
+    }];
+    
+    [self.aboutUsView bk_whenTapped:^{
+        NSLog(@"关于我们");
+    }];
+    
+    [self.contactUsView bk_whenTapped:^{
+        NSLog(@"联系我们");
+    }];
+    
+    [self.applyTeacherView bk_whenTapped:^{
+        NSLog(@"申请成为老师");
+    }];
+    
 }
 
 
