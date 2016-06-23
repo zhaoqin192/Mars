@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WXCategoryPaidTestViewController : UIViewController
-@property (nonatomic, assign) NSInteger identify;
+@property (nonatomic, copy) NSString *identify;
+@property (nonatomic, assign) NSInteger price;
 @end

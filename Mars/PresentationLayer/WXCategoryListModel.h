@@ -14,7 +14,7 @@
 @property (nonatomic, assign) NSInteger attend_count;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *video_image;
-@property (nonatomic, assign) NSInteger test_id;
+@property (nonatomic, copy) NSString *test_id;
 @property (nonatomic, copy) NSString *tag1;
 @property (nonatomic, copy) NSString *tag2;
 @property (nonatomic, copy) NSString *tag3;

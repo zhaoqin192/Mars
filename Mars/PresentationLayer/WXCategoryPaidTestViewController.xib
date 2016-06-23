@@ -7,7 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCategoryPaidTestViewController">
             <connections>
+                <outlet property="bigPaidLabel" destination="fxj-Wq-S1K" id="S2g-hb-upe"/>
                 <outlet property="containView" destination="i48-gh-hBO" id="CGf-RA-YT3"/>
+                <outlet property="joinButton" destination="q1I-QU-WNK" id="ckq-TP-6Fd"/>
+                <outlet property="paidLabel" destination="5y3-kV-0hk" id="voS-ds-xAA"/>
+                <outlet property="regularLabel" destination="Mib-Bv-OCn" id="aJC-Ol-eU6"/>
+                <outlet property="requireLabel" destination="kZF-tS-Od4" id="X4a-Du-ZyK"/>
+                <outlet property="testTitleLabel" destination="Ou6-gw-c9X" id="2BY-aU-zhC"/>
+                <outlet property="testTypeLabel" destination="x15-x0-rPI" id="zgT-9o-w8h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -87,6 +94,9 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="考试类型：默写" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x15-x0-rPI">
                                     <rect key="frame" x="15" y="246" width="98" height="17"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="17" id="yb0-UI-xou"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -102,6 +112,9 @@
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="题目：四分之三男侧面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou6-gw-c9X">
                                     <rect key="frame" x="15" y="273" width="345" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="Ik9-Np-Vh0"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
@@ -152,6 +165,9 @@
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mib-Bv-OCn">
                                     <rect key="frame" x="15" y="341" width="168" height="67"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="67" id="HWm-uO-KPW"/>
+                                    </constraints>
                                     <string key="text">满分：100分
 工具材料：黑色铅笔或炭笔
 卷面尺寸：八开纸
@@ -159,14 +175,27 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="HWm-uO-KPW"/>
+                                        </mask>
+                                    </variation>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-tS-Od4">
                                     <rect key="frame" x="15" y="466" width="345" height="51"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="51" id="zM6-EF-Jwz"/>
+                                    </constraints>
                                     <string key="text">1.写实画法，构图完整，造型准确，结构严谨刻画充分，表现生动，整体感强。
 2.竖构图，眼睛不得为墨镜竖构图</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="zM6-EF-Jwz"/>
+                                        </mask>
+                                    </variation>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8H-ad-3ea">
                                     <rect key="frame" x="15" y="423" width="360" height="1"/>

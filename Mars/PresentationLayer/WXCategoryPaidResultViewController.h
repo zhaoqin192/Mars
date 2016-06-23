@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXCategoryPaidResultViewController : UIViewController
-
+@property (nonatomic, copy) NSString *identify;
 @end

@@ -166,6 +166,7 @@
     else {
         WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
         vc.identify = model.test_id;
+        vc.price = model.attend_price;
         [self.navigationController pushViewController:vc animated:YES];
     }
 //    else if(indexPath.row == 2) {
