@@ -24,7 +24,7 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     
     RAC(self.commitButton,enabled) = [RACSignal combineLatest:@[self.phoneTF.rac_textSignal,self.nameTF.rac_textSignal] reduce:^(NSString *phone,NSString *name){
-        return @(phone.length && name.length);
+        return @(phone.length == 11 && name.length);
     }];
     
     [RACObserve(self.commitButton, enabled) subscribeNext:^(id x) {
@@ -37,9 +37,39 @@
     }];
     
     [self.commitButton bk_whenTapped:^{
-        WXPreorderResultViewController *vc = [[WXPreorderResultViewController alloc] init];
-        vc.isOffLine = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
+            [SVProgressHUD showErrorWithStatus:@"请登录"];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+            return ;
+        }
+        AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+        NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/offline_test"]];
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        Account *account = [accountDao fetchAccount];
+        NSDictionary *parameters = @{@"sid": account.token,
+                                     @"name":self.nameTF.text,
+                                     @"phone":self.phoneTF.text};
+        [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"%@", responseObject);
+            if([responseObject[@"code"] isEqualToString:@"200"]) {
+                WXPreorderResultViewController *vc = [[WXPreorderResultViewController alloc] init];
+                vc.isOffLine = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+                [self bk_performBlock:^(id obj) {
+                    [SVProgressHUD dismiss];
+                } afterDelay:1.5];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }];
     }];
     
 }
@@ -47,5 +77,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+
 
 @end

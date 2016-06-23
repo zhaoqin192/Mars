@@ -11,12 +11,15 @@
 #import "userSelectCell.h"
 #import "CityPickView.h"
 #import "WXTestOnLineResultViewController.h"
+#import "WXTestOnlineModel.h"
 
 @interface WXTestOnLineViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,CityPickViewDelegate,CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) CityPickView *pickView;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSArray *assets;
+@property (nonatomic, strong) WXTestOnlineModel *model;
+@property (nonatomic, copy) NSString *artificial_test_id;
 @end
 
 @implementation WXTestOnLineViewController
@@ -25,6 +28,7 @@
     [super viewDidLoad];
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     self.address = @"未选择";
+    self.model = [WXTestOnlineModel onLineModel];
     self.navigationItem.title = @"线上测试";
     
     self.navigationItem.rightBarButtonItem = ({
@@ -34,8 +38,18 @@
         commitButton.frame = CGRectMake(0, 0, 40, 30);
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
         [commitButton bk_whenTapped:^{
-            WXTestOnLineResultViewController *vc = [[WXTestOnLineResultViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
+                [SVProgressHUD showErrorWithStatus:@"请登录"];
+                [self bk_performBlock:^(id obj) {
+                    [SVProgressHUD dismiss];
+                } afterDelay:1.5];
+                return ;
+            }
+            if (![self checkTableData]) {
+                return ;
+            }
+            [SVProgressHUD show];
+            [self uploadData];
         }];
         item;
     });
@@ -46,6 +60,141 @@
     self.pickView = [[CityPickView alloc] initWithFrame:CGRectMake(0, kScreenHeight, self.view.bounds.size.width, 180)];;
     self.pickView.delegate = self;
     [self.view addSubview:self.pickView];
+}
+
+- (void)uploadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/artificial_test"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"name":self.model.name,
+                                 @"phone":self.model.phone,
+                                 @"sex":self.model.sex,
+                                 @"grade":self.model.grade,
+                                 @"province":self.model.province,
+                                 @"city":self.model.city,
+                                 @"district":self.model.district,
+                                 @"school":self.model.school,
+                                 @"sum_score":self.model.sum_score,
+                                 @"estimate_score":self.model.estimate_score,
+                                 @"interest":self.model.interest};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.artificial_test_id = responseObject[@"data"][@"artificial_test_id"];
+            [self fetchImageData:0];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)fetchImageData:(NSInteger )index {
+    NSLog(@"fetch image data %d",index);
+    PHAsset *asset = self.assets[index];
+    PHImageManager *manager = [PHImageManager defaultManager];
+    [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        [self uploadImage:imageData index:index];
+    }];
+}
+
+- (void)uploadImage:(NSData *)imageData index:(NSInteger)index{
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/artificial_upload"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"artificial_test_id":self.artificial_test_id};
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        [formData appendPartWithFileData:imageData name:@"photo" fileName:fileName mimeType:@"image/png"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            if (index == self.assets.count-1) {
+                [SVProgressHUD dismiss];
+                WXTestOnLineResultViewController *vc = [[WXTestOnLineResultViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self fetchImageData:index+1];
+                });
+            }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+    
+}
+
+- (BOOL)checkTableData {
+    if (self.model.phone.length != 11) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    if(!self.model.name.length) {
+        [SVProgressHUD showErrorWithStatus:@"请输入姓名"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    if (!self.model.province.length) {
+        [SVProgressHUD showErrorWithStatus:@"请选择省份"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    if (!self.model.sum_score.length) {
+        [SVProgressHUD showErrorWithStatus:@"请输入文化课总分"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    if (!self.model.estimate_score.length) {
+        [SVProgressHUD showErrorWithStatus:@"请输入分数估值"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    if (!self.assets.count) {
+        [SVProgressHUD showErrorWithStatus:@"请上传作品"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+        return false;
+    }
+    return true;
 }
 
 - (void)configureTableView {
@@ -139,7 +288,12 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.assets = [NSMutableArray arrayWithArray:assets];
-    NSLog(@"%d",self.assets.count);
+    if (!self.assets.count) {
+        [SVProgressHUD showSuccessWithStatus:@"选择照片成功"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }
 }
 
 
@@ -176,7 +330,13 @@
                 @weakify(self)
                 [cell.delegateSingal subscribeNext:^(NSNumber *message) {
                     @strongify(self)
-                    NSLog(@"%@",message);
+                    if([message isEqual:@(0)]) {
+                        self.model.sex = @"男生";
+                    }
+                    else {
+                        self.model.sex = @"女生";
+                    }
+                    NSLog(@"%@",self.model.sex);
                 }];
                 return cell;
                 break;
@@ -190,7 +350,13 @@
                 @weakify(self)
                 [cell.delegateSingal subscribeNext:^(NSNumber *message) {
                     @strongify(self)
-                    NSLog(@"%@",message);
+                    if([message isEqual:@(0)]) {
+                        self.model.grade = @"应届";
+                    }
+                    else {
+                        self.model.grade = @"复读";
+                    }
+                    NSLog(@"%@",self.model.grade);
                 }];
                 return cell;
                 break;
@@ -217,7 +383,13 @@
                 @weakify(self)
                 [cell.delegateSingal subscribeNext:^(NSNumber *message) {
                     @strongify(self)
-                    NSLog(@"%@",message);
+                    if([message isEqual:@(0)]) {
+                        self.model.school = @"普高";
+                    }
+                    else {
+                        self.model.school = @"艺术高中";
+                    }
+                    NSLog(@"%@",self.model.school);
                 }];
                 return cell;
                 break;
@@ -232,7 +404,7 @@
                 cell.contentTF.placeholder = @"请填写真实省份高考总分";
                 cell.contentTF.keyboardType = UIKeyboardTypeNumberPad;
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
-                    NSLog(@"%@",text);
+                    self.model.sum_score = text;
                 }];
                 return cell;
                 break;
@@ -243,7 +415,7 @@
                 cell.contentTF.placeholder = @"请填写您的分数估值";
                 cell.contentTF.keyboardType = UIKeyboardTypeNumberPad;
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
-                    NSLog(@"%@",text);
+                    self.model.estimate_score = text;
                 }];
                 return cell;
                 break;
@@ -252,12 +424,19 @@
                 userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
                 cell.leftButtonName = @"美术方向";
                 cell.rightButtonName = @"传媒方向";
-                cell.contentLabel.text = @"省份";
+                cell.contentLabel.text = @"兴趣";
                 cell.delegateSingal = [RACSubject subject];
                 @weakify(self)
                 [cell.delegateSingal subscribeNext:^(NSNumber *message) {
                     @strongify(self)
                     NSLog(@"%@",message);
+                    if([message isEqual:@(0)]) {
+                        self.model.interest = @"美术方向";
+                    }
+                    else {
+                        self.model.interest = @"传媒方向";
+                    }
+                    NSLog(@"%@",self.model.interest);
                 }];
                 return cell;
                 break;
@@ -272,7 +451,7 @@
                 cell.contentTF.placeholder = @"请输入您的手机号";
                 cell.contentTF.keyboardType = UIKeyboardTypeNumberPad;
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
-                    NSLog(@"%@",text);
+                    self.model.phone = text;
                 }];
                 return cell;
                 break;
@@ -282,7 +461,7 @@
                 cell.contentLabel.text = @"姓名:";
                 cell.contentTF.placeholder = @"请输入您的姓名";
                 [cell.contentTF.rac_textSignal subscribeNext:^(NSString *text) {
-                    NSLog(@"%@",text);
+                    self.model.name = text;
                 }];
                 return cell;
                 break;
@@ -359,6 +538,9 @@
 }
 
 - (void)fetchDetail:(NSString *)province city:(NSString *)city district:(NSString *)district{
+    self.model.province = province;
+    self.model.city = city;
+    self.model.district = district;
 //    self.viewModel.province = province;
 //    self.viewModel.city = city;
 //    self.viewModel.district = district;

@@ -29,6 +29,11 @@
 		302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */; };
 		302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */; };
 		3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243991D1137360054B5E1 /* XMGNavigationController.m */; };
+		303D9C3B1D1BB012000FB964 /* WXTestOnlineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */; };
+		303D9C3F1D1BB079000FB964 /* WXTestOffLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D9C3D1D1BB079000FB964 /* WXTestOffLineViewController.m */; };
+		303D9C401D1BB079000FB964 /* WXTestOffLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303D9C3E1D1BB079000FB964 /* WXTestOffLineViewController.xib */; };
+		303D9C441D1BB08F000FB964 /* WXTestOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D9C421D1BB08F000FB964 /* WXTestOnLineViewController.m */; };
+		303D9C451D1BB08F000FB964 /* WXTestOnLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303D9C431D1BB08F000FB964 /* WXTestOnLineViewController.xib */; };
 		3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1CA1CD8B503008172DD /* userSelectCell.m */; };
 		3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1CB1CD8B503008172DD /* userSelectCell.xib */; };
 		3057B1D81CD8DA0E008172DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057B1D61CD8D9F4008172DD /* MobileCoreServices.framework */; };
@@ -69,10 +74,6 @@
 		30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018431CED8B2100E50B23 /* WXRankViewController.xib */; };
 		30D018491CED8C7600E50B23 /* RankCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018471CED8C7600E50B23 /* RankCCell.m */; };
 		30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018481CED8C7600E50B23 /* RankCCell.xib */; };
-		30D0184E1CEDAC6200E50B23 /* WXTestOffLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */; };
-		30D0184F1CEDAC6200E50B23 /* WXTestOffLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */; };
-		30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */; };
-		30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */; };
 		30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */; };
 		30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */; };
 		30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1E921CDDA762003C91A5 /* WXOrderViewController.m */; };
@@ -243,6 +244,14 @@
 		302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPlayResultViewController.xib; sourceTree = "<group>"; };
 		302243981D1137360054B5E1 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
 		302243991D1137360054B5E1 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
+		303D9C391D1BB012000FB964 /* WXTestOnlineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnlineModel.h; sourceTree = "<group>"; };
+		303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnlineModel.m; sourceTree = "<group>"; };
+		303D9C3C1D1BB079000FB964 /* WXTestOffLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOffLineViewController.h; sourceTree = "<group>"; };
+		303D9C3D1D1BB079000FB964 /* WXTestOffLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOffLineViewController.m; sourceTree = "<group>"; };
+		303D9C3E1D1BB079000FB964 /* WXTestOffLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOffLineViewController.xib; sourceTree = "<group>"; };
+		303D9C411D1BB08F000FB964 /* WXTestOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnLineViewController.h; sourceTree = "<group>"; };
+		303D9C421D1BB08F000FB964 /* WXTestOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnLineViewController.m; sourceTree = "<group>"; };
+		303D9C431D1BB08F000FB964 /* WXTestOnLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOnLineViewController.xib; sourceTree = "<group>"; };
 		3057B1C91CD8B503008172DD /* userSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSelectCell.h; sourceTree = "<group>"; };
 		3057B1CA1CD8B503008172DD /* userSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSelectCell.m; sourceTree = "<group>"; };
 		3057B1CB1CD8B503008172DD /* userSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSelectCell.xib; sourceTree = "<group>"; };
@@ -308,12 +317,6 @@
 		30D018461CED8C7600E50B23 /* RankCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCCell.h; sourceTree = "<group>"; };
 		30D018471CED8C7600E50B23 /* RankCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCCell.m; sourceTree = "<group>"; };
 		30D018481CED8C7600E50B23 /* RankCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankCCell.xib; sourceTree = "<group>"; };
-		30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOffLineViewController.h; sourceTree = "<group>"; };
-		30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOffLineViewController.m; sourceTree = "<group>"; };
-		30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOffLineViewController.xib; sourceTree = "<group>"; };
-		30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnLineViewController.h; sourceTree = "<group>"; };
-		30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnLineViewController.m; sourceTree = "<group>"; };
-		30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOnLineViewController.xib; sourceTree = "<group>"; };
 		30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXExercisesViewController.h; sourceTree = "<group>"; };
 		30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXExercisesViewController.m; sourceTree = "<group>"; };
 		30FD1E8E1CDD9B27003C91A5 /* WXExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXExercisesViewController.xib; sourceTree = "<group>"; };
@@ -571,12 +574,12 @@
 				30D018231CE9F8BF00E50B23 /* WXNormalTestViewController.h */,
 				30D018241CE9F8BF00E50B23 /* WXNormalTestViewController.m */,
 				30D018251CE9F8BF00E50B23 /* WXNormalTestViewController.xib */,
-				30D0184B1CEDAC6200E50B23 /* WXTestOffLineViewController.h */,
-				30D0184C1CEDAC6200E50B23 /* WXTestOffLineViewController.m */,
-				30D0184D1CEDAC6200E50B23 /* WXTestOffLineViewController.xib */,
-				30D018511CEDF1D700E50B23 /* WXTestOnLineViewController.h */,
-				30D018521CEDF1D700E50B23 /* WXTestOnLineViewController.m */,
-				30D018531CEDF1D700E50B23 /* WXTestOnLineViewController.xib */,
+				303D9C3C1D1BB079000FB964 /* WXTestOffLineViewController.h */,
+				303D9C3D1D1BB079000FB964 /* WXTestOffLineViewController.m */,
+				303D9C3E1D1BB079000FB964 /* WXTestOffLineViewController.xib */,
+				303D9C411D1BB08F000FB964 /* WXTestOnLineViewController.h */,
+				303D9C421D1BB08F000FB964 /* WXTestOnLineViewController.m */,
+				303D9C431D1BB08F000FB964 /* WXTestOnLineViewController.xib */,
 				302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */,
 				3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */,
 				3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */,
@@ -643,6 +646,15 @@
 				302243911D1107AF0054B5E1 /* WXTestJoinView.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		303D9C381D1BB000000FB964 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				303D9C391D1BB012000FB964 /* WXTestOnlineModel.h */,
+				303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		3057B1E01CD8E86D008172DD /* pincker */ = {
@@ -783,10 +795,11 @@
 		30D0181B1CE9F68600E50B23 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				3022438D1D11077B0054B5E1 /* View */,
 				30D0181C1CE9F6B000E50B23 /* WXTestViewController.h */,
 				30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */,
 				30D018211CE9F6E900E50B23 /* WXTestViewController.xib */,
+				303D9C381D1BB000000FB964 /* model */,
+				3022438D1D11077B0054B5E1 /* View */,
 				3022432F1D0CFB260054B5E1 /* normalTest */,
 				302243301D0CFB340054B5E1 /* categoryTest */,
 			);
@@ -1332,7 +1345,6 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 9SQ6G2A6XG;
 					};
 				};
 			};
@@ -1394,10 +1406,8 @@
 				302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */,
 				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
 				AC66CD901D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib in Resources */,
-				30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */,
 				AC66CDAC1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.xib in Resources */,
 				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
-				30D0184F1CEDAC6200E50B23 /* WXTestOffLineViewController.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */,
@@ -1409,6 +1419,7 @@
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
 				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
+				303D9C451D1BB08F000FB964 /* WXTestOnLineViewController.xib in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */,
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
@@ -1421,6 +1432,7 @@
 				302243641D0FEABF0054B5E1 /* WXRankView.xib in Resources */,
 				30FD1E951CDDA762003C91A5 /* WXOrderViewController.xib in Resources */,
 				30FD1F931CE21FC7003C91A5 /* pic5.jpg in Resources */,
+				303D9C401D1BB079000FB964 /* WXTestOffLineViewController.xib in Resources */,
 				AC66CDB71D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.xib in Resources */,
 				3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */,
 				30D018221CE9F6E900E50B23 /* WXTestViewController.xib in Resources */,
@@ -1506,7 +1518,6 @@
 				302243681D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m in Sources */,
 				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
-				30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */,
 				AC4558501D11993800E2307E /* ZSBHomeADModel.m in Sources */,
 				302243631D0FEABF0054B5E1 /* WXRankView.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
@@ -1528,6 +1539,7 @@
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
 				AC66CDAB1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.m in Sources */,
 				3022432C1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m in Sources */,
+				303D9C3F1D1BB079000FB964 /* WXTestOffLineViewController.m in Sources */,
 				AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */,
 				ACBE21751CE498F000F2A912 /* TeacherModel.m in Sources */,
 				AC2E425A1CE6B2D800027BCD /* LessonTimeModel.m in Sources */,
@@ -1550,9 +1562,10 @@
 				ACB77E791D1A705800B43AFD /* ZSBWebViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
 				AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */,
+				303D9C3B1D1BB012000FB964 /* WXTestOnlineModel.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
-				30D0184E1CEDAC6200E50B23 /* WXTestOffLineViewController.m in Sources */,
+				303D9C441D1BB08F000FB964 /* WXTestOnLineViewController.m in Sources */,
 				ACB947641CE6008E009FA179 /* LessonModel.m in Sources */,
 				30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */,
 				3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */,
