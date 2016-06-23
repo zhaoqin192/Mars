@@ -10,6 +10,7 @@
 #import "VideoCell.h"
 #import "WXCategoryPaidTestViewController.h"
 #import "WXCategoryCommonTestViewController.h"
+#import "WXCategoryListModel.h"
 
 @interface WXCategoryTestViewController ()
 <UITableViewDelegate,UITableViewDataSource>
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *boostTestButton;
 @property (weak, nonatomic) IBOutlet UIButton *simulateTestButton;
 @property (nonatomic, strong) UIButton *selectButton;
+@property (nonatomic, copy) NSArray *listArrays;
 @end
 
 @implementation WXCategoryTestViewController
@@ -26,10 +28,17 @@
     [super viewDidLoad];
     [self configureButton];
     [self configureTableView];
-   // [self loadData:@"unit"];
+    [self loadData];
 }
 
-- (void)loadData:(NSString *)category {
+- (void)loadData {
+    NSString *category = @"exam";
+    if ([self.title isEqualToString:@"进阶测试"]) {
+        category = @"advance";
+    }
+    if ([self.title isEqualToString:@"单元测试"]) {
+        category = @"unit";
+    }
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test"]];
     AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
@@ -37,17 +46,22 @@
     NSDictionary *parameters = @{@"sid": account.token,
                                  @"fenlei":category};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         NSLog(@"%@", responseObject);
-        
-        NSDictionary *dic = responseObject;
-        if([[dic objectForKey:@"status"] isEqualToString:@"200"]){
-            [accountDao deleteAccount];
-        }else{
-            NSLog(@"%@",[dic objectForKey:@"error"]);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.myTableView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"网络异常 %@",error);
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
     }];
 }
 
@@ -68,6 +82,8 @@
         self.selectButton = self.unitTestButton;
         [self.unitTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.unitTestButton.layer.borderColor = WXGreenColor.CGColor;
+        self.title = @"单元测试";
+        [self loadData];
         NSLog(@"单元测");
     }];
     
@@ -88,6 +104,8 @@
         self.selectButton = self.boostTestButton;
         [self.boostTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.boostTestButton.layer.borderColor = WXGreenColor.CGColor;
+        self.title = @"进阶测试";
+        [self loadData];
         NSLog(@"进阶测");
     }];
     
@@ -101,6 +119,8 @@
         self.selectButton = self.simulateTestButton;
         [self.simulateTestButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
         self.simulateTestButton.layer.borderColor = WXGreenColor.CGColor;
+        self.title = @"模拟测试";
+        [self loadData];
         NSLog(@"模拟测");
     }];
     
@@ -123,11 +143,12 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.listArrays.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
+    cell.examModel = self.listArrays[indexPath.row];
     return cell;
 }
 
@@ -136,42 +157,44 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    WXCategoryListModel *model = self.listArrays[indexPath.row];
+    if (model.attend_price == 0) {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.identify = model.test_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
         WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    else if(indexPath.row == 1) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.identify = model.test_id;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if(indexPath.row == 2) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.isWaitForGrade = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(indexPath.row == 3) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.isHaveCommit = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(indexPath.row == 4) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.isHaveImage = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(indexPath.row == 5) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.isHaveImage = YES;
-        vc.isWaitForGrade = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if(indexPath.row == 6) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.isHaveImage = YES;
-        vc.isHaveCommit = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    else if(indexPath.row == 2) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.isWaitForGrade = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else if(indexPath.row == 3) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.isHaveCommit = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else if(indexPath.row == 4) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.isHaveImage = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else if(indexPath.row == 5) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.isHaveImage = YES;
+//        vc.isWaitForGrade = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else if(indexPath.row == 6) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.isHaveImage = YES;
+//        vc.isHaveCommit = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 

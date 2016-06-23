@@ -12,4 +12,5 @@
 @property (nonatomic, assign) BOOL isWaitForGrade;
 @property (nonatomic, assign) BOOL isHaveCommit;
 @property (nonatomic, assign) BOOL isHaveImage;
+@property (nonatomic, assign) NSInteger identify;
 @end

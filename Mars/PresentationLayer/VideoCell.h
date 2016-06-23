@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WXInsetLabel.h"
-
+@class WXCategoryListModel;
 @interface VideoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *videoImage;
 @property (weak, nonatomic) IBOutlet UILabel *title;
@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet WXInsetLabel *tag2;
 @property (weak, nonatomic) IBOutlet WXInsetLabel *tag3;
 @property (weak, nonatomic) IBOutlet WXInsetLabel *tag4;
-
+@property (nonatomic, strong) WXCategoryListModel *examModel;
 @end
