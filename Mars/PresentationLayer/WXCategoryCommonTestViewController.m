@@ -13,6 +13,11 @@
 #import "WXCategoryCommitViewController.h"
 
 @interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *testTitleImage;
+@property (weak, nonatomic) IBOutlet UILabel *regularLabel;
+@property (weak, nonatomic) IBOutlet UILabel *requireLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *productView;
 @property (weak, nonatomic) IBOutlet UIView *commitView;
@@ -35,11 +40,46 @@
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
     [self configureRankView];
-    [self configureImage];
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [self loadData];
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test_detail"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_id":self.identify};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.requireLabel.text = responseObject[@"data"][@"require"];
+            self.regularLabel.text = responseObject[@"data"][@"describe"];
+            self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
+            self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
+            NSString *image = responseObject[@"data"][@"image"];
+            if (image.length) {
+                self.isHaveImage = YES;
+                [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
+            }
+            [self configureImage];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
     }];
 }
 
