@@ -38,32 +38,9 @@
         } afterDelay:1.5];
         return ;
     }
-    
-    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/attend_test"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
-                                 @"test_id":self.identify};
-    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-        if([responseObject[@"code"] isEqualToString:@"200"]) {
-            WXCategoryPaidResultViewController *vc = [[WXCategoryPaidResultViewController alloc] init];
-            vc.identify = responseObject[@"data"][@"test_result_id"];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self bk_performBlock:^(id obj) {
-                [SVProgressHUD dismiss];
-            } afterDelay:1.5];
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
-        [self bk_performBlock:^(id obj) {
-            [SVProgressHUD dismiss];
-        } afterDelay:1.5];
-    }];
+    WXCategoryPaidResultViewController *vc = [[WXCategoryPaidResultViewController alloc] init];
+    vc.identify = self.identify;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
