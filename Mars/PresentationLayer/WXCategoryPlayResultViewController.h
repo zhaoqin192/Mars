@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXCategoryPlayResultViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isImage;
 @end
