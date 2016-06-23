@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface userOrderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *teacherNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end

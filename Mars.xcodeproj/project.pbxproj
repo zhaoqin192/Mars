@@ -90,10 +90,6 @@
 		30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EBD1CE02C37003C91A5 /* WXTeacherInformationViewController.xib */; };
 		30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EC31CE04E7B003C91A5 /* WXPreorderCourseViewController.m */; };
 		30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EC41CE04E7B003C91A5 /* WXPreorderCourseViewController.xib */; };
-		30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EC81CE05933003C91A5 /* PreOrderCourseCell.m */; };
-		30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1EC91CE05933003C91A5 /* PreOrderCourseCell.xib */; };
-		30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */; };
-		30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */; };
 		30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */; };
 		30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */; };
 		30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1EDC1CE09FE5003C91A5 /* userOrderCell.m */; };
@@ -162,6 +158,9 @@
 		AC4558861D12375D00E2307E /* ZSBHomeSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4558851D12375D00E2307E /* ZSBHomeSectionHeadView.m */; };
 		AC4558881D12376E00E2307E /* ZSBHomeSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4558871D12376E00E2307E /* ZSBHomeSectionHeadView.xib */; };
 		AC45588C1D123EA800E2307E /* ZSBHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC45588B1D123EA800E2307E /* ZSBHomeTableViewCell.m */; };
+		AC5260611D1C139300B25B66 /* OrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260601D1C139300B25B66 /* OrderViewModel.m */; };
+		AC5260651D1C1A2300B25B66 /* ZSBOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260641D1C1A2300B25B66 /* ZSBOrderModel.m */; };
+		AC5260681D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */; };
 		AC66CD8C1D1A88FD003B4DB5 /* WXCategoryCommonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */; };
 		AC66CD901D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CD8D1D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib */; };
 		AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CD8E1D1A8942003B4DB5 /* WXTestKnowledgeViewController.m */; };
@@ -176,6 +175,12 @@
 		AC66CDB11D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDAF1D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib */; };
 		AC66CDB61D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDB41D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.m */; };
 		AC66CDB71D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDB51D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.xib */; };
+		AC66CDC01D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDBE1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.m */; };
+		AC66CDC11D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDBF1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib */; };
+		AC66CDC61D1BAFDE003B4DB5 /* WXSelectTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDC31D1BAFDE003B4DB5 /* WXSelectTimeCell.xib */; };
+		AC66CDC71D1BAFDE003B4DB5 /* WXSelectTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDC41D1BAFDE003B4DB5 /* WXSelectTimeCell.m */; };
+		AC66CDCB1D1BAFE6003B4DB5 /* PreOrderCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDC81D1BAFE6003B4DB5 /* PreOrderCourseCell.xib */; };
+		AC66CDCC1D1BAFE6003B4DB5 /* PreOrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDC91D1BAFE6003B4DB5 /* PreOrderCourseCell.m */; };
 		AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */; };
 		AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */; };
 		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
@@ -340,12 +345,6 @@
 		30FD1EC21CE04E7B003C91A5 /* WXPreorderCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPreorderCourseViewController.h; sourceTree = "<group>"; };
 		30FD1EC31CE04E7B003C91A5 /* WXPreorderCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXPreorderCourseViewController.m; sourceTree = "<group>"; };
 		30FD1EC41CE04E7B003C91A5 /* WXPreorderCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXPreorderCourseViewController.xib; sourceTree = "<group>"; };
-		30FD1EC71CE05933003C91A5 /* PreOrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreOrderCourseCell.h; sourceTree = "<group>"; };
-		30FD1EC81CE05933003C91A5 /* PreOrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreOrderCourseCell.m; sourceTree = "<group>"; };
-		30FD1EC91CE05933003C91A5 /* PreOrderCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreOrderCourseCell.xib; sourceTree = "<group>"; };
-		30FD1ECC1CE06A70003C91A5 /* WXSelectTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSelectTimeCell.h; sourceTree = "<group>"; };
-		30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSelectTimeCell.m; sourceTree = "<group>"; };
-		30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXSelectTimeCell.xib; sourceTree = "<group>"; };
 		30FD1ED51CE09EA2003C91A5 /* WXMeOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeOrderViewController.h; sourceTree = "<group>"; };
 		30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeOrderViewController.m; sourceTree = "<group>"; };
 		30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeOrderViewController.xib; sourceTree = "<group>"; };
@@ -461,6 +460,12 @@
 		AC4558871D12376E00E2307E /* ZSBHomeSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBHomeSectionHeadView.xib; sourceTree = "<group>"; };
 		AC45588A1D123EA800E2307E /* ZSBHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBHomeTableViewCell.h; sourceTree = "<group>"; };
 		AC45588B1D123EA800E2307E /* ZSBHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBHomeTableViewCell.m; sourceTree = "<group>"; };
+		AC52605F1D1C139300B25B66 /* OrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewModel.h; sourceTree = "<group>"; };
+		AC5260601D1C139300B25B66 /* OrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewModel.m; sourceTree = "<group>"; };
+		AC5260631D1C1A2300B25B66 /* ZSBOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBOrderModel.h; sourceTree = "<group>"; };
+		AC5260641D1C1A2300B25B66 /* ZSBOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBOrderModel.m; sourceTree = "<group>"; };
+		AC5260661D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBTeacherInfoViewModel.h; sourceTree = "<group>"; };
+		AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBTeacherInfoViewModel.m; sourceTree = "<group>"; };
 		AC66CD8D1D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestKnowledgeViewController.xib; sourceTree = "<group>"; };
 		AC66CD8E1D1A8942003B4DB5 /* WXTestKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestKnowledgeViewController.m; sourceTree = "<group>"; };
 		AC66CD8F1D1A8942003B4DB5 /* WXTestKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestKnowledgeViewController.h; sourceTree = "<group>"; };
@@ -482,6 +487,15 @@
 		AC66CDB31D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseDateCollectionViewCell.h; sourceTree = "<group>"; };
 		AC66CDB41D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseDateCollectionViewCell.m; sourceTree = "<group>"; };
 		AC66CDB51D1B759C003B4DB5 /* ZSBExerciseDateCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBExerciseDateCollectionViewCell.xib; sourceTree = "<group>"; };
+		AC66CDBD1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseMessageTableViewCell.h; sourceTree = "<group>"; };
+		AC66CDBE1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseMessageTableViewCell.m; sourceTree = "<group>"; };
+		AC66CDBF1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBExerciseMessageTableViewCell.xib; sourceTree = "<group>"; };
+		AC66CDC31D1BAFDE003B4DB5 /* WXSelectTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXSelectTimeCell.xib; sourceTree = "<group>"; };
+		AC66CDC41D1BAFDE003B4DB5 /* WXSelectTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSelectTimeCell.m; sourceTree = "<group>"; };
+		AC66CDC51D1BAFDE003B4DB5 /* WXSelectTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSelectTimeCell.h; sourceTree = "<group>"; };
+		AC66CDC81D1BAFE6003B4DB5 /* PreOrderCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreOrderCourseCell.xib; sourceTree = "<group>"; };
+		AC66CDC91D1BAFE6003B4DB5 /* PreOrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreOrderCourseCell.m; sourceTree = "<group>"; };
+		AC66CDCA1D1BAFE6003B4DB5 /* PreOrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreOrderCourseCell.h; sourceTree = "<group>"; };
 		AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
 		AC7AF3E21CE38CA800F69110 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
 		AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
@@ -831,18 +845,18 @@
 		30FD1E961CDDA80C003C91A5 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				AC66CDCA1D1BAFE6003B4DB5 /* PreOrderCourseCell.h */,
+				AC66CDC91D1BAFE6003B4DB5 /* PreOrderCourseCell.m */,
+				AC66CDC81D1BAFE6003B4DB5 /* PreOrderCourseCell.xib */,
+				AC66CDC51D1BAFDE003B4DB5 /* WXSelectTimeCell.h */,
+				AC66CDC41D1BAFDE003B4DB5 /* WXSelectTimeCell.m */,
+				AC66CDC31D1BAFDE003B4DB5 /* WXSelectTimeCell.xib */,
 				30FD1E971CDDA833003C91A5 /* OrderCell.h */,
 				30FD1E981CDDA833003C91A5 /* OrderCell.m */,
 				30FD1E991CDDA833003C91A5 /* OrderCell.xib */,
 				30FD1EA11CDDD2E7003C91A5 /* VideoCell.h */,
 				30FD1EA21CDDD2E7003C91A5 /* VideoCell.m */,
 				30FD1EA31CDDD2E7003C91A5 /* VideoCell.xib */,
-				30FD1EC71CE05933003C91A5 /* PreOrderCourseCell.h */,
-				30FD1EC81CE05933003C91A5 /* PreOrderCourseCell.m */,
-				30FD1EC91CE05933003C91A5 /* PreOrderCourseCell.xib */,
-				30FD1ECC1CE06A70003C91A5 /* WXSelectTimeCell.h */,
-				30FD1ECD1CE06A70003C91A5 /* WXSelectTimeCell.m */,
-				30FD1ECE1CE06A70003C91A5 /* WXSelectTimeCell.xib */,
 				30FD1F591CE1C30B003C91A5 /* RankVideoCell.h */,
 				30FD1F5A1CE1C30B003C91A5 /* RankVideoCell.m */,
 				30FD1F5B1CE1C30B003C91A5 /* RankVideoCell.xib */,
@@ -851,6 +865,9 @@
 				30D018461CED8C7600E50B23 /* RankCCell.h */,
 				30D018471CED8C7600E50B23 /* RankCCell.m */,
 				30D018481CED8C7600E50B23 /* RankCCell.xib */,
+				AC66CDBD1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.h */,
+				AC66CDBE1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.m */,
+				AC66CDBF1D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib */,
 				AC66CDAD1D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.h */,
 				AC66CDAE1D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.m */,
 				AC66CDAF1D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib */,
@@ -972,6 +989,10 @@
 				ACBE21771CE49E7300F2A912 /* TeacherViewModel.m */,
 				ACB9475F1CE5FCDD009FA179 /* PreorderViewModel.h */,
 				ACB947601CE5FCDD009FA179 /* PreorderViewModel.m */,
+				AC52605F1D1C139300B25B66 /* OrderViewModel.h */,
+				AC5260601D1C139300B25B66 /* OrderViewModel.m */,
+				AC5260661D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.h */,
+				AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -989,6 +1010,8 @@
 				AC2E425D1CE6E5F600027BCD /* LessonDateModel.m */,
 				AC2E42581CE6B2D800027BCD /* LessonTimeModel.h */,
 				AC2E42591CE6B2D800027BCD /* LessonTimeModel.m */,
+				AC5260631D1C1A2300B25B66 /* ZSBOrderModel.h */,
+				AC5260641D1C1A2300B25B66 /* ZSBOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1388,11 +1411,11 @@
 				30FD1E901CDD9B27003C91A5 /* WXExercisesViewController.xib in Resources */,
 				AC88741B1D111F7F00B37D4E /* home.storyboard in Resources */,
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
+				AC66CDC61D1BAFDE003B4DB5 /* WXSelectTimeCell.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */,
 				AC66CDB11D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib in Resources */,
 				302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */,
-				30FD1ED01CE06A70003C91A5 /* WXSelectTimeCell.xib in Resources */,
 				AC66CD901D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib in Resources */,
 				30D018551CEDF1D700E50B23 /* WXTestOnLineViewController.xib in Resources */,
 				AC66CDAC1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.xib in Resources */,
@@ -1408,7 +1431,6 @@
 				302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
-				30FD1ECB1CE05933003C91A5 /* PreOrderCourseCell.xib in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
 				30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */,
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
@@ -1436,7 +1458,9 @@
 				3057B1DD1CD8DDCF008172DD /* WXInformationDetailViewController.xib in Resources */,
 				3022432D1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib in Resources */,
 				302243441D0D4C550054B5E1 /* WXCategoryPaidTestViewController.xib in Resources */,
+				AC66CDCB1D1BAFE6003B4DB5 /* PreOrderCourseCell.xib in Resources */,
 				30FD1F941CE21FC7003C91A5 /* pic6.jpg in Resources */,
+				AC66CDC11D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib in Resources */,
 				30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */,
 				AC4558821D12370100E2307E /* ZSBHomeHeadView.xib in Resources */,
 				30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */,
@@ -1504,7 +1528,6 @@
 				AC1B06511CE4274300C0E9B3 /* NetworkFetcher+Exercise.m in Sources */,
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				302243681D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m in Sources */,
-				30FD1ECA1CE05933003C91A5 /* PreOrderCourseCell.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				30D018541CEDF1D700E50B23 /* WXTestOnLineViewController.m in Sources */,
 				AC4558501D11993800E2307E /* ZSBHomeADModel.m in Sources */,
@@ -1526,6 +1549,7 @@
 				30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */,
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
+				AC5260611D1C139300B25B66 /* OrderViewModel.m in Sources */,
 				AC66CDAB1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.m in Sources */,
 				3022432C1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m in Sources */,
 				AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */,
@@ -1539,12 +1563,15 @@
 				30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
 				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
+				AC66CDCC1D1BAFE6003B4DB5 /* PreOrderCourseCell.m in Sources */,
 				ACD4B6271D118D9F001DAD04 /* ZSBHomeBannerModel.m in Sources */,
 				AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */,
 				AC1B06591CE42C1800C0E9B3 /* VideoModel.m in Sources */,
 				30B602921CD87510003ED671 /* ActionSheetStringPicker.m in Sources */,
 				30B602761CD874B1003ED671 /* userIconCell.m in Sources */,
+				AC5260651D1C1A2300B25B66 /* ZSBOrderModel.m in Sources */,
 				302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */,
+				AC66CDC71D1BAFDE003B4DB5 /* WXSelectTimeCell.m in Sources */,
 				ACB77E731D1A577000B43AFD /* ZSBKnowledgeModel.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACB77E791D1A705800B43AFD /* ZSBWebViewController.m in Sources */,
@@ -1559,7 +1586,6 @@
 				AC2E6CCD1CCDFAE1008E6D52 /* Utility.m in Sources */,
 				AC1B065C1CE479AA00C0E9B3 /* VideoViewModel.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
-				30FD1ECF1CE06A70003C91A5 /* WXSelectTimeCell.m in Sources */,
 				AC2E425E1CE6E5F600027BCD /* LessonDateModel.m in Sources */,
 				302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
@@ -1584,7 +1610,9 @@
 				30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */,
 				ACB947611CE5FCDD009FA179 /* PreorderViewModel.m in Sources */,
 				AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */,
+				AC66CDC01D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.m in Sources */,
 				30FD1EB31CDF86B5003C91A5 /* WXRegisterViewController.m in Sources */,
+				AC5260681D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m in Sources */,
 				30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */,
 				30D018261CE9F8BF00E50B23 /* WXNormalTestViewController.m in Sources */,
 				AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */,

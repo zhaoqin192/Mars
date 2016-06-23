@@ -16,11 +16,13 @@
 #import "LessonTimeModel.h"
 #import "ZSBExerciseDateViewCell.h"
 #import "ZSBExerciseTimeViewCell.h"
+#import "ZSBExerciseMessageTableViewCell.h"
 
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) PreorderViewModel *viewModel;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) UIButton *orderButton;
 @end
 
 @implementation WXPreorderCourseViewController
@@ -40,11 +42,46 @@
     [[self.viewModel.lessonCommand execute:self.teacherID]
     subscribeNext:^(id x) {
         @strongify(self)
-        [self.myTableView reloadData];
+        [self.myTableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+    }];
+    
+    [[[[self.orderButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    doNext:^(id x) {
+        @strongify(self)
+        self.orderButton.enabled = NO;
+    }]
+    flattenMap:^RACStream *(id value) {
+        @strongify(self)
+        return [self.viewModel.orderCommand execute:nil];
+    }]
+    subscribeNext:^(NSString *code) {
+        @strongify(self)
+        if (!self.orderButton.isEnabled) {
+            self.orderButton.enabled = YES;
+        }
+        if ([code isEqualToString:@"200"]) {
+            WXPreorderResultViewController *resultVC = [[WXPreorderResultViewController alloc] init];
+            [self.navigationController pushViewController:resultVC animated:YES];
+        }
+        else if ([code isEqualToString:@"0"]) {
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"请先登录";
+            [self.hud hide:YES afterDelay:1.5f];
+        }
+        else {
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"预约失败";
+            [self.hud hide:YES afterDelay:1.5f];
+        }
     }];
     
     [self.viewModel.errorObject subscribeNext:^(id x) {
         @strongify(self)
+        if (!self.orderButton.isEnabled) {
+            self.orderButton.enabled = YES;
+        }
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.mode = MBProgressHUDModeText;
         self.hud.labelText = @"网络异常";
@@ -55,24 +92,21 @@
 
 - (void)configureNavigationBar {
     self.navigationItem.title = @"预约课程";
-    UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerButton setTitle:@"提交" forState:UIControlStateNormal];
-    [registerButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
-    registerButton.frame = CGRectMake(0, 0, 40, 30);
-    @weakify(self)
-    [registerButton bk_whenTapped:^{
-        @strongify(self)
-        WXPreorderResultViewController *vc = [[WXPreorderResultViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
+    self.orderButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.orderButton setTitle:@"提交" forState:UIControlStateNormal];
+    [self.orderButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
+    self.orderButton.frame = CGRectMake(0, 0, 40, 30);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.orderButton];
 }
 
 - (void)configureTableView {
+    self.myTableView.delegate = self;
+    self.myTableView.dataSource = self;
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PreOrderCourseCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([PreOrderCourseCell class])];
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZSBExerciseDateViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZSBExerciseDateViewCell class])];
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZSBExerciseTimeViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZSBExerciseTimeViewCell class])];
+    [self.myTableView registerNib:[UINib nibWithNibName:@"ZSBExerciseMessageTableViewCell" bundle:nil] forCellReuseIdentifier:@"ZSBExerciseMessageTableViewCell"];
+    [self.myTableView registerNib:[UINib nibWithNibName:@"ZSBExerciseDateViewCell" bundle:nil] forCellReuseIdentifier:@"ZSBExerciseDateViewCell"];
+    [self.myTableView registerNib:[UINib nibWithNibName:@"ZSBExerciseTimeViewCell" bundle:nil] forCellReuseIdentifier:@"ZSBExerciseTimeViewCell"];
+    self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - UITableViewDataSource
@@ -82,40 +116,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    if (section == 0) {
+        return 1;
+    }
+    else {
+        return 2;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
-        if (indexPath.row == 0) {
-            cell.contentLabel.text = @"手机号码：18810465931";
-        } else {
-            cell.contentLabel.text = @"姓名：夏苒苒";
-        }
+        ZSBExerciseMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseMessageTableViewCell"];
         return cell;
     }
     else {
         if (indexPath.row == 0) {
             ZSBExerciseDateViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseDateViewCell"];
-            [cell loadDataArray:self.viewModel.dateModelArray];
             @weakify(self)
-            cell.loadTimeArray = ^(LessonDateModel *model){
+            cell.loadTimeArray = ^(LessonDateModel *model) {
                 @strongify(self)
                 self.viewModel.dateModel = model;
                 [self.myTableView reloadRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationFade];
             };
+            [cell loadDataArray:self.viewModel.dateModelArray];
             return cell;
         }
         else {
             ZSBExerciseTimeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseTimeViewCell"];
-         
-            [cell loadTimeArray:self.viewModel.dateModel.timeModelArray];
+            //must declaration block first, whether call block is nil and carsh
             @weakify(self)
-            cell.selectTime = ^(LessonTimeModel *model){
+            cell.selectTime = ^(LessonTimeModel *model) {
                 @strongify(self)
                 self.viewModel.timeModel = model;
             };
+            [cell loadTimeArray:self.viewModel.dateModel.timeModelArray];
+            if (self.viewModel.dateModel.timeModelArray.count > 0) {
+                self.viewModel.timeModel = self.viewModel.dateModel.timeModelArray[0];
+            }
             return cell;
         }
     }
@@ -123,7 +160,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 50;
+        return 88;
     }
     else {
         if (indexPath.row == 0) {
@@ -163,18 +200,6 @@
         label.text = @"选择上课时间";
     }
     return view;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        self.viewModel.lessonModel = [self.viewModel.lessonModelArray objectAtIndex:indexPath.row];
-//        self.viewModel.lessonDateModelArray = self.viewModel.lessonModel.lessonDateArray;
-//        self.viewModel.lessonDateModel = [self.viewModel.lessonDateModelArray objectAtIndex:0];
-//        self.viewModel.lessonTimeModelArray = self.viewModel.lessonDateModel.lessonTimeModelArray;
-//        self.viewModel.lessonTimeModel = [self.viewModel.lessonTimeModelArray objectAtIndex:0];
-//        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-//        [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
 }
 
 @end

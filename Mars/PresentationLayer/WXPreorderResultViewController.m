@@ -23,7 +23,7 @@
     self.orderButton.layer.cornerRadius = self.orderButton.height/2;
     self.orderButton.layer.masksToBounds = YES;
     if (!self.isOffLine) {
-        self.navigationItem.title = @"结束考试";
+        self.navigationItem.title = @"预约结果";
         @weakify(self)
         [self.orderButton bk_whenTapped:^{
             @strongify(self)

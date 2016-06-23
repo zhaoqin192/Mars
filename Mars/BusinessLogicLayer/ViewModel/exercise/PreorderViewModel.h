@@ -14,6 +14,7 @@
 @interface PreorderViewModel : NSObject
 
 @property (nonatomic, strong) RACCommand *lessonCommand;
+@property (nonatomic, strong) RACCommand *orderCommand;
 @property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, strong) LessonDateModel *dateModel;
 @property (nonatomic, strong) LessonTimeModel *timeModel;
