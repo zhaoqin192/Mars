@@ -14,11 +14,13 @@
 #import "LessonModel.h"
 #import "LessonDateModel.h"
 #import "LessonTimeModel.h"
+#import "ZSBExerciseDateViewCell.h"
+#import "ZSBExerciseTimeViewCell.h"
 
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) PreorderViewModel *viewModel;
-
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation WXPreorderCourseViewController
@@ -28,27 +30,26 @@
     [self configureNavigationBar];
     [self configureTableView];
     
-  //  [self bindViewModel];
+    [self bindViewModel];
 }
 
 - (void)bindViewModel {
     self.viewModel = [[PreorderViewModel alloc] init];
     
     @weakify(self)
-    [self.viewModel.successObject subscribeNext:^(id x) {
+    [[self.viewModel.lessonCommand execute:self.teacherID]
+    subscribeNext:^(id x) {
         @strongify(self)
         [self.myTableView reloadData];
     }];
     
-    [self.viewModel.failureObject subscribeNext:^(id x) {
-        
-    }];
-    
     [self.viewModel.errorObject subscribeNext:^(id x) {
-        
+        @strongify(self)
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.mode = MBProgressHUDModeText;
+        self.hud.labelText = @"网络异常";
+        [self.hud hide:YES afterDelay:1.5f];
     }];
-    
-    [self.viewModel fetcheTeacherLesson:self.teacherID];
     
 }
 
@@ -70,7 +71,8 @@
 - (void)configureTableView {
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PreOrderCourseCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([PreOrderCourseCell class])];
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([WXSelectTimeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([WXSelectTimeCell class])];
+    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZSBExerciseDateViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZSBExerciseDateViewCell class])];
+    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZSBExerciseTimeViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZSBExerciseTimeViewCell class])];
 }
 
 #pragma mark - UITableViewDataSource
@@ -80,37 +82,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 2;
-    }
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        WXSelectTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([WXSelectTimeCell class])];
-//        cell.dateArray = self.viewModel.lessonDateModelArray;
-//        cell.timeArray = self.viewModel.lessonTimeModelArray;
-//        [cell clearDateAndTime];
-//        [cell updateCell];
-//        @weakify(self)
-//        [cell.timeObject subscribeNext:^(LessonTimeModel *model) {
-//            @strongify(self)
-//            self.viewModel.lessonTimeModel = model;
-//        }];
-//        @weakify(cell)
-//        [cell.dateObject subscribeNext:^(LessonDateModel *model) {
-//            @strongify(self)
-//            @strongify(cell)
-//            self.viewModel.lessonDateModel = model;
-//            self.viewModel.lessonTimeModelArray = model.lessonTimeModelArray;
-//            [cell clearTime];
-//            [cell updateCell];
-//        }];
-        
-        return cell;
-    }
-    else {
+    if (indexPath.section == 0) {
         PreOrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PreOrderCourseCell class])];
         if (indexPath.row == 0) {
             cell.contentLabel.text = @"手机号码：18810465931";
@@ -119,18 +95,53 @@
         }
         return cell;
     }
-    return nil;
+    else {
+        if (indexPath.row == 0) {
+            ZSBExerciseDateViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseDateViewCell"];
+            [cell loadDataArray:self.viewModel.dateModelArray];
+            @weakify(self)
+            cell.loadTimeArray = ^(LessonDateModel *model){
+                @strongify(self)
+                self.viewModel.dateModel = model;
+                [self.myTableView reloadRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationFade];
+            };
+            return cell;
+        }
+        else {
+            ZSBExerciseTimeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseTimeViewCell"];
+         
+            [cell loadTimeArray:self.viewModel.dateModel.timeModelArray];
+            @weakify(self)
+            cell.selectTime = ^(LessonTimeModel *model){
+                @strongify(self)
+                self.viewModel.timeModel = model;
+            };
+            return cell;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1) {
-        return 155;
+    if (indexPath.section == 0) {
+        return 50;
     }
-    return 50;
+    else {
+        if (indexPath.row == 0) {
+            return 50;
+        }
+        else {
+            if (self.viewModel.dateModel.timeModelArray.count < 5) {
+                return 60;
+            }
+            else {
+                return 105;
+            }
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

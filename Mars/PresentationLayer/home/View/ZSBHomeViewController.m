@@ -47,22 +47,27 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 - (void)bindViewModel {
     self.viewModel = [[ZSBHomeViewModel alloc] init];
 
-    @weakify(self) [[self.viewModel.bannerCommand execute:nil]
+    @weakify(self)
+    [[self.viewModel.bannerCommand execute:nil]
         subscribeNext:^(NSArray *imageArray) {
-            @strongify(self) self.scrollView.imageURLStringsGroup = imageArray;
+            @strongify(self)
+            self.scrollView.imageURLStringsGroup = imageArray;
         }];
 
     [[self.viewModel.advertisementCommand execute:nil]
         subscribeNext:^(NSArray *titleArray) {
-            @strongify(self) [self.headView updateAdvertisementWithData:titleArray];
+            @strongify(self)
+            [self.headView updateAdvertisementWithData:titleArray];
         }];
 
     [[self.viewModel.hotCommand execute:nil] subscribeNext:^(id x) {
-        @strongify(self)[self.tableView reloadData];
+        @strongify(self)
+        [self.tableView reloadData];
     }];
 
     [self.viewModel.errorObject subscribeNext:^(id x) {
-        @strongify(self) self.hud =
+        @strongify(self)
+        self.hud =
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.mode = MBProgressHUDModeText;
         self.hud.labelText = @"网络异常";

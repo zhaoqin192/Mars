@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.lessonTimeModelArray = [[NSMutableArray alloc] init];
+        self.timeModelArray = [[NSMutableArray alloc] init];
     }
     return self;
 }

@@ -8,23 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class LessonModel;
 @class LessonDateModel;
 @class LessonTimeModel;
 
 @interface PreorderViewModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *lessonModelArray;
-@property (nonatomic, strong) NSMutableArray *lessonDateModelArray;
-@property (nonatomic, strong) NSMutableArray *lessonTimeModelArray;
-@property (nonatomic, strong) LessonModel *lessonModel;
-@property (nonatomic, strong) LessonDateModel *lessonDateModel;
-@property (nonatomic, strong) LessonTimeModel *lessonTimeModel;
-@property (nonatomic, strong) RACSubject *successObject;
-@property (nonatomic, strong) RACSubject *failureObject;
+@property (nonatomic, strong) RACCommand *lessonCommand;
 @property (nonatomic, strong) RACSubject *errorObject;
-
-- (void)fetcheTeacherLesson:(NSString *)identifier;
-
+@property (nonatomic, strong) LessonDateModel *dateModel;
+@property (nonatomic, strong) LessonTimeModel *timeModel;
+@property (nonatomic, strong) NSMutableArray *dateModelArray;
 
 @end

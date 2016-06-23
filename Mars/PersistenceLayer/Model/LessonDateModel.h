@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *week;
-@property (nonatomic, strong) NSMutableArray *lessonTimeModelArray;
+@property (nonatomic, strong) NSMutableArray *timeModelArray;
 
 @end

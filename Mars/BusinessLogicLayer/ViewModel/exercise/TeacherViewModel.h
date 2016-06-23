@@ -10,12 +10,9 @@
 
 @interface TeacherViewModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *teacherArray;
-@property (nonatomic, strong) RACSubject *teacherSuccessObject;
-@property (nonatomic, strong) RACSubject *teacherFailureObject;
+@property (nonatomic, strong) NSArray *teacherArray;
+@property (nonatomic, strong) RACCommand *teacherCommand;
 @property (nonatomic, strong) RACSubject *errorObject;
-
-- (void)fetchCachedTeacherArray;
 
 - (void)cachedTeacherArray;
 

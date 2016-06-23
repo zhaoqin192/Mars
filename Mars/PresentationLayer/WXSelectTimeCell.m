@@ -59,7 +59,7 @@
             }
             bar = [self.selectView viewWithTag:(self.selectView.tag + 20)];
             bar.hidden = NO;
-            self.timeArray = [[self.dateArray objectAtIndex:self.selectView.tag - 100] lessonTimeModelArray];
+//            self.timeArray = [[self.dateArray objectAtIndex:self.selectView.tag - 100] lessonTimeModelArray];
     
             [self.dateObject sendNext:[self.dateArray objectAtIndex:self.selectView.tag - 100]];
 //            [self clearTime];
