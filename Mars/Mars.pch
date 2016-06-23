@@ -23,6 +23,7 @@
 #import "Account.h"
 #import "NetworkManager.h"
 #import <CTAssetsPickerController/CTAssetsPickerController.h>
+#import "MJExtension.h"
 
 #define URL_PREFIX  @"http://101.200.135.129/zhanshibang/index.php/"
 #define kScreen_Bounds [UIScreen mainScreen].bounds

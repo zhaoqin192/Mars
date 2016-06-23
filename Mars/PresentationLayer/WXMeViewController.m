@@ -42,13 +42,17 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
     [self.viewModel updateStatus];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)bindViewModel {
@@ -118,7 +122,15 @@
     }];
     
     [self.settingView bk_whenTapped:^{
-        NSLog(@"设置");
+        if ([_viewModel isExist]) {
+            WXInformationViewController *vc = [[WXInformationViewController alloc] init];
+            //0为我的资料，1为填写资料
+            vc.state = @1;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     
     [self.aboutUsView bk_whenTapped:^{
@@ -127,10 +139,12 @@
     
     [self.contactUsView bk_whenTapped:^{
         NSLog(@"联系我们");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
     }];
     
     [self.applyTeacherView bk_whenTapped:^{
         NSLog(@"申请成为老师");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
     }];
     
 }
