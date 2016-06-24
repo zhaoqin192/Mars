@@ -46,17 +46,40 @@
     else {
         self.participateCount.text = [NSString stringWithFormat:@"%ld人参加",(long)examModel.attend_count];
     }
+    [self configureTag:examModel];
+}
+
+- (void)configureTag:(WXCategoryListModel *)examModel {
     if (examModel.tag1.length) {
         self.tag1.text = examModel.tag1;
+        self.tag1.hidden = NO;
     }
-    if (examModel.tag2.length) {
-        self.tag2.text = examModel.tag2;
+    else{
+        self.tag1.hidden = YES;
     }
+    
     if (examModel.tag3.length) {
         self.tag3.text = examModel.tag3;
+        self.tag3.hidden = NO;
     }
+    else{
+        self.tag3.hidden = YES;
+    }
+    
+    if (examModel.tag2.length) {
+        self.tag2.text = examModel.tag2;
+        self.tag2.hidden = NO;
+    }
+    else{
+        self.tag2.hidden = YES;
+    }
+    
     if (examModel.tag4.length) {
         self.tag4.text = examModel.tag4;
+        self.tag4.hidden = NO;
+    }
+    else{
+        self.tag4.hidden = YES;
     }
 }
 
