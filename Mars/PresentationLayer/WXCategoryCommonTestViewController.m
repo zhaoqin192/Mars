@@ -34,6 +34,7 @@
 @property (nonatomic, copy) NSArray *assets;
 @property (nonatomic, copy) NSString *test_result_id;
 @property (nonatomic, strong) NSMutableArray *urlArray;
+@property (nonatomic, strong) WXRankView *rankView;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -70,6 +71,7 @@
             self.regularLabel.text = responseObject[@"data"][@"describe"];
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
+            self.rankView.urlArray = responseObject[@"photo"];
             NSString *image = responseObject[@"data"][@"image"];
             if (image.length) {
                 self.isHaveImage = YES;
@@ -92,9 +94,9 @@
 }
 
 - (void)configureRankView {
-    WXRankView *rankView = [WXRankView rankView];
-    rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
-    [self.myRankView addSubview:rankView];
+    self.rankView = [WXRankView rankView];
+    self.rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    [self.myRankView addSubview:self.rankView];
 }
 
 - (void)configureImage {

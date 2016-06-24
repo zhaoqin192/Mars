@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WXRankView : UIView
-
+@property (nonatomic, copy) NSArray *urlArray;
 + (instancetype)rankView;
 @end
