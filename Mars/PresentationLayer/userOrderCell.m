@@ -8,7 +8,7 @@
 
 #import "userOrderCell.h"
 @interface userOrderCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
 @end
 
 @implementation userOrderCell

@@ -17,6 +17,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Kwd-HU-Y9t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="urq-5h-2NN">
                             <size key="itemSize" width="61" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -24,13 +25,23 @@
                             <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW6-Nx-dti">
+                        <rect key="frame" x="0.0" y="50" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="qLE-Nx-CZU"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="Kwd-HU-Y9t" secondAttribute="trailing" constant="-8" id="8rX-zl-BvX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nW6-Nx-dti" secondAttribute="bottom" constant="-9" id="Bui-WQ-P4a"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="nW6-Nx-dti" secondAttribute="trailing" constant="-8" id="FOw-Wj-S0V"/>
                     <constraint firstItem="Kwd-HU-Y9t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="LKk-x6-QGs"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Kwd-HU-Y9t" secondAttribute="bottom" constant="-8" id="MG4-Wr-dbf"/>
                     <constraint firstItem="Kwd-HU-Y9t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="QdQ-vC-T5b"/>
+                    <constraint firstItem="nW6-Nx-dti" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="zg1-uy-BaS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

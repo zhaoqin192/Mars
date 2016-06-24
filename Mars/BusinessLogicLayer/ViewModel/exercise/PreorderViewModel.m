@@ -25,7 +25,7 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
                 NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/teacher/gettime"]];
-                NSDictionary *parameters = @{ @"teacher_id": identifier };
+                NSDictionary *parameters = @{@"teacher_id": identifier};
 
                 @weakify(self)
                     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
@@ -56,10 +56,35 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                     return nil;
                 }];
             }];
-
-            self.errorObject = [RACSubject subject];
-            [[RACSignal merge:@[self.lessonCommand.errors]]
-                subscribe:self.errorObject];
+        
+        self.orderCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            @weakify(self)
+           return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+               AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+               Account *account = [accountDao fetchAccount];
+               if (![accountDao isExist]) {
+                   [subscriber sendNext:@"0"];
+                   [subscriber sendCompleted];
+               }
+               else {
+                   AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                   NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/teacher/order"]];
+                   @strongify(self)
+                   NSDictionary *parameters = @{@"sid": account.token, @"lesson_time_id": self.timeModel.identifier};
+                   [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                       [subscriber sendNext:responseObject[@"code"]];
+                       [subscriber sendCompleted];
+                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                       [subscriber sendError:nil];
+                   }];
+               }
+               return nil;
+           }];
+        }];
+        
+        self.errorObject = [RACSubject subject];
+        [[RACSignal merge:@[self.lessonCommand.errors, self.orderCommand.errors]]
+         subscribe:self.errorObject];
     }
     return self;
     }

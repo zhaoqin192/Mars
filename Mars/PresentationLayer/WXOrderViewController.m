@@ -87,7 +87,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     WXTeacherInformationViewController *vc = [[WXTeacherInformationViewController alloc] init];
-    vc.teacherModel = [self.viewModel.teacherArray objectAtIndex:indexPath.row];
+    TeacherModel *model = self.viewModel.teacherArray[indexPath.row];
+    vc.teacherID = model.identifier;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

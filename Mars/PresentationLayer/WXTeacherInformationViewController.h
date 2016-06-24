@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class TeacherModel;
-
 @interface WXTeacherInformationViewController : UIViewController
 
-@property (nonatomic, strong) TeacherModel *teacherModel;
+@property (nonatomic, strong) NSString *teacherID;
 
 @end

@@ -10,7 +10,7 @@
 #import "ZSBExerciseDateCollectionViewCell.h"
 #import "LessonDateModel.h"
 
-@interface ZSBExerciseDateViewCell ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface ZSBExerciseDateViewCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSArray *dateArray;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @end
@@ -39,7 +39,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZSBExerciseDateCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZSBExerciseDateCollectionViewCell" forIndexPath:indexPath];
     LessonDateModel *model = self.dateArray[indexPath.row];
-    cell.dateLabel.text = model.date;
+    cell.dateLabel.text = [model.date substringWithRange:NSMakeRange(5, 5)];
     cell.weekLabel.text = model.week;
     if (indexPath.row == _selectedIndex) {
         cell.dateLabel.textColor = [UIColor colorWithHexString:@"48e4c2"];
@@ -55,7 +55,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(61 / 375 * kScreenWidth, 50);
+    return CGSizeMake(61.0f * kScreenWidth / 375, 50);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,13 +65,16 @@
     [self.collectionView reloadData];
 }
 
-
 - (void)loadDataArray:(NSArray *)array {
     self.dateArray = array;
     if (_dateArray.count > 0) {
         self.selectedIndex = 0;
+        if (self.loadTimeArray) {
+            self.loadTimeArray(self.dateArray[0]);
+        }
     }
     [self.collectionView reloadData];
+    
 }
 
 @end

@@ -33,7 +33,8 @@
 
 - (BOOL)isExist{
     NSArray *array = [self fetchAccountArray];
-    if ([array count] != 0) {
+    Account *account = array[0];
+    if (account.token) {
         return YES;
     }else{
         return NO;

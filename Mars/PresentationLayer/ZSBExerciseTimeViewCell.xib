@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,8 +15,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TKc-HH-EnR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TKc-HH-EnR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="bmB-U3-Kec">
                             <size key="itemSize" width="80" height="30"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -24,6 +26,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="TKc-HH-EnR" secondAttribute="trailing" constant="-8" id="AJj-yr-Zcc"/>
+                    <constraint firstItem="TKc-HH-EnR" firstAttribute="top" secondItem="j7Q-Oh-ihP" secondAttribute="topMargin" constant="-8" id="I4l-oa-bJa"/>
+                    <constraint firstItem="TKc-HH-EnR" firstAttribute="leading" secondItem="j7Q-Oh-ihP" secondAttribute="leadingMargin" constant="-8" id="Ri2-Mq-Yoe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="TKc-HH-EnR" secondAttribute="bottom" constant="-8" id="yN9-TR-kyl"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
