@@ -8,9 +8,11 @@
 
 #import "WXRankViewController.h"
 #import "RankCCell.h"
+#import "WXRankModel.h"
 
 @interface WXRankViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong, nonatomic)  UICollectionView *myCollectionView;
+@property (nonatomic, copy) NSArray *modelArray;
 @end
 
 @implementation WXRankViewController
@@ -19,6 +21,34 @@
     [super viewDidLoad];
     self.navigationItem.title = @"排行榜";
     [self configureCollectionView];
+    [self loadData];
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Exercise/test/getrange"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_id":self.test_id};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.modelArray = [WXRankModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.myCollectionView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 - (void)configureCollectionView {
@@ -37,12 +67,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.modelArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RankCCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RankCCell class]) forIndexPath:indexPath];
+    cell.model = self.modelArray[indexPath.row];
     return cell;
 }
 

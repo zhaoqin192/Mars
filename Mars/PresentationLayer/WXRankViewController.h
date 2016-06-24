@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXRankViewController : UIViewController
-
+@property (nonatomic, copy) NSString *test_id;
 @end

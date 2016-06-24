@@ -27,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"测试";
-    self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self loadData];
 }
 - (IBAction)joinButtonClicked {

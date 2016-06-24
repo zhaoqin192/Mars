@@ -11,8 +11,14 @@
 #import "WXTestJoinView.h"
 #import "WXCategoryPlayResultViewController.h"
 #import "WXCategoryCommitViewController.h"
+#import "WXRankViewController.h"
 
 @interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *testTitleImage;
+@property (weak, nonatomic) IBOutlet UILabel *regularLabel;
+@property (weak, nonatomic) IBOutlet UILabel *requireLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *productView;
 @property (weak, nonatomic) IBOutlet UIView *commitView;
@@ -27,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *regularButton;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (nonatomic, copy) NSArray *assets;
+@property (nonatomic, copy) NSString *test_result_id;
+@property (nonatomic, strong) NSMutableArray *urlArray;
+@property (nonatomic, strong) WXRankView *rankView;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -34,19 +43,67 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
+    self.urlArray = [NSMutableArray array];
     [self configureRankView];
-    [self configureImage];
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    [self loadData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.joinView.dismiss();
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test_detail"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_id":self.identify};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.requireLabel.text = responseObject[@"data"][@"require"];
+            self.regularLabel.text = responseObject[@"data"][@"describe"];
+            self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
+            self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
+            self.rankView.urlArray = responseObject[@"photo"];
+            NSString *image = responseObject[@"data"][@"image"];
+            if (image.length) {
+                self.isHaveImage = YES;
+                [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
+            }
+            [self configureImage];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 - (void)configureRankView {
-    WXRankView *rankView = [WXRankView rankView];
-    rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
-    [self.myRankView addSubview:rankView];
+    self.rankView = [WXRankView rankView];
+    self.rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    __weak typeof(self)weakSelf = self;
+    self.rankView.moreButtonClicked = ^{
+        WXRankViewController *vc = [[WXRankViewController alloc] init];
+        vc.test_id = weakSelf.identify;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    };
+    [self.myRankView addSubview:self.rankView];
 }
 
 - (void)configureImage {
@@ -219,6 +276,148 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.assets = [NSMutableArray arrayWithArray:assets];
     NSLog(@"%d",self.assets.count);
+    [SVProgressHUD show];
+    [self joinTheTest];
+}
+
+- (void)joinTheTest {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/attend_test"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_id":self.identify};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.test_result_id = responseObject[@"data"][@"test_result_id"];
+            [self fetchImageData:0];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)endTheTest {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/end_test"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_result_id":self.test_result_id};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [SVProgressHUD dismiss];
+            WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
+            vc.isImage = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)fetchImageData:(NSInteger )index {
+    NSLog(@"fetch image data %d",index);
+    PHAsset *asset = self.assets[index];
+    PHImageManager *manager = [PHImageManager defaultManager];
+    [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        [self uploadImage:imageData index:index];
+    }];
+}
+
+- (void)uploadImage:(NSData *)imageData index:(NSInteger)index{
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/upload_paper_photo"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token};
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        [formData appendPartWithFileData:imageData name:@"photo" fileName:fileName mimeType:@"image/png"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [self.urlArray addObject:responseObject[@"date"][@"url"]];
+            if (index == self.assets.count-1) {
+                [self uploadUrl:0];
+            }
+            else {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self fetchImageData:index+1];
+                });
+            }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+    
+}
+
+- (void)uploadUrl:(NSInteger)index{
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/upload_paper"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_result_id":self.test_result_id,
+                                 @"image_url":self.urlArray[index]};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            if (index == self.urlArray.count-1) {
+                [self endTheTest];
+            }
+            else {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self uploadUrl:index+1];
+                });
+            }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 @end

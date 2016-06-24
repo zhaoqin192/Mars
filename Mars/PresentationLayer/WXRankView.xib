@@ -20,42 +20,42 @@
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="41l-5B-ISQ">
+                <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="41l-5B-ISQ">
                     <rect key="frame" x="195" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="KZX-fd-AtR"/>
                         <constraint firstAttribute="height" constant="35" id="aIf-Ym-Jvq"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="M4k-nc-nY4">
+                <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="M4k-nc-nY4">
                     <rect key="frame" x="145" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="lhG-Fz-XgN"/>
                         <constraint firstAttribute="height" constant="35" id="pYG-VB-Lz5"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="8MA-ir-41Q">
+                <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8MA-ir-41Q">
                     <rect key="frame" x="95" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="HHj-Ny-Ebq"/>
                         <constraint firstAttribute="width" constant="35" id="Les-r4-9Jv"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="ylO-FP-oIn">
+                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ylO-FP-oIn">
                     <rect key="frame" x="45" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="6bF-cW-j9a"/>
                         <constraint firstAttribute="width" constant="35" id="DaA-FK-g7F"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="Het-Uj-lRb">
+                <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Het-Uj-lRb">
                     <rect key="frame" x="245" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="Fm8-VR-nnM"/>
                         <constraint firstAttribute="height" constant="35" id="JjL-cP-rek"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像区域更多icon" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-Tc-Uc7">
+                <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-Tc-Uc7">
                     <rect key="frame" x="295" y="37" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="3LD-ED-JNZ"/>
@@ -90,6 +90,6 @@
         </view>
     </objects>
     <resources>
-        <image name="头像区域更多icon" width="35" height="35"/>
+        <image name="placeholder" width="60" height="60"/>
     </resources>
 </document>

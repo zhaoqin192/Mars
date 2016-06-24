@@ -13,6 +13,7 @@
 @interface WXTestOnLineResultViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (nonatomic, copy) NSArray *knowledgeList;
 @end
 
 @implementation WXTestOnLineResultViewController
@@ -26,9 +27,35 @@
     [self.backButton bk_whenTapped:^{
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-    
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
+    [self loadData];
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/getLabel"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.knowledgeList = responseObject[@"points"];
+            [self.myTableView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -41,7 +68,7 @@
     if (section == 0) {
         return 3;
     }
-    return 2;
+    return self.knowledgeList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,14 +91,7 @@
         }
     }
     else {
-        switch (indexPath.row) {
-            case 0:
-                cell.textLabel.text = @"素描知识";
-                break;
-            case 1:
-                cell.textLabel.text = @"色彩知识";
-                break;
-        }
+        cell.textLabel.text = self.knowledgeList[indexPath.row];
     }
     return cell;
 }
@@ -100,20 +120,9 @@
         }
     }
     else {
-        switch (indexPath.row) {
-            case 0:{
-                WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
-                vc.myTitle = @"素描知识";
-                [self.navigationController pushViewController:vc animated:YES];
-                break;
-            }
-            case 1:{
-                WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
-                vc.myTitle = @"色彩知识";
-                [self.navigationController pushViewController:vc animated:YES];
-                break;
-            }
-        }
+        WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
+        vc.myTitle = self.knowledgeList[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

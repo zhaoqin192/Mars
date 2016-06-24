@@ -10,6 +10,8 @@
 
 @interface WXCategoryPlayResultViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 
 @end
 
@@ -20,6 +22,10 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"结束考试";
     
+    if (self.isImage) {
+        self.titleLabel.text = @"恭喜您，考卷上传成功！";
+        self.tipsLabel.text = @"老师将在24小时内评分并告知与您";
+    }
     UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [commitButton setTitle:@"完成" forState:UIControlStateNormal];
     [commitButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
@@ -32,7 +38,7 @@
     self.backButton.layer.cornerRadius = self.backButton.height/2;
     self.backButton.layer.masksToBounds = YES;
     [self.backButton bk_whenTapped:^{
-        NSLog(@"back");
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 
