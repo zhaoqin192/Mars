@@ -163,6 +163,25 @@
 		AC5260611D1C139300B25B66 /* OrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260601D1C139300B25B66 /* OrderViewModel.m */; };
 		AC5260651D1C1A2300B25B66 /* ZSBOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260641D1C1A2300B25B66 /* ZSBOrderModel.m */; };
 		AC5260681D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */; };
+		AC5260851D1CC4E900B25B66 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260751D1CC4E900B25B66 /* NSObject+MemoryLeak.m */; };
+		AC5260861D1CC4E900B25B66 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260771D1CC4E900B25B66 /* UINavigationController+MemoryLeak.m */; };
+		AC5260871D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260791D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.m */; };
+		AC5260881D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC52607B1D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.m */; };
+		AC5260891D1CC4E900B25B66 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC52607D1D1CC4E900B25B66 /* UITabBarController+MemoryLeak.m */; };
+		AC52608A1D1CC4E900B25B66 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC52607F1D1CC4E900B25B66 /* UIView+MemoryLeak.m */; };
+		AC52608B1D1CC4E900B25B66 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260811D1CC4E900B25B66 /* UIViewController+MemoryLeak.m */; };
+		AC5260931D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260921D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m */; };
+		AC5260951D1CDE2D00B25B66 /* ZSBVideoSelectTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260941D1CDE2D00B25B66 /* ZSBVideoSelectTypeView.xib */; };
+		AC5260991D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260971D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m */; };
+		AC52609A1D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260981D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib */; };
+		AC52609F1D1D248C00B25B66 /* ZSBSelectConditionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC52609E1D1D248C00B25B66 /* ZSBSelectConditionView.m */; };
+		AC5260A11D1D249C00B25B66 /* ZSBSelectConditionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260A01D1D249C00B25B66 /* ZSBSelectConditionView.xib */; };
+		AC5260A51D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260A31D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.m */; };
+		AC5260A61D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260A41D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib */; };
+		AC5260AB1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260A91D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m */; };
+		AC5260AC1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260AA1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib */; };
+		AC5260AF1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5260AE1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.m */; };
+		AC5260B11D1D4F2200B25B66 /* ZSBSelectConditionSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5260B01D1D4F2200B25B66 /* ZSBSelectConditionSectionHeadView.xib */; };
 		AC66CD8C1D1A88FD003B4DB5 /* WXCategoryCommonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */; };
 		AC66CD901D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CD8D1D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib */; };
 		AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CD8E1D1A8942003B4DB5 /* WXTestKnowledgeViewController.m */; };
@@ -202,6 +221,16 @@
 		ACD4B62A1D118DB6001DAD04 /* ZSBHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B6291D118DB6001DAD04 /* ZSBHomeViewModel.m */; };
 		ACD4B62D1D118DD8001DAD04 /* ZSBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B62C1D118DD8001DAD04 /* ZSBHomeViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC52608D1D1CC4EA00B25B66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC5260821D1CC4E900B25B66 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2005778D15DCAAB2B3858955 /* Pods-Mars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mars/Pods-Mars.debug.xcconfig"; sourceTree = "<group>"; };
@@ -462,6 +491,40 @@
 		AC5260641D1C1A2300B25B66 /* ZSBOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBOrderModel.m; sourceTree = "<group>"; };
 		AC5260661D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBTeacherInfoViewModel.h; sourceTree = "<group>"; };
 		AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBTeacherInfoViewModel.m; sourceTree = "<group>"; };
+		AC5260731D1CC4E900B25B66 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		AC5260741D1CC4E900B25B66 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC5260751D1CC4E900B25B66 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC5260761D1CC4E900B25B66 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC5260771D1CC4E900B25B66 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC5260781D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC5260791D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC52607A1D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC52607B1D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC52607C1D1CC4E900B25B66 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC52607D1D1CC4E900B25B66 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC52607E1D1CC4E900B25B66 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC52607F1D1CC4E900B25B66 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC5260801D1CC4E900B25B66 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC5260811D1CC4E900B25B66 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC5260821D1CC4E900B25B66 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
+		AC5260911D1CDE1300B25B66 /* ZSBVideoSelectTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBVideoSelectTypeView.h; sourceTree = "<group>"; };
+		AC5260921D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBVideoSelectTypeView.m; sourceTree = "<group>"; };
+		AC5260941D1CDE2D00B25B66 /* ZSBVideoSelectTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBVideoSelectTypeView.xib; sourceTree = "<group>"; };
+		AC5260961D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBSelectTypeTableViewCell.h; sourceTree = "<group>"; };
+		AC5260971D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBSelectTypeTableViewCell.m; sourceTree = "<group>"; };
+		AC5260981D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBSelectTypeTableViewCell.xib; sourceTree = "<group>"; };
+		AC52609D1D1D248C00B25B66 /* ZSBSelectConditionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBSelectConditionView.h; sourceTree = "<group>"; };
+		AC52609E1D1D248C00B25B66 /* ZSBSelectConditionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBSelectConditionView.m; sourceTree = "<group>"; };
+		AC5260A01D1D249C00B25B66 /* ZSBSelectConditionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBSelectConditionView.xib; sourceTree = "<group>"; };
+		AC5260A21D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBSelectConditionTableViewCell.h; sourceTree = "<group>"; };
+		AC5260A31D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBSelectConditionTableViewCell.m; sourceTree = "<group>"; };
+		AC5260A41D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBSelectConditionTableViewCell.xib; sourceTree = "<group>"; };
+		AC5260A81D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBSelectConditionCollectionViewCell.h; sourceTree = "<group>"; };
+		AC5260A91D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBSelectConditionCollectionViewCell.m; sourceTree = "<group>"; };
+		AC5260AA1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBSelectConditionCollectionViewCell.xib; sourceTree = "<group>"; };
+		AC5260AD1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBSelectConditionSectionHeadView.h; sourceTree = "<group>"; };
+		AC5260AE1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBSelectConditionSectionHeadView.m; sourceTree = "<group>"; };
+		AC5260B01D1D4F2200B25B66 /* ZSBSelectConditionSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBSelectConditionSectionHeadView.xib; sourceTree = "<group>"; };
 		AC66CD8D1D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestKnowledgeViewController.xib; sourceTree = "<group>"; };
 		AC66CD8E1D1A8942003B4DB5 /* WXTestKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestKnowledgeViewController.m; sourceTree = "<group>"; };
 		AC66CD8F1D1A8942003B4DB5 /* WXTestKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestKnowledgeViewController.h; sourceTree = "<group>"; };
@@ -941,6 +1004,24 @@
 				30FD1E961CDDA80C003C91A5 /* cell */,
 				30FD1F6B1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.h */,
 				30FD1F6C1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m */,
+				AC5260911D1CDE1300B25B66 /* ZSBVideoSelectTypeView.h */,
+				AC5260921D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m */,
+				AC5260941D1CDE2D00B25B66 /* ZSBVideoSelectTypeView.xib */,
+				AC5260961D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.h */,
+				AC5260971D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m */,
+				AC5260981D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib */,
+				AC52609D1D1D248C00B25B66 /* ZSBSelectConditionView.h */,
+				AC52609E1D1D248C00B25B66 /* ZSBSelectConditionView.m */,
+				AC5260A01D1D249C00B25B66 /* ZSBSelectConditionView.xib */,
+				AC5260A21D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.h */,
+				AC5260A31D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.m */,
+				AC5260A41D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib */,
+				AC5260A81D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.h */,
+				AC5260A91D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m */,
+				AC5260AA1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib */,
+				AC5260AD1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.h */,
+				AC5260AE1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.m */,
+				AC5260B01D1D4F2200B25B66 /* ZSBSelectConditionSectionHeadView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1127,6 +1208,7 @@
 		AC33448C1CCD1B2B009C7323 = {
 			isa = PBXGroup;
 			children = (
+				AC5260711D1CC4E900B25B66 /* MLeaksFinder */,
 				AC3344971CCD1B2B009C7323 /* Mars */,
 				AC3344961CCD1B2B009C7323 /* Products */,
 				8BB46A368132D85A1DA305D6 /* Frameworks */,
@@ -1227,6 +1309,45 @@
 				AC45588B1D123EA800E2307E /* ZSBHomeTableViewCell.m */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		AC5260711D1CC4E900B25B66 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC5260721D1CC4E900B25B66 /* MLeaksFinder */,
+				AC5260821D1CC4E900B25B66 /* MLeaksFinder.xcodeproj */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC5260721D1CC4E900B25B66 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC5260731D1CC4E900B25B66 /* MLeaksFinder.h */,
+				AC5260741D1CC4E900B25B66 /* NSObject+MemoryLeak.h */,
+				AC5260751D1CC4E900B25B66 /* NSObject+MemoryLeak.m */,
+				AC5260761D1CC4E900B25B66 /* UINavigationController+MemoryLeak.h */,
+				AC5260771D1CC4E900B25B66 /* UINavigationController+MemoryLeak.m */,
+				AC5260781D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.h */,
+				AC5260791D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.m */,
+				AC52607A1D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.h */,
+				AC52607B1D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.m */,
+				AC52607C1D1CC4E900B25B66 /* UITabBarController+MemoryLeak.h */,
+				AC52607D1D1CC4E900B25B66 /* UITabBarController+MemoryLeak.m */,
+				AC52607E1D1CC4E900B25B66 /* UIView+MemoryLeak.h */,
+				AC52607F1D1CC4E900B25B66 /* UIView+MemoryLeak.m */,
+				AC5260801D1CC4E900B25B66 /* UIViewController+MemoryLeak.h */,
+				AC5260811D1CC4E900B25B66 /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC5260831D1CC4E900B25B66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC52608E1D1CC4EA00B25B66 /* libMLeaksFinder.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AC7AF3DF1CE38C9000F69110 /* account */ = {
@@ -1359,12 +1480,28 @@
 			mainGroup = AC33448C1CCD1B2B009C7323;
 			productRefGroup = AC3344961CCD1B2B009C7323 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC5260831D1CC4E900B25B66 /* Products */;
+					ProjectRef = AC5260821D1CC4E900B25B66 /* MLeaksFinder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AC3344941CCD1B2B009C7323 /* Mars */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC52608E1D1CC4EA00B25B66 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC52608D1D1CC4EA00B25B66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC3344931CCD1B2B009C7323 /* Resources */ = {
@@ -1386,17 +1523,22 @@
 				30FD1EEC1CE0D09D003C91A5 /* WXCourseVideoViewController.xib in Resources */,
 				AC66CDC61D1BAFDE003B4DB5 /* WXSelectTimeCell.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
+				AC52609A1D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib in Resources */,
 				30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */,
 				AC66CDB11D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib in Resources */,
 				302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */,
+				AC5260951D1CDE2D00B25B66 /* ZSBVideoSelectTypeView.xib in Resources */,
+				AC5260A11D1D249C00B25B66 /* ZSBSelectConditionView.xib in Resources */,
 				AC66CD901D1A8942003B4DB5 /* WXTestKnowledgeViewController.xib in Resources */,
 				AC66CDAC1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.xib in Resources */,
 				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
+				AC5260A61D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
+				AC5260AC1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib in Resources */,
 				302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */,
@@ -1423,6 +1565,7 @@
 				30FD1F8F1CE21FC7003C91A5 /* pic1.jpg in Resources */,
 				30FD1EE41CE0B3AB003C91A5 /* WXPreorderResultViewController.xib in Resources */,
 				30FD1E9B1CDDA833003C91A5 /* OrderCell.xib in Resources */,
+				AC5260B11D1D4F2200B25B66 /* ZSBSelectConditionSectionHeadView.xib in Resources */,
 				30FD1F8D1CE21FC7003C91A5 /* pbg.jpg in Resources */,
 				ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */,
 				30B602771CD874B1003ED671 /* userIconCell.xib in Resources */,
@@ -1509,18 +1652,24 @@
 				AC45588C1D123EA800E2307E /* ZSBHomeTableViewCell.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
 				302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */,
+				AC5260891D1CC4E900B25B66 /* UITabBarController+MemoryLeak.m in Sources */,
+				AC52608B1D1CC4E900B25B66 /* UIViewController+MemoryLeak.m in Sources */,
 				30FD1EA81CDDE330003C91A5 /* WXInsetLabel.m in Sources */,
 				AC66CD961D1A8974003B4DB5 /* WXCategoryCommitViewController.m in Sources */,
 				30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */,
 				30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */,
+				AC52608A1D1CC4E900B25B66 /* UIView+MemoryLeak.m in Sources */,
 				30FD1EE31CE0B3AB003C91A5 /* WXPreorderResultViewController.m in Sources */,
 				30B6028E1CD87510003ED671 /* ActionSheetCustomPicker.m in Sources */,
+				AC5260AF1D1D4F0600B25B66 /* ZSBSelectConditionSectionHeadView.m in Sources */,
 				AC66CDA31D1ACB7B003B4DB5 /* ZSBExerciseTimeViewCell.m in Sources */,
 				30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */,
 				AC4558831D12370100E2307E /* ZSBHomeHeadView.m in Sources */,
 				30FD1F681CE211AE003C91A5 /* RankPictureCell.m in Sources */,
 				30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */,
+				AC5260A51D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.m in Sources */,
 				30FD1F771CE21247003C91A5 /* SDPhotoBrowser.m in Sources */,
+				AC5260851D1CC4E900B25B66 /* NSObject+MemoryLeak.m in Sources */,
 				AC5260611D1C139300B25B66 /* OrderViewModel.m in Sources */,
 				AC66CDAB1D1ACCA6003B4DB5 /* ZSBExerciseTimeCollectionViewCell.m in Sources */,
 				3022432C1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m in Sources */,
@@ -1546,6 +1695,7 @@
 				302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */,
 				AC66CDC71D1BAFDE003B4DB5 /* WXSelectTimeCell.m in Sources */,
 				ACB77E731D1A577000B43AFD /* ZSBKnowledgeModel.m in Sources */,
+				AC5260881D1CC4E900B25B66 /* UISplitViewController+MemoryLeak.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACB77E791D1A705800B43AFD /* ZSBWebViewController.m in Sources */,
 				30FD1EEB1CE0D09D003C91A5 /* WXCourseVideoViewController.m in Sources */,
@@ -1561,8 +1711,10 @@
 				AC1B065C1CE479AA00C0E9B3 /* VideoViewModel.m in Sources */,
 				ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */,
 				AC2E425E1CE6E5F600027BCD /* LessonDateModel.m in Sources */,
+				AC5260931D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m in Sources */,
 				303D9C481D1BB9BC000FB964 /* WXCategoryListModel.m in Sources */,
 				302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */,
+				AC52609F1D1D248C00B25B66 /* ZSBSelectConditionView.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
 				30B6028F1CD87510003ED671 /* ActionSheetDatePicker.m in Sources */,
@@ -1598,7 +1750,11 @@
 				30FD1F6D1CE211E6003C91A5 /* SDWeiXinPhotoContainerView.m in Sources */,
 				302243271D0C5E350054B5E1 /* WXTestTextFieldCell.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
+				AC5260861D1CC4E900B25B66 /* UINavigationController+MemoryLeak.m in Sources */,
 				AC03B8C81D1A272500773EFA /* ZSBTestModel.m in Sources */,
+				AC5260871D1CC4E900B25B66 /* UIPageViewController+MemoryLeak.m in Sources */,
+				AC5260AB1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m in Sources */,
+				AC5260991D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,
 				30FD1EBE1CE02C37003C91A5 /* WXTeacherInformationViewController.m in Sources */,
 				ACD4B62A1D118DB6001DAD04 /* ZSBHomeViewModel.m in Sources */,
@@ -1723,7 +1879,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1744,7 +1900,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

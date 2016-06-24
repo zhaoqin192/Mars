@@ -41,6 +41,10 @@
     self.videoVC.leftSwipe = ^{
         [weakSelf labelTapped:weakSelf.orderLabel];
     };
+    self.videoVC.focus = ^(BOOL isFocus) {
+        weakSelf.videoLabel.userInteractionEnabled = !isFocus;
+        weakSelf.orderLabel.userInteractionEnabled = !isFocus;
+    };
     [self addChildViewController:self.videoVC];
     
     self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);

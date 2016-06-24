@@ -31,16 +31,14 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
                         if ([responseObject[@"code"] isEqualToString:@"200"]) {
                             @strongify(self)
-                            NSDictionary *dateDic = responseObject[@"data"];
-                            NSArray *dateDicKeyArray = dateDic.allKeys;
-                            for (NSString *dateString in dateDicKeyArray) {
+                            NSArray *dateArray = responseObject[@"data"];
+                            for (NSArray *timeArray in dateArray) {
                                 LessonDateModel *dateModel = [[LessonDateModel alloc] init];
-                                dateModel.date = dateString;
-                                NSArray *timeArray = dateDic[dateString];
                                 for (NSDictionary *time in timeArray) {
                                     LessonTimeModel *timeModel = [[LessonTimeModel alloc] init];
                                     timeModel.identifier = time[@"lesson_time_id"];
                                     timeModel.time = time[@"lesson_time"];
+                                    dateModel.date = time[@"lesson_date"];
                                     dateModel.week = time[@"lesson_week"];
                                     [dateModel.timeModelArray addObject:timeModel];
                                 }
