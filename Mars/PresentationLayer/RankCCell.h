@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WXRankModel;
 @interface RankCCell : UICollectionViewCell
-
+@property (nonatomic, strong) WXRankModel *model;
 @end

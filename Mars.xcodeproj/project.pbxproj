@@ -46,6 +46,7 @@
 		3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */; };
 		3091D5C81D1CDFA100F10E1F /* WXMeTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */; };
 		3091D5C91D1CDFA100F10E1F /* WXMeTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */; };
+		3091D5CC1D1D125600F10E1F /* WXRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5CB1D1D125600F10E1F /* WXRankModel.m */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -268,6 +269,8 @@
 		3091D5C51D1CDFA100F10E1F /* WXMeTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeTestViewController.h; sourceTree = "<group>"; };
 		3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeTestViewController.m; sourceTree = "<group>"; };
 		3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeTestViewController.xib; sourceTree = "<group>"; };
+		3091D5CA1D1D125600F10E1F /* WXRankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXRankModel.h; sourceTree = "<group>"; };
+		3091D5CB1D1D125600F10E1F /* WXRankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankModel.m; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				302243611D0FEABF0054B5E1 /* WXRankView.h */,
 				302243601D0FEABF0054B5E1 /* WXRankView.m */,
 				302243621D0FEABF0054B5E1 /* WXRankView.xib */,
+				3091D5CA1D1D125600F10E1F /* WXRankModel.h */,
+				3091D5CB1D1D125600F10E1F /* WXRankModel.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1586,6 +1591,7 @@
 				302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */,
 				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
 				AC2E6CD11CCE0031008E6D52 /* AlertManager.m in Sources */,
+				3091D5CC1D1D125600F10E1F /* WXRankModel.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC66CD9B1D1AA79B003B4DB5 /* ZSBCacheManager.m in Sources */,

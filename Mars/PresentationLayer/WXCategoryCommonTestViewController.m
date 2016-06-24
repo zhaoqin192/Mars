@@ -11,6 +11,7 @@
 #import "WXTestJoinView.h"
 #import "WXCategoryPlayResultViewController.h"
 #import "WXCategoryCommitViewController.h"
+#import "WXRankViewController.h"
 
 @interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *testTitleImage;
@@ -96,6 +97,12 @@
 - (void)configureRankView {
     self.rankView = [WXRankView rankView];
     self.rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    __weak typeof(self)weakSelf = self;
+    self.rankView.moreButtonClicked = ^{
+        WXRankViewController *vc = [[WXRankViewController alloc] init];
+        vc.test_id = weakSelf.identify;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    };
     [self.myRankView addSubview:self.rankView];
 }
 

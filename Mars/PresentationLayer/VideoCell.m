@@ -38,7 +38,9 @@
   
 - (void)setExamModel:(WXCategoryListModel *)examModel {
     _examModel = examModel;
-    [self.videoImage sd_setImageWithURL:[NSURL URLWithString:examModel.video_image]];
+    if (examModel.video_image.length) {
+        [self.videoImage sd_setImageWithURL:[NSURL URLWithString:examModel.video_image]placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+    }
     self.title.text = examModel.title;
     if (examModel.difficult_level.length) {
         self.participateCount.text = [NSString stringWithFormat:@"难度:%@    %ld人参加",examModel.difficult_level,(long)examModel.attend_count];

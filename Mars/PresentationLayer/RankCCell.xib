@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,9 +13,9 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="165" height="200"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2RI-L2-zUi">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="暂时占位图" translatesAutoresizingMaskIntoConstraints="NO" id="2RI-L2-zUi">
                         <rect key="frame" x="0.0" y="0.0" width="165" height="155"/>
-                        <color key="backgroundColor" red="0.74117647060000003" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="155" id="Vu5-T8-CeU"/>
                         </constraints>
@@ -71,11 +71,15 @@
             <size key="customSize" width="110" height="222"/>
             <connections>
                 <outlet property="iconView" destination="SMm-1c-WAk" id="GGG-LG-UDt"/>
+                <outlet property="nameLabel" destination="a7X-qv-XLO" id="Dpt-5o-2qy"/>
+                <outlet property="scoreLabel" destination="rji-0T-OZo" id="X9t-xq-fBH"/>
+                <outlet property="titleView" destination="2RI-L2-zUi" id="nCz-nJ-bKM"/>
             </connections>
             <point key="canvasLocation" x="375.5" y="483"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="暂时占位图" width="60" height="60"/>
         <image name="高分视频上的大播放icon" width="54" height="54"/>
     </resources>
 </document>

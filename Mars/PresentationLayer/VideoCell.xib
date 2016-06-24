@@ -14,9 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-ds-Ay0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="暂时占位图" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-ds-Ay0">
                         <rect key="frame" x="15" y="15" width="85" height="84"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="85" id="Y9H-XO-u2Y"/>
                         </constraints>
@@ -103,5 +103,6 @@
     </objects>
     <resources>
         <image name="列表播放icon" width="26" height="26"/>
+        <image name="暂时占位图" width="60" height="60"/>
     </resources>
 </document>

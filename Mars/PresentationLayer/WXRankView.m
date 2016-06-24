@@ -46,7 +46,9 @@
     imageView.image = [UIImage imageNamed:@"头像区域更多icon"];
     imageView.userInteractionEnabled = YES;
     [imageView bk_whenTapped:^{
-        NSLog(@"more");
+        if (self.moreButtonClicked) {
+            self.moreButtonClicked();
+        }
     }];
     
     NSArray *tagArray = @[@"10",@"11",@"12",@"13",@"14",@"15"];
@@ -59,7 +61,7 @@
     }
     for (NSInteger i=0; i<count; i++) {
         UIImageView *imageView = [self viewWithTag:i+10];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:_iconUrlArray[i]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:_iconUrlArray[i]] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
     }
     
 }

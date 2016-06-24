@@ -10,5 +10,6 @@
 
 @interface WXRankView : UIView
 @property (nonatomic, copy) NSArray *urlArray;
+@property (nonatomic, copy) void(^moreButtonClicked)();
 + (instancetype)rankView;
 @end
