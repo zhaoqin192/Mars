@@ -8,12 +8,13 @@
 
 #import "WXTestKnowledgeViewController.h"
 #import "VideoCell.h"
-
+#import "WXCategoryListModel.h"
 @interface WXTestKnowledgeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *courseButton;
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (nonatomic, strong) UIButton *selectButton;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (nonatomic, copy) NSArray *listArrays;
 @end
 
 @implementation WXTestKnowledgeViewController
@@ -26,6 +27,46 @@
     [self configureTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadData];
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/lesson/getlist"]];
+    if (self.selectButton == self.videoButton) {
+        url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/test/getlist"]];
+    }
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"tag4":self.myTitle,
+                                 @"tag1":@"",
+                                 @"tag2":@"",
+                                 @"tag3":@""};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [WXCategoryListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{@"attend_count":@"count"};
+            }];
+            self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.myTableView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
 - (void)configureButton {
     self.courseButton.layer.borderWidth = 1;
     self.courseButton.layer.borderColor = WXLineColor.CGColor;
@@ -36,6 +77,7 @@
         [self configureButtonSelect:self.selectButton isSelect:NO];
         self.selectButton = self.courseButton;
         [self configureButtonSelect:self.selectButton isSelect:YES];
+        [self loadData];
     }];
     self.videoButton.layer.borderWidth = 1;
     self.videoButton.layer.borderColor = WXLineColor.CGColor;
@@ -47,6 +89,7 @@
             [self configureButtonSelect:self.selectButton isSelect:NO];
             self.selectButton = self.videoButton;
             [self configureButtonSelect:self.selectButton isSelect:YES];
+            [self loadData];
         }
     }];
     self.selectButton = self.courseButton;
@@ -73,11 +116,12 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.listArrays.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
+    cell.examModel = self.listArrays[indexPath.row];
     return cell;
 }
 
