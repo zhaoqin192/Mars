@@ -39,30 +39,29 @@
 }
 
 - (void)loadData {
-//    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-//    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test"]];
-//    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-//    Account *account = [accountDao fetchAccount];
-//    NSDictionary *parameters = @{@"sid": account.token,
-//                                 @"fenlei":category};
-//    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@", responseObject);
-//        if([responseObject[@"code"] isEqualToString:@"200"]) {
-//            self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-//            [self.myTableView reloadData];
-//        }
-//        else {
-//            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-//            [self bk_performBlock:^(id obj) {
-//                [SVProgressHUD dismiss];
-//            } afterDelay:1.5];
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        [SVProgressHUD showErrorWithStatus:@"网络异常"];
-//        [self bk_performBlock:^(id obj) {
-//            [SVProgressHUD dismiss];
-//        } afterDelay:1.5];
-//    }];
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"test/Fenlei/get_my_test"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.myTableView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -82,18 +81,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WXCategoryListModel *model = self.listArrays[indexPath.row];
-    if (model.attend_price == 0) {
-        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-        vc.identify = model.test_id;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else {
-        WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
-        vc.identify = model.test_id;
-        vc.price = model.attend_price;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    WXCategoryListModel *model = self.listArrays[indexPath.row];
+//    if (model.attend_price == 0) {
+//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+//        vc.identify = model.test_id;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else {
+//        WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+//        vc.identify = model.test_id;
+//        vc.price = model.attend_price;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 
