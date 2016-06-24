@@ -11,6 +11,7 @@
 #import "WXLoginViewController.h"
 #import "WXMeOrderViewController.h"
 #import "IndividualViewModel.h"
+#import "WXMeTestViewController.h"
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
@@ -115,10 +116,12 @@
     self.testView.userInteractionEnabled = YES;
     self.testLabel.userInteractionEnabled = YES;
     [self.testLabel bk_whenTapped:^{
-        NSLog(@"test");
+        WXMeTestViewController *vc = [[WXMeTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.testView bk_whenTapped:^{
-        NSLog(@"test");
+        WXMeTestViewController *vc = [[WXMeTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.settingView bk_whenTapped:^{

@@ -44,6 +44,8 @@
 		3057B1E51CD8E86D008172DD /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1E31CD8E86D008172DD /* CityPickView.m */; };
 		3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B20E1CD9D3EE008172DD /* WXLoginViewController.m */; };
 		3057B2111CD9D3EE008172DD /* WXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */; };
+		3091D5C81D1CDFA100F10E1F /* WXMeTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */; };
+		3091D5C91D1CDFA100F10E1F /* WXMeTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -263,6 +265,9 @@
 		3057B20D1CD9D3EE008172DD /* WXLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoginViewController.h; sourceTree = "<group>"; };
 		3057B20E1CD9D3EE008172DD /* WXLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginViewController.m; sourceTree = "<group>"; };
 		3057B20F1CD9D3EE008172DD /* WXLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLoginViewController.xib; sourceTree = "<group>"; };
+		3091D5C51D1CDFA100F10E1F /* WXMeTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeTestViewController.h; sourceTree = "<group>"; };
+		3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeTestViewController.m; sourceTree = "<group>"; };
+		3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeTestViewController.xib; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -756,6 +761,9 @@
 				30FD1ED51CE09EA2003C91A5 /* WXMeOrderViewController.h */,
 				30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */,
 				30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */,
+				3091D5C51D1CDFA100F10E1F /* WXMeTestViewController.h */,
+				3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */,
+				3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1398,6 +1406,7 @@
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
 				302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */,
+				3091D5C91D1CDFA100F10E1F /* WXMeTestViewController.xib in Resources */,
 				AC2E6CC91CCDFA06008E6D52 /* LiveViewController.xib in Resources */,
 				302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */,
 				30FD1EBF1CE02C37003C91A5 /* WXTeacherInformationViewController.xib in Resources */,
@@ -1505,6 +1514,7 @@
 				AC4558501D11993800E2307E /* ZSBHomeADModel.m in Sources */,
 				302243631D0FEABF0054B5E1 /* WXRankView.m in Sources */,
 				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
+				3091D5C81D1CDFA100F10E1F /* WXMeTestViewController.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				AC45588C1D123EA800E2307E /* ZSBHomeTableViewCell.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
