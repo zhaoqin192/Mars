@@ -123,6 +123,7 @@
     else {
         WXTestKnowledgeViewController *vc = [[WXTestKnowledgeViewController alloc] init];
         vc.myTitle = self.knowledgeList[indexPath.row];
+        vc.test_result_id = self.test_result_id;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

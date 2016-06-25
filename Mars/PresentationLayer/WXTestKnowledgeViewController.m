@@ -28,7 +28,48 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self loadData];
+    if (self.isAfterTest) {
+        [self loadDataAfterTest];
+    }
+    else {
+        [self loadData];
+    }
+}
+
+- (void)loadDataAfterTest {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/get_recommend_video_by_point"]];
+    NSString *type = @"lesson";
+    if (self.selectButton == self.videoButton) {
+        type = @"high";
+    }
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_result_id":self.test_result_id,
+                                 @"type":type,
+                                 @"point":self.myTitle};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [WXCategoryListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{@"attend_count":@"count"};
+            }];
+            self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.myTableView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 - (void)loadData {
@@ -77,7 +118,12 @@
         [self configureButtonSelect:self.selectButton isSelect:NO];
         self.selectButton = self.courseButton;
         [self configureButtonSelect:self.selectButton isSelect:YES];
-        [self loadData];
+        if (self.isAfterTest) {
+            [self loadDataAfterTest];
+        }
+        else {
+            [self loadData];
+        }
     }];
     self.videoButton.layer.borderWidth = 1;
     self.videoButton.layer.borderColor = WXLineColor.CGColor;
@@ -89,7 +135,12 @@
             [self configureButtonSelect:self.selectButton isSelect:NO];
             self.selectButton = self.videoButton;
             [self configureButtonSelect:self.selectButton isSelect:YES];
-            [self loadData];
+            if (self.isAfterTest) {
+                [self loadDataAfterTest];
+            }
+            else {
+                [self loadData];
+            }
         }
     }];
     self.selectButton = self.courseButton;

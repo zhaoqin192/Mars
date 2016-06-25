@@ -10,4 +10,6 @@
 
 @interface WXTestKnowledgeViewController : UIViewController
 @property (nonatomic, copy) NSString *myTitle;
+@property (nonatomic, copy) NSString *test_result_id;
+@property (nonatomic, assign) BOOL isAfterTest;
 @end
