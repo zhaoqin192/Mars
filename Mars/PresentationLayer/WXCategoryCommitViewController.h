@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXCategoryCommitViewController : UIViewController
-
+@property (nonatomic, copy) NSString *test_result_id;
 @end

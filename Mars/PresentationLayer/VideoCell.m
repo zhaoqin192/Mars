@@ -59,6 +59,9 @@
         if (![examModel.score isEqual:@(-1)]) {
             self.scoreLabel.text = [NSString stringWithFormat:@"%@分",examModel.score];
         }
+        else {
+            self.scoreLabel.text = @"等待打分";
+        }
     }
     else{
         self.scoreLabel.hidden = YES;

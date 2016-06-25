@@ -48,6 +48,7 @@
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
+        vc.test_result_id = self.my_test_result_id;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     if (self.identify.length) {
