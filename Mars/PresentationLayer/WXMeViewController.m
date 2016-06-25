@@ -12,6 +12,7 @@
 #import "WXMeOrderViewController.h"
 #import "IndividualViewModel.h"
 #import "WXMeTestViewController.h"
+#import "WXMeAboutUsViewController.h"
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
@@ -137,6 +138,8 @@
     
     [self.aboutUsView bk_whenTapped:^{
         NSLog(@"关于我们");
+        WXMeAboutUsViewController *vc = [[WXMeAboutUsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.contactUsView bk_whenTapped:^{

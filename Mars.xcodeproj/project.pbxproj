@@ -48,6 +48,8 @@
 		3091D5C91D1CDFA100F10E1F /* WXMeTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */; };
 		3091D5CC1D1D125600F10E1F /* WXRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5CB1D1D125600F10E1F /* WXRankModel.m */; };
 		3091D5D31D1E290C00F10E1F /* WXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5D21D1E290C00F10E1F /* WXLabel.m */; };
+		3091D5D71D1E6DAF00F10E1F /* WXMeAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3091D5D51D1E6DAF00F10E1F /* WXMeAboutUsViewController.m */; };
+		3091D5D81D1E6DAF00F10E1F /* WXMeAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3091D5D61D1E6DAF00F10E1F /* WXMeAboutUsViewController.xib */; };
 		30B601B41CCF703B003ED671 /* libEasyLiveSDK_iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6CD31CCE1416008E6D52 /* libEasyLiveSDK_iphone.a */; };
 		30B6024B1CD83F53003ED671 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024A1CD83F53003ED671 /* XTSegmentControl.m */; };
 		30B6024F1CD83F5D003ED671 /* StartButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6024D1CD83F5D003ED671 /* StartButtomView.m */; };
@@ -286,6 +288,9 @@
 		3091D5CB1D1D125600F10E1F /* WXRankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXRankModel.m; sourceTree = "<group>"; };
 		3091D5D11D1E290C00F10E1F /* WXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLabel.h; sourceTree = "<group>"; };
 		3091D5D21D1E290C00F10E1F /* WXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLabel.m; sourceTree = "<group>"; };
+		3091D5D41D1E6DAF00F10E1F /* WXMeAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeAboutUsViewController.h; sourceTree = "<group>"; };
+		3091D5D51D1E6DAF00F10E1F /* WXMeAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeAboutUsViewController.m; sourceTree = "<group>"; };
+		3091D5D61D1E6DAF00F10E1F /* WXMeAboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeAboutUsViewController.xib; sourceTree = "<group>"; };
 		30B602491CD83F53003ED671 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
 		30B6024A1CD83F53003ED671 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		30B6024C1CD83F5D003ED671 /* StartButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButtomView.h; sourceTree = "<group>"; };
@@ -804,6 +809,9 @@
 				3091D5C51D1CDFA100F10E1F /* WXMeTestViewController.h */,
 				3091D5C61D1CDFA100F10E1F /* WXMeTestViewController.m */,
 				3091D5C71D1CDFA100F10E1F /* WXMeTestViewController.xib */,
+				3091D5D41D1E6DAF00F10E1F /* WXMeAboutUsViewController.h */,
+				3091D5D51D1E6DAF00F10E1F /* WXMeAboutUsViewController.m */,
+				3091D5D61D1E6DAF00F10E1F /* WXMeAboutUsViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1476,6 +1484,7 @@
 				30D018271CE9F8BF00E50B23 /* WXNormalTestViewController.xib in Resources */,
 				303D9C451D1BB08F000FB964 /* WXTestOnLineViewController.xib in Resources */,
 				ACA82B731CCE61CF005A6A12 /* WatchViewController.xib in Resources */,
+				3091D5D81D1E6DAF00F10E1F /* WXMeAboutUsViewController.xib in Resources */,
 				30D0184A1CED8C7600E50B23 /* RankCCell.xib in Resources */,
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
 				30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */,
@@ -1651,6 +1660,7 @@
 				30D0182B1CE9F98100E50B23 /* WXCategoryTestViewController.m in Sources */,
 				30FD1F7F1CE2125C003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				3022433E1D0D3AEE0054B5E1 /* NSArray+Log.m in Sources */,
+				3091D5D71D1E6DAF00F10E1F /* WXMeAboutUsViewController.m in Sources */,
 				30FD1F7E1CE2125C003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */,
 				30FD1F5C1CE1C30B003C91A5 /* RankVideoCell.m in Sources */,
