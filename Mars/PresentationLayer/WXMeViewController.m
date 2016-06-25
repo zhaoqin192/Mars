@@ -61,18 +61,17 @@
     @weakify(self)
     [_viewModel.nameObject subscribeNext:^(NSString *message) {
         @strongify(self)
-        [self.nameLabel setText:message];
+        self.nameLabel.text = message;
     }];
     
     [_viewModel.avatarObject subscribeNext:^(UIImage *avatarImage) {
         @strongify(self)
-        [self.iconImage setImage:avatarImage];
+        self.iconImage.image = avatarImage;
     }];
     
 }
 
 - (void)onClickEvent {
-    
     
     [self.titleImageView bk_whenTapped:^{
         if ([_viewModel isExist]) {

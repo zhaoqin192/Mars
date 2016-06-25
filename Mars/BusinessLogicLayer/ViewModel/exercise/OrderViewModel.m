@@ -27,29 +27,31 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                     [subscriber sendNext:@"0"];
                     [subscriber sendCompleted];
                 }
-                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/teacher/getorder"]];
-                NSDictionary *parameters = @{@"sid": account.token};
-                [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    if ([responseObject[@"code"] isEqualToString:@"200"]) {
-                        [ZSBOrderModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                            return @{
-                                        @"identifier": @"lesson_time_id",
-                                        @"teacherName": @"teacher_name",
-                                        @"teacherID": @"teacher_id",
-                                        @"date": @"lesson_date",
-                                        @"time": @"lesson_time",
-                                        @"teacherAvatar": @"photo_url",
-                                     };
-                        }];
-                        @strongify(self)
-                        self.orderArray = [ZSBOrderModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-                    }
-                    [subscriber sendNext:responseObject[@"code"]];
-                    [subscriber sendCompleted];
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    [subscriber sendError:nil];
-                }];
+                else {
+                    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                    NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/teacher/getorder"]];
+                    NSDictionary *parameters = @{@"sid": account.token};
+                    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                        if ([responseObject[@"code"] isEqualToString:@"200"]) {
+                            [ZSBOrderModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                                return @{
+                                         @"identifier": @"lesson_time_id",
+                                         @"teacherName": @"teacher_name",
+                                         @"teacherID": @"teacher_id",
+                                         @"date": @"lesson_date",
+                                         @"time": @"lesson_time",
+                                         @"teacherAvatar": @"photo_url",
+                                         };
+                            }];
+                            @strongify(self)
+                            self.orderArray = [ZSBOrderModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                        }
+                        [subscriber sendNext:responseObject[@"code"]];
+                        [subscriber sendCompleted];
+                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        [subscriber sendError:nil];
+                    }];
+                }
                 return nil;
             }];
         }];

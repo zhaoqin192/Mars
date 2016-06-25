@@ -10,8 +10,9 @@
 #import "userOrderCell.h"
 #import "OrderViewModel.h"
 #import "ZSBOrderModel.h"
+#import "WXTeacherInformationViewController.h"
 
-@interface WXMeOrderViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface WXMeOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) OrderViewModel *viewModel;
 @end
@@ -23,19 +24,15 @@
     self.navigationItem.title = @"我的预约";
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     [self configureTableView];
-    
     [self bindViewModel];
 }
 
 - (void)bindViewModel {
-    
     self.viewModel = [[OrderViewModel alloc] init];
-    
     [[self.viewModel.orderCommand execute:nil]
     subscribeNext:^(id x) {
         [self.myTableView reloadData];
     }];
-    
 }
 
 - (void)configureTableView {
@@ -73,5 +70,11 @@
     return 150;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WXTeacherInformationViewController *teacherVC = [[WXTeacherInformationViewController alloc] init];
+    ZSBOrderModel *model = self.viewModel.orderArray[indexPath.row];
+    teacherVC.teacherID = model.teacherID;
+    [self.navigationController pushViewController:teacherVC animated:YES];
+}
 
 @end

@@ -13,7 +13,7 @@
 
 @interface WXTeacherInformationViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
-@property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
+@property (weak, nonatomic) IBOutlet UITextView *introduceTextView;
 @property (weak, nonatomic) IBOutlet UIButton *preorderButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *booking;
 @property (weak, nonatomic) IBOutlet UILabel *describe;
 @property (nonatomic, strong) ZSBTeacherInfoViewModel *viewModel;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -28,63 +29,91 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureIconViewAndLabel];
+    
+    [self configureUI];
+    [self bindViewModel];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)bindViewModel {
     self.viewModel = [[ZSBTeacherInfoViewModel alloc] init];
     
-//    RAC(self.viewModel, describe) = self.describe.
+    @weakify(self)
+    [[self.viewModel.infoCommand execute:self.teacherID]
+    subscribeNext:^(NSString *code) {
+        @strongify(self)
+        if ([code isEqualToString:@"200"]) {
+            [self.iconView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.teacherModel.avatar]];
+            self.describe.text = self.viewModel.teacherModel.describe;
+            self.name.text = self.viewModel.teacherModel.name;
+            self.hour.text = [NSString stringWithFormat:@"已授%@课时", self.viewModel.teacherModel.hour];
+            self.booking.text = [NSString stringWithFormat:@"预约%@次", self.viewModel.teacherModel.booking];
+            self.introduceTextView.text = self.viewModel.teacherModel.introduce;
+        }
+        else {
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = [NSString stringWithFormat:@"错误代码：%@", code];
+            [self.hud hide:YES afterDelay:1.5f];
+        }
+    }];
+    
+    [[self.preorderButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+        vc.teacherID = self.teacherID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    [self.viewModel.errorObject subscribeNext:^(id x) {
+        @strongify(self)
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.mode = MBProgressHUDModeText;
+        self.hud.labelText = @"网络异常";
+        [self.hud hide:YES afterDelay:1.5f];
+    }];
     
 }
 
-- (void)configureIconViewAndLabel {
+- (void)configureUI {
     self.iconView.layer.cornerRadius = self.iconView.width / 2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.layer.borderColor = [UIColor colorWithHexString:@"#ffffff"].CGColor;
     self.iconView.layer.borderWidth = 2;
     self.iconView.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+}
 
-//    [self.iconView sd_setImageWithURL:[NSURL URLWithString:self.teacherModel.avatar]];
-//    self.describe.text = self.teacherModel.describe;
-//    self.name.text = self.teacherModel.name;
-//    self.hour.text = [NSString stringWithFormat:@"已授%@课时", self.teacherModel.hour];
-//    self.booking.text = [NSString stringWithFormat:@"预约%@次", self.teacherModel.booking];
-//
-//    if (!self.teacherModel.introduce) {
-//        self.teacherModel.introduce = @"";
+- (void)configureIconViewAndLabel {
+
+//    [self.iconView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.avatar]];
+//    self.describe.text = self.viewModel.describe;
+//    self.name.text = self.viewModel.name;
+//    self.hour.text = [NSString stringWithFormat:@"已授%@课时", self.viewModel.hour];
+//    self.booking.text = [NSString stringWithFormat:@"预约%@次", self.viewModel.booking];
+
+//    if (!self.viewModel.introduce) {
+//        self.viewModel.introduce = @"";
 //    }
-//    NSString *labelText = self.teacherModel.introduce;
+//    NSString *labelText = self.viewModel.introduce;
 //    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
 //    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
 //    [paragraphStyle setLineSpacing:5]; //调整行间距
 //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
 //    self.introduceLabel.attributedText = attributedString;
 //    [self.introduceLabel sizeToFit];
-//
-//    @weakify(self)
-//        [self.preorderButton bk_whenTapped:^{
-//            @strongify(self)
-//                WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
-//            vc.teacherID = self.teacherModel.identifier;
-//            [self.navigationController pushViewController:vc animated:YES];
-//        }];
-//
-//    self.backButton.userInteractionEnabled = YES;
-//    [self.backButton bk_whenTapped:^{
-//        @strongify(self)
-//            [self.navigationController popViewControllerAnimated:YES];
-//    }];
 }
 
 @end

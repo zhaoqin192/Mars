@@ -12,14 +12,23 @@
 #import "WXHighGradeViewController.h"
 #import "VideoViewModel.h"
 #import "VideoModel.h"
+#import "ZSBVideoSelectTypeView.h"
+#import "ZSBSelectConditionView.h"
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (weak, nonatomic) IBOutlet UIButton *courseButton;
-@property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet UIView *selectTypeView;
+@property (weak, nonatomic) IBOutlet UIView *selectConditionView;
+@property (weak, nonatomic) IBOutlet UILabel *selectTypeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectTypeImage;
+@property (weak, nonatomic) IBOutlet UILabel *selectConditionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectConditionImage;
 @property (nonatomic, strong) UIButton *selectButton;
 @property (nonatomic, strong) VideoViewModel *viewModel;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) ZSBVideoSelectTypeView *typeView;
+@property (nonatomic, strong) ZSBSelectConditionView *conditionView;
+@property (nonatomic, strong) UIWindow *window;
 
 @end
 
@@ -27,11 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureButton];
     [self configureTableView];
     
     [self bindViewModel];
-    [self onClickEvent];
     
 //    self.refreshControl = [[UIRefreshControl alloc] init];
 //    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
@@ -41,6 +48,8 @@
 //    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 //    
 //    [self.myTableView addSubview:self.refreshControl];
+    
+    [self selectClick];
     
 }
 
@@ -104,12 +113,82 @@
         hud.labelText = message;
         [hud hide:YES afterDelay:1.5f];
     }];
+
     
 }
 
-- (void)onClickEvent {
+- (void)selectClick {
+    @weakify(self)
+    UIGestureRecognizer *typeTap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
+        self.selectConditionView.userInteractionEnabled = NO;
+        if (self.window) {
+            [self dismiss];
+            self.selectTypeImage.image = [UIImage imageNamed:@"arrow_down"];
+            self.selectConditionView.userInteractionEnabled = YES;
+        }
+        else {
+            self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 157, kScreenWidth, kScreenHeight - 157)];
+            self.window.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+            self.window.windowLevel = UIWindowLevelNormal;
+            self.typeView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBVideoSelectTypeView" owner:self options:nil] firstObject];
+            [self.typeView setFrame:CGRectMake(0, 0, kScreenWidth, 132)];
+            self.typeView.selectType = ^(NSString *type) {
+                @strongify(self)
+                self.selectTypeLabel.text = type;
+                
+            };
+            //            [self.window addGestureRecognizer:({
+            //                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+            //                tapGesture.numberOfTapsRequired = 1;
+            //                tapGesture;
+            //            })];
+            self.window.hidden = NO;
+            [self.window addSubview:self.typeView];
+            self.selectTypeImage.image = [UIImage imageNamed:@"arrow_up"];
+            self.focus(YES);
+        }
+    }];
+    [self.selectTypeView addGestureRecognizer:typeTap];
+ 
+    UIGestureRecognizer *conditionTap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
+        self.selectTypeView.userInteractionEnabled = NO;
+        if (self.window) {
+            [self dismiss];
+            self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
+            self.selectTypeView.userInteractionEnabled = YES;
+        }
+        else {
+            self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 157, kScreenWidth, kScreenHeight - 157)];
+            self.window.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+            self.window.windowLevel = UIWindowLevelNormal;
+            self.conditionView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBSelectConditionView" owner:self options:nil] firstObject];
+            [self.conditionView setFrame:CGRectMake(0, 0, kScreenWidth, 322)];
+            self.conditionView.finishSelect = ^(NSDictionary *info) {
+                @strongify(self)
+                NSLog(@"%@--%@", info[@"subject"], info[@"knowledge"]);
+                [self dismiss];
+                self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
+                self.selectTypeView.userInteractionEnabled = YES;
+            };
+            self.window.hidden = NO;
+            [self.window addSubview:self.conditionView];
+            self.selectConditionImage.image = [UIImage imageNamed:@"arrow_up"];
+            self.focus(YES);
+        }
+    }];
+    [self.selectConditionView addGestureRecognizer:conditionTap];
     
 }
+
+
+- (void)dismiss {
+    self.window.hidden = YES;
+    self.window = nil;
+    self.focus(NO);
+}
+
 
 
 - (void)configureTableView {
@@ -125,50 +204,50 @@
     [self.myTableView addGestureRecognizer:leftSwipe];
 }
 
-- (void)configureButtonSelect:(BOOL)select button:(UIButton *)button {
-    if (select) {
-        [button setTitleColor:WXTextBlackColor forState:UIControlStateNormal];
-        [button setTitleColor:WXTextBlackColor forState:UIControlStateHighlighted];
-        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
-        imageView.image = [UIImage imageNamed:@"Combined Shape2"];
-    }
-    else {
-        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateHighlighted];
-        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
-        imageView.image = [UIImage imageNamed:@"Combined Shape"];
-    }
-}
+//- (void)configureButtonSelect:(BOOL)select button:(UIButton *)button {
+//    if (select) {
+//        [button setTitleColor:WXTextBlackColor forState:UIControlStateNormal];
+//        [button setTitleColor:WXTextBlackColor forState:UIControlStateHighlighted];
+//        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
+//        imageView.image = [UIImage imageNamed:@"Combined Shape2"];
+//    }
+//    else {
+//        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+//        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateHighlighted];
+//        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
+//        imageView.image = [UIImage imageNamed:@"Combined Shape"];
+//    }
+//}
 
 
-- (void)configureButton {
-    [self configureButtonSelect:NO button:self.courseButton];
-    [self configureButtonSelect:NO button:self.videoButton];
-    
-    [self.courseButton bk_whenTapped:^{
-        if (self.selectButton == self.courseButton) {
-            [self configureButtonSelect:NO button:self.courseButton];
-            self.selectButton = nil;
-        }
-        else {
-            self.selectButton = self.courseButton;
-            [self configureButtonSelect:YES button:self.courseButton];
-            [self configureButtonSelect:NO button:self.videoButton];
-        }
-    }];
-    
-    [self.videoButton bk_whenTapped:^{
-        if (self.selectButton == self.videoButton) {
-            [self configureButtonSelect:NO button:self.videoButton];
-            self.selectButton = nil;
-        }
-        else {
-            self.selectButton = self.videoButton;
-            [self configureButtonSelect:YES button:self.videoButton];
-            [self configureButtonSelect:NO button:self.courseButton];
-        }
-    }];
-}
+//- (void)configureButton {
+//    [self configureButtonSelect:NO button:self.courseButton];
+//    [self configureButtonSelect:NO button:self.videoButton];
+//    
+//    [self.courseButton bk_whenTapped:^{
+//        if (self.selectButton == self.courseButton) {
+//            [self configureButtonSelect:NO button:self.courseButton];
+//            self.selectButton = nil;
+//        }
+//        else {
+//            self.selectButton = self.courseButton;
+//            [self configureButtonSelect:YES button:self.courseButton];
+//            [self configureButtonSelect:NO button:self.videoButton];
+//        }
+//    }];
+//    
+//    [self.videoButton bk_whenTapped:^{
+//        if (self.selectButton == self.videoButton) {
+//            [self configureButtonSelect:NO button:self.videoButton];
+//            self.selectButton = nil;
+//        }
+//        else {
+//            self.selectButton = self.videoButton;
+//            [self configureButtonSelect:YES button:self.videoButton];
+//            [self configureButtonSelect:NO button:self.courseButton];
+//        }
+//    }];
+//}
 
 #pragma mark - UITableViewDataSource
 

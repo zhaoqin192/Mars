@@ -10,4 +10,5 @@
 
 @interface WXVideoViewController : UIViewController
 @property (nonatomic, copy) void(^leftSwipe)();
+@property (nonatomic, strong) void(^focus)(BOOL isFocus);
 @end

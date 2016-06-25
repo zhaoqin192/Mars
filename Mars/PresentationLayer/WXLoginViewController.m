@@ -73,8 +73,6 @@
         @strongify(self)
         WXRegisterViewController *vc = [[WXRegisterViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-//        LiveViewController *vc = [[LiveViewController alloc] init];
-//        [self.navigationController pushViewController:vc animated:YES];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:registerButton];
 }

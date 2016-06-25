@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZSBSelectConditionView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7y-VG-a85">
+                    <rect key="frame" x="0.0" y="300" width="300" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="j4P-b5-PWa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="清除筛选">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6e-EX-Sk2">
+                    <rect key="frame" x="300" y="300" width="300" height="50"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.89411764709999997" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="te8-ul-Pfs"/>
+                    </constraints>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-oq-BVS">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="m7y-VG-a85" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="2h7-cr-QFv"/>
+                <constraint firstItem="c6e-EX-Sk2" firstAttribute="top" secondItem="Wki-oq-BVS" secondAttribute="bottom" id="6a6-Ac-Qz8"/>
+                <constraint firstItem="m7y-VG-a85" firstAttribute="width" secondItem="c6e-EX-Sk2" secondAttribute="width" id="DW6-wa-5JV"/>
+                <constraint firstAttribute="bottom" secondItem="m7y-VG-a85" secondAttribute="bottom" id="K9M-14-j98"/>
+                <constraint firstItem="Wki-oq-BVS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kws-NH-Ed4"/>
+                <constraint firstAttribute="trailing" secondItem="c6e-EX-Sk2" secondAttribute="trailing" id="QFZ-Qx-vic"/>
+                <constraint firstItem="m7y-VG-a85" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VVZ-lu-0rg"/>
+                <constraint firstAttribute="bottom" secondItem="c6e-EX-Sk2" secondAttribute="bottom" id="bvI-yd-DaH"/>
+                <constraint firstAttribute="trailing" secondItem="Wki-oq-BVS" secondAttribute="trailing" id="xiM-hM-c5F"/>
+                <constraint firstItem="Wki-oq-BVS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zIz-jl-H04"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="clearSelectedButton" destination="m7y-VG-a85" id="mzt-a5-5jt"/>
+                <outlet property="commitButton" destination="c6e-EX-Sk2" id="kh8-FQ-3iI"/>
+                <outlet property="tableView" destination="Wki-oq-BVS" id="NrB-zM-Vjp"/>
+            </connections>
+        </view>
+    </objects>
+</document>
