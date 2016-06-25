@@ -11,6 +11,10 @@
 #import "WXTestKnowledgeViewController.h"
 
 @interface WXCategoryCommitViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet WXLabel *commitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *testTypeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSArray *knowledgeList;
 @end
@@ -21,10 +25,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"点评";
-    
+    [self configureUI];
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     [self loadData];
+}
+
+- (void)configureUI {
+    self.testTypeLabel.text = self.type;
+    self.testTitleLabel.text = self.myTitle;
+    self.scoreLabel.text = self.score;
+    self.commitLabel.text = self.commit;
 }
 
 - (void)loadData {

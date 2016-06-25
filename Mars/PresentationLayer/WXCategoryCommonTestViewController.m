@@ -36,6 +36,9 @@
 @property (nonatomic, copy) NSString *test_result_id;
 @property (nonatomic, strong) NSMutableArray *urlArray;
 @property (nonatomic, strong) WXRankView *rankView;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet WXLabel *teacherCommitLabel;
+@property (nonatomic, copy) NSString *test_Id;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -49,6 +52,10 @@
     [self.commitView bk_whenTapped:^{
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
         vc.test_result_id = self.my_test_result_id;
+        vc.type = self.testTypeLabel.text;
+        vc.myTitle = self.testTitleLabel.text;
+        vc.score = self.scoreLabel.text;
+        vc.commit = self.teacherCommitLabel.text;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     if (self.identify.length) {
@@ -75,17 +82,33 @@
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
-//            self.requireLabel.text = responseObject[@"data"][@"require"];
-//            self.regularLabel.text = responseObject[@"data"][@"describe"];
-//            self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
-//            self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
-//            self.rankView.urlArray = responseObject[@"photo"];
-//            NSString *image = responseObject[@"data"][@"image"];
-//            if (image.length) {
-//                self.isHaveImage = YES;
-//                [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
-//            }
-//            [self configureImage];
+            self.requireLabel.text = responseObject[@"data"][@"test"][@"require"];
+            self.regularLabel.text = responseObject[@"data"][@"test"][@"describe"];
+            self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"test"][@"tag3"]];
+            self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"test"][@"title"]];
+            self.rankView.urlArray = responseObject[@"data"][@"photo"];
+            self.test_Id = responseObject[@"data"][@"test_result"][@"test_id"];
+            self.teacherCommitLabel.text = responseObject[@"data"][@"test_result"][@"teacher_comment"];
+            NSString *image = responseObject[@"data"][@"test"][@"image"];
+            if (image.length) {
+                self.isHaveImage = YES;
+                [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
+            }
+            [self configureImage];
+            
+            NSArray *productArray = responseObject[@"data"][@"test_result"][@"answer_image"];
+            for (NSString *urlStr in productArray) {
+                NSInteger index = [productArray indexOfObject:urlStr];
+                UIImageView *imageView = [self.productView viewWithTag:index+10];
+                [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+                imageView.hidden = NO;
+            }
+            if ([responseObject[@"data"][@"test_result"][@"score"] isEqualToString: @"-1"]) {
+                self.scoreLabel.text = @"等待评分";
+            }
+            else {
+                self.scoreLabel.text = [NSString stringWithFormat:@"%@分",responseObject[@"data"][@"test_result"][@"score"]];
+            }
         }
         else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -143,7 +166,12 @@
     __weak typeof(self)weakSelf = self;
     self.rankView.moreButtonClicked = ^{
         WXRankViewController *vc = [[WXRankViewController alloc] init];
-        vc.test_id = weakSelf.identify;
+        if (weakSelf.identify.length) {
+            vc.test_id = weakSelf.identify;
+        }
+        else {
+            vc.test_id = weakSelf.test_Id;
+        }
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     [self.myRankView addSubview:self.rankView];
