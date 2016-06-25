@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCategoryPaidTestViewController">
             <connections>
+                <outlet property="adLabel" destination="L3O-Ju-9MA" id="20M-jG-SjO"/>
                 <outlet property="bigPaidLabel" destination="fxj-Wq-S1K" id="S2g-hb-upe"/>
                 <outlet property="joinButton" destination="q1I-QU-WNK" id="ckq-TP-6Fd"/>
                 <outlet property="paidLabel" destination="5y3-kV-0hk" id="voS-ds-xAA"/>
@@ -39,7 +40,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3O-Ju-9MA">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3O-Ju-9MA" customClass="WXLabel">
                             <rect key="frame" x="44" y="57" width="289" height="34"/>
                             <string key="text">特邀请清华老师作为评委，全国第一次大模拟
 考，全国高手榜来袭，还有超级大奖等你拿哦~</string>
@@ -122,7 +123,7 @@
                                 </mask>
                             </variation>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-tS-Od4">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-tS-Od4" customClass="WXLabel">
                             <rect key="frame" x="15" y="456" width="345" height="51"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="51" id="zM6-EF-Jwz"/>
@@ -168,7 +169,7 @@
                                 <constraint firstAttribute="height" constant="10" id="9OF-i4-K8J"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mib-Bv-OCn">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mib-Bv-OCn" customClass="WXLabel">
                             <rect key="frame" x="15" y="331" width="345" height="67"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="67" id="HWm-uO-KPW"/>

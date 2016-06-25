@@ -10,7 +10,7 @@
 #import "WXCategoryPaidResultViewController.h"
 
 @interface WXCategoryPaidTestViewController ()
-@property (weak, nonatomic) IBOutlet UIView *containView;
+@property (weak, nonatomic) IBOutlet UILabel *adLabel;
 @property (weak, nonatomic) IBOutlet UILabel *testTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *regularLabel;
@@ -30,6 +30,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadData];
 }
+
 - (IBAction)joinButtonClicked {
     if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
         [SVProgressHUD showErrorWithStatus:@"请登录"];
