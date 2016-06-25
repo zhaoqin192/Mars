@@ -72,6 +72,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
+    cell.isMyTest = YES;
     cell.examModel = self.listArrays[indexPath.row];
     return cell;
 }
@@ -81,18 +82,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    WXCategoryListModel *model = self.listArrays[indexPath.row];
-//    if (model.attend_price == 0) {
-//        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
-//        vc.identify = model.test_id;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-//    else {
-//        WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
-//        vc.identify = model.test_id;
-//        vc.price = model.attend_price;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+    WXCategoryListModel *model = self.listArrays[indexPath.row];
+    if ([model.score isEqual:@(-1)]) { //等待评分
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isWaitForGrade = YES;
+        vc.my_test_result_id = model.test_result_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+        vc.isHaveCommit = YES;
+        vc.my_test_result_id = model.test_result_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

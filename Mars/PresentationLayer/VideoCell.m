@@ -8,6 +8,10 @@
 
 #import "VideoCell.h"
 #import "WXCategoryListModel.h"
+@interface VideoCell ()
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
+@end
 
 @implementation VideoCell
 
@@ -23,6 +27,10 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.scoreLabel.hidden = YES;
+    if (self.isMyTest) {
+        self.scoreLabel.hidden = NO;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,6 +53,15 @@
     }
     else {
         self.participateCount.text = [NSString stringWithFormat:@"%ld人参加",(long)examModel.attend_count];
+    }
+    if (self.isMyTest) {
+        self.scoreLabel.hidden = NO;
+        if (![examModel.score isEqual:@(-1)]) {
+            self.scoreLabel.text = [NSString stringWithFormat:@"%@分",examModel.score];
+        }
+    }
+    else{
+        self.scoreLabel.hidden = YES;
     }
     [self configureTag:examModel];
 }

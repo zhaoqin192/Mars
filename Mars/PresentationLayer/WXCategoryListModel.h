@@ -19,4 +19,6 @@
 @property (nonatomic, copy) NSString *tag2;
 @property (nonatomic, copy) NSString *tag3;
 @property (nonatomic, copy) NSString *tag4;
+@property (nonatomic, strong) NSNumber *score;
+@property (nonatomic, copy) NSString *test_result_id;
 @end

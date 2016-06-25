@@ -50,12 +50,54 @@
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
-    [self loadData];
+    if (self.identify.length) {
+        [self loadData];
+    }
+    else {
+        [self loadStatus];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.joinView.dismiss();
+}
+
+- (void)loadStatus {
+    NSLog(@"load status");
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test_result"]];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    NSDictionary *parameters = @{@"sid": account.token,
+                                 @"test_result_id":self.my_test_result_id};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+//            self.requireLabel.text = responseObject[@"data"][@"require"];
+//            self.regularLabel.text = responseObject[@"data"][@"describe"];
+//            self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
+//            self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
+//            self.rankView.urlArray = responseObject[@"photo"];
+//            NSString *image = responseObject[@"data"][@"image"];
+//            if (image.length) {
+//                self.isHaveImage = YES;
+//                [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
+//            }
+//            [self configureImage];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
 }
 
 - (void)loadData {
