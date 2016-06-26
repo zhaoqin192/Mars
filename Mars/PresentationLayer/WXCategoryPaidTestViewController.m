@@ -60,7 +60,7 @@
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
             self.requireLabel.text = responseObject[@"data"][@"require"];
-            self.regularLabel.text = responseObject[@"data"][@"describe"];
+            self.regularLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"describe"]];
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
             self.paidLabel.text = self.bigPaidLabel.text = [NSString stringWithFormat:@"报名费：%ld",(long)self.price];

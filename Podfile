@@ -13,6 +13,6 @@ target "Mars" do
     pod 'EAIntroView', '~> 2.8.0'
     pod 'SDWebImage'
     pod 'YFStartView'
-    pod 'CTAssetsPickerController',  '~> 3.3.0'
+    pod 'CTAssetsPickerController'
     pod 'NJKWebViewProgress'
 end

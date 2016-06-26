@@ -20,23 +20,23 @@
                     <rect key="frame" x="10" y="76" width="355" height="511"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清艺艺考" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DS-sj-cbN">
-                    <rect key="frame" x="156" y="345" width="64" height="20"/>
+                    <rect key="frame" x="156" y="371" width="64" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-Td-cnu">
-                    <rect key="frame" x="138" y="235" width="100" height="100"/>
+                    <rect key="frame" x="138" y="261" width="100" height="100"/>
                     <color key="backgroundColor" red="0.74117647060000003" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="LTV-h1-ixT"/>
                         <constraint firstAttribute="width" constant="100" id="knr-cS-V1t"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-xg-eJ2">
-                    <rect key="frame" x="44" y="176" width="288" height="39"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-xg-eJ2">
+                    <rect key="frame" x="76" y="176" width="224" height="20"/>
                     <string key="text">联系我们的微信客服提交报名费
-提交报名费后作品将进入争霸赛进行比赛</string>
+</string>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -58,25 +58,43 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交报名费后作品将进入争霸赛进行比赛" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-TT-g31">
+                    <rect key="frame" x="44" y="201" width="288" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="cNv-TT-g31" firstAttribute="centerY" secondItem="HWH-Td-cnu" secondAttribute="centerY" id="2TA-91-UR6"/>
                 <constraint firstItem="OSx-cf-aVs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="8aC-A2-lMU"/>
                 <constraint firstItem="ps6-xg-eJ2" firstAttribute="top" secondItem="OSx-cf-aVs" secondAttribute="top" constant="100" id="AIv-dp-mOK"/>
                 <constraint firstAttribute="trailing" secondItem="OSx-cf-aVs" secondAttribute="trailing" constant="10" id="BJk-aL-Z7L"/>
+                <constraint firstItem="cNv-TT-g31" firstAttribute="centerX" secondItem="ps6-xg-eJ2" secondAttribute="centerX" id="CjP-ve-drh"/>
                 <constraint firstItem="3DS-sj-cbN" firstAttribute="top" secondItem="HWH-Td-cnu" secondAttribute="bottom" constant="10" id="E2G-aC-YJm"/>
                 <constraint firstItem="3DS-sj-cbN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JMR-xH-4H1"/>
-                <constraint firstItem="HWH-Td-cnu" firstAttribute="top" secondItem="ps6-xg-eJ2" secondAttribute="bottom" constant="20" id="Td3-Ao-xGb"/>
+                <constraint firstItem="cNv-TT-g31" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="VAj-iw-x0v"/>
                 <constraint firstItem="o8g-kk-cmY" firstAttribute="top" secondItem="Ak0-zY-yOo" secondAttribute="bottom" constant="20" id="W1c-7J-NoB"/>
                 <constraint firstItem="o8g-kk-cmY" firstAttribute="bottom" secondItem="OSx-cf-aVs" secondAttribute="bottom" constant="-30" id="YHN-4X-zaQ"/>
+                <constraint firstItem="cNv-TT-g31" firstAttribute="top" secondItem="ps6-xg-eJ2" secondAttribute="bottom" constant="5" id="b2f-yv-Jy9"/>
                 <constraint firstItem="HWH-Td-cnu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bcC-oq-Fqm"/>
                 <constraint firstItem="Ak0-zY-yOo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dqO-gy-FQs"/>
+                <constraint firstItem="HWH-Td-cnu" firstAttribute="top" secondItem="cNv-TT-g31" secondAttribute="bottom" constant="1" id="fAV-kl-Huj"/>
                 <constraint firstItem="ps6-xg-eJ2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fPJ-Qy-09B"/>
                 <constraint firstAttribute="bottom" secondItem="OSx-cf-aVs" secondAttribute="bottom" constant="80" id="igB-jg-ooq"/>
                 <constraint firstItem="OSx-cf-aVs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="jiB-9h-jSa"/>
+                <constraint firstItem="HWH-Td-cnu" firstAttribute="top" secondItem="cNv-TT-g31" secondAttribute="bottom" constant="40" id="qaG-gV-S1m"/>
                 <constraint firstItem="o8g-kk-cmY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qix-1x-dz1"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2TA-91-UR6"/>
+                    <exclude reference="VAj-iw-x0v"/>
+                    <exclude reference="fAV-kl-Huj"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
