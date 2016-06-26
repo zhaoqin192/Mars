@@ -169,7 +169,12 @@
         label.text = @"推荐测试";
     }
     else if (section == 1) {
-        label.text = @"知识点推荐";
+        if (self.knowledgeList.count == 0) {
+            label.text = @"";
+        }
+        else {
+            label.text = @"知识点推荐";
+        }
     }
     return view;
 }
