@@ -89,8 +89,11 @@
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
-            self.requireLabel.text = responseObject[@"data"][@"test"][@"require"];
-            self.regularLabel.text = responseObject[@"data"][@"test"][@"describe"];
+            NSArray *aArray = [responseObject[@"data"][@"test"][@"describe"] componentsSeparatedByString:@"\\n"];
+            self.regularLabel.text = [aArray componentsJoinedByString:@"\n"];
+            aArray = [responseObject[@"data"][@"test"][@"require"] componentsSeparatedByString:@"\\n"];
+            self.requireLabel.text = [aArray componentsJoinedByString:@"\n"];
+
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"test"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"test"][@"title"]];
             self.rankView.urlArray = responseObject[@"data"][@"photo"];
@@ -156,8 +159,10 @@
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
-            self.requireLabel.text = responseObject[@"data"][@"require"];
-            self.regularLabel.text = responseObject[@"data"][@"describe"];
+            NSArray *aArray = [responseObject[@"data"][@"describe"] componentsSeparatedByString:@"\\n"];
+            self.regularLabel.text = [aArray componentsJoinedByString:@"\n"];
+            aArray = [responseObject[@"data"][@"require"] componentsSeparatedByString:@"\\n"];
+            self.requireLabel.text = [aArray componentsJoinedByString:@"\n"];
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
             self.rankView.urlArray = responseObject[@"photo"];
