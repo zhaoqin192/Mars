@@ -15,4 +15,5 @@
 @property (nonatomic, copy) NSString *score;
 @property (nonatomic, copy) NSString *commit;
 @property (nonatomic, strong) UIImage *teacherImage;
+@property (nonatomic, strong) UIImage *teacherResultImage;
 @end

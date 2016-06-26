@@ -38,6 +38,7 @@
 @property (nonatomic, strong) WXRankView *rankView;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet WXLabel *teacherCommitLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *teacherResultView;
 @property (nonatomic, copy) NSString *test_Id;
 @property (weak, nonatomic) IBOutlet UIImageView *techerIcon;
 @end
@@ -60,6 +61,7 @@
         vc.score = self.scoreLabel.text;
         vc.commit = self.teacherCommitLabel.text;
         vc.teacherImage = self.techerIcon.image;
+        vc.teacherResultImage = self.teacherResultView.image;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     if (self.identify.length) {
@@ -92,7 +94,7 @@
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"test"][@"title"]];
             self.rankView.urlArray = responseObject[@"data"][@"photo"];
             self.test_Id = responseObject[@"data"][@"test_result"][@"test_id"];
-            self.teacherCommitLabel.text = responseObject[@"data"][@"test_result"][@"teacher_comment"];
+            self.teacherCommitLabel.text = [NSString stringWithFormat:@"老师点评：%@",responseObject[@"data"][@"test_result"][@"teacher_comment"]];
             NSString *image = responseObject[@"data"][@"test"][@"image"];
             if (image.length) {
                 self.isHaveImage = YES;
@@ -117,6 +119,15 @@
             NSString *teacherIconUrl = responseObject[@"data"][@"test"][@"teacher_photo_url"];
             if (![teacherIconUrl isEqual: [NSNull null]]) {
                 [self.techerIcon sd_setImageWithURL:[NSURL URLWithString:teacherIconUrl] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+            }
+            
+            NSString *teacherResultStr = responseObject[@"data"][@"test_result"][@"teacher_judge"];
+            if (teacherResultStr.length) {
+                self.teacherResultView.image = [UIImage imageNamed:teacherResultStr];
+                self.teacherResultView.hidden = NO;
+            }
+            else {
+                self.teacherResultView.hidden = YES;
             }
         }
         else {

@@ -11,6 +11,7 @@
                 <outlet property="myTableView" destination="c6D-7O-H4v" id="drv-eb-Lcp"/>
                 <outlet property="scoreLabel" destination="ia4-aX-Vuj" id="Voo-NR-VOI"/>
                 <outlet property="teacherIcon" destination="CLU-0S-z48" id="KaX-ah-zON"/>
+                <outlet property="teacherResultView" destination="vHL-Pf-9Du" id="uOv-Fg-9u8"/>
                 <outlet property="testTitleLabel" destination="oYb-b3-Zvg" id="YXM-F7-Fpr"/>
                 <outlet property="testTypeLabel" destination="2AF-Ph-jQA" id="jUS-xF-fVd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -117,6 +118,13 @@
                         <outlet property="delegate" destination="-1" id="OeJ-dx-BHo"/>
                     </connections>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="优秀" translatesAutoresizingMaskIntoConstraints="NO" id="vHL-Pf-9Du">
+                    <rect key="frame" x="285" y="147" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="3ze-hV-xpj"/>
+                        <constraint firstAttribute="width" constant="70" id="7go-SP-LjP"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -128,6 +136,8 @@
                 <constraint firstAttribute="trailing" secondItem="c6D-7O-H4v" secondAttribute="trailing" id="3fU-5l-Hvl"/>
                 <constraint firstItem="2AF-Ph-jQA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="6R1-zk-Izc"/>
                 <constraint firstItem="vB0-dm-nVr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6mV-3v-nHb"/>
+                <constraint firstItem="vHL-Pf-9Du" firstAttribute="centerY" secondItem="ia4-aX-Vuj" secondAttribute="centerY" id="E5E-k1-KwE"/>
+                <constraint firstAttribute="trailing" secondItem="vHL-Pf-9Du" secondAttribute="trailing" constant="20" id="GAR-cf-CY8"/>
                 <constraint firstItem="rwh-5y-uBi" firstAttribute="top" secondItem="vB0-dm-nVr" secondAttribute="bottom" constant="15" id="Hn8-fQ-rBN"/>
                 <constraint firstItem="oYb-b3-Zvg" firstAttribute="top" secondItem="2AF-Ph-jQA" secondAttribute="bottom" constant="10" id="ID5-C0-GvU"/>
                 <constraint firstItem="ccb-vA-6jf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="M5m-YM-Kps"/>
@@ -147,6 +157,7 @@
         </view>
     </objects>
     <resources>
+        <image name="优秀" width="70" height="70"/>
         <image name="暂时占位图" width="60" height="60"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@
 #import "WXTestKnowledgeViewController.h"
 
 @interface WXCategoryCommitViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIImageView *teacherResultView;
 @property (weak, nonatomic) IBOutlet WXLabel *commitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
@@ -40,6 +41,7 @@
     self.teacherIcon.layer.cornerRadius = self.teacherIcon.width/2;
     self.teacherIcon.layer.masksToBounds = YES;
     self.teacherIcon.image = self.teacherImage;
+    self.teacherResultView.image = self.teacherResultImage;
 }
 
 - (void)loadData {
