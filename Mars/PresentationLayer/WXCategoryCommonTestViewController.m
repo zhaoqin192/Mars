@@ -39,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet WXLabel *teacherCommitLabel;
 @property (nonatomic, copy) NSString *test_Id;
+@property (weak, nonatomic) IBOutlet UIImageView *techerIcon;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -47,6 +48,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"测试";
     self.urlArray = [NSMutableArray array];
+    self.techerIcon.layer.cornerRadius = self.techerIcon.width/2;
+    self.techerIcon.layer.masksToBounds = YES;
     [self configureRankView];
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
@@ -56,6 +59,7 @@
         vc.myTitle = self.testTitleLabel.text;
         vc.score = self.scoreLabel.text;
         vc.commit = self.teacherCommitLabel.text;
+        vc.teacherImage = self.techerIcon.image;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     if (self.identify.length) {
@@ -108,6 +112,11 @@
             }
             else {
                 self.scoreLabel.text = [NSString stringWithFormat:@"%@分",responseObject[@"data"][@"test_result"][@"score"]];
+            }
+            
+            NSString *teacherIconUrl = responseObject[@"data"][@"test"][@"teacher_photo_url"];
+            if (![teacherIconUrl isEqual: [NSNull null]]) {
+                [self.techerIcon sd_setImageWithURL:[NSURL URLWithString:teacherIconUrl] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
             }
         }
         else {

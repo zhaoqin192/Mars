@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *testTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *testTypeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *teacherIcon;
 @property (nonatomic, copy) NSArray *knowledgeList;
 @end
 
@@ -36,6 +37,9 @@
     self.testTitleLabel.text = self.myTitle;
     self.scoreLabel.text = self.score;
     self.commitLabel.text = self.commit;
+    self.teacherIcon.layer.cornerRadius = self.teacherIcon.width/2;
+    self.teacherIcon.layer.masksToBounds = YES;
+    self.teacherIcon.image = self.teacherImage;
 }
 
 - (void)loadData {

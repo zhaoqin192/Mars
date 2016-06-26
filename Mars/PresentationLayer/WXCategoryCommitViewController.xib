@@ -10,6 +10,7 @@
                 <outlet property="commitLabel" destination="rw5-43-bTG" id="5eh-Gi-9XJ"/>
                 <outlet property="myTableView" destination="c6D-7O-H4v" id="drv-eb-Lcp"/>
                 <outlet property="scoreLabel" destination="ia4-aX-Vuj" id="Voo-NR-VOI"/>
+                <outlet property="teacherIcon" destination="CLU-0S-z48" id="KaX-ah-zON"/>
                 <outlet property="testTitleLabel" destination="oYb-b3-Zvg" id="YXM-F7-Fpr"/>
                 <outlet property="testTypeLabel" destination="2AF-Ph-jQA" id="jUS-xF-fVd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,7 +36,7 @@
                         <constraint firstAttribute="height" constant="21" id="Prs-xW-PA3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vB0-dm-nVr">
@@ -54,7 +55,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia4-aX-Vuj">
                     <rect key="frame" x="93" y="171" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3W-BU-8PG">
