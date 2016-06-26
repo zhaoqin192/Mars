@@ -12,6 +12,7 @@
 #import "WXCategoryPlayResultViewController.h"
 #import "WXCategoryCommitViewController.h"
 #import "WXRankViewController.h"
+#import "WXTestDetailViewController.h"
 
 @interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *testTitleImage;
@@ -31,7 +32,6 @@
 @property (nonatomic, strong) WXTestJoinView *joinView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *regularButton;
-@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (nonatomic, copy) NSArray *assets;
 @property (nonatomic, copy) NSString *test_result_id;
 @property (nonatomic, strong) NSMutableArray *urlArray;
@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *teacherResultView;
 @property (nonatomic, copy) NSString *test_Id;
 @property (weak, nonatomic) IBOutlet UIImageView *techerIcon;
+@property (nonatomic, copy) NSString *image;
 @end
 
 @implementation WXCategoryCommonTestViewController
@@ -96,6 +97,7 @@
             self.test_Id = responseObject[@"data"][@"test_result"][@"test_id"];
             self.teacherCommitLabel.text = [NSString stringWithFormat:@"老师点评：%@",responseObject[@"data"][@"test_result"][@"teacher_comment"]];
             NSString *image = responseObject[@"data"][@"test"][@"image"];
+            self.image = image;
             if (image.length) {
                 self.isHaveImage = YES;
                 [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
@@ -160,6 +162,7 @@
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
             self.rankView.urlArray = responseObject[@"photo"];
             NSString *image = responseObject[@"data"][@"image"];
+            self.image = image;
             if (image.length) {
                 self.isHaveImage = YES;
                 [self.testTitleImage sd_setImageWithURL:[NSURL URLWithString:image]];
@@ -198,6 +201,7 @@
 }
 
 - (void)configureImage {
+    self.testTitleImage.userInteractionEnabled = YES;
     if (self.isHaveImage) {
         self.regularButton.hidden = YES;
         self.contentLabel.hidden = YES;
@@ -205,8 +209,15 @@
         [self.view layoutIfNeeded];
     }
     else {
-        self.titleImageView.hidden = YES;
+        self.testTitleImage.hidden = YES;
     }
+    
+    [self.testTitleImage bk_whenTapped:^{
+        WXTestDetailViewController *vc = [[WXTestDetailViewController alloc] init];
+        vc.image = self.image;
+        vc.text = self.regularLabel.text;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 
 - (void)configureTestStatus {

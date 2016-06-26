@@ -26,7 +26,6 @@
                 <outlet property="testTitleLabel" destination="she-pp-vje" id="6Qy-yl-LbF"/>
                 <outlet property="testTypeLabel" destination="78K-2x-tpm" id="EoU-Rn-gBW"/>
                 <outlet property="tipsLabel" destination="hos-bz-eky" id="vk3-JH-e31"/>
-                <outlet property="titleImageView" destination="ssM-9y-Pkl" id="thB-L5-yNh"/>
                 <outlet property="titleViewHeightConstraint" destination="8HJ-k2-bIL" id="7bZ-0H-mkZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
