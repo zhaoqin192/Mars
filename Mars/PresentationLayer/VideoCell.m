@@ -10,6 +10,7 @@
 #import "WXCategoryListModel.h"
 @interface VideoCell ()
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *playImage;
 
 @end
 
@@ -30,6 +31,15 @@
     self.scoreLabel.hidden = YES;
     if (self.isMyTest) {
         self.scoreLabel.hidden = NO;
+    }
+}
+
+- (void)setIsTest:(BOOL)isTest {
+    if (isTest) {
+        _playImage.hidden = YES;
+    }
+    else {
+        _playImage.hidden = NO;
     }
 }
 
@@ -67,6 +77,7 @@
     else{
         self.scoreLabel.hidden = YES;
     }
+    
     [self configureTag:examModel];
 }
 

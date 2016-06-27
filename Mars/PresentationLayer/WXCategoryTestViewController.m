@@ -149,6 +149,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
     cell.examModel = self.listArrays[indexPath.row];
+    cell.isTest = YES;
     return cell;
 }
 
