@@ -1,18 +1,18 @@
 //
-//  ZSBHomeTableViewCell.m
+//  ZSBExerciseVideoTableViewCell.m
 //  Mars
 //
-//  Created by zhaoqin on 6/16/16.
+//  Created by zhaoqin on 6/27/16.
 //  Copyright © 2016 Muggins_. All rights reserved.
 //
 
-#import "ZSBHomeTableViewCell.h"
-#import "ZSBKnowledgeModel.h"
-#import "ZSBTestModel.h"
+#import "ZSBExerciseVideoTableViewCell.h"
+#import "ZSBExerciseVideoModel.h"
 
-NSString *const ZSBHomeTableViewCellIdentifier = @"ZSBHomeTableViewCell";
+NSString *const ZSBExerciseVideoTableViewCellIdentifier = @"ZSBExerciseVideoTableViewCell";
 
-@implementation ZSBHomeTableViewCell
+
+@implementation ZSBExerciseVideoTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -25,45 +25,18 @@ NSString *const ZSBHomeTableViewCellIdentifier = @"ZSBHomeTableViewCell";
     // Configure the view for the selected state
 }
 
-- (void)loadTestModel:(ZSBTestModel *)model {
-
-    [self.image sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    self.titleLabel.text = model.title;
-    self.countLabel.text = [NSString stringWithFormat:@"%@人参加", model.participateCount];
-
-    [self resumeLabel];
-
-    NSInteger count = 1;
-    if (![model.tag1 isEqualToString:@""]) {
-        UILabel *label = [self.contentView viewWithTag:count++];
-        label.text = model.tag1;
-    }
-    if (![model.tag2 isEqualToString:@""]) {
-        UILabel *label = [self.contentView viewWithTag:count++];
-        label.text = model.tag2;
-    }
-    if (![model.tag3 isEqualToString:@""]) {
-        UILabel *label = [self.contentView viewWithTag:count++];
-        label.text = model.tag3;
-    }
-    if (![model.tag3 isEqualToString:@""]) {
-        UILabel *label = [self.contentView viewWithTag:count++];
-        label.text = model.tag3;
-    }
-    while (count < 5) {
-        UILabel *label = [self.contentView viewWithTag:count++];
-        label.hidden = YES;
-    }
+- (void)setFrame:(CGRect)frame {
+    CGRect newFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height-10);
+    [super setFrame:newFrame];
 }
 
-- (void)loadKnowledgeModel:(ZSBKnowledgeModel *)model {
-
+- (void)loadVideoModel:(ZSBExerciseVideoModel *)model {
     [self.image sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.titleLabel.text = model.title;
     self.countLabel.text = [NSString stringWithFormat:@"%@人参加", model.participateCount];
-
+    
     [self resumeLabel];
-
+    
     NSInteger count = 1;
     if (![model.tag1 isEqualToString:@""]) {
         UILabel *label = [self.contentView viewWithTag:count++];
@@ -93,5 +66,6 @@ NSString *const ZSBHomeTableViewCellIdentifier = @"ZSBHomeTableViewCell";
     self.tag3Label.hidden = NO;
     self.tag4Label.hidden = NO;
 }
+
 
 @end

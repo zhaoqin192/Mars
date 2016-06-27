@@ -10,6 +10,6 @@
 
 @interface ZSBVideoSelectTypeView : UIView
 
-@property (nonatomic, strong) void(^selectType)(NSString *type);
+@property (nonatomic, strong) void(^selectType)(NSDictionary *info);
 
 @end

@@ -15,10 +15,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
 @property (weak, nonatomic) IBOutlet UIButton *clearSelectedButton;
-@property (nonatomic, strong) NSArray *subjectArray;
-@property (nonatomic, strong) NSArray *knowledgeArray;
+
 @property (nonatomic, assign) NSInteger selectSubject;
 @property (nonatomic, assign) NSInteger selectKnowledge;
+
+@property (nonatomic, strong) NSArray *selectSubjectArray;
+@property (nonatomic, strong) NSArray *selectKnowledgeArray;
+
 @end
 
 @implementation ZSBSelectConditionView
@@ -30,32 +33,31 @@
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"ZSBSelectConditionTableViewCell" bundle:nil] forCellReuseIdentifier:@"ZSBSelectConditionTableViewCell"];
     
-    self.subjectArray = @[@"素描", @"速写", @"色彩", @"设计"];
-    self.knowledgeArray = @[@"构图与结构", @"颜色塑造", @"质感塑造", @"设计语言", @"场景设定", @"饱和度"];
-    
     [self.clearSelectedButton.layer setBorderWidth:1.0f];
     [self.clearSelectedButton.layer setBorderColor:[UIColor colorWithHexString:@"F0F0F0"].CGColor];
-    
-    self.selectKnowledge = NSIntegerMin;
-    self.selectSubject = NSIntegerMin;
-    self.commitButton.enabled = NO;
-    self.commitButton.alpha = 0.5f;
     
     @weakify(self)
     [[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.finishSelect(@{@"subject": self.subjectArray[self.selectSubject], @"knowledge": self.knowledgeArray[self.selectKnowledge]});
+        
+        NSMutableArray *subject = [[NSMutableArray alloc] init];
+        for (NSIndexPath *indexPath in self.selectSubjectArray) {
+            [subject addObject:self.subjectArray[indexPath.row]];
+        }
+        
+        NSMutableArray *knowledge = [[NSMutableArray alloc] init];
+        for (NSIndexPath *indexPath in self.selectKnowledgeArray) {
+            [knowledge addObject:self.knowledgeArray[indexPath.row]];
+        }
+        
+        self.finishSelect(@{@"subject": subject, @"knowledge": knowledge});
     }];
     
     [[self.clearSelectedButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectKnowledge = NSIntegerMin;
-        self.selectSubject = NSIntegerMin;
         [self.tableView reloadData];
-        self.commitButton.enabled = NO;
-        self.commitButton.alpha = 0.5f;
     }];
     
 }
@@ -74,23 +76,15 @@
     if (indexPath.section == 0) {
         cell.dataArray = self.subjectArray;
         cell.state = SUBJECT;
-        cell.selectItem = ^(NSInteger index) {
-            self.selectSubject = index;
-            if (!self.commitButton.isEnabled) {
-                self.commitButton.enabled = YES;
-                self.commitButton.alpha = 1.0f;
-            }
+        cell.selectItem = ^(NSMutableArray *indexArray) {
+            self.selectSubjectArray = indexArray;
         };
     }
     else {
         cell.dataArray = self.knowledgeArray;
         cell.state = KNOWLEDGE;
-        cell.selectItem = ^(NSInteger index) {
-            self.selectKnowledge = index;
-            if (!self.commitButton.isEnabled) {
-                self.commitButton.enabled = YES;
-                self.commitButton.alpha = 1.0f;
-            }
+        cell.selectItem = ^(NSMutableArray *indexArray) {
+            self.selectKnowledgeArray = indexArray;
         };
     }
     [cell reloadData];
@@ -119,6 +113,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
+}
+
+- (void)updateCondition {
+    self.selectKnowledgeArray = nil;
+    self.selectSubjectArray = nil;
+    [self.tableView reloadData];
 }
 
 @end

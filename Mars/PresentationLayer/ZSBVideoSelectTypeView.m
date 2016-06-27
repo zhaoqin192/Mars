@@ -50,7 +50,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectIndex = indexPath.row;
     [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationFade];
-    self.selectType(self.selectArray[indexPath.row]);
+    self.selectType(@{@"content": self.selectArray[indexPath.row], @"type": [NSNumber numberWithInteger:indexPath.row]});
 }
 
 @end

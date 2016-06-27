@@ -17,7 +17,7 @@ typedef enum STATE {
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) STATE state;
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) void(^selectItem)(NSInteger index);
+@property (nonatomic, strong) void(^selectItem)(NSMutableArray *indexArray);
 
 - (void)reloadData;
 

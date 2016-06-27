@@ -56,8 +56,8 @@
             account.phone = self.phone;
             account.password = self.password;
             account.token = response[@"sid"];
-            account.sessionID = response[@"yzbself.sessionself.id"];
-            account.userID = response[@"yzbself.userself.id"];
+            account.sessionID = response[@"yzb_session_id"];
+            account.userID = response[@"yzb_user_id"];
             [accountDao save];
             [self.successObject sendNext:nil];
         } else {

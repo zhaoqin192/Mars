@@ -29,7 +29,6 @@
 
 static BOOL debugMessage = YES;
 
-
 @implementation LiveViewController
 
 - (EasyLiveEncoder *)encoder {

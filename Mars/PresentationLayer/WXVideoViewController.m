@@ -7,13 +7,17 @@
 //
 
 #import "WXVideoViewController.h"
-#import "VideoCell.h"
 #import "WXCourseVideoViewController.h"
 #import "WXHighGradeViewController.h"
 #import "VideoViewModel.h"
-#import "VideoModel.h"
 #import "ZSBVideoSelectTypeView.h"
 #import "ZSBSelectConditionView.h"
+#import "UIView+FindFirstResponder.h"
+#import "ZSBExerciseVideoModel.h"
+#import "ZSBExerciseVideoTableViewCell.h"
+
+static NSString *SUBJECTPARAMETERS = @"tag1";
+static NSString *KNOWLEDGEPARAMETERS = @"tag4";
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -23,12 +27,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *selectTypeImage;
 @property (weak, nonatomic) IBOutlet UILabel *selectConditionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *selectConditionImage;
-@property (nonatomic, strong) UIButton *selectButton;
 @property (nonatomic, strong) VideoViewModel *viewModel;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) ZSBVideoSelectTypeView *typeView;
 @property (nonatomic, strong) ZSBSelectConditionView *conditionView;
 @property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) NSNumber *type;
 
 @end
 
@@ -36,85 +39,267 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self configureSelectView];
     [self configureTableView];
-    
     [self bindViewModel];
-    
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-//    
-//    self.refreshControl.backgroundColor = [UIColor purpleColor];
-//    self.refreshControl.tintColor = [UIColor whiteColor];
-//    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-//    
-//    [self.myTableView addSubview:self.refreshControl];
-    
     [self selectClick];
-    
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-    [self.viewModel fetchCachedCourseVideoArray];
-    [self.viewModel fetchCachedRemarkableVideoArray];
-    
-//    [self.refreshControl beginRefreshing];
-
-    
-    [super viewWillAppear:animated];
-}
-
-//- (void)refresh {
-//    
-//    double delayInSeconds = 1.5;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        
-//        if (self.refreshControl.refreshing) {
-//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//            [formatter setDateFormat:@"MMM d, h:mm a"];
-//            NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
-//            NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
-//                                                                        forKey:NSForegroundColorAttributeName];
-//            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
-//            self.refreshControl.attributedTitle = attributedTitle;
-//            
-//            [self.refreshControl endRefreshing];
-//        }
-//        
-//    });
-//}
-
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
-    [self.viewModel cachedCourseVideoArray];
-    [self.viewModel cachedRemarkableVideoArray];
+    [super viewWillDisappear:animated];
+    [self.viewModel cacheData];
 }
 
 - (void)bindViewModel {
     
     self.viewModel = [[VideoViewModel alloc] init];
+    self.type = @0;
     
     @weakify(self)
-    [self.viewModel.courseVideoSuccessObject subscribeNext:^(id x) {
+    [[self.viewModel.tagCommand execute:self.type]
+    subscribeNext:^(id x) {
         @strongify(self)
-        self.viewModel.videoArray = self.viewModel.courseVideoArray;
-        [self.myTableView reloadData];
+        self.conditionView.subjectArray = self.viewModel.subjectArray;
+        self.conditionView.knowledgeArray = self.viewModel.knowledgeArray;
     }];
     
-    [self.viewModel.remarkableVideoSuccessObject subscribeNext:^(id x) {
-        
-    }];
+    [[self.viewModel.courseCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+         [[self.viewModel.remarkableCommand execute:nil]
+          subscribeNext:^(id x) {
+              @strongify(self)
+              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+              [self.myTableView reloadData];
+          }];
+     }];
     
-    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+    [self.viewModel.errorObject subscribeNext:^(id x) {
         @strongify(self)
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
+        hud.labelText = @"网络异常";
         [hud hide:YES afterDelay:1.5f];
     }];
 
+}
+
+- (void)configureSelectView {
+    @weakify(self)
+    self.typeView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBVideoSelectTypeView" owner:self options:nil] firstObject];
+    [self.typeView setFrame:CGRectMake(0, 0, kScreenWidth, 132)];
+    self.typeView.selectType = ^(NSDictionary *info) {
+        @strongify(self)
+        self.selectTypeLabel.text = info[@"content"];
+        self.type = info[@"type"];
+        
+        [[self.viewModel.tagCommand execute:self.type]
+         subscribeNext:^(id x) {
+             @strongify(self)
+             self.conditionView.subjectArray = self.viewModel.subjectArray;
+             self.conditionView.knowledgeArray = self.viewModel.knowledgeArray;
+             [self.conditionView updateCondition];
+         }];
+        [self dismiss];
+        
+        switch ([self.type integerValue]) {
+                
+            case 0:{
+                [[self.viewModel.courseCommand execute:nil]
+                subscribeNext:^(id x) {
+                    @strongify(self)
+                    [self.viewModel.videoArray removeAllObjects];
+                    [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                    [[self.viewModel.remarkableCommand execute:nil]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }];
+            }
+                break;
+            case 1:{
+                [[self.viewModel.courseCommand execute:nil]
+                subscribeNext:^(id x) {
+                    @strongify(self)
+                    [self.viewModel.videoArray removeAllObjects];
+                    [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                    [self.myTableView reloadData];
+                }];
+            }
+                break;
+            case 2:{
+                [[self.viewModel.remarkableCommand execute:nil]
+                 subscribeNext:^(id x) {
+                     @strongify(self)
+                     [self.viewModel.videoArray removeAllObjects];
+                     [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                     [self.myTableView reloadData];
+                 }];
+            }
+            default:
+                break;
+        }
+    };
     
+    self.conditionView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBSelectConditionView" owner:self options:nil] firstObject];
+    [self.conditionView setFrame:CGRectMake(0, 0, kScreenWidth, 322)];
+    self.conditionView.finishSelect = ^(NSDictionary *info) {
+        @strongify(self)
+        [self dismiss];
+        self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
+        self.selectTypeView.userInteractionEnabled = YES;
+        NSArray *subject = info[@"subject"];
+        NSArray *knowledge = info[@"knowledge"];
+        switch ([self.type integerValue]) {
+            case 0:{
+                if (subject.count == 0 && knowledge.count == 0) {
+                    [[self.viewModel.courseCommand execute:nil]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [[self.viewModel.remarkableCommand execute:nil]
+                          subscribeNext:^(id x) {
+                              @strongify(self)
+                              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                              [self.myTableView reloadData];
+                          }];
+                     }];
+                }
+                else if (subject.count == 0) {
+                    
+                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [[self.viewModel.remarkableCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                          subscribeNext:^(id x) {
+                              @strongify(self)
+                              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                              [self.myTableView reloadData];
+                          }];
+                     }];
+                    
+                }
+                else if (knowledge.count == 0) {
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject}]
+                          subscribeNext:^(id x) {
+                              @strongify(self)
+                              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                              [self.myTableView reloadData];
+                          }];
+                     }];
+                }
+                else {
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                          subscribeNext:^(id x) {
+                              @strongify(self)
+                              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                              [self.myTableView reloadData];
+                          }];
+                     }];
+                }
+            }
+                break;
+            case 1:{
+                
+                if (subject.count == 0 && knowledge.count == 0) {
+                    [[self.viewModel.courseCommand execute:nil]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else if (subject.count == 0) {
+                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else if (knowledge.count == 0) {
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else {
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                
+                
+            }
+                break;
+            case 2:{
+                if (subject.count == 0 && knowledge.count == 0) {
+                    [[self.viewModel.remarkableCommand execute:nil]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else if (subject.count == 0) {
+                    [[self.viewModel.remarkableCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else if (knowledge.count == 0) {
+                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+                else {
+                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                     subscribeNext:^(id x) {
+                         @strongify(self)
+                         [self.viewModel.videoArray removeAllObjects];
+                         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+                         [self.myTableView reloadData];
+                     }];
+                }
+            }
+            default:
+                break;
+        }
+    };
 }
 
 - (void)selectClick {
@@ -124,27 +309,20 @@
         self.selectConditionView.userInteractionEnabled = NO;
         if (self.window) {
             [self dismiss];
-            self.selectTypeImage.image = [UIImage imageNamed:@"arrow_down"];
-            self.selectConditionView.userInteractionEnabled = YES;
         }
         else {
             self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 157, kScreenWidth, kScreenHeight - 157)];
-            self.window.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+            UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 157)];
+            backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
             self.window.windowLevel = UIWindowLevelNormal;
-            self.typeView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBVideoSelectTypeView" owner:self options:nil] firstObject];
-            [self.typeView setFrame:CGRectMake(0, 0, kScreenWidth, 132)];
-            self.typeView.selectType = ^(NSString *type) {
-                @strongify(self)
-                self.selectTypeLabel.text = type;
-                
-            };
-            //            [self.window addGestureRecognizer:({
-            //                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
-            //                tapGesture.numberOfTapsRequired = 1;
-            //                tapGesture;
-            //            })];
             self.window.hidden = NO;
+            [self.window addSubview:backgroundView];
             [self.window addSubview:self.typeView];
+            [backgroundView addGestureRecognizer:({
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+                tapGesture.numberOfTapsRequired = 1;
+                tapGesture;
+            })];
             self.selectTypeImage.image = [UIImage imageNamed:@"arrow_up"];
             self.focus(YES);
         }
@@ -156,24 +334,20 @@
         self.selectTypeView.userInteractionEnabled = NO;
         if (self.window) {
             [self dismiss];
-            self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
-            self.selectTypeView.userInteractionEnabled = YES;
         }
         else {
             self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 157, kScreenWidth, kScreenHeight - 157)];
-            self.window.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+            UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 157)];
+            backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
             self.window.windowLevel = UIWindowLevelNormal;
-            self.conditionView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBSelectConditionView" owner:self options:nil] firstObject];
-            [self.conditionView setFrame:CGRectMake(0, 0, kScreenWidth, 322)];
-            self.conditionView.finishSelect = ^(NSDictionary *info) {
-                @strongify(self)
-                NSLog(@"%@--%@", info[@"subject"], info[@"knowledge"]);
-                [self dismiss];
-                self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
-                self.selectTypeView.userInteractionEnabled = YES;
-            };
             self.window.hidden = NO;
+            [self.window addSubview:backgroundView];
             [self.window addSubview:self.conditionView];
+            [backgroundView addGestureRecognizer:({
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+                tapGesture.numberOfTapsRequired = 1;
+                tapGesture;
+            })];
             self.selectConditionImage.image = [UIImage imageNamed:@"arrow_up"];
             self.focus(YES);
         }
@@ -182,10 +356,27 @@
     
 }
 
+- (id)findFirstResponder
+{
+    if (self.isFirstResponder) {
+        return self;
+    }
+    for (UIView *subView in self.view.subviews) {
+        if ([subView isFirstResponder]) {
+            return subView;
+        }
+    }
+    return nil;
+}
+
 
 - (void)dismiss {
     self.window.hidden = YES;
     self.window = nil;
+    self.selectTypeImage.image = [UIImage imageNamed:@"arrow_down"];
+    self.selectConditionView.userInteractionEnabled = YES;
+    self.selectConditionImage.image = [UIImage imageNamed:@"arrow_down"];
+    self.selectTypeView.userInteractionEnabled = YES;
     self.focus(NO);
 }
 
@@ -194,7 +385,7 @@
 - (void)configureTableView {
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([VideoCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([VideoCell class])];
+    [self.myTableView registerNib:[UINib nibWithNibName:@"ZSBExerciseVideoTableViewCell" bundle:nil] forCellReuseIdentifier:ZSBExerciseVideoTableViewCellIdentifier];
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
         if (self.leftSwipe) {
             self.leftSwipe();
@@ -204,51 +395,6 @@
     [self.myTableView addGestureRecognizer:leftSwipe];
 }
 
-//- (void)configureButtonSelect:(BOOL)select button:(UIButton *)button {
-//    if (select) {
-//        [button setTitleColor:WXTextBlackColor forState:UIControlStateNormal];
-//        [button setTitleColor:WXTextBlackColor forState:UIControlStateHighlighted];
-//        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
-//        imageView.image = [UIImage imageNamed:@"Combined Shape2"];
-//    }
-//    else {
-//        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-//        [button setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateHighlighted];
-//        UIImageView *imageView = [self.view viewWithTag:button.tag - 10];
-//        imageView.image = [UIImage imageNamed:@"Combined Shape"];
-//    }
-//}
-
-
-//- (void)configureButton {
-//    [self configureButtonSelect:NO button:self.courseButton];
-//    [self configureButtonSelect:NO button:self.videoButton];
-//    
-//    [self.courseButton bk_whenTapped:^{
-//        if (self.selectButton == self.courseButton) {
-//            [self configureButtonSelect:NO button:self.courseButton];
-//            self.selectButton = nil;
-//        }
-//        else {
-//            self.selectButton = self.courseButton;
-//            [self configureButtonSelect:YES button:self.courseButton];
-//            [self configureButtonSelect:NO button:self.videoButton];
-//        }
-//    }];
-//    
-//    [self.videoButton bk_whenTapped:^{
-//        if (self.selectButton == self.videoButton) {
-//            [self configureButtonSelect:NO button:self.videoButton];
-//            self.selectButton = nil;
-//        }
-//        else {
-//            self.selectButton = self.videoButton;
-//            [self configureButtonSelect:YES button:self.videoButton];
-//            [self configureButtonSelect:NO button:self.courseButton];
-//        }
-//    }];
-//}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -257,16 +403,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    VideoModel *model = [self.viewModel.videoArray objectAtIndex:indexPath.row];
-    VideoCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VideoCell class])];
-    [cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage]];
-    cell.title.text = model.title;
-    cell.participateCount.text = [NSString stringWithFormat:@"%@人参加", model.count];
-    cell.tag1.text = model.tag1;
-    cell.tag2.text = model.tag2;
-    cell.tag3.text = model.tag3;
-    cell.tag4.text = model.tag4;
+    ZSBExerciseVideoModel *model = [self.viewModel.videoArray objectAtIndex:indexPath.row];
+    ZSBExerciseVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZSBExerciseVideoTableViewCellIdentifier];
+    [cell loadVideoModel:model];
     return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

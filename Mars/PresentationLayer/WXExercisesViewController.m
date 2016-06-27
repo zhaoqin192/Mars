@@ -24,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"知识库";
+    
     [self configureUI];
     [self configureChildController];
-    
 }
 
 - (void)configureChildController {

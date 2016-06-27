@@ -11,5 +11,9 @@
 @interface ZSBSelectConditionView : UIView
 
 @property (nonatomic, strong) void(^finishSelect)(NSDictionary *dictionary);
+@property (nonatomic, strong) NSArray *subjectArray;
+@property (nonatomic, strong) NSArray *knowledgeArray;
+
+- (void)updateCondition;
 
 @end

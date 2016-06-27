@@ -13,18 +13,14 @@
 @property (nonatomic, strong) NSMutableArray *videoArray;
 @property (nonatomic, strong) NSMutableArray *courseVideoArray;
 @property (nonatomic, strong) NSMutableArray *remarkableVideoArray;
-@property (nonatomic, strong) RACSubject *courseVideoSuccessObject;
-@property (nonatomic, strong) RACSubject *courseVideoFailureObject;
-@property (nonatomic, strong) RACSubject *remarkableVideoSuccessObject;
-@property (nonatomic, strong) RACSubject *remarkableVideoFailureObject;
 @property (nonatomic, strong) RACSubject *errorObject;
+@property (nonatomic, strong) RACCommand *tagCommand;
+@property (nonatomic, strong) RACCommand *courseCommand;
+@property (nonatomic, strong) RACCommand *remarkableCommand;
+@property (nonatomic, strong) NSArray *subjectArray;
+@property (nonatomic, strong) NSArray *knowledgeArray;
+@property (nonatomic, strong) NSMutableArray *cacheArray;
 
-- (void)fetchCachedCourseVideoArray;
-
-- (void)cachedCourseVideoArray;
-
-- (void)fetchCachedRemarkableVideoArray;
-
-- (void)cachedRemarkableVideoArray;
+- (void)cacheData;
 
 @end
