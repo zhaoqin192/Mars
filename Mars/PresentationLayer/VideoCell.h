@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet WXInsetLabel *tag4;
 @property (nonatomic, strong) WXCategoryListModel *examModel;
 @property (nonatomic, assign) BOOL isMyTest;
+@property (nonatomic, assign) BOOL isTest;
 @end

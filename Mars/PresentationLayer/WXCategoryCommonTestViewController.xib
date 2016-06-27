@@ -38,6 +38,9 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afg-Ul-Ziv">
                     <rect key="frame" x="0.0" y="0.0" width="367" height="859"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="通用card背景素材card" translatesAutoresizingMaskIntoConstraints="NO" id="6Ri-yV-DRF" userLabel="bg imageView">
+                            <rect key="frame" x="5" y="0.0" width="357" height="757"/>
+                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssM-9y-Pkl">
                             <rect key="frame" x="101" y="98" width="165" height="94"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -385,6 +388,7 @@
                         <constraint firstAttribute="trailing" secondItem="cNB-yj-tQs" secondAttribute="trailing" id="1Bo-cD-FXb"/>
                         <constraint firstItem="78K-2x-tpm" firstAttribute="leading" secondItem="Afg-Ul-Ziv" secondAttribute="leading" constant="20" id="2Vn-h2-WHK"/>
                         <constraint firstItem="yxi-PY-Vuc" firstAttribute="top" secondItem="Ngc-S6-7tx" secondAttribute="bottom" constant="10" id="35w-8a-vSe"/>
+                        <constraint firstItem="6Ri-yV-DRF" firstAttribute="leading" secondItem="Afg-Ul-Ziv" secondAttribute="leading" constant="5" id="3DY-Td-CI8"/>
                         <constraint firstItem="LRP-GE-giR" firstAttribute="top" secondItem="x6h-eK-pCc" secondAttribute="bottom" id="42d-Tg-CxN"/>
                         <constraint firstAttribute="bottom" secondItem="cNB-yj-tQs" secondAttribute="bottom" constant="112" id="4QS-ys-BAa"/>
                         <constraint firstItem="ChM-zP-EFP" firstAttribute="leading" secondItem="Afg-Ul-Ziv" secondAttribute="leading" id="4gU-BN-LPf"/>
@@ -410,9 +414,12 @@
                         <constraint firstItem="DWZ-Qh-iCH" firstAttribute="top" secondItem="M44-yz-YwM" secondAttribute="bottom" constant="10" id="eYI-ym-OAj"/>
                         <constraint firstItem="Ngc-S6-7tx" firstAttribute="leading" secondItem="she-pp-vje" secondAttribute="leading" id="fHV-6J-S8s"/>
                         <constraint firstItem="yxi-PY-Vuc" firstAttribute="leading" secondItem="Ngc-S6-7tx" secondAttribute="leading" id="faQ-W9-6RO"/>
+                        <constraint firstItem="6Ri-yV-DRF" firstAttribute="top" secondItem="Afg-Ul-Ziv" secondAttribute="top" id="imA-sw-OAB"/>
                         <constraint firstItem="cNB-yj-tQs" firstAttribute="top" secondItem="LRP-GE-giR" secondAttribute="bottom" constant="30" id="lPn-2p-TU4"/>
+                        <constraint firstAttribute="trailing" secondItem="6Ri-yV-DRF" secondAttribute="trailing" constant="5" id="lss-Qd-wjH"/>
                         <constraint firstItem="KDz-vl-Hvz" firstAttribute="top" secondItem="DWZ-Qh-iCH" secondAttribute="bottom" constant="15" id="mPb-vg-6v0"/>
                         <constraint firstAttribute="trailing" secondItem="x6h-eK-pCc" secondAttribute="trailing" id="pCc-kw-aIf"/>
+                        <constraint firstItem="6Ri-yV-DRF" firstAttribute="bottom" secondItem="cNB-yj-tQs" secondAttribute="bottom" constant="10" id="s7U-gr-Xy0"/>
                         <constraint firstItem="cNB-yj-tQs" firstAttribute="leading" secondItem="Afg-Ul-Ziv" secondAttribute="leading" id="t8P-1u-12r"/>
                         <constraint firstItem="M44-yz-YwM" firstAttribute="top" secondItem="ssM-9y-Pkl" secondAttribute="bottom" constant="20" id="ufP-vT-tQw"/>
                         <constraint firstItem="DWZ-Qh-iCH" firstAttribute="leading" secondItem="M44-yz-YwM" secondAttribute="leading" id="vwq-ve-Npx"/>
@@ -447,5 +454,6 @@
         <image name="提示icon" width="14" height="14"/>
         <image name="暂时占位图" width="60" height="60"/>
         <image name="标题前竖线" width="2" height="10"/>
+        <image name="通用card背景素材card" width="37" height="120"/>
     </resources>
 </document>

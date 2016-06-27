@@ -137,6 +137,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="participateCount" destination="GsG-xB-Jfa" id="NA6-Ic-XTp"/>
+                <outlet property="playImage" destination="RcT-Qu-dvS" id="6NA-AO-9Xe"/>
                 <outlet property="scoreLabel" destination="J7J-1t-vih" id="uxn-cx-Ja6"/>
                 <outlet property="tag1" destination="tbU-H9-cY2" id="6ot-Ek-Te8"/>
                 <outlet property="tag2" destination="Yln-2l-hls" id="eZe-AR-rfU"/>
