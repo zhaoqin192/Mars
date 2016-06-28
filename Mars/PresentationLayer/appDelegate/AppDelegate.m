@@ -34,6 +34,7 @@
     
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = [[RootTabViewController alloc] init];
+//    self.window.rootViewController = [[LiveViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     [self configureHUD];

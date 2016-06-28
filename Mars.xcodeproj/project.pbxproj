@@ -210,6 +210,8 @@
 		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
 		AC7AF3EC1CE38CA800F69110 /* IndividualViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */; };
 		AC88741B1D111F7F00B37D4E /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8874191D111F7F00B37D4E /* home.storyboard */; };
+		AC8ABBE41D22713700F6B236 /* ZSBVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8ABBE21D22713700F6B236 /* ZSBVideoViewController.m */; };
+		AC8ABBE51D22713700F6B236 /* ZSBVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8ABBE31D22713700F6B236 /* ZSBVideoViewController.xib */; };
 		ACA82B641CCE37A5005A6A12 /* LiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */; };
 		ACA82B651CCE37A5005A6A12 /* LiveRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */; };
 		ACA82B711CCE602F005A6A12 /* WatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA82B701CCE602F005A6A12 /* WatchViewController.m */; };
@@ -565,6 +567,9 @@
 		AC7AF3E71CE38CA800F69110 /* IndividualViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualViewModel.m; sourceTree = "<group>"; };
 		AC7AF3E81CE38CA800F69110 /* IndividualViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualViewModel.h; sourceTree = "<group>"; };
 		AC8874191D111F7F00B37D4E /* home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
+		AC8ABBE11D22713700F6B236 /* ZSBVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBVideoViewController.h; sourceTree = "<group>"; };
+		AC8ABBE21D22713700F6B236 /* ZSBVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBVideoViewController.m; sourceTree = "<group>"; };
+		AC8ABBE31D22713700F6B236 /* ZSBVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBVideoViewController.xib; sourceTree = "<group>"; };
 		ACA82B611CCE37A5005A6A12 /* LiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRegisterViewController.h; sourceTree = "<group>"; };
 		ACA82B621CCE37A5005A6A12 /* LiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRegisterViewController.m; sourceTree = "<group>"; };
 		ACA82B631CCE37A5005A6A12 /* LiveRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveRegisterViewController.xib; sourceTree = "<group>"; };
@@ -914,6 +919,7 @@
 		30FD1E8B1CDD998D003C91A5 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
+				AC8ABBE01D226FD600F6B236 /* playVideo */,
 				30FD1F801CE212AB003C91A5 /* view */,
 				30FD1E8C1CDD9B27003C91A5 /* WXExercisesViewController.h */,
 				30FD1E8D1CDD9B27003C91A5 /* WXExercisesViewController.m */,
@@ -1432,6 +1438,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AC8ABBE01D226FD600F6B236 /* playVideo */ = {
+			isa = PBXGroup;
+			children = (
+				AC8ABBE11D22713700F6B236 /* ZSBVideoViewController.h */,
+				AC8ABBE21D22713700F6B236 /* ZSBVideoViewController.m */,
+				AC8ABBE31D22713700F6B236 /* ZSBVideoViewController.xib */,
+			);
+			path = playVideo;
+			sourceTree = "<group>";
+		};
 		ACA82B6E1CCE6019005A6A12 /* watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1519,6 +1535,7 @@
 				AC66CDC61D1BAFDE003B4DB5 /* WXSelectTimeCell.xib in Resources */,
 				30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */,
 				AC52609A1D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.xib in Resources */,
+				AC8ABBE51D22713700F6B236 /* ZSBVideoViewController.xib in Resources */,
 				30D0182E1CE9FED400E50B23 /* WXCategoryTestViewController.xib in Resources */,
 				AC66CDB11D1AD1CD003B4DB5 /* ZSBExerciseDateViewCell.xib in Resources */,
 				302243921D1107AF0054B5E1 /* WXTestJoinView.xib in Resources */,
@@ -1658,6 +1675,7 @@
 				30FD1F761CE21247003C91A5 /* SDBrowserImageView.m in Sources */,
 				30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */,
 				AC1B06511CE4274300C0E9B3 /* NetworkFetcher+Exercise.m in Sources */,
+				AC8ABBE41D22713700F6B236 /* ZSBVideoViewController.m in Sources */,
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				302243681D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m in Sources */,
 				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,

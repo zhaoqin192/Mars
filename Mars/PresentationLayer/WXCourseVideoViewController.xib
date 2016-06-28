@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCourseVideoViewController">
             <connections>
                 <outlet property="contentLabel" destination="Y5X-he-yTL" id="Kmf-Ag-C4v"/>
+                <outlet property="fullscreenImage" destination="zhA-Of-gFs" id="TEN-PS-edf"/>
                 <outlet property="iconView" destination="9Bn-RW-uUe" id="9Ys-g4-KzG"/>
                 <outlet property="playMessageLabel" destination="awL-pX-uhq" id="BS3-sq-522"/>
                 <outlet property="teacherNameLabel" destination="Hd4-8T-kBU" id="bkc-M0-95g"/>
@@ -89,12 +90,19 @@
                         <action selector="orderButtonClicked" destination="-1" eventType="touchUpInside" id="7h2-Cy-NuH"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awL-pX-uhq">
-                    <rect key="frame" x="8" y="300" width="359" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awL-pX-uhq">
+                    <rect key="frame" x="8" y="304" width="327" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullscreen_icon" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-Of-gFs">
+                    <rect key="frame" x="343" y="300" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="JvK-wz-9Gq"/>
+                        <constraint firstAttribute="height" constant="24" id="YCe-nZ-ofr"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -105,6 +113,7 @@
                 <constraint firstItem="RHi-Ik-in6" firstAttribute="top" secondItem="zY7-u6-iB5" secondAttribute="bottom" constant="20" id="7yo-ca-e0d"/>
                 <constraint firstAttribute="bottom" secondItem="sdg-th-Fg4" secondAttribute="bottom" id="Axq-3k-wwk"/>
                 <constraint firstItem="vVv-Du-TbR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FPm-gT-DF5"/>
+                <constraint firstItem="9Bn-RW-uUe" firstAttribute="top" secondItem="awL-pX-uhq" secondAttribute="bottom" constant="33" id="GC9-Je-t7c"/>
                 <constraint firstAttribute="trailing" secondItem="vVv-Du-TbR" secondAttribute="trailing" id="H4g-Gx-OmA"/>
                 <constraint firstItem="sdg-th-Fg4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jcj-fg-P8B"/>
                 <constraint firstItem="vVv-Du-TbR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="MVl-qC-bF5"/>
@@ -115,7 +124,11 @@
                 <constraint firstItem="Y5X-he-yTL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="UCo-L1-0na"/>
                 <constraint firstItem="RHi-Ik-in6" firstAttribute="leading" secondItem="6Or-fk-hrr" secondAttribute="trailing" constant="5" id="UZ3-KV-PDJ"/>
                 <constraint firstItem="9Bn-RW-uUe" firstAttribute="top" secondItem="vVv-Du-TbR" secondAttribute="bottom" constant="20" id="ecT-A6-2sf"/>
+                <constraint firstItem="zhA-Of-gFs" firstAttribute="leading" secondItem="awL-pX-uhq" secondAttribute="trailing" constant="8" id="fDL-Cn-oKP"/>
                 <constraint firstItem="Y5X-he-yTL" firstAttribute="top" secondItem="RHi-Ik-in6" secondAttribute="bottom" constant="15" id="kZV-6b-tNn"/>
+                <constraint firstItem="awL-pX-uhq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pef-xN-d6f"/>
+                <constraint firstItem="zY7-u6-iB5" firstAttribute="top" secondItem="zhA-Of-gFs" secondAttribute="bottom" constant="90" id="w5q-jW-moI"/>
+                <constraint firstAttribute="trailing" secondItem="zhA-Of-gFs" secondAttribute="trailing" constant="8" id="xXt-BK-gUT"/>
                 <constraint firstItem="HsN-Ao-6nd" firstAttribute="centerX" secondItem="vVv-Du-TbR" secondAttribute="centerX" id="xuO-hO-th4"/>
                 <constraint firstItem="6Or-fk-hrr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="xvp-LJ-UYj"/>
                 <constraint firstItem="9Bn-RW-uUe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="yfA-QH-Gen"/>
@@ -125,6 +138,7 @@
         </view>
     </objects>
     <resources>
+        <image name="fullscreen_icon" width="24" height="24"/>
         <image name="标题前竖线" width="2" height="10"/>
         <image name="高分视频上的大播放icon" width="54" height="54"/>
     </resources>

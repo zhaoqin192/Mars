@@ -12,6 +12,7 @@
 #import "DatabaseManager.h"
 #import "AccountDao.h"
 #import "Account.h"
+#import "EasyLiveSDK.h"
 
 @interface SignInViewModel ()
 
@@ -59,6 +60,14 @@
             account.sessionID = response[@"yzb_session_id"];
             account.userID = response[@"yzb_user_id"];
             [accountDao save];
+            NSString *phone = [NSString stringWithFormat:@"86_%@", self.phone];
+            [EasyLiveSDK userLoginWithParams:@{SDK_REGIST_TOKE: phone, SDK_USER_ID: account.userID
+                                               } start:^{
+                                               } complete:^(NSInteger responseCode, NSDictionary *result) {
+                                                   AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+                                                   Account *account = [accountDao fetchAccount];
+                                                   account.sessionID = result[@"sessionid"];
+                                               }];
             [self.successObject sendNext:nil];
         } else {
             [self.failureObject sendNext:@"用户名或密码不正确"];
@@ -67,6 +76,9 @@
         @strongify(self)
         [self.failureObject sendNext:@"网络异常"];
     }];
+    
+    
+    
 }
 
 @end

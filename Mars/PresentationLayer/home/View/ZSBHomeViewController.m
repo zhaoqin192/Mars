@@ -17,6 +17,8 @@
 #import "ZSBKnowledgeModel.h"
 #import "ZSBTestModel.h"
 #import "ZSBWebViewController.h"
+#import "WXCourseVideoViewController.h"
+#import "WXHighGradeViewController.h"
 
 NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
@@ -180,6 +182,26 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row % 2 == 0) {
+            WXCourseVideoViewController *videoVC = [[WXCourseVideoViewController alloc] init];
+            ZSBTestModel *model = self.viewModel.testArray[indexPath.row / 2];
+            videoVC.identifier = model.identifier;
+            [self.navigationController pushViewController:videoVC animated:YES];
+        }
+    }
+    else {
+        if (indexPath.row % 2 == 0) {
+            WXHighGradeViewController *gradeVC = [[WXHighGradeViewController alloc] init];
+            ZSBKnowledgeModel *model = self.viewModel.knowledgeArray[indexPath.row / 2];
+            gradeVC.identifier = model.identifier;
+            [self.navigationController pushViewController:gradeVC animated:YES];
+        }
+    }
+}
+
 
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
