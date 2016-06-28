@@ -228,6 +228,8 @@
 		ACD4B6271D118D9F001DAD04 /* ZSBHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B6261D118D9F001DAD04 /* ZSBHomeBannerModel.m */; };
 		ACD4B62A1D118DB6001DAD04 /* ZSBHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B6291D118DB6001DAD04 /* ZSBHomeViewModel.m */; };
 		ACD4B62D1D118DD8001DAD04 /* ZSBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B62C1D118DD8001DAD04 /* ZSBHomeViewController.m */; };
+		ACDCC5841D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC5821D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.m */; };
+		ACDCC5851D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDCC5831D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -595,6 +597,9 @@
 		ACD4B6291D118DB6001DAD04 /* ZSBHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBHomeViewModel.m; sourceTree = "<group>"; };
 		ACD4B62B1D118DD8001DAD04 /* ZSBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBHomeViewController.h; sourceTree = "<group>"; };
 		ACD4B62C1D118DD8001DAD04 /* ZSBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBHomeViewController.m; sourceTree = "<group>"; };
+		ACDCC5811D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseRankCollectionViewCell.h; sourceTree = "<group>"; };
+		ACDCC5821D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseRankCollectionViewCell.m; sourceTree = "<group>"; };
+		ACDCC5831D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBExerciseRankCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2F051E5099C01579BB5BFE6 /* libPods-Mars.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mars.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -974,6 +979,9 @@
 				ACD221531D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.h */,
 				ACD221541D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.m */,
 				ACD221551D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.xib */,
+				ACDCC5811D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.h */,
+				ACDCC5821D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.m */,
+				ACDCC5831D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1513,6 +1521,7 @@
 				30FD1F5D1CE1C30B003C91A5 /* RankVideoCell.xib in Resources */,
 				30772FAD1D1F8ABF001AC891 /* WXTestDetailViewController.xib in Resources */,
 				AC5260A61D1D293E00B25B66 /* ZSBSelectConditionTableViewCell.xib in Resources */,
+				ACDCC5851D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
 				302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */,
@@ -1681,6 +1690,7 @@
 				30FD1E9A1CDDA833003C91A5 /* OrderCell.m in Sources */,
 				30B602911CD87510003ED671 /* ActionSheetLocalePicker.m in Sources */,
 				30FD1E8F1CDD9B27003C91A5 /* WXExercisesViewController.m in Sources */,
+				ACDCC5841D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.m in Sources */,
 				AC66CDCC1D1BAFE6003B4DB5 /* PreOrderCourseCell.m in Sources */,
 				ACD4B6271D118D9F001DAD04 /* ZSBHomeBannerModel.m in Sources */,
 				AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */,

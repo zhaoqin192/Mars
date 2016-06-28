@@ -7,6 +7,7 @@
 //
 
 #import "ZSBExerciseGradeViewModel.h"
+#import "WXRankModel.h"
 
 static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
 
@@ -25,15 +26,18 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    
                    if ([responseObject[@"code"] isEqualToString:@"200"]) {
-//                       NSDictionary *data = responseObject[@"data"];
-//                       self.videoID = data[@"video_id"];
-//                       self.videoImage = data[@"video_image"];
-//                       self.teacherDescribe = data[@"teacher_describe"];
-//                       self.teacherName = data[@"teacher_name"];
-//                       self.teacherID = data[@"teacher_id"];
-//                       self.teacherAvatar = data[@"thumb_url"];
+                       NSDictionary *data = responseObject[@"data"];
+                       self.videoID = data[@"video_id"];
+                       self.videoImage = data[@"video_image"];
+                       self.costTime = data[@"cost_time"];
+                       self.userAvatar = data[@"thumb_url"];
+                       self.uploadNumber = data[@"upload_number"];
+                       self.userID = data[@"user_id"];
+                       self.userName = data[@"user_name"];
+                       self.identifier = data[@"test_id"];
+                       self.type = data[@"type"];
+                       self.title = data[@"title"];
                    }
-                   
                    [subscriber sendNext:responseObject[@"code"]];
                    [subscriber sendCompleted];
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -43,6 +47,28 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
            }];
         }];
         
+        self.rankCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *identifier) {
+           return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+               AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+               NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/test/getrange"]];
+               NSDictionary *parameters = @{@"test_id": identifier};
+               [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                   
+                   if ([responseObject[@"code"] isEqualToString:@"200"]) {
+                       self.rankArray = [WXRankModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                   }
+                   [subscriber sendNext:responseObject[@"code"]];
+                   [subscriber sendCompleted];
+               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                   [subscriber sendError:nil];
+               }];
+               return nil;
+           }];
+        }];
+        
+        self.errorObject = [RACSubject subject];
+        [[RACSignal merge:@[self.detailCommand.errors, self.rankCommand.errors]]
+         subscribe:self.errorObject];
     }
     return self;
 }
