@@ -18,11 +18,14 @@
 #import "ZSBExerciseTimeViewCell.h"
 #import "ZSBExerciseMessageTableViewCell.h"
 
+
 @interface WXPreorderCourseViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) PreorderViewModel *viewModel;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) UIButton *orderButton;
+@property (nonatomic, strong) Account *account;
+
 @end
 
 @implementation WXPreorderCourseViewController
@@ -52,7 +55,22 @@
     }]
     flattenMap:^RACStream *(id value) {
         @strongify(self)
-        return [self.viewModel.orderCommand execute:nil];
+        
+        if (self.viewModel.timeModel.identifier) {
+            return [self.viewModel.orderCommand execute:nil];
+        }
+        else {
+            @strongify(self)
+            if (!self.orderButton.isEnabled) {
+                self.orderButton.enabled = YES;
+            }
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"还没有选择预约时间";
+            [self.hud hide:YES afterDelay:1.5f];
+            return nil;
+        }
+        
     }]
     subscribeNext:^(NSString *code) {
         @strongify(self)
@@ -127,6 +145,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ZSBExerciseMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBExerciseMessageTableViewCell"];
+        self.account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+        
+        if (self.account.phone) {
+            cell.phoneTextField.text = self.account.phone;
+        }
+        if (self.account.nickname) {
+            cell.nameTextField.text = self.account.nickname;
+        }
+        
         return cell;
     }
     else {
@@ -197,7 +224,12 @@
         label.text = @"您的联系方式";
     }
     else {
-        label.text = @"选择上课时间";
+        if (self.viewModel.dateModelArray.count == 0) {
+            label.text = @"选择上课时间（当前老师没有可选择的上课时间）";
+        }
+        else {
+            label.text = @"选择上课时间";
+        }
     }
     return view;
 }

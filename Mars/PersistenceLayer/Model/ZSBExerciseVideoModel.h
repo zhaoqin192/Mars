@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSString *tag2;
 @property (nonatomic, strong) NSString *tag3;
 @property (nonatomic, strong) NSString *tag4;
+@property (nonatomic, strong) NSString *type;
 
 @end

@@ -23,4 +23,6 @@
 
 - (void)cacheData;
 
+- (NSString *)arrayTransformToJSON:(NSArray *)array;
+
 @end

@@ -11,6 +11,7 @@
 #import "MJExtension.h"
 #import "ZSBCacheManager.h"
 #import "ZSBExerciseVideoModel.h"
+#import "NSDictionary+BVJSONString.h"
 
 static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
 static NSString *CACHEVIDEO = @"ExerciseVideo";
@@ -88,9 +89,8 @@ static NSString *CACHEKNOWLEDGE = @"ExerciseKnowledgeTag";
                 }
                 
                 AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/lesson/getlist"]];
                 
-//                manager.requestSerializer = [AFJSONRequestSerializer serializer];
+                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/lesson/getlist"]];
                 
                 @weakify(self)
                 [manager GET:url.absoluteString parameters:input progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -122,9 +122,8 @@ static NSString *CACHEKNOWLEDGE = @"ExerciseKnowledgeTag";
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                
                 AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/test/getlist"]];
                 
-//                manager.requestSerializer = [AFJSONRequestSerializer serializer];
+                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"exercise/test/getlist"]];
                 
                 @weakify(self)
                 [manager POST:url.absoluteString parameters:input progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -163,5 +162,13 @@ static NSString *CACHEKNOWLEDGE = @"ExerciseKnowledgeTag";
     [ZSBCacheManager cacheWithData:self.subjectArray fileName:CACHESUBJECT];
     [ZSBCacheManager cacheWithData:self.knowledgeArray fileName:CACHEKNOWLEDGE];
 }
+
+- (NSString *)arrayTransformToJSON:(NSArray *)array {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array.mj_keyValues options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return jsonString;
+}
+
 
 @end

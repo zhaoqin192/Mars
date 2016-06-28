@@ -10,4 +10,6 @@
 
 @interface WXCourseVideoViewController : UIViewController
 
+@property (nonatomic, strong) NSString *identifier;
+
 @end

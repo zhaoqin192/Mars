@@ -16,8 +16,8 @@
 #import "ZSBExerciseVideoModel.h"
 #import "ZSBExerciseVideoTableViewCell.h"
 
-static NSString *SUBJECTPARAMETERS = @"tag1";
-static NSString *KNOWLEDGEPARAMETERS = @"tag4";
+static NSString *SUBJECTPARAMETERS = @"tags";
+static NSString *KNOWLEDGEPARAMETERS = @"point";
 
 @interface WXVideoViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -172,7 +172,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                 }
                 else if (subject.count == 0) {
                     
-                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -187,7 +187,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                     
                 }
                 else if (knowledge.count == 0) {
-                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject}]
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -201,7 +201,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else {
-                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject], KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -228,7 +228,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else if (subject.count == 0) {
-                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.courseCommand execute:@{KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -237,7 +237,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else if (knowledge.count == 0) {
-                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject}]
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -246,7 +246,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else {
-                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.courseCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject], KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -269,7 +269,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else if (subject.count == 0) {
-                    [[self.viewModel.remarkableCommand execute:@{KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.remarkableCommand execute:@{KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -278,7 +278,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else if (knowledge.count == 0) {
-                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject}]
+                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -287,7 +287,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
                      }];
                 }
                 else {
-                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS: subject, KNOWLEDGEPARAMETERS: knowledge}]
+                    [[self.viewModel.remarkableCommand execute:@{SUBJECTPARAMETERS:[self.viewModel arrayTransformToJSON:subject], KNOWLEDGEPARAMETERS:[self.viewModel arrayTransformToJSON:knowledge]}]
                      subscribeNext:^(id x) {
                          @strongify(self)
                          [self.viewModel.videoArray removeAllObjects];
@@ -415,12 +415,17 @@ static NSString *KNOWLEDGEPARAMETERS = @"tag4";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
+    
+    ZSBExerciseVideoModel *model = self.viewModel.videoArray[indexPath.row];
+    
+    if ([model.type isEqualToString:@"lesson"]) {
         WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
+        vc.identifier = model.identifier;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         WXHighGradeViewController *vc = [[WXHighGradeViewController alloc] init];
+        vc.identifier = model.identifier;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

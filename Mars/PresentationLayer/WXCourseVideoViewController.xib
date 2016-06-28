@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="contentLabel" destination="Y5X-he-yTL" id="Kmf-Ag-C4v"/>
                 <outlet property="iconView" destination="9Bn-RW-uUe" id="9Ys-g4-KzG"/>
+                <outlet property="playMessageLabel" destination="awL-pX-uhq" id="BS3-sq-522"/>
+                <outlet property="teacherNameLabel" destination="Hd4-8T-kBU" id="bkc-M0-95g"/>
                 <outlet property="videoImage" destination="vVv-Du-TbR" id="KaF-aw-THd"/>
                 <outlet property="videoPlayImage" destination="HsN-Ao-6nd" id="cKP-Hv-HKg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -87,6 +89,12 @@
                         <action selector="orderButtonClicked" destination="-1" eventType="touchUpInside" id="7h2-Cy-NuH"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awL-pX-uhq">
+                    <rect key="frame" x="8" y="300" width="359" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

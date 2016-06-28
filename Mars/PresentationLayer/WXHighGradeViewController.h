@@ -10,4 +10,6 @@
 
 @interface WXHighGradeViewController : UIViewController
 
+@property (nonatomic, strong) NSString *identifier;
+
 @end

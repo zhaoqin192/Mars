@@ -222,6 +222,9 @@
 		ACD221521D21100300AFDBAB /* ZSBExerciseVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD221511D21100300AFDBAB /* ZSBExerciseVideoModel.m */; };
 		ACD221561D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD221541D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.m */; };
 		ACD221571D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD221551D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.xib */; };
+		ACD2215A1D214CA500AFDBAB /* ZSBExerciseCourseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD221591D214CA500AFDBAB /* ZSBExerciseCourseViewModel.m */; };
+		ACD2215D1D2152D200AFDBAB /* NSDictionary+BVJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD2215C1D2152D200AFDBAB /* NSDictionary+BVJSONString.m */; };
+		ACD221611D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD221601D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.m */; };
 		ACD4B6271D118D9F001DAD04 /* ZSBHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B6261D118D9F001DAD04 /* ZSBHomeBannerModel.m */; };
 		ACD4B62A1D118DB6001DAD04 /* ZSBHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B6291D118DB6001DAD04 /* ZSBHomeViewModel.m */; };
 		ACD4B62D1D118DD8001DAD04 /* ZSBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4B62C1D118DD8001DAD04 /* ZSBHomeViewController.m */; };
@@ -580,6 +583,12 @@
 		ACD221531D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseVideoTableViewCell.h; sourceTree = "<group>"; };
 		ACD221541D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseVideoTableViewCell.m; sourceTree = "<group>"; };
 		ACD221551D21105300AFDBAB /* ZSBExerciseVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSBExerciseVideoTableViewCell.xib; sourceTree = "<group>"; };
+		ACD221581D214CA500AFDBAB /* ZSBExerciseCourseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseCourseViewModel.h; sourceTree = "<group>"; };
+		ACD221591D214CA500AFDBAB /* ZSBExerciseCourseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseCourseViewModel.m; sourceTree = "<group>"; };
+		ACD2215B1D2152D200AFDBAB /* NSDictionary+BVJSONString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BVJSONString.h"; sourceTree = "<group>"; };
+		ACD2215C1D2152D200AFDBAB /* NSDictionary+BVJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BVJSONString.m"; sourceTree = "<group>"; };
+		ACD2215F1D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBExerciseGradeViewModel.h; sourceTree = "<group>"; };
+		ACD221601D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBExerciseGradeViewModel.m; sourceTree = "<group>"; };
 		ACD4B6251D118D9F001DAD04 /* ZSBHomeBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBHomeBannerModel.h; sourceTree = "<group>"; };
 		ACD4B6261D118D9F001DAD04 /* ZSBHomeBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBHomeBannerModel.m; sourceTree = "<group>"; };
 		ACD4B6281D118DB6001DAD04 /* ZSBHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBHomeViewModel.h; sourceTree = "<group>"; };
@@ -1096,6 +1105,10 @@
 				AC5260601D1C139300B25B66 /* OrderViewModel.m */,
 				AC5260661D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.h */,
 				AC5260671D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m */,
+				ACD221581D214CA500AFDBAB /* ZSBExerciseCourseViewModel.h */,
+				ACD221591D214CA500AFDBAB /* ZSBExerciseCourseViewModel.m */,
+				ACD2215F1D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.h */,
+				ACD221601D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.m */,
 			);
 			path = exercise;
 			sourceTree = "<group>";
@@ -1211,6 +1224,8 @@
 				AC66CD9A1D1AA79B003B4DB5 /* ZSBCacheManager.m */,
 				ACD221481D20D01B00AFDBAB /* UIView+FindFirstResponder.h */,
 				ACD221491D20D01B00AFDBAB /* UIView+FindFirstResponder.m */,
+				ACD2215B1D2152D200AFDBAB /* NSDictionary+BVJSONString.h */,
+				ACD2215C1D2152D200AFDBAB /* NSDictionary+BVJSONString.m */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -1676,6 +1691,7 @@
 				AC5260651D1C1A2300B25B66 /* ZSBOrderModel.m in Sources */,
 				302243901D11079F0054B5E1 /* WXTestJoinView.m in Sources */,
 				AC66CDC71D1BAFDE003B4DB5 /* WXSelectTimeCell.m in Sources */,
+				ACD221611D2167DB00AFDBAB /* ZSBExerciseGradeViewModel.m in Sources */,
 				ACB77E731D1A577000B43AFD /* ZSBKnowledgeModel.m in Sources */,
 				30FD1ED81CE09EA2003C91A5 /* WXMeOrderViewController.m in Sources */,
 				ACB77E791D1A705800B43AFD /* ZSBWebViewController.m in Sources */,
@@ -1713,6 +1729,7 @@
 				3091D5CC1D1D125600F10E1F /* WXRankModel.m in Sources */,
 				30772FAC1D1F8ABF001AC891 /* WXTestDetailViewController.m in Sources */,
 				30FD1E941CDDA762003C91A5 /* WXOrderViewController.m in Sources */,
+				ACD2215A1D214CA500AFDBAB /* ZSBExerciseCourseViewModel.m in Sources */,
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC66CD9B1D1AA79B003B4DB5 /* ZSBCacheManager.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
@@ -1728,6 +1745,7 @@
 				30D018261CE9F8BF00E50B23 /* WXNormalTestViewController.m in Sources */,
 				ACD221521D21100300AFDBAB /* ZSBExerciseVideoModel.m in Sources */,
 				AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */,
+				ACD2215D1D2152D200AFDBAB /* NSDictionary+BVJSONString.m in Sources */,
 				AC66CD8C1D1A88FD003B4DB5 /* WXCategoryCommonTestViewController.m in Sources */,
 				30FD1EA41CDDD2E7003C91A5 /* VideoCell.m in Sources */,
 				30B602941CD87510003ED671 /* SWActionSheet.m in Sources */,

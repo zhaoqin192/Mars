@@ -33,6 +33,9 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                             @strongify(self)
                             NSArray *dateArray = responseObject[@"data"];
                             for (NSArray *timeArray in dateArray) {
+                                if (timeArray.count == 0) {
+                                    continue;
+                                }
                                 LessonDateModel *dateModel = [[LessonDateModel alloc] init];
                                 for (NSDictionary *time in timeArray) {
                                     LessonTimeModel *timeModel = [[LessonTimeModel alloc] init];
