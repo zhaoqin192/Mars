@@ -48,6 +48,7 @@ static BOOL debugMessage = YES;
     commitButton.frame = CGRectMake(0, 0, 40, 30);
     __weak typeof(self)weakSelf = self;
     [commitButton bk_whenTapped:^{
+        [weakSelf stopLive];
         WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
@@ -201,7 +202,7 @@ static BOOL debugMessage = YES;
     }];
 }
 
-- (IBAction)stopLive:(id)sender {
+- (void)stopLive {
     
     [self.encoder livestopWithParams:@{SDK_SESSION_ID: _account.sessionID} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         
