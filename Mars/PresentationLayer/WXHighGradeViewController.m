@@ -11,6 +11,7 @@
 #import "ZSBExerciseGradeViewModel.h"
 #import "ZSBExerciseRankCollectionViewCell.h"
 #import "WXRankModel.h"
+#import "ZSBVideoViewController.h"
 
 @interface WXHighGradeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *moreButton;
@@ -60,6 +61,15 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"ZSBExerciseRankCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ZSBExerciseRankCollectionViewCell"];
+    
+    UIGestureRecognizer *playGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+        videoVC.videoID = self.viewModel.videoID;
+        [self.navigationController pushViewController:videoVC animated:YES];
+    }];
+    self.videoPlayButton.userInteractionEnabled = YES;
+    [self.videoPlayButton addGestureRecognizer:playGesture];
+    
     
     [self bindViewModel];
 }
