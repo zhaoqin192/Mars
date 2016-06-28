@@ -13,6 +13,7 @@
 #import "WXCategoryCommitViewController.h"
 #import "WXRankViewController.h"
 #import "WXTestDetailViewController.h"
+#import "WXTestLiveViewController.h"
 
 @interface WXCategoryCommonTestViewController () <CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *testTitleImage;
@@ -265,10 +266,13 @@
         };
         
         _joinView.playButtonTapped = ^{
+            WXTestLiveViewController *vc = [[WXTestLiveViewController alloc] init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
             NSLog(@"play");
             //直播完后进入这个controller
-            WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
-            [weakSelf.navigationController pushViewController:vc animated:YES];
+//            WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
+//            [weakSelf.navigationController pushViewController:vc animated:YES];
         };
         _joinView.dismiss = ^{
             [UIView animateWithDuration:0.25 animations:^{
@@ -310,7 +314,8 @@
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请选择考卷类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *uploadVideo = [UIAlertAction actionWithTitle:@"我要直播" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"我要直播");
+        WXTestLiveViewController *vc = [[WXTestLiveViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     UIAlertAction *uploadImage = [UIAlertAction actionWithTitle:@"上传图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self showPicker:PHAssetMediaTypeImage];

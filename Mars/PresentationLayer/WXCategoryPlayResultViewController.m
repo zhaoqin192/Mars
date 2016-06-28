@@ -37,9 +37,16 @@
     
     self.backButton.layer.cornerRadius = self.backButton.height/2;
     self.backButton.layer.masksToBounds = YES;
-    [self.backButton bk_whenTapped:^{
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    if (self.isImage) {
+        [self.backButton bk_whenTapped:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
+    else {
+        [self.backButton bk_whenTapped:^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
