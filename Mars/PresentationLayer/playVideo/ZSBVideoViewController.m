@@ -17,6 +17,9 @@
 @property (nonatomic, strong) UIView *playerContinerView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) Account *account;
+@property (nonatomic, strong) UIImageView *playImage;
+@property (nonatomic, strong) UIImageView *pauseImage;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation ZSBVideoViewController
@@ -63,6 +66,65 @@
                 break;
         }
     }];
+    
+    self.playImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"列表播放icon"]];
+    [self.playImage setFrame:CGRectMake(kScreenWidth / 2 - 15, kScreenHeight / 2 - 15, 30, 30)];
+    self.playImage.userInteractionEnabled = YES;
+    self.playImage.hidden = YES;
+    [self.view addSubview:self.playImage];
+    
+    self.pauseImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pause_icon"]];
+    [self.pauseImage setFrame:CGRectMake(kScreenWidth / 2 - 15, kScreenHeight / 2 - 15, 30, 30)];
+    self.pauseImage.userInteractionEnabled = YES;
+    self.pauseImage.hidden = YES;
+    [self.view addSubview:self.pauseImage];
+    
+    UIGestureRecognizer *playGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        [_player play];
+        self.playImage.hidden = YES;
+        [self showPause];
+    }];
+    [self.playImage addGestureRecognizer:playGesture];
+    
+    UIGestureRecognizer *pauseGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        [_player pause];
+        [self.timer invalidate];
+        self.pauseImage.hidden = YES;
+        self.playImage.hidden = NO;
+    }];
+    [self.pauseImage addGestureRecognizer:pauseGesture];
+    
+    UIGestureRecognizer *containGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        if (self.playImage.isHidden) {
+            [self showPause];
+        }
+    }];
+    [self.playerContinerView addGestureRecognizer:containGesture];
+    
+}
+
+- (void)showPause {
+    if (self.pauseImage.isHidden) {
+        self.pauseImage.hidden = NO;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0f block:^(NSTimer * _Nonnull timer) {
+            [UIView transitionWithView:self.pauseImage
+                              duration:0.25f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.pauseImage.hidden = YES;
+                            } completion:nil];
+            
+        } repeats:NO];
+    }
+    else {
+        [self.timer invalidate];
+        [UIView transitionWithView:self.pauseImage
+                          duration:0.25f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.pauseImage.hidden = YES;
+                        } completion:nil];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -91,6 +153,7 @@
             break;
         case EasyLivePlayerComplete:
             NSLog(@"完成");
+            self.playImage.hidden = NO;
             break;
         case EasyLivePlayerStateUnknow:
             NSLog(@"未知错误");
@@ -100,6 +163,7 @@
             break;
         case EasyLivePlayerStatePlaying:
             NSLog(@"播放中");
+            [self showPause];
             break;
         default:
             NSLog(@"网络状况不佳，播放失败");
