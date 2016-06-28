@@ -1,12 +1,12 @@
 //
-//  LiveViewController.m
+//  WXTestLiveViewController.m
 //  Mars
 //
-//  Created by zhaoqin on 4/25/16.
-//  Copyright © 2016 Muggins_. All rights reserved.
+//  Created by 王霄 on 16/6/28.
+//  Copyright © 2016年 Muggins_. All rights reserved.
 //
 
-#import "LiveViewController.h"
+#import "WXTestLiveViewController.h"
 #import "Utility.h"
 #import "EasyLive.h"
 #import "DatabaseManager.h"
@@ -15,21 +15,20 @@
 #import "LiveRegisterViewController.h"
 #import "AlertManager.h"
 #import "WatchViewController.h"
+#import "WXCategoryPlayResultViewController.h"
 
-
-@interface LiveViewController ()<EasyLiveEncoderDelegate>
+@interface WXTestLiveViewController ()<EasyLiveEncoderDelegate>
 
 @property (nonatomic, strong) EasyLiveEncoder *encoder;
 @property (nonatomic, strong) AccountDao *accountDao;
 @property (nonatomic, strong) Account *account;
 @property (nonatomic, copy) NSString *videoID;
-@property (weak, nonatomic) IBOutlet UILabel *videoIDString;
 
 @end
 
 static BOOL debugMessage = YES;
 
-@implementation LiveViewController
+@implementation WXTestLiveViewController
 
 - (EasyLiveEncoder *)encoder {
     if (_encoder == nil) {
@@ -41,8 +40,27 @@ static BOOL debugMessage = YES;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"正在直播";
+    
+    UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [commitButton setTitle:@"完成" forState:UIControlStateNormal];
+    [commitButton setTitleColor:WXGreenColor forState:UIControlStateNormal];
+    commitButton.frame = CGRectMake(0, 0, 40, 30);
+    __weak typeof(self)weakSelf = self;
+    [commitButton bk_whenTapped:^{
+        [weakSelf stopLive];
+        WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
+    
     [self initObjects];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self auth];
 }
 
 - (void)initObjects {
@@ -61,7 +79,7 @@ static BOOL debugMessage = YES;
                                           userDeny:(void(^)())userDeny{
     [Utility checkAndRequestMicPhoneAndCameraUserAuthed:userAuthed userDeny:userDeny];
 }
-- (IBAction)auth:(id)sender {
+- (void)auth {
     
     if (_account.sessionID != nil) {
         [self checkAndRequestMicPhoneAndCameraUserAuthed:^{
@@ -123,7 +141,7 @@ static BOOL debugMessage = YES;
             default:
                 break;
         }
-
+        
     }];
 }
 
@@ -133,31 +151,31 @@ static BOOL debugMessage = YES;
     NSLog(@"before prepare");
     [self.encoder prepare];
     NSLog(@"before start");
-//    [self updateSliderValue];
+    //    [self updateSliderValue];
     
     [self requestLiveStart];
 }
 
 - (void)updateSliderValue {
-//    self.slider.minimumValue = self.encoder.minZoomFactor;
-//    self.slider.maximumValue = 5.0;
+    //    self.slider.minimumValue = self.encoder.minZoomFactor;
+    //    self.slider.maximumValue = 5.0;
 }
 
 - (void)requestLiveStart {
-//    if ( self.liveInfo.sessionid == nil )
-//    {
-//        NSLog(@"session id 不能为空,请登录或者注册");
-//        return;
-//    }
-//    __weak typeof(self) wself = self;
-//    [self.encoder livestartWithParams:@{ SDK_SESSION_ID : self.liveInfo.sessionid } start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
-//        [wself handleResultCode:responseCode result:result];
-//    }];
+    //    if ( self.liveInfo.sessionid == nil )
+    //    {
+    //        NSLog(@"session id 不能为空,请登录或者注册");
+    //        return;
+    //    }
+    //    __weak typeof(self) wself = self;
+    //    [self.encoder livestartWithParams:@{ SDK_SESSION_ID : self.liveInfo.sessionid } start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
+    //        [wself handleResultCode:responseCode result:result];
+    //    }];
     NSLog(@"request live start:%@",_account.sessionID);
     [self.encoder livestartWithParams:@{SDK_SESSION_ID: _account.sessionID} start:^{
         
     } complete:^(NSInteger responseCode, NSDictionary *result) {
-       
+        
         if (debugMessage) {
             NSLog(@"start:%@", result);
         }
@@ -173,7 +191,7 @@ static BOOL debugMessage = YES;
                 
             case SDK_REQUEST_OK:
                 self.videoID = result[@"vid"];
-                self.videoIDString.text = result[@"vid"];
+            //  self.videoIDString.text = result[@"vid"];
                 [self.encoder start];
                 break;
                 
@@ -184,7 +202,7 @@ static BOOL debugMessage = YES;
     }];
 }
 
-- (IBAction)stopLive:(id)sender {
+- (void)stopLive {
     
     [self.encoder livestopWithParams:@{SDK_SESSION_ID: _account.sessionID} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         
@@ -192,16 +210,8 @@ static BOOL debugMessage = YES;
         NSLog(@"%@", result);
         
     }];
+}
 
-    
-}
-- (IBAction)presentWatchView:(id)sender {
-    
-//    WatchViewController *vc = [[WatchViewController alloc] initWithNibName:@"WatchViewController" bundle:nil];
-    WatchViewController *vc = [[WatchViewController alloc] init];
-    [self presentViewController:vc animated:NO completion:nil];
-    
-}
 
 #pragma mark - EasyLiveEncoderDelegate
 // 提示信息用这些状态就足够了
@@ -243,13 +253,14 @@ static BOOL debugMessage = YES;
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
