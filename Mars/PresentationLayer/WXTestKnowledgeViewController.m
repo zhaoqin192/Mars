@@ -9,6 +9,10 @@
 #import "WXTestKnowledgeViewController.h"
 #import "VideoCell.h"
 #import "WXCategoryListModel.h"
+#import "ZSBExerciseVideoModel.h"
+#import "WXCourseVideoViewController.h"
+#import "WXHighGradeViewController.h"
+
 @interface WXTestKnowledgeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *courseButton;
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
@@ -89,7 +93,8 @@
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
             [WXCategoryListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                return @{@"attend_count":@"count"};
+                return @{@"attend_count":@"count",
+                         @"test_id":@"id"};
             }];
             self.listArrays = [WXCategoryListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.myTableView reloadData];
@@ -179,6 +184,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 125;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WXCategoryListModel *model = self.listArrays[indexPath.row];
+    ZSBExerciseVideoModel *zsbModel = [model zsbModel];
+    
+    if ([model.type isEqualToString:@"lesson"]) {
+        WXCourseVideoViewController *vc = [[WXCourseVideoViewController alloc] init];
+        vc.identifier = zsbModel.identifier;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        WXHighGradeViewController *vc = [[WXHighGradeViewController alloc] init];
+        vc.identifier = zsbModel.identifier;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

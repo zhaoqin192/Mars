@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZSBExerciseVideoModel.h"
 
 @interface WXCategoryListModel : NSObject
 @property (nonatomic, copy) NSString *difficult_level;
@@ -21,4 +22,6 @@
 @property (nonatomic, copy) NSString *tag4;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, copy) NSString *test_result_id;
+@property (nonatomic, copy) NSString *type;
+- (ZSBExerciseVideoModel *)zsbModel;
 @end
