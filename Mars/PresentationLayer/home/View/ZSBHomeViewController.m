@@ -19,6 +19,8 @@
 #import "ZSBWebViewController.h"
 #import "WXCourseVideoViewController.h"
 #import "WXHighGradeViewController.h"
+#import "WXCategoryPaidTestViewController.h"
+#import "WXCategoryCommonTestViewController.h"
 
 NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
@@ -186,10 +188,19 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row % 2 == 0) {
-            WXCourseVideoViewController *videoVC = [[WXCourseVideoViewController alloc] init];
             ZSBTestModel *model = self.viewModel.testArray[indexPath.row / 2];
-            videoVC.identifier = model.identifier;
-            [self.navigationController pushViewController:videoVC animated:YES];
+            
+            if ([model.attend_price isEqual: @(0)]) {
+                WXCategoryCommonTestViewController *vc = [[WXCategoryCommonTestViewController alloc] init];
+                vc.identify = model.identifier;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                WXCategoryPaidTestViewController *vc = [[WXCategoryPaidTestViewController alloc] init];
+                vc.identify = model.identifier;
+                vc.price = [model.attend_price integerValue];;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
     }
     else {
