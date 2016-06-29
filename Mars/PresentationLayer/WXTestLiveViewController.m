@@ -25,6 +25,7 @@
 @property (nonatomic, copy) NSArray *assets;
 @property (nonatomic, copy) NSString *test_result_id;
 @property (nonatomic, strong) NSMutableArray *urlArray;
+@property (nonatomic, strong) NSData *myImageData;
 @end
 
 static BOOL debugMessage = YES;
@@ -386,6 +387,7 @@ static BOOL debugMessage = YES;
     PHAsset *asset = self.assets[index];
     PHImageManager *manager = [PHImageManager defaultManager];
     [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        self.myImageData = imageData;
         [self uploadImage:imageData index:index];
     }];
 }
@@ -434,7 +436,6 @@ static BOOL debugMessage = YES;
 - (void)uploadUrl:(NSInteger)index{
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/start_live"]];
-    NSLog(@"%@ %@ %@ %@",self.account.token,self.test_result_id,self.urlArray[index],self.videoID);
     NSDictionary *parameters = @{@"sid":self.account.token,
                                  @"test_result_id":self.test_result_id,
                                  @"video_image":self.urlArray[index],
@@ -443,7 +444,7 @@ static BOOL debugMessage = YES;
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
             if (index == self.urlArray.count-1) {
-                [self endTheTest];
+                [self uploadVideo];
             }
             else {
                 dispatch_after(1.0, dispatch_get_main_queue(), ^{
@@ -465,6 +466,34 @@ static BOOL debugMessage = YES;
     }];
 }
 
-
+- (void)uploadVideo{
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/lesson/uploadvideo"]];
+    NSDictionary *parameters = @{@"sid":self.account.token,
+                                 @"video_id":self.videoID};
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        [formData appendPartWithFileData:self.myImageData name:@"photo" fileName:fileName mimeType:@"image/png"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [self endTheTest];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
 
 @end
