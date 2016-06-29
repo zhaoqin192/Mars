@@ -16,9 +16,11 @@
 #import "RootTabViewController.h"
 #import "YFStartView.h"
 #import "StartButtomView.h"
+#import "NetworkFetcher+Account.h"
 
 @interface AppDelegate () <EAIntroDelegate>
-
+@property (nonatomic, strong) AccountDao *accountDao;
+@property (nonatomic, strong) Account *account;
 @end
 
 @implementation AppDelegate
@@ -136,6 +138,19 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    _accountDao = [[DatabaseManager sharedInstance] accountDao];
+    _account = [_accountDao fetchAccount];
+    
+    if ([_accountDao isExist]) {
+        [NetworkFetcher accountSignInWithPhone:_account.phone password:_account.password success:^(NSDictionary *response) {
+            NSLog(@"再次登录");
+        } failure:^(NSString *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常请重新登录"];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

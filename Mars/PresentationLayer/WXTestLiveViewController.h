@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WXTestLiveViewController : UIViewController
-
+@property (nonatomic, copy) NSString *identify;
 @end

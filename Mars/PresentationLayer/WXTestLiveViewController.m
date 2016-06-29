@@ -18,12 +18,13 @@
 #import "WXCategoryPlayResultViewController.h"
 
 @interface WXTestLiveViewController ()<EasyLiveEncoderDelegate>
-
 @property (nonatomic, strong) EasyLiveEncoder *encoder;
 @property (nonatomic, strong) AccountDao *accountDao;
 @property (nonatomic, strong) Account *account;
 @property (nonatomic, copy) NSString *videoID;
-
+@property (nonatomic, copy) NSArray *assets;
+@property (nonatomic, copy) NSString *test_result_id;
+@property (nonatomic, strong) NSMutableArray *urlArray;
 @end
 
 static BOOL debugMessage = YES;
@@ -41,6 +42,8 @@ static BOOL debugMessage = YES;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"正在直播";
+    self.urlArray = [NSMutableArray array];
+  //  [self.navigationItem setHidesBackButton:YES animated:YES];
     
     UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [commitButton setTitle:@"完成" forState:UIControlStateNormal];
@@ -49,8 +52,7 @@ static BOOL debugMessage = YES;
     __weak typeof(self)weakSelf = self;
     [commitButton bk_whenTapped:^{
         [weakSelf stopLive];
-        WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
+        [weakSelf showPicker];
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
     
@@ -60,7 +62,7 @@ static BOOL debugMessage = YES;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self auth];
+    [self joinTheTest];
 }
 
 - (void)initObjects {
@@ -191,6 +193,7 @@ static BOOL debugMessage = YES;
                 
             case SDK_REQUEST_OK:
                 self.videoID = result[@"vid"];
+                NSLog(@"hahahh  %@",result[@"vid"]);
             //  self.videoIDString.text = result[@"vid"];
                 [self.encoder start];
                 break;
@@ -261,6 +264,207 @@ static BOOL debugMessage = YES;
  // Pass the selected object to the new view controller.
  }
  */
+
+#pragma mark - ImagePicker
+
+- (void)showPicker {
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // init picker
+            CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
+            
+            // set delegate
+            picker.delegate = self;
+            
+            // create options for fetching photo only
+            PHFetchOptions *fetchOptions = [PHFetchOptions new];
+            fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
+            
+            // assign options
+            picker.assetsFetchOptions = fetchOptions;
+            
+            // to present picker as a form sheet in iPad
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+                picker.modalPresentationStyle = UIModalPresentationFormSheet;
+            
+            // present picker
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        });
+    }];
+}
+
+// implement should select asset delegate
+- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset
+{
+    NSInteger max = 1;
+    
+    // show alert gracefully
+    if (picker.selectedAssets.count >= max)
+    {
+        UIAlertController *alert =
+        [UIAlertController alertControllerWithTitle:@"Attention"
+                                            message:[NSString stringWithFormat:@"Please select not more than %ld assets", (long)max]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action =
+        [UIAlertAction actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                               handler:nil];
+        
+        [alert addAction:action];
+        
+        [picker presentViewController:alert animated:YES completion:nil];
+    }
+    
+    // limit selection to max
+    return (picker.selectedAssets.count < max);
+}
+
+- (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.assets = [NSMutableArray arrayWithArray:assets];
+    [SVProgressHUD show];
+    [self fetchImageData:0];
+}
+
+- (void)joinTheTest {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/attend_test"]];
+    NSDictionary *parameters = @{@"sid": self.account.token,
+                                 @"test_id":self.identify};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            self.test_result_id = responseObject[@"data"][@"test_result_id"];
+            [self auth];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)endTheTest {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/end_test"]];
+    NSDictionary *parameters = @{@"sid":self.account.token,
+                                 @"test_result_id":self.test_result_id};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        [SVProgressHUD dismiss];
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)fetchImageData:(NSInteger )index {
+    NSLog(@"fetch image data %d",index);
+    PHAsset *asset = self.assets[index];
+    PHImageManager *manager = [PHImageManager defaultManager];
+    [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        [self uploadImage:imageData index:index];
+    }];
+}
+
+- (void)uploadImage:(NSData *)imageData index:(NSInteger)index{
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/upload_video_image"]];
+    NSDictionary *parameters = @{@"sid":self.account.token};
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        [formData appendPartWithFileData:imageData name:@"photo" fileName:fileName mimeType:@"image/png"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [self.urlArray addObject:responseObject[@"date"][@"url"]];
+            if (index == self.assets.count-1) {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self uploadUrl:0];
+                });
+            }
+            else {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self fetchImageData:index+1];
+                });
+            }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+    
+}
+
+- (void)uploadUrl:(NSInteger)index{
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/start_live"]];
+    NSLog(@"%@ %@ %@ %@",self.account.token,self.test_result_id,self.urlArray[index],self.videoID);
+    NSDictionary *parameters = @{@"sid":self.account.token,
+                                 @"test_result_id":self.test_result_id,
+                                 @"video_image":self.urlArray[index],
+                                 @"video_id":self.videoID};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            if (index == self.urlArray.count-1) {
+                [self endTheTest];
+            }
+            else {
+                dispatch_after(1.0, dispatch_get_main_queue(), ^{
+                    [self uploadUrl:index+1];
+                });
+            }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
 
 
 @end

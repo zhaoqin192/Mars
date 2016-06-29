@@ -1911,6 +1911,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Mars/Mars.pch;
 				INFOPLIST_FILE = Mars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1932,6 +1933,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Mars/Mars.pch;
 				INFOPLIST_FILE = Mars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -267,6 +267,7 @@
         
         _joinView.playButtonTapped = ^{
             WXTestLiveViewController *vc = [[WXTestLiveViewController alloc] init];
+            vc.identify = weakSelf.identify;
             [weakSelf.navigationController pushViewController:vc animated:YES];
             
             NSLog(@"play");
@@ -315,6 +316,7 @@
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *uploadVideo = [UIAlertAction actionWithTitle:@"我要直播" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         WXTestLiveViewController *vc = [[WXTestLiveViewController alloc] init];
+        vc.identify = self.identify;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     UIAlertAction *uploadImage = [UIAlertAction actionWithTitle:@"上传图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

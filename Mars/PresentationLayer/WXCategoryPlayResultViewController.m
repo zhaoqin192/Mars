@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"结束考试";
-    
+    [self.navigationItem setHidesBackButton:YES animated:YES];
     if (self.isImage) {
         self.titleLabel.text = @"恭喜您，考卷上传成功！";
         self.tipsLabel.text = @"老师将在24小时内评分并告知与您";
