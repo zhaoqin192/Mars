@@ -10,4 +10,5 @@
 
 @interface WXRankViewController : UIViewController
 @property (nonatomic, copy) NSString *test_id;
+@property (nonatomic, strong) NSNumber *state;//0高分视频  1测试
 @end

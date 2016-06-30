@@ -143,7 +143,23 @@
     
     if ([_accountDao isExist]) {
         [NetworkFetcher accountSignInWithPhone:_account.phone password:_account.password success:^(NSDictionary *response) {
-            NSLog(@"再次登录");
+            if ([response[@"code"] isEqualToString:@"200"]) {
+                _account.token = response[@"sid"];
+                _account.sessionID = response[@"yzb_session_id"];
+                _account.userID = response[@"yzb_user_id"];
+                [_accountDao save];
+                NSString *phone = [NSString stringWithFormat:@"86_%@", _account.phone];
+                [EasyLiveSDK userLoginWithParams:@{SDK_REGIST_TOKE: phone, SDK_USER_ID: _account.userID
+                                                   } start:^{
+                                                   } complete:^(NSInteger responseCode, NSDictionary *result) {
+                                                       AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+                                                       Account *account = [accountDao fetchAccount];
+                                                       account.sessionID = result[@"sessionid"];
+                                                   }];
+            } else {
+                [_accountDao deleteAccount];
+                [_accountDao save];
+            }
         } failure:^(NSString *error) {
             [SVProgressHUD showErrorWithStatus:@"网络异常请重新登录"];
             [self bk_performBlock:^(id obj) {

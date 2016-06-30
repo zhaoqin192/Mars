@@ -64,7 +64,8 @@
     
     UIGestureRecognizer *playGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
         ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-        videoVC.videoID = self.viewModel.videoID;
+//        videoVC.videoID = self.viewModel.videoID;
+        videoVC.lessonID = self.viewModel.identifier;
         [self.navigationController pushViewController:videoVC animated:YES];
     }];
     self.videoPlayButton.userInteractionEnabled = YES;

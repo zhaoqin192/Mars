@@ -81,6 +81,8 @@
     return CGSizeMake(165, 200);
 }
 
+
+
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(15, 15, 15, 15);
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZSBVideoViewController : UIViewController
-@property (nonatomic, strong) NSString *videoID;
+@property (nonatomic, strong) NSString *lessonID;
 @end
