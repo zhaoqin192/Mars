@@ -41,7 +41,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资深艺考教师，中央美院毕业，从业十年" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCB-R8-Kn5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资深艺考教师，中央美院毕业，从业十年" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCB-R8-Kn5">
                     <rect key="frame" x="61" y="196" width="252" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,6 +100,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="NCB-R8-Kn5" secondAttribute="trailing" constant="62" id="232-oX-lxu"/>
                 <constraint firstAttribute="trailing" secondItem="mLa-iU-cHg" secondAttribute="trailing" id="33l-7u-ycd"/>
                 <constraint firstItem="fR3-K1-irr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="5v5-x8-XeT"/>
                 <constraint firstItem="Tyc-Je-Rtv" firstAttribute="leading" secondItem="bfM-mJ-RAm" secondAttribute="trailing" constant="10" id="80s-HT-gsb"/>
@@ -116,6 +117,7 @@
                 <constraint firstItem="mLa-iU-cHg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VOT-D2-Pcc"/>
                 <constraint firstItem="woD-Vm-sxb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ViI-xq-iv9"/>
                 <constraint firstItem="GhE-Su-BaA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="XGx-J1-SAi"/>
+                <constraint firstItem="NCB-R8-Kn5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="61" id="YKw-Al-24K"/>
                 <constraint firstAttribute="bottom" secondItem="mLa-iU-cHg" secondAttribute="bottom" id="YLl-J9-f8V"/>
                 <constraint firstItem="JEz-if-emW" firstAttribute="top" secondItem="fR3-K1-irr" secondAttribute="bottom" constant="8" id="a7J-Wn-gI5"/>
                 <constraint firstAttribute="trailing" secondItem="woD-Vm-sxb" secondAttribute="trailing" id="atJ-8E-Ou5"/>

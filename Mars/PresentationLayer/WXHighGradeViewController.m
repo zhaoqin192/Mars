@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) ZSBExerciseGradeViewModel *viewModel;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) AccountDao *accountDao;
 
 @end
 
@@ -39,13 +40,22 @@
     [super viewDidLoad];
     self.navigationItem.title = @"高分视频";
     
+    self.accountDao = [[DatabaseManager sharedInstance] accountDao];
+
+    
     self.moreButton.userInteractionEnabled = YES;
     @weakify(self)
     [self.moreButton bk_whenTapped:^{
         @strongify(self)
-        WXRankViewController *vc = [[WXRankViewController alloc] init];
-        vc.test_id = self.identifier;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (self.accountDao.isExist) {
+            WXRankViewController *vc = [[WXRankViewController alloc] init];
+            vc.test_id = self.identifier;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     
     self.iconView.layer.cornerRadius = self.iconView.width / 2;
@@ -63,15 +73,32 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"ZSBExerciseRankCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ZSBExerciseRankCollectionViewCell"];
     
     UIGestureRecognizer *playGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-        videoVC.videoID = self.viewModel.videoID;
-        [self.navigationController pushViewController:videoVC animated:YES];
+        @strongify(self)
+        if (self.accountDao.isExist) {
+            ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+            videoVC.videoID = self.viewModel.videoID;
+            [self.navigationController pushViewController:videoVC animated:YES];
+        }
+        else {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     self.videoPlayButton.userInteractionEnabled = YES;
     [self.videoPlayButton addGestureRecognizer:playGesture];
     
     
     [self bindViewModel];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)bindViewModel {

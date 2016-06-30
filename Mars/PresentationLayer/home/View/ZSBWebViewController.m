@@ -41,7 +41,7 @@
     [super viewWillAppear:animated];
     self.progressView.progressBarView.backgroundColor = [UIColor colorWithHexString:@"F54C42"];
     [self.navigationController.navigationBar addSubview:self.progressView];
-
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -49,6 +49,8 @@
     // Remove progress view
     // because UINavigationBar is shared with other ViewControllers
     [self.progressView removeFromSuperview];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+
 }
 
 #pragma mark - NJKWebViewProgressDelegate

@@ -18,6 +18,7 @@
 #import "StartButtomView.h"
 #import "NetworkFetcher+Account.h"
 
+
 @interface AppDelegate () <EAIntroDelegate>
 @property (nonatomic, strong) AccountDao *accountDao;
 @property (nonatomic, strong) Account *account;
@@ -33,6 +34,11 @@
     NSString *appsecret = @"n0asfkGucl13E7r7BxJSFEPg67pYchwa";
     
     [EasyLiveSDK registWithAppKey:appkey appsecret:appsecret];
+    
+    //Umeng register
+    UMConfigInstance.appKey = @"57751332e0f55afb670028b3";
+    UMConfigInstance.channelId = @"App Store";
+    [MobClick startWithConfigure:UMConfigInstance];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[RootTabViewController alloc] init];

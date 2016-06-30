@@ -77,10 +77,8 @@
         }
         else {
             if (self.account.sessionID == nil) {
-                self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                self.hud.mode = MBProgressHUDModeText;
-                self.hud.labelText = @"请先登录或注册账号";
-                [self.hud hide:YES afterDelay:1.5f];
+                WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
                 return;
             }
             else {
@@ -172,6 +170,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [_player shutDown];
@@ -185,6 +188,7 @@
             [self showPlayMessage:@""];
         }];
     }
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)bindViewModel {
@@ -246,9 +250,16 @@
 }
 
 - (IBAction)orderButtonClicked {
-    WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
-    vc.teacherID = self.viewModel.teacherID;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.accountDao.isExist) {
+        WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+        vc.teacherID = self.viewModel.teacherID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 
 @end

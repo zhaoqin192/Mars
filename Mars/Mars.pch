@@ -26,6 +26,7 @@
 #import "MJExtension.h"
 #import "WXLabel.h"
 #import "WXLoginViewController.h"
+#import "UMMobClick/MobClick.h"
 
 #define URL_PREFIX  @"http://101.200.135.129/zhanshibang/index.php/"
 #define kScreen_Bounds [UIScreen mainScreen].bounds

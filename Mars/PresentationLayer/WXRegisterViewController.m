@@ -34,15 +34,17 @@ static NSInteger count = 60;
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.timer invalidate];
     self.timer = nil;
     count = 60;
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)bindViewModel {
