@@ -105,10 +105,20 @@
     self.orderView.userInteractionEnabled = YES;
     self.orderLabel.userInteractionEnabled = YES;
     [self.orderView bk_whenTapped:^{
+        if (![_viewModel isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return ;
+        }
         WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.orderLabel bk_whenTapped:^{
+        if (![_viewModel isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return ;
+        }
         WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
@@ -116,10 +126,20 @@
     self.testView.userInteractionEnabled = YES;
     self.testLabel.userInteractionEnabled = YES;
     [self.testLabel bk_whenTapped:^{
+        if (![_viewModel isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return ;
+        }
         WXMeTestViewController *vc = [[WXMeTestViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.testView bk_whenTapped:^{
+        if (![_viewModel isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return ;
+        }
         WXMeTestViewController *vc = [[WXMeTestViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];

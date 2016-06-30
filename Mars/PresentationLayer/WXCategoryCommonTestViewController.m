@@ -153,9 +153,7 @@
 - (void)loadData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/Test/Fenlei/get_test_detail"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
+    NSDictionary *parameters = @{
                                  @"test_id":self.identify};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
@@ -194,6 +192,11 @@
     self.rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
     __weak typeof(self)weakSelf = self;
     self.rankView.moreButtonClicked = ^{
+        if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            return ;
+        }
         WXRankViewController *vc = [[WXRankViewController alloc] init];
         if (weakSelf.identify.length) {
             vc.test_id = weakSelf.identify;
@@ -296,6 +299,11 @@
     [self.view layoutIfNeeded];
 }
 - (IBAction)joinButtonClicked {
+    if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
+        WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return ;
+    }
     [UIView animateWithDuration:0.25 animations:^{
         self.joinView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     } completion:nil];
