@@ -86,7 +86,8 @@
             }
             else {
                 ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-                videoVC.videoID = self.viewModel.videoID;
+//                videoVC.videoID = self.viewModel.videoID;
+                videoVC.lessonID = self.identifier;
                 [self.navigationController pushViewController:videoVC animated:YES];
             }
             //    self.videoID = @"jZjehY2WRivg";
