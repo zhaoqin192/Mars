@@ -40,7 +40,6 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
     
     self.account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
     
-    
     if (!self.videoID) {
         AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
         NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/exercise/lesson/getLesson"]];
@@ -218,6 +217,20 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
             break;
         default:
             NSLog(@"网络状况不佳，播放失败");
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"网络状况不佳，播放失败";
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                // Do something...
+                sleep(1.5);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.hud hide:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
+
+                });
+            });
+            
+            
             break;
     }
 }

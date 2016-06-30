@@ -39,12 +39,14 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)bindViewModel {
@@ -73,9 +75,16 @@
     [[self.preorderButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
-        vc.teacherID = self.teacherID;
-        [self.navigationController pushViewController:vc animated:YES];
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        if (accountDao.isExist) {
+            WXPreorderCourseViewController *vc = [[WXPreorderCourseViewController alloc] init];
+            vc.teacherID = self.teacherID;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     
     [self.viewModel.errorObject subscribeNext:^(id x) {

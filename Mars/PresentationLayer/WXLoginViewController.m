@@ -32,6 +32,16 @@
     [self onClickEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+}
+
 - (void)bindViewModel {
     self.viewModel = [[SignInViewModel alloc] init];
     RAC(self.viewModel, phone) = self.phoneTextField.rac_textSignal;
