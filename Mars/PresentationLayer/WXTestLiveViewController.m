@@ -58,12 +58,8 @@ static BOOL debugMessage = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
     
     [self initObjects];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self joinTheTest];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)initObjects {
@@ -196,7 +192,7 @@ static BOOL debugMessage = YES;
                 self.videoID = result[@"vid"];
                 NSLog(@"hahahh  %@",result[@"vid"]);
             //  self.videoIDString.text = result[@"vid"];
-                [self.encoder start];
+                [self uploadVideoNoPhoto];
                 break;
                 
             default:
@@ -367,6 +363,7 @@ static BOOL debugMessage = YES;
         if([responseObject[@"code"] isEqualToString:@"200"]) {
             WXCategoryPlayResultViewController *vc = [[WXCategoryPlayResultViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
+            NSLog(@"end over");
         }
         else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -481,6 +478,30 @@ static BOOL debugMessage = YES;
         NSLog(@"%@",responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
             [self endTheTest];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+}
+
+- (void)uploadVideoNoPhoto{
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/lesson/uploadvideo"]];
+    NSDictionary *parameters = @{@"sid":self.account.token,
+                                 @"video_id":self.videoID};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [self.encoder start];
         }
         else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
