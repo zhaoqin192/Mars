@@ -50,8 +50,15 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
-    [self.view addSubview:self.videoVC.view];
+    if (self.selectLabel == self.videoLabel) {
+        self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
+        [self.view addSubview:self.videoVC.view];
+    }
+    else {
+        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
+        [self.view addSubview:self.orderVC.view];
+    }
+    
 }
 
 - (void)configureUI {

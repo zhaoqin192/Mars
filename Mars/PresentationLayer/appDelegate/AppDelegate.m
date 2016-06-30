@@ -34,7 +34,7 @@
     
     [EasyLiveSDK registWithAppKey:appkey appsecret:appsecret];
     
-    self.window = [[UIWindow alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[RootTabViewController alloc] init];
 //    self.window.rootViewController = [[LiveViewController alloc] init];
     [self.window makeKeyAndVisible];
