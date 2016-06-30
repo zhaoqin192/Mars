@@ -22,13 +22,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg3-bf-3af">
-                        <rect key="frame" x="90" y="65" width="40" height="20"/>
+                        <rect key="frame" x="90" y="65" width="273" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quD-Tx-A85">
-                        <rect key="frame" x="90" y="95" width="33" height="16"/>
+                        <rect key="frame" x="90" y="95" width="273" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,12 +49,22 @@
                     <constraint firstItem="Fg3-bf-3af" firstAttribute="centerY" secondItem="COz-v4-T25" secondAttribute="centerY" constant="-13" id="3BX-r4-haO"/>
                     <constraint firstItem="quD-Tx-A85" firstAttribute="leading" secondItem="Fg3-bf-3af" secondAttribute="leading" id="Cny-oa-mIZ"/>
                     <constraint firstItem="COz-v4-T25" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Gjw-a0-YGS"/>
+                    <constraint firstItem="Geb-ID-kWM" firstAttribute="leading" secondItem="quD-Tx-A85" secondAttribute="trailing" constant="250" id="SOW-9e-Gcf"/>
+                    <constraint firstItem="quD-Tx-A85" firstAttribute="trailing" secondItem="Geb-ID-kWM" secondAttribute="trailing" constant="20" id="SWC-5g-jSw"/>
                     <constraint firstItem="Fg3-bf-3af" firstAttribute="leading" secondItem="COz-v4-T25" secondAttribute="trailing" constant="15" id="TbZ-cO-Zuq"/>
+                    <constraint firstItem="Geb-ID-kWM" firstAttribute="leading" secondItem="quD-Tx-A85" secondAttribute="trailing" constant="10" id="Vry-aV-HfE"/>
                     <constraint firstAttribute="trailing" secondItem="Geb-ID-kWM" secondAttribute="trailing" constant="15" id="ZkT-nb-bbY"/>
+                    <constraint firstItem="Fg3-bf-3af" firstAttribute="width" secondItem="quD-Tx-A85" secondAttribute="width" id="lH3-Nf-d61"/>
                     <constraint firstItem="Geb-ID-kWM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="peX-ZF-13f"/>
                     <constraint firstItem="COz-v4-T25" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xbL-uc-qj0"/>
                     <constraint firstItem="quD-Tx-A85" firstAttribute="top" secondItem="Fg3-bf-3af" secondAttribute="bottom" constant="10" id="xir-BQ-8f2"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="SWC-5g-jSw"/>
+                        <exclude reference="SOW-9e-Gcf"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="Fg3-bf-3af" id="8cb-lO-5L8"/>

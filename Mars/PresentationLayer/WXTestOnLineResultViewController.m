@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"线上测试";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     self.backButton.layer.cornerRadius = self.backButton.height/2;
     self.backButton.layer.masksToBounds = YES;
     [self.backButton bk_whenTapped:^{
@@ -35,9 +36,7 @@
 - (void)loadData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/getLabel"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token};
+    NSDictionary *parameters = nil;
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {

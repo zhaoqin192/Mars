@@ -82,9 +82,7 @@
     if (self.selectButton == self.videoButton) {
         url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/test/getlist"]];
     }
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
+    NSDictionary *parameters = @{
                                  @"tag4":self.myTitle,
                                  @"tag1":@"",
                                  @"tag2":@"",

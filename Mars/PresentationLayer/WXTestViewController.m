@@ -41,9 +41,18 @@
         [weakSelf labelTapped:weakSelf.categoryTestLabel];
     };
     [self addChildViewController:self.normalVC];
-    
-    self.normalVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
-    [self.view addSubview:self.normalVC.view];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.selectLabel == self.normalTestLabel) {
+        self.normalVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
+        [self.view addSubview:self.normalVC.view];
+    }
+    else {
+        self.categoryVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
+        [self.view addSubview:self.categoryVC.view];
+    }
 }
 
 - (void)configureUI {

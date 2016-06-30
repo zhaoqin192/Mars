@@ -22,6 +22,7 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     self.orderButton.layer.cornerRadius = self.orderButton.height/2;
     self.orderButton.layer.masksToBounds = YES;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     if (!self.isOffLine) {
         self.navigationItem.title = @"预约结果";
         @weakify(self)

@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"线下测试";
-   
+   // [self.navigationItem setHidesBackButton:YES animated:YES];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     
     RAC(self.commitButton,enabled) = [RACSignal combineLatest:@[self.phoneTF.rac_textSignal,self.nameTF.rac_textSignal] reduce:^(NSString *phone,NSString *name){
@@ -37,18 +37,10 @@
     }];
     
     [self.commitButton bk_whenTapped:^{
-        if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
-            [SVProgressHUD showErrorWithStatus:@"请登录"];
-            [self bk_performBlock:^(id obj) {
-                [SVProgressHUD dismiss];
-            } afterDelay:1.5];
-            return ;
-        }
+    
         AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
         NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/offline_test"]];
-        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        Account *account = [accountDao fetchAccount];
-        NSDictionary *parameters = @{@"sid": account.token,
+        NSDictionary *parameters = @{
                                      @"name":self.nameTF.text,
                                      @"phone":self.phoneTF.text};
         [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
