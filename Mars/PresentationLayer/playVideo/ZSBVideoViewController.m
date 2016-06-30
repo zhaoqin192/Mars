@@ -20,7 +20,6 @@
 @property (nonatomic, strong) UIImageView *playImage;
 @property (nonatomic, strong) UIImageView *pauseImage;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSString *videoID;
 @end
 
 static NSString *HOSTADDRESS = @"http://101.200.135.129";
@@ -42,49 +41,80 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
     self.account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
     
     
-    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/exercise/lesson/getLesson"]];
+    if (!self.videoID) {
+        AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+        NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/exercise/lesson/getLesson"]];
+        NSDictionary *parameters = @{@"lesson_id": self.lessonID};
+        [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if ([responseObject[@"code"] isEqualToString:@"200"]) {
+                NSDictionary *data = responseObject[@"data"];
+                self.videoID = data[@"video_id"];
+                [self.player watchstartWithParams:@{SDK_SESSION_ID: self.account.sessionID, SDK_VID: self.videoID} start:^{
+                    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [self.hud show:YES];
+                } complete:^(NSInteger responseCode, NSDictionary *result) {
+                    switch (responseCode) {
+                        case SDK_ERROR_SESSION_ID:
+                            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                            self.hud.mode = MBProgressHUDModeText;
+                            self.hud.labelText = @"账号过期，请重新登录";
+                            [self.hud hide:YES afterDelay:1.5f];
+                            break;
+                        case SDK_NETWORK_ERROR:
+                            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                            self.hud.mode = MBProgressHUDModeText;
+                            self.hud.labelText = @"网络异常,请检查你的网络";
+                            [self.hud hide:YES afterDelay:1.5f];
+                            NSLog(@"网络异常,请检查你的网络");
+                            break;
+                        case SDK_REQUEST_OK:
+                            NSLog(@"正在播放");
+                            [self.hud hide:YES];
+                            [_player play];
+                            break;
+                        default:
+                            break;
+                    }
+                }];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"网络异常";
+            [self.hud hide:YES afterDelay:1.5f];
+        }];
+    }
+    else {
+        [self.player watchstartWithParams:@{SDK_SESSION_ID: self.account.sessionID, SDK_VID: self.videoID} start:^{
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [self.hud show:YES];
+        } complete:^(NSInteger responseCode, NSDictionary *result) {
+            switch (responseCode) {
+                case SDK_ERROR_SESSION_ID:
+                    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    self.hud.mode = MBProgressHUDModeText;
+                    self.hud.labelText = @"账号过期，请重新登录";
+                    [self.hud hide:YES afterDelay:1.5f];
+                    break;
+                case SDK_NETWORK_ERROR:
+                    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    self.hud.mode = MBProgressHUDModeText;
+                    self.hud.labelText = @"网络异常,请检查你的网络";
+                    [self.hud hide:YES afterDelay:1.5f];
+                    NSLog(@"网络异常,请检查你的网络");
+                    break;
+                case SDK_REQUEST_OK:
+                    NSLog(@"正在播放");
+                    [self.hud hide:YES];
+                    [_player play];
+                    break;
+                default:
+                    break;
+            }
+        }];
+    }
     
-    NSDictionary *parameters = @{@"lesson_id": self.lessonID};
     
-    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([responseObject[@"code"] isEqualToString:@"200"]) {
-            NSDictionary *data = responseObject[@"data"];
-            self.videoID = data[@"video_id"];
-            [self.player watchstartWithParams:@{SDK_SESSION_ID: self.account.sessionID, SDK_VID: self.videoID} start:^{
-                self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                [self.hud show:YES];
-            } complete:^(NSInteger responseCode, NSDictionary *result) {
-                switch (responseCode) {
-                    case SDK_ERROR_SESSION_ID:
-                        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                        self.hud.mode = MBProgressHUDModeText;
-                        self.hud.labelText = @"账号过期，请重新登录";
-                        [self.hud hide:YES afterDelay:1.5f];
-                        break;
-                    case SDK_NETWORK_ERROR:
-                        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                        self.hud.mode = MBProgressHUDModeText;
-                        self.hud.labelText = @"网络异常,请检查你的网络";
-                        [self.hud hide:YES afterDelay:1.5f];
-                        NSLog(@"网络异常,请检查你的网络");
-                        break;
-                    case SDK_REQUEST_OK:
-                        NSLog(@"正在播放");
-                        [self.hud hide:YES];
-                        [_player play];
-                        break;
-                    default:
-                        break;
-                }
-            }];
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        self.hud.mode = MBProgressHUDModeText;
-        self.hud.labelText = @"网络异常";
-        [self.hud hide:YES afterDelay:1.5f];
-    }];
     
     
     

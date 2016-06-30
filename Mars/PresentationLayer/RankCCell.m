@@ -27,10 +27,15 @@
     _model = model;
     self.scoreLabel.text = [NSString stringWithFormat:@"%@分",model.score];
     self.nameLabel.text = model.user_name;
-    if (model.video_image.length) {
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    
+    if ([model.type isEqualToString:@"video"]) {
         [self.titleView sd_setImageWithURL:[NSURL URLWithString:model.video_image] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
     }
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+    else {
+        [self.titleView sd_setImageWithURL:[NSURL URLWithString:model.imageArray[0]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    
 }
 
 @end

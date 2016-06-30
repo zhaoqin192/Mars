@@ -46,7 +46,10 @@
         weakSelf.orderLabel.userInteractionEnabled = !isFocus;
     };
     [self addChildViewController:self.videoVC];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     self.videoVC.view.frame = CGRectMake(0, 115, kScreenWidth, kScreenHeight-115);
     [self.view addSubview:self.videoVC.view];
 }
@@ -96,7 +99,7 @@
         rightLine.hidden = NO;
         UIImageView *leftLine = [self.view viewWithTag:10];
         leftLine.hidden = YES;
-        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreen_Height-115-44);
+        self.orderVC.view.frame =  CGRectMake(0, 115, kScreenWidth, kScreenHeight-115-44);
         [self.view addSubview:self.orderVC.view];
     }
 }

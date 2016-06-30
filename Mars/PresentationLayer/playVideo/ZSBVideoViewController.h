@@ -10,4 +10,5 @@
 
 @interface ZSBVideoViewController : UIViewController
 @property (nonatomic, strong) NSString *lessonID;
+@property (nonatomic, strong) NSString *videoID;
 @end

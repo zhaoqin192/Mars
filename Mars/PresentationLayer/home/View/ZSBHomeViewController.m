@@ -9,7 +9,6 @@
 #import "SDCycleScrollView.h"
 #import "ZSBHomeADModel.h"
 #import "ZSBHomeBannerModel.h"
-#import "ZSBHomeHeadView.h"
 #import "ZSBHomeSectionHeadView.h"
 #import "ZSBHomeTableViewCell.h"
 #import "ZSBHomeViewController.h"
@@ -21,6 +20,9 @@
 #import "WXHighGradeViewController.h"
 #import "WXCategoryPaidTestViewController.h"
 #import "WXCategoryCommonTestViewController.h"
+#import "ZSBVideoViewController.h"
+#import "ZSBHomeScrollTableViewCell.h"
+#import "ZSBHomeBroadcastTableViewCell.h"
 
 NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
@@ -29,7 +31,6 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ZSBHomeViewModel *viewModel;
 @property (nonatomic, strong) SDCycleScrollView *scrollView;
-@property (nonatomic, strong) ZSBHomeHeadView *headView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
@@ -59,9 +60,9 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
         }];
 
     [[self.viewModel.advertisementCommand execute:nil]
-        subscribeNext:^(NSArray *titleArray) {
+        subscribeNext:^(id x) {
             @strongify(self)
-            [self.headView updateAdvertisementWithData:titleArray];
+            [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationFade];
         }];
 
     [[self.viewModel.hotCommand execute:nil] subscribeNext:^(id x) {
@@ -80,9 +81,6 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 }
 
 - (void)configureTableView {
-    self.headView = [[[NSBundle mainBundle] loadNibNamed:@"ZSBHomeHeadView"
-                                                   owner:self
-                                                 options:nil] firstObject];
     self.scrollView = [SDCycleScrollView
         cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth + 4,
                                             160.0f * kScreenWidth / 375)
@@ -91,27 +89,20 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     self.scrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     self.scrollView.currentPageDotColor = [UIColor whiteColor];
     self.scrollView.pageDotColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.5];
-    [self.headView addSubview:self.scrollView];
-    self.tableView.tableHeaderView.height = 205.0f * kScreenWidth / 375;
-    self.tableView.tableHeaderView = self.headView;
-
-    @weakify(self)
-        self.headView.contentClicked = ^(NSInteger index) {
-        @strongify(self)
-            ZSBHomeADModel *model = self.viewModel.adArray[index];
-        NSLog(@"%@", model.title);
-    };
 }
 
 #pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 0){
+        return 2;
+    }
+    else if (section == 1) {
         return self.viewModel.testArray.count * 2 - 1;
     } else {
         return self.viewModel.knowledgeArray.count * 2 - 1;
@@ -122,6 +113,28 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            ZSBHomeScrollTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBHomeScrollTableViewCell"];
+            [cell.contentView addSubview:self.scrollView];
+            return cell;
+        }
+        else {
+            ZSBHomeBroadcastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBHomeBroadcastTableViewCell"];
+            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
+            @weakify(self)
+            cell.selectedBroadcast = ^(NSInteger index) {
+                @strongify(self)
+                ZSBHomeADModel *model = self.viewModel.adArray[index];
+                ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+                videoVC.lessonID = model.identifier;
+                [self.navigationController pushViewController:videoVC animated:YES];
+            };
+            return cell;
+        }
+        
+    }
+    
+    else if (indexPath.section == 1) {
         if (indexPath.row % 2 == 0) {
             ZSBHomeTableViewCell *cell = [tableView
                 dequeueReusableCellWithIdentifier:ZSBHomeTableViewCellIdentifier
@@ -154,10 +167,20 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
 - (CGFloat)tableView:(UITableView *)tableView
     heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
-        return 115;
-    } else {
-        return 10;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            return 160.0f * kScreenWidth / 375;
+        }
+        else {
+            return 30;
+        }
+    }
+    else {
+        if (indexPath.row % 2 == 0) {
+            return 115;
+        } else {
+            return 10;
+        }
     }
 }
 
@@ -168,6 +191,9 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
                                        owner:self
                                      options:nil] firstObject];
     if (section == 0) {
+        return nil;
+    }
+    else if (section == 1) {
         sectionHeadView.titleLabel.text = @"热门测试";
     } else {
         sectionHeadView.titleLabel.text = @"热门知识点";
@@ -175,18 +201,22 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     return sectionHeadView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView
-    heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return CGFLOAT_MIN;
+    }
     return 45;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView
-    heightForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        return;
+    }
+    else if (indexPath.section == 1) {
         if (indexPath.row % 2 == 0) {
             ZSBTestModel *model = self.viewModel.testArray[indexPath.row / 2];
             

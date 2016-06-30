@@ -17,7 +17,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_title_right" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-xz-DeB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="home_title_right" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-xz-DeB">
                     <rect key="frame" x="351" y="20" width="45" height="6"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_title_left" translatesAutoresizingMaskIntoConstraints="NO" id="1Ud-nK-4vf">

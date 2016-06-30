@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, copy) NSString *video_image;
 @property (nonatomic, copy) NSString *user_name;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, strong) NSString *identifier;
 @end

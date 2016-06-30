@@ -104,15 +104,15 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
                         if ([responseObject[@"code"] isEqualToString:@"200"]) {
                             [ZSBHomeADModel
                                 mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
-                                    return @{ @"identifier": @"video_id" };
+                                    return @{ @"identifier": @"lesson_id" };
                                 }];
                             @strongify(self) self.adArray = [ZSBHomeADModel
                                 mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-                            NSMutableArray *array = [[NSMutableArray alloc] init];
+                            self.advertisementTitleArray = [[NSMutableArray alloc] init];
                             for (ZSBHomeADModel *model in self.adArray) {
-                                [array addObject:model.title];
+                                [self.advertisementTitleArray addObject:model.title];
                             }
-                            [subscriber sendNext:array];
+                            [subscriber sendNext:nil];
                             [subscriber sendCompleted];
                         }
                     }

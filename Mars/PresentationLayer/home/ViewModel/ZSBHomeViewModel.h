@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *bannerArray;
 @property (nonatomic, strong) NSArray *adArray;
+@property (nonatomic, strong) NSMutableArray *advertisementTitleArray;
 @property (nonatomic, strong) NSArray *testArray;
 @property (nonatomic, strong) NSArray *knowledgeArray;
 @property (nonatomic, strong) RACCommand *bannerCommand;

@@ -9,6 +9,7 @@
 #import "WXRankViewController.h"
 #import "RankCCell.h"
 #import "WXRankModel.h"
+#import "WXHighGradeViewController.h"
 
 @interface WXRankViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong, nonatomic)  UICollectionView *myCollectionView;
@@ -32,8 +33,14 @@
     NSDictionary *parameters = @{@"sid": account.token,
                                  @"test_id":self.test_id};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [WXRankModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                            @"imageArray": @"answer_image",
+                            @"identifier": @"test_result_id"
+                         };
+            }];
+            
             self.modelArray = [WXRankModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.myCollectionView reloadData];
         }
@@ -78,14 +85,25 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(165, 200);
+    return CGSizeMake(165.0f / kScreenWidth * 375, 200.0f / kScreenHeight * 667);
 }
-
-
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(15, 15, 15, 15);
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    WXRankModel *model = self.modelArray[indexPath.row];
+    if ([model.type isEqualToString:@"video"]) {//高分视频
+        WXHighGradeViewController *gradeVC = [[WXHighGradeViewController alloc] init];
+        gradeVC.identifier = model.identifier;
+        [self.navigationController pushViewController:gradeVC animated:YES];
+    }
+    else {//图片
+        
+    }
+}
+
 
 
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXCourseVideoViewController">
@@ -25,9 +26,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vVv-Du-TbR">
                     <rect key="frame" x="0.0" y="64" width="375" height="270"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="270" id="eeg-on-2lN"/>
-                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="高分视频上的大播放icon" translatesAutoresizingMaskIntoConstraints="NO" id="HsN-Ao-6nd">
                     <rect key="frame" x="160" y="172" width="54" height="54"/>
@@ -127,6 +125,7 @@
                 <constraint firstItem="zhA-Of-gFs" firstAttribute="leading" secondItem="awL-pX-uhq" secondAttribute="trailing" constant="8" id="fDL-Cn-oKP"/>
                 <constraint firstItem="Y5X-he-yTL" firstAttribute="top" secondItem="RHi-Ik-in6" secondAttribute="bottom" constant="15" id="kZV-6b-tNn"/>
                 <constraint firstItem="awL-pX-uhq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pef-xN-d6f"/>
+                <constraint firstItem="vVv-Du-TbR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="270/667" id="qHg-cW-hts"/>
                 <constraint firstItem="zY7-u6-iB5" firstAttribute="top" secondItem="zhA-Of-gFs" secondAttribute="bottom" constant="90" id="w5q-jW-moI"/>
                 <constraint firstAttribute="trailing" secondItem="zhA-Of-gFs" secondAttribute="trailing" constant="8" id="xXt-BK-gUT"/>
                 <constraint firstItem="HsN-Ao-6nd" firstAttribute="centerX" secondItem="vVv-Du-TbR" secondAttribute="centerX" id="xuO-hO-th4"/>
