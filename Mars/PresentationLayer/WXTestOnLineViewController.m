@@ -30,7 +30,6 @@
     self.address = @"未选择";
     self.model = [WXTestOnlineModel onLineModel];
     self.navigationItem.title = @"线上测试";
-    
     self.navigationItem.rightBarButtonItem = ({
         UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [commitButton setTitle:@"提交" forState:UIControlStateNormal];
@@ -38,13 +37,6 @@
         commitButton.frame = CGRectMake(0, 0, 40, 30);
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
         [commitButton bk_whenTapped:^{
-            if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
-                [SVProgressHUD showErrorWithStatus:@"请登录"];
-                [self bk_performBlock:^(id obj) {
-                    [SVProgressHUD dismiss];
-                } afterDelay:1.5];
-                return ;
-            }
             if (![self checkTableData]) {
                 return ;
             }
@@ -65,9 +57,7 @@
 - (void)uploadData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/artificial_test"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
+    NSDictionary *parameters = @{
                                  @"name":self.model.name,
                                  @"phone":self.model.phone,
                                  @"sex":self.model.sex,
@@ -112,9 +102,7 @@
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/artificial_upload"]];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    NSDictionary *parameters = @{@"sid": account.token,
+    NSDictionary *parameters = @{
                                  @"artificial_test_id":self.artificial_test_id};
     [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
