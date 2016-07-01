@@ -10,6 +10,7 @@
 #import "RankCCell.h"
 #import "WXRankModel.h"
 #import "WXHighGradeViewController.h"
+#import "WXTestDetailViewController.h"
 
 @interface WXRankViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong, nonatomic)  UICollectionView *myCollectionView;
@@ -110,7 +111,10 @@
         [self.navigationController pushViewController:gradeVC animated:YES];
     }
     else {//图片
-        
+        WXTestDetailViewController *vc = [[WXTestDetailViewController alloc] init];
+        vc.image = model.video_image;
+        vc.text = @"";
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
