@@ -20,7 +20,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.iconView.layer.cornerRadius = self.iconView.width/2;
+    self.iconView.layer.cornerRadius = self.iconView.width / 2;
     self.iconView.layer.masksToBounds = YES;
 }
 

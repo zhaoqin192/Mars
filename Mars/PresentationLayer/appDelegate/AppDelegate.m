@@ -150,7 +150,6 @@
     if ([_accountDao isExist]) {
         [NetworkFetcher accountSignInWithPhone:_account.phone password:_account.password success:^(NSDictionary *response) {
             if ([response[@"code"] isEqualToString:@"200"]) {
-                NSLog(@"再次登录");
                 _account.token = response[@"sid"];
                 _account.sessionID = response[@"yzb_session_id"];
                 _account.userID = response[@"yzb_user_id"];

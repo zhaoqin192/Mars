@@ -12,8 +12,9 @@
 #import "WXHighGradeViewController.h"
 #import "WXTestDetailViewController.h"
 
-@interface WXRankViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
-@property (strong, nonatomic)  UICollectionView *myCollectionView;
+@interface WXRankViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+//@property (strong, nonatomic)  UICollectionView *myCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (nonatomic, copy) NSArray *modelArray;
 @end
 
@@ -70,15 +71,15 @@
 }
 
 - (void)configureCollectionView {
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumInteritemSpacing = 15;
-    flowLayout.minimumLineSpacing = 15;
-    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:flowLayout];
+//    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+//    flowLayout.minimumInteritemSpacing = 15;
+//    flowLayout.minimumLineSpacing = 15;
+//    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:flowLayout];
     self.myCollectionView.delegate = self;
     self.myCollectionView.dataSource = self;
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
     [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([RankCCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([RankCCell class])];
-    [self.view addSubview:self.myCollectionView];
+//    [self.view addSubview:self.myCollectionView];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -96,12 +97,14 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(165.0f / kScreenWidth * 375, 200.0f / kScreenHeight * 667);
+    
+    return CGSizeMake(165.0f / 375 * kScreenWidth, 200.0f / 667 * kScreenHeight);
 }
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 15, 15, 15);
-}
+//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+//    CGFloat inset = 15.0f / 375 * kScreenWidth;
+//    return UIEdgeInsetsMake(inset, inset, inset, inset);
+//}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     WXRankModel *model = self.modelArray[indexPath.row];
