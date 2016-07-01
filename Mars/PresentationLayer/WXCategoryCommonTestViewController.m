@@ -53,7 +53,6 @@
     self.urlArray = [NSMutableArray array];
     self.techerIcon.layer.cornerRadius = self.techerIcon.width/2;
     self.techerIcon.layer.masksToBounds = YES;
-    [self configureRankView];
     [self configureTestStatus];
     [self.commitView bk_whenTapped:^{
         WXCategoryCommitViewController *vc = [[WXCategoryCommitViewController alloc] init];
@@ -66,6 +65,7 @@
         vc.teacherResultImage = self.teacherResultView.image;
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    [self configureRankView];
     if (self.identify.length) {
         [self loadData];
     }
@@ -189,7 +189,7 @@
 
 - (void)configureRankView {
     self.rankView = [WXRankView rankView];
-    self.rankView.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    self.rankView.frame = CGRectMake(0, 0, self.view.width, 80);
     __weak typeof(self)weakSelf = self;
     self.rankView.moreButtonClicked = ^{
         if(![[[DatabaseManager sharedInstance] accountDao] isExist]) {
@@ -214,7 +214,7 @@
     if (self.isHaveImage) {
         self.regularButton.hidden = YES;
         self.contentLabel.hidden = YES;
-        self.titleViewHeightConstraint.constant = 220;
+        self.titleViewHeightConstraint.constant = 250;
         [self.view layoutIfNeeded];
     }
     else {

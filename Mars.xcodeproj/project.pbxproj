@@ -1500,6 +1500,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9SQ6G2A6XG;
 					};
 				};
 			};
@@ -1916,7 +1917,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1942,7 +1943,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mars/BusinessLogicLayer/Other/EasyLiveSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
