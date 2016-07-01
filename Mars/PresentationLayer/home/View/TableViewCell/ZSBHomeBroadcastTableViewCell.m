@@ -20,10 +20,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        self.selectedBroadcast(self.count);
-    }];
-    [self.contentView addGestureRecognizer:tap];
+//    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+//        self.selectedBroadcast(self.count);
+//    }];
+//    [self.contentView addGestureRecognizer:tap];
     
 }
 

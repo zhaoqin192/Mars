@@ -126,15 +126,15 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
         }
         else {
             ZSBHomeBroadcastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBHomeBroadcastTableViewCell"];
-            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
-            @weakify(self)
-            cell.selectedBroadcast = ^(NSInteger index) {
-                @strongify(self)
-                ZSBHomeADModel *model = self.viewModel.adArray[index];
-                ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-                videoVC.lessonID = model.identifier;
-                [self.navigationController pushViewController:videoVC animated:YES];
-            };
+//            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
+//            @weakify(self)
+//            cell.selectedBroadcast = ^(NSInteger index) {
+//                @strongify(self)
+//                ZSBHomeADModel *model = self.viewModel.adArray[index];
+//                ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+//                videoVC.lessonID = model.identifier;
+//                [self.navigationController pushViewController:videoVC animated:YES];
+//            };
             return cell;
         }
         
@@ -241,10 +241,10 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     }
     else {
         if (indexPath.row % 2 == 0) {
-            WXHighGradeViewController *gradeVC = [[WXHighGradeViewController alloc] init];
+            WXCourseVideoViewController *courseVC = [[WXCourseVideoViewController alloc] init];
             ZSBKnowledgeModel *model = self.viewModel.knowledgeArray[indexPath.row / 2];
-            gradeVC.identifier = model.identifier;
-            [self.navigationController pushViewController:gradeVC animated:YES];
+            courseVC.identifier = model.identifier;
+            [self.navigationController pushViewController:courseVC animated:YES];
         }
     }
 }

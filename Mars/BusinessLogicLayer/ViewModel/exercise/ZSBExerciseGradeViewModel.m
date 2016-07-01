@@ -37,6 +37,7 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                        self.identifier = data[@"test_id"];
                        self.type = data[@"type"];
                        self.title = data[@"title"];
+                       self.score = data[@"score"];
                    }
                    [subscriber sendNext:responseObject[@"code"]];
                    [subscriber sendCompleted];
