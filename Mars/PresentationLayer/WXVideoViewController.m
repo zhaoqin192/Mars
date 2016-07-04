@@ -48,6 +48,20 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    @weakify(self)
+    [[self.viewModel.courseCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+         [[self.viewModel.remarkableCommand execute:nil]
+          subscribeNext:^(id x) {
+              @strongify(self)
+              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+              [self.myTableView reloadData];
+          }];
+     }];
+    
     [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
@@ -70,17 +84,7 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
         self.conditionView.knowledgeArray = self.viewModel.knowledgeArray;
     }];
     
-    [[self.viewModel.courseCommand execute:nil]
-     subscribeNext:^(id x) {
-         @strongify(self)
-         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
-         [[self.viewModel.remarkableCommand execute:nil]
-          subscribeNext:^(id x) {
-              @strongify(self)
-              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
-              [self.myTableView reloadData];
-          }];
-     }];
+    
     
     [self.viewModel.errorObject subscribeNext:^(id x) {
         @strongify(self)

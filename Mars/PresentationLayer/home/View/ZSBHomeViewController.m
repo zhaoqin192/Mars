@@ -46,6 +46,13 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    @weakify(self)
+    [[self.viewModel.hotCommand execute:nil] subscribeNext:^(id x) {
+        @strongify(self)
+        [self.tableView reloadData];
+    }];
+    
     [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
@@ -126,15 +133,23 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
         }
         else {
             ZSBHomeBroadcastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBHomeBroadcastTableViewCell"];
-//            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
-//            @weakify(self)
-//            cell.selectedBroadcast = ^(NSInteger index) {
-//                @strongify(self)
-//                ZSBHomeADModel *model = self.viewModel.adArray[index];
-//                ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-//                videoVC.lessonID = model.identifier;
-//                [self.navigationController pushViewController:videoVC animated:YES];
-//            };
+            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
+            @weakify(self)
+            cell.selectedBroadcast = ^(NSInteger index) {
+                @strongify(self)
+                AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+                if (accountDao.isExist) {
+                    ZSBHomeADModel *model = self.viewModel.adArray[index];
+                    ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+                    videoVC.videoID = model.identifier;
+                    videoVC.title = @"正在直播";
+                    [self.navigationController pushViewController:videoVC animated:YES];
+                }
+                else {
+                    WXLoginViewController *loginVC = [[WXLoginViewController alloc] init];
+                    [self.navigationController pushViewController:loginVC animated:YES];
+                }
+            };
             return cell;
         }
         

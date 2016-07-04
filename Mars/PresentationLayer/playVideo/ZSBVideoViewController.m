@@ -30,7 +30,7 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"视频播放";
+    self.navigationItem.title = self.title;
     
     self.playerContinerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.view addSubview:self.playerContinerView];
