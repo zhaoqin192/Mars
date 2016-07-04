@@ -164,14 +164,25 @@
     
     [self.contactUsView bk_whenTapped:^{
         NSLog(@"联系我们");
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
+        [self showCallActionSheet];
     }];
     
     [self.applyTeacherView bk_whenTapped:^{
         NSLog(@"申请成为老师");
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
+        [self showCallActionSheet];
     }];
     
+}
+
+- (void)showCallActionSheet {
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否拨打官方电话进行咨询" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *call = [UIAlertAction actionWithTitle:@"拨打官方电话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
+    }];
+    [vc addAction:cancel];
+    [vc addAction:call];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
