@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *paidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bigPaidLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 
 @end
 
@@ -55,6 +56,7 @@
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [self.titleImageView sd_setImageWithURL:[NSURL URLWithString:responseObject[@"data"][@"image"]] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
             self.paidLabel.text = self.bigPaidLabel.text = [NSString stringWithFormat:@"报名费：%ld",(long)self.price];
