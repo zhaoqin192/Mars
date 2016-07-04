@@ -412,6 +412,7 @@
                 userSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userSelectCell"];
                 cell.leftButtonName = @"美术方向";
                 cell.rightButtonName = @"传媒方向";
+                cell.otherButtonName = @"音乐方向";
                 cell.contentLabel.text = @"兴趣";
                 cell.delegateSingal = [RACSubject subject];
                 @weakify(self)
@@ -421,8 +422,11 @@
                     if([message isEqual:@(0)]) {
                         self.model.interest = @"美术方向";
                     }
-                    else {
+                    else if([message isEqual:@(1)]){
                         self.model.interest = @"传媒方向";
+                    }
+                    else {
+                        self.model.interest = @"音乐方向";
                     }
                     NSLog(@"%@",self.model.interest);
                 }];

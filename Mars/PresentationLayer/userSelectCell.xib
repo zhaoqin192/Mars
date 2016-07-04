@@ -46,11 +46,27 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz3-eH-fUp">
+                        <rect key="frame" x="186" y="12" width="30" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Lrk-F6-oR1"/>
+                            <constraint firstAttribute="height" constant="25" id="qev-jY-eM4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                        <state key="normal" title="男生"/>
+                        <connections>
+                            <action selector="leftButtonClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uo4-GN-Mk9"/>
+                            <action selector="otherButtonClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z5A-Zr-fTB"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="pJO-sv-zwC" secondAttribute="trailing" constant="14" id="GhP-cZ-xTX"/>
                     <constraint firstItem="Mqw-dF-z0V" firstAttribute="centerY" secondItem="pJO-sv-zwC" secondAttribute="centerY" id="Md6-86-SWO"/>
                     <constraint firstItem="pJO-sv-zwC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="azL-F8-q6b"/>
+                    <constraint firstItem="Mqw-dF-z0V" firstAttribute="leading" secondItem="fz3-eH-fUp" secondAttribute="trailing" constant="15" id="cYK-a7-02S"/>
+                    <constraint firstItem="fz3-eH-fUp" firstAttribute="centerY" secondItem="Mqw-dF-z0V" secondAttribute="centerY" id="hJu-YH-kRd"/>
                     <constraint firstItem="Phc-we-0Ge" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hoe-YQ-sV2"/>
                     <constraint firstItem="Phc-we-0Ge" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wty-HK-v9H"/>
                     <constraint firstItem="pJO-sv-zwC" firstAttribute="leading" secondItem="Mqw-dF-z0V" secondAttribute="trailing" constant="15" id="zdc-tL-uzN"/>
@@ -60,6 +76,8 @@
                 <outlet property="contentLabel" destination="Phc-we-0Ge" id="63l-Eg-ug7"/>
                 <outlet property="leftButton" destination="Mqw-dF-z0V" id="mx6-9N-sN1"/>
                 <outlet property="leftButtonWidthConstraint" destination="J2o-HR-SY1" id="VCT-gm-C8L"/>
+                <outlet property="otherButton" destination="fz3-eH-fUp" id="Kcj-mh-mk5"/>
+                <outlet property="otherButtonWidthConstraint" destination="Lrk-F6-oR1" id="sKL-nb-e0Z"/>
                 <outlet property="rightButton" destination="pJO-sv-zwC" id="u5I-dP-ikD"/>
                 <outlet property="rightButtonWidthConstraint" destination="iRv-nr-noR" id="l77-NE-Jcs"/>
             </connections>

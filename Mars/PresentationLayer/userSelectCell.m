@@ -9,6 +9,8 @@
 #import "userSelectCell.h"
 
 @interface userSelectCell ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherButtonWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *otherButton;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (nonatomic, strong) UIButton *selectButton;
@@ -20,6 +22,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.otherButton.hidden = YES;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self configureButton];
 }
@@ -27,7 +30,13 @@
     if (self.selectButton == self.leftButton) {
         return;
     }
-    [self configureButton];
+    self.selectButton = self.leftButton;
+    self.leftButton.backgroundColor = WXGreenColor;
+    [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+    self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    self.otherButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.otherButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
     [self.delegateSingal sendNext:@0];
 }
 
@@ -35,20 +44,31 @@
     if (self.selectButton == self.rightButton) {
         return;
     }
+    [self configureButton];
+    [self.delegateSingal sendNext:@1];
+}
+- (IBAction)otherButtonClicked {
+    if (self.selectButton == self.otherButton) {
+        return;
+    }
+    self.selectButton = self.otherButton;
+    self.otherButton.backgroundColor = WXGreenColor;
+    [self.otherButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+    self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    [self.delegateSingal sendNext:@2];
+}
+
+- (void)configureButton {
     self.selectButton = self.rightButton;
     self.rightButton.backgroundColor = WXGreenColor;
     [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-    [self.delegateSingal sendNext:@1];
-}
-
-- (void)configureButton {
-    self.selectButton = self.leftButton;
-    self.leftButton.backgroundColor = WXGreenColor;
-    [self.leftButton setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
-    self.rightButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
-    [self.rightButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    self.otherButton.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+    [self.otherButton setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
 }
 
 - (void)setLeftButtonName:(NSString *)leftButtonName {
@@ -67,12 +87,26 @@
     [self.rightButton layoutIfNeeded];
 }
 
+- (void)setOtherButtonName:(NSString *)otherButtonName {
+    _otherButtonName = otherButtonName;
+    _otherButton.hidden = NO;
+    [self.otherButton setTitle:otherButtonName forState:UIControlStateNormal];
+    CGSize size = [otherButtonName sizeWithFont:self.otherButton.titleLabel.font constrainedToSize:CGSizeMake(MAXFLOAT, self.otherButton.frame.size.height)];
+    self.otherButtonWidthConstraint.constant = size.width + 20;
+    [self.otherButton layoutIfNeeded];
+}
+
 - (void)selectOption:(NSNumber *)select {
     if ([select isEqualToNumber:@0]) {
         [self leftButtonClicked];
-    } else {
+    }
+    else if([select isEqualToNumber:@1]){
         [self rightButtonClicked];
     }
+    else {
+        [self otherButtonClicked];
+    }
+    
 }
 
 
