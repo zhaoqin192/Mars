@@ -25,7 +25,7 @@
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-Td-cnu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="二维码" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-Td-cnu">
                     <rect key="frame" x="138" y="261" width="100" height="100"/>
                     <color key="backgroundColor" red="0.74117647060000003" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -98,6 +98,7 @@
         </view>
     </objects>
     <resources>
+        <image name="二维码" width="280" height="280"/>
         <image name="结束考试card素材" width="80" height="158"/>
     </resources>
 </document>
