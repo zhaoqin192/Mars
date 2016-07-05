@@ -8,6 +8,7 @@
 
 #import "WXCategoryPaidTestViewController.h"
 #import "WXCategoryPaidResultViewController.h"
+#import "WXTestDetailViewController.h"
 
 @interface WXCategoryPaidTestViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *adLabel;
@@ -30,6 +31,8 @@
     self.navigationItem.title = @"测试";
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadData];
+    
+    self.titleImageView.userInteractionEnabled = YES;
 }
 
 - (IBAction)joinButtonClicked {
@@ -56,7 +59,13 @@
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
-            [self.titleImageView sd_setImageWithURL:[NSURL URLWithString:responseObject[@"data"][@"image"]] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+            [self.titleImageView sd_setImageWithURL:[NSURL URLWithString:responseObject[@"data"][@"award"]] placeholderImage:[UIImage imageNamed:@"暂时占位图"]];
+            [self.titleImageView bk_whenTapped:^{
+                WXTestDetailViewController *vc = [[WXTestDetailViewController alloc] init];
+                vc.text = @"";
+                vc.image = responseObject[@"data"][@"award"];
+                [self presentViewController:vc animated:YES completion:nil];
+            }];
             self.testTypeLabel.text = [NSString stringWithFormat:@"考试类型：%@",responseObject[@"data"][@"tag3"]];
             self.testTitleLabel.text = [NSString stringWithFormat:@"题目：%@",responseObject[@"data"][@"title"]];
             self.paidLabel.text = self.bigPaidLabel.text = [NSString stringWithFormat:@"报名费：%ld",(long)self.price];
