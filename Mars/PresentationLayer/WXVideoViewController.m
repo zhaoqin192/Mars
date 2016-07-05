@@ -32,7 +32,6 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
 @property (nonatomic, strong) ZSBSelectConditionView *conditionView;
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) NSNumber *type;
-
 @end
 
 @implementation WXVideoViewController
@@ -48,20 +47,6 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    @weakify(self)
-    [[self.viewModel.courseCommand execute:nil]
-     subscribeNext:^(id x) {
-         @strongify(self)
-         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
-         [[self.viewModel.remarkableCommand execute:nil]
-          subscribeNext:^(id x) {
-              @strongify(self)
-              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
-              [self.myTableView reloadData];
-          }];
-     }];
-    
     [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
@@ -83,7 +68,18 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
         self.conditionView.subjectArray = self.viewModel.subjectArray;
         self.conditionView.knowledgeArray = self.viewModel.knowledgeArray;
     }];
-    
+
+    [[self.viewModel.courseCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.viewModel.videoArray addObjectsFromArray:self.viewModel.courseVideoArray];
+         [[self.viewModel.remarkableCommand execute:nil]
+          subscribeNext:^(id x) {
+              @strongify(self)
+              [self.viewModel.videoArray addObjectsFromArray:self.viewModel.remarkableVideoArray];
+              [self.myTableView reloadData];
+          }];
+     }];
     
     
     [self.viewModel.errorObject subscribeNext:^(id x) {
@@ -389,8 +385,6 @@ static NSString *KNOWLEDGEPARAMETERS = @"point";
     self.selectTypeView.userInteractionEnabled = YES;
     self.focus(NO);
 }
-
-
 
 - (void)configureTableView {
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
