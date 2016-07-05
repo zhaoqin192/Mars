@@ -118,6 +118,12 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
         }
         [self.tableView reloadData];
     }];
+    
+    [[self.viewModel.advertisementCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+     }];
 }
 
 #pragma mark - UITableView
