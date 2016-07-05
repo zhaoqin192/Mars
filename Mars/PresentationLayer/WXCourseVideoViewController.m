@@ -84,6 +84,7 @@
             else {
                 ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
                 videoVC.lessonID = self.identifier;
+                videoVC.title = @"视频播放";
                 [self.navigationController pushViewController:videoVC animated:YES];
             }
         }

@@ -32,6 +32,8 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 @property (nonatomic, strong) ZSBHomeViewModel *viewModel;
 @property (nonatomic, strong) SDCycleScrollView *scrollView;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation ZSBHomeViewController
@@ -46,6 +48,14 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    @weakify(self)
+    [[self.viewModel.advertisementCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+     }];
+    
     [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
@@ -65,14 +75,11 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
             self.scrollView.imageURLStringsGroup = imageArray;
         }];
 
-    [[self.viewModel.advertisementCommand execute:nil]
-        subscribeNext:^(id x) {
-            @strongify(self)
-            [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationFade];
-        }];
-
     [[self.viewModel.hotCommand execute:nil] subscribeNext:^(id x) {
         @strongify(self)
+        if (self.refreshControl.refreshing) {
+            [self.refreshControl endRefreshing];
+        }
         [self.tableView reloadData];
     }];
 
@@ -95,6 +102,28 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
     self.scrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     self.scrollView.currentPageDotColor = [UIColor whiteColor];
     self.scrollView.pageDotColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.5];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
+}
+
+- (void)refreshTableView {
+    @weakify(self)
+    [[self.viewModel.hotCommand execute:nil] subscribeNext:^(id x) {
+        @strongify(self)
+        if (self.refreshControl.refreshing) {
+            [self.refreshControl endRefreshing];
+        }
+        [self.tableView reloadData];
+    }];
+    
+    [[self.viewModel.advertisementCommand execute:nil]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+     }];
 }
 
 #pragma mark - UITableView
@@ -126,15 +155,23 @@ NSString *const ZSBHomeViewControllerIdentifier = @"ZSBHomeViewController";
         }
         else {
             ZSBHomeBroadcastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZSBHomeBroadcastTableViewCell"];
-//            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
-//            @weakify(self)
-//            cell.selectedBroadcast = ^(NSInteger index) {
-//                @strongify(self)
-//                ZSBHomeADModel *model = self.viewModel.adArray[index];
-//                ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
-//                videoVC.lessonID = model.identifier;
-//                [self.navigationController pushViewController:videoVC animated:YES];
-//            };
+            [cell updateAdvertisementWithData:self.viewModel.advertisementTitleArray];
+            @weakify(self)
+            cell.selectedBroadcast = ^(NSInteger index) {
+                @strongify(self)
+                AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+                if (accountDao.isExist) {
+                    ZSBHomeADModel *model = self.viewModel.adArray[index];
+                    ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
+                    videoVC.videoID = model.identifier;
+                    videoVC.title = @"正在直播";
+                    [self.navigationController pushViewController:videoVC animated:YES];
+                }
+                else {
+                    WXLoginViewController *loginVC = [[WXLoginViewController alloc] init];
+                    [self.navigationController pushViewController:loginVC animated:YES];
+                }
+            };
             return cell;
         }
         

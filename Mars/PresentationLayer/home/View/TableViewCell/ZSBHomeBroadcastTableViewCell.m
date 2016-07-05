@@ -20,10 +20,10 @@
     [super awakeFromNib];
     // Initialization code
     
-//    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-//        self.selectedBroadcast(self.count);
-//    }];
-//    [self.contentView addGestureRecognizer:tap];
+    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        self.selectedBroadcast(self.count);
+    }];
+    [self.contentView addGestureRecognizer:tap];
     
 }
 
@@ -36,18 +36,21 @@
 }
 
 - (void)updateAdvertisementWithData:(NSArray *)titleArray {
-    self.broadcastLabel.text = titleArray[self.count];
-    [self.timer invalidate];
-    @weakify(self)
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f block:^(NSTimer *_Nonnull timer) {
-        @strongify(self)
-        if (self.count == titleArray.count - 1) {
-            self.count = 0;
-        } else {
-            self.count++;
-        }
+
+    if (titleArray.count != 0) {
         self.broadcastLabel.text = titleArray[self.count];
-    } repeats:YES];
+        [self.timer invalidate];
+        @weakify(self)
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f block:^(NSTimer *_Nonnull timer) {
+            @strongify(self)
+            if (self.count == titleArray.count - 1) {
+                self.count = 0;
+            } else {
+                self.count++;
+            }
+            self.broadcastLabel.text = titleArray[self.count];
+        } repeats:YES];
+    }
 }
 
 
