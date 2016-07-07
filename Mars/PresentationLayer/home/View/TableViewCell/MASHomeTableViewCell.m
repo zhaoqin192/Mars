@@ -74,7 +74,7 @@ NSString *const MASHomeTableViewCellIdentifier = @"MASHomeTableViewCell";
         self.tagLabel2.text = @"默写";
         self.tagLabel2.tag = 2;
         [self.tagLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel1.mas_right).offset(15);
+            make.left.equalTo(self.tagLabel1.mas_right).offset(5);
             make.top.equalTo(self.titleLabel.mas_bottom).offset(10);
             make.height.equalTo(@16);
             make.width.equalTo(@40);
@@ -89,7 +89,7 @@ NSString *const MASHomeTableViewCellIdentifier = @"MASHomeTableViewCell";
         self.tagLabel3.text = @"默写";
         self.tagLabel3.tag = 3;
         [self.tagLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel2.mas_right).offset(15);
+            make.left.equalTo(self.tagLabel2.mas_right).offset(5);
             make.top.equalTo(self.titleLabel.mas_bottom).offset(10);
             make.height.equalTo(@16);
             make.width.equalTo(@40);
@@ -104,7 +104,7 @@ NSString *const MASHomeTableViewCellIdentifier = @"MASHomeTableViewCell";
         self.tagLabel4.text = @"默写";
         self.tagLabel4.tag = 4;
         [self.tagLabel4 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel3.mas_right).offset(15);
+            make.left.equalTo(self.tagLabel3.mas_right).offset(5);
             make.top.equalTo(self.titleLabel.mas_bottom).offset(10);
             make.height.equalTo(@16);
             make.width.equalTo(@40);
