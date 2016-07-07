@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXTestEntertainmentViewController">
             <connections>
                 <outlet property="frontButton" destination="AJs-Kb-LTE" id="4B6-xD-Jc0"/>
+                <outlet property="myWebView" destination="gbn-ri-dQt" id="30R-Mx-vLx"/>
                 <outlet property="nextButton" destination="9hT-rm-eIT" id="av9-cn-HFl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="widthConstraint" destination="iKU-3n-tWe" id="bA5-gH-moP"/>
@@ -60,10 +61,18 @@
                         <constraint firstItem="9hT-rm-eIT" firstAttribute="width" secondItem="AJs-Kb-LTE" secondAttribute="width" id="n6j-eW-FTK"/>
                     </constraints>
                 </view>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-ri-dQt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="mVt-Eq-7rM" secondAttribute="trailing" id="CL7-fN-CsR"/>
+                <constraint firstItem="gbn-ri-dQt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F03-cx-56W"/>
+                <constraint firstItem="gbn-ri-dQt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bUu-ez-pfY"/>
+                <constraint firstItem="mVt-Eq-7rM" firstAttribute="top" secondItem="gbn-ri-dQt" secondAttribute="bottom" id="eEo-z2-0M5"/>
+                <constraint firstAttribute="trailing" secondItem="gbn-ri-dQt" secondAttribute="trailing" id="fym-3Z-PWc"/>
                 <constraint firstItem="mVt-Eq-7rM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lvT-ug-pSo"/>
                 <constraint firstAttribute="bottom" secondItem="mVt-Eq-7rM" secondAttribute="bottom" id="sxZ-Yw-YTM"/>
             </constraints>

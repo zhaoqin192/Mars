@@ -13,8 +13,6 @@
 		302243281D0C5E350054B5E1 /* WXTestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243261D0C5E350054B5E1 /* WXTestTextFieldCell.xib */; };
 		3022432C1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */; };
 		3022432D1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */; };
-		302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */; };
-		302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */; };
 		3022433A1D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */; };
 		3022433E1D0D3AEE0054B5E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022433D1D0D3AEE0054B5E1 /* NSArray+Log.m */; };
 		302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243411D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m */; };
@@ -72,6 +70,9 @@
 		30B602941CD87510003ED671 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6028C1CD87510003ED671 /* SWActionSheet.m */; };
 		30B6029D1CD87C4A003ED671 /* WXInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */; };
 		30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */; };
+		30BBAA8C1D2E190100A975AF /* WXTestEntertainmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BBAA8B1D2E190100A975AF /* WXTestEntertainmentModel.m */; };
+		30BBAA901D2E191500A975AF /* WXTestEntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BBAA8E1D2E191500A975AF /* WXTestEntertainmentViewController.m */; };
+		30BBAA911D2E191500A975AF /* WXTestEntertainmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BBAA8F1D2E191500A975AF /* WXTestEntertainmentViewController.xib */; };
 		30C619171D2214DE00D7923E /* WXTestLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C619151D2214DE00D7923E /* WXTestLiveViewController.m */; };
 		30C619181D2214DE00D7923E /* WXTestLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C619161D2214DE00D7923E /* WXTestLiveViewController.xib */; };
 		30D0181E1CE9F6B000E50B23 /* WXTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0181D1CE9F6B000E50B23 /* WXTestViewController.m */; };
@@ -245,9 +246,6 @@
 		302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnLineResultViewController.h; sourceTree = "<group>"; };
 		3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnLineResultViewController.m; sourceTree = "<group>"; };
 		3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestOnLineResultViewController.xib; sourceTree = "<group>"; };
-		302243311D0CFB590054B5E1 /* WXTestEntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestEntertainmentViewController.h; sourceTree = "<group>"; };
-		302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestEntertainmentViewController.m; sourceTree = "<group>"; };
-		302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestEntertainmentViewController.xib; sourceTree = "<group>"; };
 		302243361D0D2C990054B5E1 /* WXCategoryCommonTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryCommonTestViewController.h; sourceTree = "<group>"; };
 		302243371D0D2C990054B5E1 /* WXCategoryCommonTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryCommonTestViewController.m; sourceTree = "<group>"; };
 		302243381D0D2C990054B5E1 /* WXCategoryCommonTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryCommonTestViewController.xib; sourceTree = "<group>"; };
@@ -343,6 +341,11 @@
 		30B6029A1CD87C4A003ED671 /* WXInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInformationViewController.h; sourceTree = "<group>"; };
 		30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInformationViewController.m; sourceTree = "<group>"; };
 		30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInformationViewController.xib; sourceTree = "<group>"; };
+		30BBAA8A1D2E190100A975AF /* WXTestEntertainmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestEntertainmentModel.h; sourceTree = "<group>"; };
+		30BBAA8B1D2E190100A975AF /* WXTestEntertainmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestEntertainmentModel.m; sourceTree = "<group>"; };
+		30BBAA8D1D2E191500A975AF /* WXTestEntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestEntertainmentViewController.h; sourceTree = "<group>"; };
+		30BBAA8E1D2E191500A975AF /* WXTestEntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestEntertainmentViewController.m; sourceTree = "<group>"; };
+		30BBAA8F1D2E191500A975AF /* WXTestEntertainmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestEntertainmentViewController.xib; sourceTree = "<group>"; };
 		30C619141D2214DE00D7923E /* WXTestLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestLiveViewController.h; sourceTree = "<group>"; };
 		30C619151D2214DE00D7923E /* WXTestLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestLiveViewController.m; sourceTree = "<group>"; };
 		30C619161D2214DE00D7923E /* WXTestLiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestLiveViewController.xib; sourceTree = "<group>"; };
@@ -663,9 +666,9 @@
 				302243291D0CF5660054B5E1 /* WXTestOnLineResultViewController.h */,
 				3022432A1D0CF5660054B5E1 /* WXTestOnLineResultViewController.m */,
 				3022432B1D0CF5660054B5E1 /* WXTestOnLineResultViewController.xib */,
-				302243311D0CFB590054B5E1 /* WXTestEntertainmentViewController.h */,
-				302243321D0CFB590054B5E1 /* WXTestEntertainmentViewController.m */,
-				302243331D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib */,
+				30BBAA8D1D2E191500A975AF /* WXTestEntertainmentViewController.h */,
+				30BBAA8E1D2E191500A975AF /* WXTestEntertainmentViewController.m */,
+				30BBAA8F1D2E191500A975AF /* WXTestEntertainmentViewController.xib */,
 			);
 			name = normalTest;
 			sourceTree = "<group>";
@@ -741,6 +744,8 @@
 		303D9C381D1BB000000FB964 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				30BBAA8A1D2E190100A975AF /* WXTestEntertainmentModel.h */,
+				30BBAA8B1D2E190100A975AF /* WXTestEntertainmentModel.m */,
 				303D9C391D1BB012000FB964 /* WXTestOnlineModel.h */,
 				303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */,
 				303D9C461D1BB9BC000FB964 /* WXCategoryListModel.h */,
@@ -1544,7 +1549,6 @@
 				ACDCC5851D221F5B00A300B7 /* ZSBExerciseRankCollectionViewCell.xib in Resources */,
 				30FD1ED91CE09EA2003C91A5 /* WXMeOrderViewController.xib in Resources */,
 				30B602501CD83F5D003ED671 /* StartButtomView.xib in Resources */,
-				302243351D0CFB590054B5E1 /* WXTestEntertainmentViewController.xib in Resources */,
 				30FD1EB61CDF8722003C91A5 /* WXRegisterViewController.xib in Resources */,
 				30FD1F8E1CE21FC7003C91A5 /* pic0.jpg in Resources */,
 				AC5260AC1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.xib in Resources */,
@@ -1562,6 +1566,7 @@
 				30FD1F971CE21FC7003C91A5 /* picon.jpg in Resources */,
 				30D018451CED8B2100E50B23 /* WXRankViewController.xib in Resources */,
 				AC66CDA41D1ACB7B003B4DB5 /* ZSBExerciseTimeViewCell.xib in Resources */,
+				30BBAA911D2E191500A975AF /* WXTestEntertainmentViewController.xib in Resources */,
 				30FD1F901CE21FC7003C91A5 /* pic2.jpg in Resources */,
 				30FD1EC61CE04E7B003C91A5 /* WXPreorderCourseViewController.xib in Resources */,
 				AC66CD951D1A8974003B4DB5 /* WXCategoryCommitViewController.xib in Resources */,
@@ -1715,6 +1720,7 @@
 				AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */,
 				303D9C3B1D1BB012000FB964 /* WXTestOnlineModel.m in Sources */,
 				AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */,
+				30BBAA901D2E191500A975AF /* WXTestEntertainmentViewController.m in Sources */,
 				AC3344D91CCD1DBF009C7323 /* AppDelegate.m in Sources */,
 				303D9C441D1BB08F000FB964 /* WXTestOnLineViewController.m in Sources */,
 				ACB947641CE6008E009FA179 /* LessonModel.m in Sources */,
@@ -1727,7 +1733,6 @@
 				AC84221D1D2D229500C7481C /* MASHomeSectionHeadView.m in Sources */,
 				AC5260931D1CDE1300B25B66 /* ZSBVideoSelectTypeView.m in Sources */,
 				303D9C481D1BB9BC000FB964 /* WXCategoryListModel.m in Sources */,
-				302243341D0CFB590054B5E1 /* WXTestEntertainmentViewController.m in Sources */,
 				AC52609F1D1D248C00B25B66 /* ZSBSelectConditionView.m in Sources */,
 				3057B2101CD9D3EE008172DD /* WXLoginViewController.m in Sources */,
 				AC33449A1CCD1B2B009C7323 /* main.m in Sources */,
@@ -1760,6 +1765,7 @@
 				AC5260681D1C20CB00B25B66 /* ZSBTeacherInfoViewModel.m in Sources */,
 				30FD1EDE1CE09FE5003C91A5 /* userOrderCell.m in Sources */,
 				30D018261CE9F8BF00E50B23 /* WXNormalTestViewController.m in Sources */,
+				30BBAA8C1D2E190100A975AF /* WXTestEntertainmentModel.m in Sources */,
 				ACD221521D21100300AFDBAB /* ZSBExerciseVideoModel.m in Sources */,
 				AC66CD911D1A8942003B4DB5 /* WXTestKnowledgeViewController.m in Sources */,
 				ACD2215D1D2152D200AFDBAB /* NSDictionary+BVJSONString.m in Sources */,
