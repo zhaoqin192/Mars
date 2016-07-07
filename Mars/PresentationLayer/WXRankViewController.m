@@ -115,7 +115,7 @@
     }
     else {//图片
         WXTestDetailViewController *vc = [[WXTestDetailViewController alloc] init];
-        vc.image = model.video_image;
+        vc.image = model.imageArray[0];
         vc.text = @"";
         [self presentViewController:vc animated:YES completion:nil];
     }
