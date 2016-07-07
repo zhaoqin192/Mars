@@ -21,10 +21,8 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(
-                                                     id input) {
-            return [RACSignal createSignal:^RACDisposable *(
-                                  id<RACSubscriber> subscriber) {
+        self.bannerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
 
                 self.bannerArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeBanner"];
                 if (self.bannerArray) {
@@ -34,13 +32,8 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
                     }
                     [subscriber sendNext:array];
                 }
-                AFHTTPSessionManager *manager =
-                    [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL
-                    URLWithString:[HOSTADDRESS
-                                      stringByAppendingString:@"/zhanshibang/"
-                                                              @"index.php/Plan/"
-                                                              @"Index/get_banner"]];
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/Plan/Index/get_banner"]];
                 @weakify(self) [manager GET:url.absoluteString
                     parameters:nil
                     progress:nil
@@ -48,15 +41,14 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
                               id _Nullable responseObject) {
 
                         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-                            [ZSBHomeBannerModel
-                                mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
+                            [ZSBHomeBannerModel mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
                                     return @{
                                         @"imageUrl": @"image_url",
                                         @"htmlUrl": @"html_url"
                                     };
-                                }];
-                            @strongify(self) self.bannerArray = [ZSBHomeBannerModel
-                                mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                            }];
+                            @strongify(self)
+                            self.bannerArray = [ZSBHomeBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                             NSMutableArray *array = [[NSMutableArray alloc] init];
                             for (ZSBHomeBannerModel *model in self.bannerArray) {
                                 [array addObject:model.imageUrl];
@@ -73,41 +65,25 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
             }];
         }];
 
-        self.advertisementCommand = [[RACCommand
-            alloc] initWithSignalBlock:^RACSignal *(id input) {
+        self.advertisementCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
 
-            return [RACSignal createSignal:^RACDisposable *(
-                                  id<RACSubscriber> subscriber) {
-
-                self.adArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeAdvertisement"];
-                if (self.adArray) {
-                    NSMutableArray *array = [[NSMutableArray alloc] init];
-                    for (ZSBHomeADModel *model in self.adArray) {
-                        [array addObject:model.title];
-                    }
-                    [subscriber sendNext:array];
-                }
-
-                AFHTTPSessionManager *manager =
-                    [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL
-                    URLWithString:[HOSTADDRESS
-                                      stringByAppendingString:@"/zhanshibang/index.php/"
-                                                              @"Plan/Index/"
-                                                              @"get_advertisement"]];
-                @weakify(self) [manager GET:url.absoluteString
-                    parameters:nil
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/Plan/Index/get_advertisement"]];
+                @weakify(self)
+                [manager GET:url.absoluteString
+                  parameters:nil
                     progress:nil
                     success:^(NSURLSessionDataTask *_Nonnull task,
                               id _Nullable responseObject) {
 
                         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-                            [ZSBHomeADModel
-                                mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
+                            [ZSBHomeADModel mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
                                     return @{ @"identifier": @"video_id" };
-                                }];
-                            @strongify(self) self.adArray = [ZSBHomeADModel
-                                mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                            }];
+                            @strongify(self)
+                            self.adArray = [ZSBHomeADModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                             self.advertisementTitleArray = [[NSMutableArray alloc] init];
                             for (ZSBHomeADModel *model in self.adArray) {
                                 [self.advertisementTitleArray addObject:model.title];
@@ -124,53 +100,39 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
             }];
         }];
 
-        self.hotCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(
-                                                  id input) {
+        self.hotCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
 
-            return [RACSignal createSignal:^RACDisposable *(
-                                  id<RACSubscriber> subscriber) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
 
-                self.testArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeTest"];
-                self.knowledgeArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeKnowledge"];
-                if (self.testArray || self.knowledgeArray) {
-                    [subscriber sendNext:nil];
-                }
 
-                AFHTTPSessionManager *manager =
-                    [[NetworkManager sharedInstance] fetchSessionManager];
-                NSURL *url = [NSURL
-                    URLWithString:[HOSTADDRESS
-                                      stringByAppendingString:@"/zhanshibang/index.php/"
-                                                              @"plan/index/"
-                                                              @"get_main_page"]];
-                @weakify(self) [manager GET:url.absoluteString
-                    parameters:nil
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                NSURL *url = [NSURL URLWithString:[HOSTADDRESS stringByAppendingString:@"/zhanshibang/index.php/plan/index/get_main_page"]];
+                @weakify(self)
+                [manager GET:url.absoluteString
+                  parameters:nil
                     progress:nil
                     success:^(NSURLSessionDataTask *_Nonnull task,
                               id _Nullable responseObject) {
 
                         if ([responseObject[@"code"] isEqualToString:@"200"]) {
-                            [ZSBTestModel
-                                mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
+                            [ZSBTestModel mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
                                     return @{
                                         @"identifier": @"test_id",
                                         @"participateCount": @"attend_count",
                                         @"imageURL": @"video_image"
                                     };
-                                }];
-                            [ZSBKnowledgeModel
-                                mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
+                            }];
+                            [ZSBKnowledgeModel mj_setupReplacedKeyFromPropertyName:^NSDictionary * {
                                     return @{
                                         @"identifier": @"lesson_id",
                                         @"videoID": @"video_id",
                                         @"imageURL": @"video_image",
                                         @"participateCount": @"count"
                                     };
-                                }];
-
+                            }];
                             NSDictionary *data = responseObject[@"data"];
-                            @strongify(self) self.testArray = [ZSBTestModel
-                                mj_objectArrayWithKeyValuesArray:data[@"test"]];
+                            @strongify(self)
+                            self.testArray = [ZSBTestModel mj_objectArrayWithKeyValuesArray:data[@"test"]];
                             self.knowledgeArray = [ZSBKnowledgeModel mj_objectArrayWithKeyValuesArray:data[@"lesson"]];
                             [subscriber sendNext:nil];
                             [subscriber sendCompleted];
@@ -194,9 +156,19 @@ static NSString *HOSTADDRESS = @"http://101.200.135.129";
     return self;
 }
 
+- (BOOL)fetchModelData {
+    self.testArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeTest"];
+    self.knowledgeArray = [ZSBCacheManager fetchCacheWithFileName:@"HomeKnowledge"];
+    if (self.testArray || self.knowledgeArray) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 - (void)cacheData {
     [ZSBCacheManager cacheWithData:self.bannerArray fileName:@"HomeBanner"];
-    [ZSBCacheManager cacheWithData:self.adArray fileName:@"HomeAdvertisement"];
     [ZSBCacheManager cacheWithData:self.testArray fileName:@"HomeTest"];
     [ZSBCacheManager cacheWithData:self.knowledgeArray fileName:@"HomeKnowledge"];
 }

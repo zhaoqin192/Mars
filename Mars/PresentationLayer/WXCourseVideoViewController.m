@@ -68,7 +68,9 @@
     self.player.delegate = self;
     self.player.playerContainView = self.playerContinerView;
     
+    @weakify(self)
     UIGestureRecognizer *tapPlay = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
         if (self.isContinue) {
             [_player play];
             [self showPlayMessage:@"播放中……"];
@@ -84,7 +86,7 @@
             else {
                 ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
                 videoVC.lessonID = self.identifier;
-                videoVC.title = @"视频播放";
+                videoVC.navigationTitle = @"视频播放";
                 [self.navigationController pushViewController:videoVC animated:YES];
             }
         }
@@ -97,6 +99,7 @@
     self.videoPauseImage.hidden = YES;
     [self.view addSubview:self.videoPauseImage];
     UIGestureRecognizer *tapPause = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
         [_player pause];
         self.isContinue = YES;
         self.videoPauseImage.hidden = YES;
@@ -109,6 +112,7 @@
     [self.videoPauseImage addGestureRecognizer:tapPause];
     
     UIGestureRecognizer *tapVideo = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
         if (self.videoPlayImage.isHidden) {
             [self showPause];
         }
@@ -117,6 +121,7 @@
     [self.videoImage addGestureRecognizer:tapVideo];
     
     UIGestureRecognizer *tapFullscreen = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        @strongify(self)
         self.playerContinerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         self.player.playerContainView = self.playerContinerView;
     }];
@@ -157,6 +162,7 @@
                           duration:0.25f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
+                            @strongify(self)
                             self.videoPauseImage.hidden = YES;
                         }
                         completion:NULL];
@@ -165,6 +171,7 @@
                           duration:0.25f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
+                            @strongify(self)
                             self.fullscreenImage.hidden = YES;
                         }
                         completion:NULL];
@@ -195,8 +202,10 @@
 - (void)bindViewModel {
     self.viewModel = [[ZSBExerciseCourseViewModel alloc] init];
     
+    @weakify(self)
     [[self.viewModel.detailCommand execute:self.identifier]
     subscribeNext:^(id x) {
+        @strongify(self)
         [self.iconView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.teacherAvatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         self.contentLabel.text = self.viewModel.teacherDescribe;
         self.teacherNameLabel.text = [NSString stringWithFormat:@"播主：%@", self.viewModel.teacherName];

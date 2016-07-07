@@ -16,4 +16,5 @@ target "Mars" do
     pod 'CTAssetsPickerController'
     pod 'NJKWebViewProgress'
     pod 'UMengAnalytics-NO-IDFA'
+    pod 'Masonry'
 end

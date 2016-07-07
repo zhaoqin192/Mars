@@ -77,7 +77,7 @@
         if (self.accountDao.isExist) {
             ZSBVideoViewController *videoVC = [[ZSBVideoViewController alloc] init];
             videoVC.videoID = self.viewModel.videoID;
-            videoVC.title = @"视频播放";
+            videoVC.navigationTitle = @"视频播放";
             [self.navigationController pushViewController:videoVC animated:YES];
         }
         else {
