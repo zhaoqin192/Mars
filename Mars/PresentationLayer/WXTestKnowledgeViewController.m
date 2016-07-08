@@ -32,6 +32,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
     if (self.isAfterTest) {
         [self loadDataAfterTest];
     }
@@ -198,6 +199,11 @@
         vc.identifier = zsbModel.identifier;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 @end
