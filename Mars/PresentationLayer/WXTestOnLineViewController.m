@@ -212,7 +212,7 @@
         [self.uploadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.uploadButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [self.uploadButton bk_whenTapped:^{
-            [self showPicker];
+            [self showActionSheet];
         }];
         [view addSubview:self.uploadButton];
         
@@ -233,9 +233,24 @@
     });
 }
 
+- (void)showActionSheet {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请选择上传类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *uploadVideo = [UIAlertAction actionWithTitle:@"上传视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showPicker:PHAssetMediaTypeVideo];
+    }];
+    UIAlertAction *uploadImage = [UIAlertAction actionWithTitle:@"上传图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showPicker:PHAssetMediaTypeImage];
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:uploadVideo];
+    [alertVC addAction:uploadImage];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
 #pragma mark - ImagePicker
 
-- (void)showPicker {
+- (void)showPicker:(PHAssetMediaType *)type {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status){
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -247,7 +262,7 @@
             
             // create options for fetching photo only
             PHFetchOptions *fetchOptions = [PHFetchOptions new];
-            fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
+            fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", type];
             
             // assign options
             picker.assetsFetchOptions = fetchOptions;
@@ -272,8 +287,8 @@
     if (picker.selectedAssets.count >= max)
     {
         UIAlertController *alert =
-        [UIAlertController alertControllerWithTitle:@"Attention"
-                                            message:[NSString stringWithFormat:@"Please select not more than %ld assets", (long)max]
+        [UIAlertController alertControllerWithTitle:@"提示"
+                                            message:[NSString stringWithFormat:@"最多上传3张图片或视频"]
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *action =
@@ -295,12 +310,12 @@
     self.uploadButton.backgroundColor = WXGreenColor;
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.assets = [NSMutableArray arrayWithArray:assets];
-    if (!self.assets.count) {
-        [SVProgressHUD showSuccessWithStatus:@"选择照片成功"];
-        [self bk_performBlock:^(id obj) {
-            [SVProgressHUD dismiss];
-        } afterDelay:1.5];
-    }
+//    if (self.assets.count) {
+//        [SVProgressHUD showSuccessWithStatus:@"选择照片、视频成功！"];
+//        [self bk_performBlock:^(id obj) {
+//            [SVProgressHUD dismiss];
+//        } afterDelay:1.5];
+//    }
 }
 
 
