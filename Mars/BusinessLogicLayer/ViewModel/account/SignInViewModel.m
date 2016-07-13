@@ -50,6 +50,7 @@
 - (void)signIn {
     @weakify(self)
     [NetworkFetcher accountSignInWithPhone:self.phone password:self.password success:^(NSDictionary *response) {
+        NSLog(@"%@",response);
         @strongify(self)
         if ([response[@"code"] isEqualToString:@"200"]) {
             AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
@@ -59,6 +60,7 @@
             account.token = response[@"sid"];
             account.sessionID = response[@"yzb_session_id"];
             account.userID = response[@"yzb_user_id"];
+            account.role = response[@"role"];
             [accountDao save];
             NSString *phone = [NSString stringWithFormat:@"86_%@", self.phone];
             [EasyLiveSDK userLoginWithParams:@{SDK_REGIST_TOKE: phone, SDK_USER_ID: account.userID

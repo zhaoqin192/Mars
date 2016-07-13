@@ -62,7 +62,12 @@ static BOOL debugMessage = YES;
     __weak typeof(self)weakSelf = self;
     [commitButton bk_whenTapped:^{
         [weakSelf stopLive];
-        [weakSelf showPicker];
+        if ([weakSelf.account.role isEqualToString:@"2"]) {
+            [self endTheTest];
+        }
+        else {
+            [weakSelf showPicker];
+        }
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:commitButton];
     
@@ -201,7 +206,7 @@ static BOOL debugMessage = YES;
                 self.videoID = result[@"vid"];
                 NSLog(@"hahahh  %@",result[@"vid"]);
             //  self.videoIDString.text = result[@"vid"];
-                [self uploadVideoNoPhoto];
+                [self uploadVideoNoPhoto:NO];
                 break;
                 
             default:
@@ -362,6 +367,7 @@ static BOOL debugMessage = YES;
 }
 
 - (void)endTheTest {
+    NSLog(@"end");
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Fenlei/end_test"]];
     NSDictionary *parameters = @{@"sid":self.account.token,
@@ -502,7 +508,8 @@ static BOOL debugMessage = YES;
     }];
 }
 
-- (void)uploadVideoNoPhoto{
+- (void)uploadVideoNoPhoto:(BOOL)finish{
+    NSLog(@"no photo %d",finish);
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"exercise/lesson/uploadvideo"]];
     NSDictionary *parameters = @{@"sid":self.account.token,
@@ -510,7 +517,12 @@ static BOOL debugMessage = YES;
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject[@"code"] isEqualToString:@"200"]) {
-            [self.encoder start];
+            if (finish) {
+                [self endTheTest];
+            }
+            else {
+                [self.encoder start];
+            }
         }
         else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];

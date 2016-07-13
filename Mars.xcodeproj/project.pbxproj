@@ -26,6 +26,8 @@
 		302243961D1110220054B5E1 /* WXCategoryPlayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243941D1110220054B5E1 /* WXCategoryPlayResultViewController.m */; };
 		302243971D1110220054B5E1 /* WXCategoryPlayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */; };
 		3022439A1D1137360054B5E1 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243991D1137360054B5E1 /* XMGNavigationController.m */; };
+		3033CBBF1D36279A008CAF2A /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3033CBBC1D36279A008CAF2A /* Account+CoreDataProperties.m */; };
+		3033CBC01D36279A008CAF2A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 3033CBBE1D36279A008CAF2A /* Account.m */; };
 		303D9C3B1D1BB012000FB964 /* WXTestOnlineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */; };
 		303D9C3F1D1BB079000FB964 /* WXTestOffLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303D9C3D1D1BB079000FB964 /* WXTestOffLineViewController.m */; };
 		303D9C401D1BB079000FB964 /* WXTestOffLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303D9C3E1D1BB079000FB964 /* WXTestOffLineViewController.xib */; };
@@ -143,8 +145,6 @@
 		AC2E6C861CCDC531008E6D52 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C851CCDC531008E6D52 /* DatabaseManager.m */; };
 		AC2E6C8A1CCDC570008E6D52 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C891CCDC570008E6D52 /* AccountDao.m */; };
 		AC2E6C8E1CCDC5CE008E6D52 /* Mars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C8C1CCDC5CE008E6D52 /* Mars.xcdatamodeld */; };
-		AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */; };
-		AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C921CCDC63D008E6D52 /* Account.m */; };
 		AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */; };
 		AC2E6C9D1CCDD964008E6D52 /* NetworkFetcher+Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E6C9C1CCDD964008E6D52 /* NetworkFetcher+Account.m */; };
 		AC2E6C9F1CCDDCF2008E6D52 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2E6C9E1CCDDCF2008E6D52 /* OpenGLES.framework */; };
@@ -268,6 +268,10 @@
 		302243951D1110220054B5E1 /* WXCategoryPlayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryPlayResultViewController.xib; sourceTree = "<group>"; };
 		302243981D1137360054B5E1 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
 		302243991D1137360054B5E1 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
+		3033CBBB1D36279A008CAF2A /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3033CBBC1D36279A008CAF2A /* Account+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3033CBBD1D36279A008CAF2A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		3033CBBE1D36279A008CAF2A /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		303D9C391D1BB012000FB964 /* WXTestOnlineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOnlineModel.h; sourceTree = "<group>"; };
 		303D9C3A1D1BB012000FB964 /* WXTestOnlineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestOnlineModel.m; sourceTree = "<group>"; };
 		303D9C3C1D1BB079000FB964 /* WXTestOffLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestOffLineViewController.h; sourceTree = "<group>"; };
@@ -458,10 +462,6 @@
 		AC2E6C881CCDC570008E6D52 /* AccountDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDao.h; sourceTree = "<group>"; };
 		AC2E6C891CCDC570008E6D52 /* AccountDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDao.m; sourceTree = "<group>"; };
 		AC2E6C8D1CCDC5CE008E6D52 /* Mars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mars.xcdatamodel; sourceTree = "<group>"; };
-		AC2E6C8F1CCDC63D008E6D52 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
-		AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+CoreDataProperties.m"; sourceTree = "<group>"; };
-		AC2E6C911CCDC63D008E6D52 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
-		AC2E6C921CCDC63D008E6D52 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		AC2E6C951CCDC872008E6D52 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
 		AC2E6C961CCDC872008E6D52 /* NetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkFetcher.m; sourceTree = "<group>"; };
 		AC2E6C9B1CCDD964008E6D52 /* NetworkFetcher+Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Account.h"; sourceTree = "<group>"; };
@@ -1198,10 +1198,10 @@
 			isa = PBXGroup;
 			children = (
 				AC2E6C8C1CCDC5CE008E6D52 /* Mars.xcdatamodeld */,
-				AC2E6C8F1CCDC63D008E6D52 /* Account+CoreDataProperties.h */,
-				AC2E6C901CCDC63D008E6D52 /* Account+CoreDataProperties.m */,
-				AC2E6C911CCDC63D008E6D52 /* Account.h */,
-				AC2E6C921CCDC63D008E6D52 /* Account.m */,
+				3033CBBB1D36279A008CAF2A /* Account+CoreDataProperties.h */,
+				3033CBBC1D36279A008CAF2A /* Account+CoreDataProperties.m */,
+				3033CBBD1D36279A008CAF2A /* Account.h */,
+				3033CBBE1D36279A008CAF2A /* Account.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1661,10 +1661,8 @@
 				AC8ABBE41D22713700F6B236 /* ZSBVideoViewController.m in Sources */,
 				3057B1CC1CD8B503008172DD /* userSelectCell.m in Sources */,
 				302243681D0FF40C0054B5E1 /* WXCategoryPaidResultViewController.m in Sources */,
-				AC2E6C941CCDC63D008E6D52 /* Account.m in Sources */,
 				AC4558501D11993800E2307E /* ZSBHomeADModel.m in Sources */,
 				302243631D0FEABF0054B5E1 /* WXRankView.m in Sources */,
-				AC2E6C931CCDC63D008E6D52 /* Account+CoreDataProperties.m in Sources */,
 				3091D5C81D1CDFA100F10E1F /* WXMeTestViewController.m in Sources */,
 				30FD1F611CE1C826003C91A5 /* WXHighGradeViewController.m in Sources */,
 				AC2E6C811CCDC422008E6D52 /* NetworkManager.m in Sources */,
@@ -1754,6 +1752,7 @@
 				30FD1E9F1CDDB3DF003C91A5 /* WXVideoViewController.m in Sources */,
 				AC66CD9B1D1AA79B003B4DB5 /* ZSBCacheManager.m in Sources */,
 				30FD1EC51CE04E7B003C91A5 /* WXPreorderCourseViewController.m in Sources */,
+				3033CBC01D36279A008CAF2A /* Account.m in Sources */,
 				302243431D0D4C550054B5E1 /* WXCategoryPaidTestViewController.m in Sources */,
 				AC2E6C971CCDC872008E6D52 /* NetworkFetcher.m in Sources */,
 				30D018441CED8B2100E50B23 /* WXRankViewController.m in Sources */,
@@ -1776,6 +1775,7 @@
 				302243271D0C5E350054B5E1 /* WXTestTextFieldCell.m in Sources */,
 				30B602571CD83F80003ED671 /* testViewController.m in Sources */,
 				AC03B8C81D1A272500773EFA /* ZSBTestModel.m in Sources */,
+				3033CBBF1D36279A008CAF2A /* Account+CoreDataProperties.m in Sources */,
 				AC5260AB1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m in Sources */,
 				AC5260991D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m in Sources */,
 				AC2E6CC81CCDFA06008E6D52 /* LiveViewController.m in Sources */,

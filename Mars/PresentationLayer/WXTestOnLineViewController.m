@@ -21,6 +21,7 @@
 @property (nonatomic, strong) WXTestOnlineModel *model;
 @property (nonatomic, copy) NSString *artificial_test_id;
 @property (nonatomic, strong) UIButton *uploadButton;
+@property (nonatomic, assign) NSInteger maxCount;
 @end
 
 @implementation WXTestOnLineViewController
@@ -104,9 +105,18 @@
     NSLog(@"fetch image data %d",index);
     PHAsset *asset = self.assets[index];
     PHImageManager *manager = [PHImageManager defaultManager];
-    [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        [self uploadImage:imageData index:index];
-    }];
+    if (self.maxCount == 3) {
+        [manager requestImageDataForAsset:asset options:PHImageRequestOptionsResizeModeNone resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            [self uploadImage:imageData index:index];
+        }];
+    }
+    else {
+        [manager requestAVAssetForVideo:self.assets[index] options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+            AVURLAsset *avasset = (AVURLAsset *)asset;
+            NSData *videoData = [NSData dataWithContentsOfURL:avasset.URL];
+            [self uploadVideo:videoData index:index];
+        }];
+    }
 }
 
 - (void)uploadImage:(NSData *)imageData index:(NSInteger)index{
@@ -134,6 +144,40 @@
                     [self fetchImageData:index+1];
                 });
             }
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self bk_performBlock:^(id obj) {
+                [SVProgressHUD dismiss];
+            } afterDelay:1.5];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [self bk_performBlock:^(id obj) {
+            [SVProgressHUD dismiss];
+        } afterDelay:1.5];
+    }];
+    
+}
+
+- (void)uploadVideo:(NSData *)videoData index:(NSInteger)index{
+    NSLog(@"upload video");
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"Test/Baiding/artificial_upload"]];
+    NSDictionary *parameters = @{
+                                 @"artificial_test_id":self.artificial_test_id};
+    [manager POST:url.absoluteString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.mov", str];
+        [formData appendPartWithFileData:videoData name:@"photo" fileName:fileName mimeType:@"video/quicktime"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject[@"code"] isEqualToString:@"200"]) {
+            [SVProgressHUD dismiss];
+            WXTestOnLineResultViewController *vc = [[WXTestOnLineResultViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -237,9 +281,11 @@
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"请选择上传类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *uploadVideo = [UIAlertAction actionWithTitle:@"上传视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.maxCount = 1;
         [self showPicker:PHAssetMediaTypeVideo];
     }];
     UIAlertAction *uploadImage = [UIAlertAction actionWithTitle:@"上传图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.maxCount = 3;
         [self showPicker:PHAssetMediaTypeImage];
     }];
     [alertVC addAction:cancelAction];
@@ -281,14 +327,14 @@
 // implement should select asset delegate
 - (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset
 {
-    NSInteger max = 3;
+    NSInteger max = self.maxCount;
     
     // show alert gracefully
     if (picker.selectedAssets.count >= max)
     {
         UIAlertController *alert =
         [UIAlertController alertControllerWithTitle:@"提示"
-                                            message:[NSString stringWithFormat:@"最多上传3张图片或视频"]
+                                            message:[NSString stringWithFormat:@"最多一次上传3张图片或1个视频"]
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *action =

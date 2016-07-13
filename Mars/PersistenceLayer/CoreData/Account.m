@@ -2,8 +2,8 @@
 //  Account.m
 //  Mars
 //
-//  Created by zhaoqin on 4/25/16.
-//  Copyright © 2016 Muggins_. All rights reserved.
+//  Created by 王霄 on 16/7/13.
+//  Copyright © 2016年 Muggins_. All rights reserved.
 //
 
 #import "Account.h"
