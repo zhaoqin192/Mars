@@ -108,7 +108,9 @@
 - (void)showForgetPasswordActionSheet {
     UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"" message:@"请联系客服"  preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *phoneNum = [UIAlertAction actionWithTitle:@"400-100-1100" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *phoneNum = [UIAlertAction actionWithTitle:@"400-860-1666" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-860-1666"]];
+    }];
     [alertViewController addAction:cancel];
     [alertViewController addAction:phoneNum];
     [self presentViewController:alertViewController animated:YES completion:nil];

@@ -20,6 +20,7 @@
 @property (nonatomic, copy) NSArray *assets;
 @property (nonatomic, strong) WXTestOnlineModel *model;
 @property (nonatomic, copy) NSString *artificial_test_id;
+@property (nonatomic, strong) UIButton *uploadButton;
 @end
 
 @implementation WXTestOnLineViewController
@@ -204,16 +205,16 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 130)];
         view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
         
-        UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        uploadButton.frame = CGRectMake(15, 20, kScreenWidth - 30, 60);
-        uploadButton.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
-        [uploadButton setTitle:@"上传作品" forState:UIControlStateNormal];
-        [uploadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        uploadButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [uploadButton bk_whenTapped:^{
+        self.uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.uploadButton.frame = CGRectMake(15, 20, kScreenWidth - 30, 60);
+        self.uploadButton.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
+        [self.uploadButton setTitle:@"上传作品" forState:UIControlStateNormal];
+        [self.uploadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.uploadButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        [self.uploadButton bk_whenTapped:^{
             [self showPicker];
         }];
-        [view addSubview:uploadButton];
+        [view addSubview:self.uploadButton];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, 20, 20)];
         label.text = @"请上传正面生活照片、完整清晰作品照片";
@@ -284,6 +285,7 @@
 
 - (void)assetsPickerController:(CTAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
 {
+    self.uploadButton.backgroundColor = WXGreenColor;
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.assets = [NSMutableArray arrayWithArray:assets];
     if (!self.assets.count) {

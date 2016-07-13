@@ -178,7 +178,7 @@
     UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否拨打官方电话进行咨询" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *call = [UIAlertAction actionWithTitle:@"拨打官方电话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-5210-1121"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-860-1666"]];
     }];
     [vc addAction:cancel];
     [vc addAction:call];
