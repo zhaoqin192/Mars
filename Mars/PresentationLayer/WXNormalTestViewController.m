@@ -55,8 +55,8 @@
             break;
         }
         case 1:{
-            cell.contentLabel.text = @"线上测试";
-            cell.detailContentLabel.text = @"上传照片专业人员帮你判定专业方向";
+            cell.contentLabel.text = @"线上测评";
+            cell.detailContentLabel.text = @"上传照片或视频，专家帮你判定专业方向";
             cell.buttonClicked = ^{
                 WXTestOnLineViewController *vc = [[WXTestOnLineViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -65,8 +65,8 @@
             break;
         }
         case 2:{
-            cell.contentLabel.text = @"线下测试";
-            cell.detailContentLabel.text = @"专业老师帮你量身设定方向";
+            cell.contentLabel.text = @"线下测评";
+            cell.detailContentLabel.text = @"专家测试艺术潜能发展情况，帮你量身定制方案";
             cell.buttonClicked = ^{
                 WXTestOffLineViewController *vc = [[WXTestOffLineViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];

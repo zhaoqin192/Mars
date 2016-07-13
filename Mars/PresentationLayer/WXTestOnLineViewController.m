@@ -30,7 +30,7 @@
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     self.address = @"未选择";
     self.model = [WXTestOnlineModel onLineModel];
-    self.navigationItem.title = @"线上测试";
+    self.navigationItem.title = @"线上测评";
     self.navigationItem.rightBarButtonItem = ({
         UIButton *commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [commitButton setTitle:@"提交" forState:UIControlStateNormal];
@@ -202,13 +202,13 @@
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     
     self.myTableView.tableFooterView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 130)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
         view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
         
         self.uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.uploadButton.frame = CGRectMake(15, 20, kScreenWidth - 30, 60);
         self.uploadButton.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
-        [self.uploadButton setTitle:@"上传作品" forState:UIControlStateNormal];
+        [self.uploadButton setTitle:@"点击上传照片或视频" forState:UIControlStateNormal];
         [self.uploadButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.uploadButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [self.uploadButton bk_whenTapped:^{
@@ -216,11 +216,18 @@
         }];
         [view addSubview:self.uploadButton];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, 20, 20)];
-        label.text = @"请上传正面生活照片、完整清晰作品照片";
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 90, [UIScreen mainScreen].bounds.size.width-30, 100)];
+        label.text = @"考生/家长您好！这里是线上评测区:\n1、如果您学过美术，请上传您的绘画作品照片（素描速写色彩各一张\n2、如果您的颜值高，请发三张近期正面素颜生活照\n3、如果您嗓音条件出众，请上传自备稿件朗读视频（一分钟以内)\n4、如果您演唱水平高超，请上传声乐演唱视频。\n5、如果您有器乐演奏特长，请上传器乐演奏视频\n专家老师会根据您的表现进行评测，给予专业上的建议和指导，指出您的不足。明确告知您适合学习哪个专业。\n如果有时间您还可以和专家老师细致沟通，没准儿跟你指导两下就会有不小的进步。";
         label.font = [UIFont systemFontOfSize:14];
+        label.numberOfLines = 0;
         label.textColor = [UIColor colorWithHexString:@"#666666"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:label.text];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:5.0f];//调整行间距
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [label.text length])];
+        label.attributedText = attributedString;
         [label sizeToFit];
+        view.frame = CGRectMake(0, 0, kScreenWidth, 90 + label.frame.size.height + 10);
         [view addSubview:label];
         view;
     });
