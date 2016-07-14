@@ -70,13 +70,15 @@
 
 - (void)sendAuthCode {
     
-    self.phoneToken = [NSString stringWithFormat:@"86self.%@", self.phone];
+    self.phoneToken = [NSString stringWithFormat:@"86_%@", self.phone];
     
     @weakify(self)
     [EasyLiveSDK getSmsCodeWithParams:@{SDK_SMS_TYPE: @0, SDK_PHONE: self.phoneToken} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         @strongify(self)
+        NSLog(@"%ld", (long)responseCode);
+        NSLog(@"%@", result);
         if (responseCode == SDK_REQUEST_OK) {
-            self.smsID = result[@"smsself.id"];
+            self.smsID = result[@"sms_id"];
             
             BOOL registed = [result[@"registered"] boolValue];
             if (registed) {
@@ -85,12 +87,16 @@
                 [self.authCodeSuccessObject sendNext:nil];
             }
             
-        } else if (responseCode == SDK_ERROR_SMS_INTERVAL){
+        } else if (responseCode == SDK_ERROR_SMS_INTERVAL) {
             [self.authCodeFailureObject sendNext:@"发送短信次数太频繁"];
-        } else if (responseCode == SDK_ERROR_PHONE_ERROR){
+        } else if (responseCode == SDK_ERROR_PHONE_ERROR) {
             [self.authCodeFailureObject sendNext:@"手机号码格式不对"];
-        } else {
+        } else if (responseCode == SDK_ERROR_USER_EXISTS) {
             [self.authCodeFailureObject sendNext:@"该用户已经注册"];
+        } else if (responseCode == SDK_ERROR_SMS_SERVICE) {
+            [self.authCodeFailureObject sendNext:@"短信服务异常"];
+        } else {
+            [self.authCodeFailureObject sendNext:@"网络异常"];
         }
         
     }];

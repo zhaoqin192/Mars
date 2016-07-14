@@ -50,7 +50,6 @@
 - (void)signIn {
     @weakify(self)
     [NetworkFetcher accountSignInWithPhone:self.phone password:self.password success:^(NSDictionary *response) {
-        NSLog(@"%@",response);
         @strongify(self)
         if ([response[@"code"] isEqualToString:@"200"]) {
             AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
