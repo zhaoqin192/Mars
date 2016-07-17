@@ -75,8 +75,6 @@
     @weakify(self)
     [EasyLiveSDK getSmsCodeWithParams:@{SDK_SMS_TYPE: @0, SDK_PHONE: self.phoneToken} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
         @strongify(self)
-        NSLog(@"%ld", (long)responseCode);
-        NSLog(@"%@", result);
         if (responseCode == SDK_REQUEST_OK) {
             self.smsID = result[@"sms_id"];
             
@@ -110,8 +108,15 @@
         return;
     }
     
+    if (!self.smsID) {
+        [self.signUpFailureObject sendNext:@"短信服务异常"];
+        return;
+    }
+    
     @weakify(self)
-    [EasyLiveSDK verifySmsWithParams:@{SDK_SMS_SMSID: self.smsID, SDK_SMS_CODE: self.authCode} start:nil complete:^(NSInteger responseCode, NSDictionary *result) {
+    [EasyLiveSDK verifySmsWithParams:@{SDK_SMS_SMSID: self.smsID, SDK_SMS_CODE: self.authCode} start:^{
+        
+    }complete:^(NSInteger responseCode, NSDictionary *result) {
         
         @strongify(self)
         if (responseCode == SDK_ERROR_SMS_CODE_VERIFY) {
@@ -123,7 +128,7 @@
                 @strongify(self)
                 if (responseCode == SDK_REQUEST_OK) {
             
-                     [NetworkFetcher accountSignUpWithPhone:self.phone password:self.password userID:result[@"userself.id"] sessionID:result[@"sessionid"] success:^(NSDictionary *response) {
+                     [NetworkFetcher accountSignUpWithPhone:self.phone password:self.password userID:result[@"user_id"] sessionID:result[@"sessionid"] success:^(NSDictionary *response) {
                          @strongify(self)
                          if ([response[@"code"] isEqualToString:@"200"]) {
                              [self.signUpSuccessObject sendNext:@"注册成功"];
