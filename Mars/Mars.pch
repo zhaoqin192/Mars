@@ -1,0 +1,64 @@
+//
+//  Mars.pch
+//  Mars
+//
+//  Created by 王霄 on 16/4/25.
+//  Copyright © 2016年 Muggins_. All rights reserved.
+//
+
+#ifndef Mars_pch
+#define Mars_pch
+
+#import <BlocksKit/BlocksKit+UIKit.h>
+#import <YYCategories/YYCategories.h>
+#import "SVProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "EAIntroView.h"
+#import "BlocksKit+UIKit.h"
+#import "MBProgressHUD.h"
+#import "ReactiveCocoa.h"
+#import "AFNetworking.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "Account.h"
+#import "NetworkManager.h"
+#import <CTAssetsPickerController/CTAssetsPickerController.h>
+#import "MJExtension.h"
+#import "WXLabel.h"
+#import "WXLoginViewController.h"
+#import "UMMobClick/MobClick.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+#define URL_PREFIX  @"http://101.200.135.129/zhanshibang/index.php/"
+#define kScreen_Bounds [UIScreen mainScreen].bounds
+#define kScreen_Height [UIScreen mainScreen].bounds.size.height
+#define kScreen_Width [UIScreen mainScreen].bounds.size.width
+#define kScaleFrom_iPhone5_Desgin(_X_) (_X_ * (kScreen_Width/320))
+#define KScreen_width [UIScreen mainScreen].bounds.size.width
+
+#define kDevice_Is_iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kDevice_Is_iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define WXGreenColor [UIColor colorWithHexString:@"#48E4C2"]
+#define WXTextGrayColor [UIColor colorWithHexString:@"#666666"]
+#define WXTextBlackColor [UIColor colorWithHexString:@"#333333"]
+#define WXLineColor [UIColor colorWithHexString:@"#cccccc"]
+
+//NIM
+#import "NIMSDK.h"
+#import "NTESGlobalMacro.h"
+#import "NIMKit.h"
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+
+#define NTES_USE_CLEAR_BAR - (BOOL)useClearBar{return YES;}
+
+#define NTES_FORBID_INTERACTIVE_POP - (BOOL)forbidInteractivePop{return YES;}
+
+
+#endif /* Mars_pch */

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXExercisesViewController">
+            <connections>
+                <outlet property="orderLabel" destination="8uM-dx-Nbt" id="1ZX-U8-Qb9"/>
+                <outlet property="videoLabel" destination="md3-kW-Tdi" id="x2k-h3-p7j"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMG-sn-AwI">
+                    <rect key="frame" x="0.0" y="114" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="rC5-Qy-HcC"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频讲解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md3-kW-Tdi">
+                    <rect key="frame" x="84" y="80" width="64" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咨询陪练" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uM-dx-Nbt">
+                    <rect key="frame" x="228" y="80" width="64" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_绿色素材" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-Pc-6u3">
+                    <rect key="frame" x="76" y="107" width="80" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="PNH-ny-dq6"/>
+                        <constraint firstAttribute="height" constant="8" id="hJE-IT-Tnb"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_绿色素材" translatesAutoresizingMaskIntoConstraints="NO" id="O0d-tO-ySV">
+                    <rect key="frame" x="220" y="107" width="80" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="lvc-bL-gUI"/>
+                        <constraint firstAttribute="width" constant="80" id="xC2-we-ja9"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ydP-Pc-6u3" firstAttribute="centerX" secondItem="md3-kW-Tdi" secondAttribute="centerX" id="5Qk-om-3Pc"/>
+                <constraint firstItem="O0d-tO-ySV" firstAttribute="centerX" secondItem="8uM-dx-Nbt" secondAttribute="centerX" id="5lf-yd-Agx"/>
+                <constraint firstItem="DMG-sn-AwI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="BM0-SO-xMv"/>
+                <constraint firstItem="DMG-sn-AwI" firstAttribute="top" secondItem="ydP-Pc-6u3" secondAttribute="bottom" constant="-1" id="Mfp-4B-7Gu"/>
+                <constraint firstItem="md3-kW-Tdi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="PgV-9D-V3g"/>
+                <constraint firstItem="8uM-dx-Nbt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="72" id="Tjc-vH-q6a"/>
+                <constraint firstAttribute="trailing" secondItem="DMG-sn-AwI" secondAttribute="trailing" id="atf-hS-tvE"/>
+                <constraint firstItem="md3-kW-Tdi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-72" id="df2-x1-kDu"/>
+                <constraint firstItem="8uM-dx-Nbt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="ijA-4H-xBQ"/>
+                <constraint firstItem="DMG-sn-AwI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="onG-g0-TRv"/>
+                <constraint firstItem="DMG-sn-AwI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ptR-7V-Uwc"/>
+                <constraint firstItem="DMG-sn-AwI" firstAttribute="top" secondItem="O0d-tO-ySV" secondAttribute="bottom" constant="-1" id="xeC-ex-eMx"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="onG-g0-TRv"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="tab_绿色素材" width="14" height="12"/>
+    </resources>
+</document>

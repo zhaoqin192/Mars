@@ -1,0 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target "Mars" do
+    pod 'AFNetworking', '~> 3.0'
+    pod 'MJExtension'
+    pod 'MBProgressHUD', '~> 0.9.2'
+    pod 'BlocksKit', '2.2.5'
+    pod 'ReactiveCocoa', '2.5'
+    pod 'YYCategories'
+    pod 'SVProgressHUD'
+    pod 'SDCycleScrollView', '~> 1.64'
+    pod 'EAIntroView', '~> 2.8.0'
+    pod 'SDWebImage'
+    pod 'YFStartView'
+    pod 'CTAssetsPickerController'
+    pod 'NJKWebViewProgress'
+    pod 'UMengAnalytics-NO-IDFA'
+    pod 'Masonry'
+    pod 'Toast', '~> 2.4'
+    pod 'M80AttributedLabel', '~> 1.3.1'
+    pod 'FMDB', '~> 2.5'
+    pod 'Reachability', '~> 3.1.1'
+    pod 'CocoaLumberjack', '~> 2.0.0-rc2'
+    pod 'SSZipArchive', '~> 1.2’
+end
