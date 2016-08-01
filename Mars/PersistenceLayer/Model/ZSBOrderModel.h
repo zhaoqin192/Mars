@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *time;
 @property (nonatomic, strong) NSString *teacherAvatar;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *roomID;
 
 @end

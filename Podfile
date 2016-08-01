@@ -17,4 +17,7 @@ target "Mars" do
     pod 'NJKWebViewProgress'
     pod 'UMengAnalytics-NO-IDFA'
     pod 'Masonry'
+    pod 'Toast', '~> 2.4'
+    pod 'CocoaLumberjack', '~> 2.2.0'
+    pod 'Reachability', '~> 3.1.1'
 end

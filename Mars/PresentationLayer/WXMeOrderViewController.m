@@ -11,6 +11,10 @@
 #import "OrderViewModel.h"
 #import "ZSBOrderModel.h"
 #import "WXTeacherInformationViewController.h"
+#import "NTESMeetingManager.h"
+#import "NTESMeetingRolesManager.h"
+#import "NTESMeetingViewController.h"
+#import "UIView+Toast.h"
 
 @interface WXMeOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -71,10 +75,36 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WXTeacherInformationViewController *teacherVC = [[WXTeacherInformationViewController alloc] init];
+    
     ZSBOrderModel *model = self.viewModel.orderArray[indexPath.row];
-    teacherVC.teacherID = model.teacherID;
-    [self.navigationController pushViewController:teacherVC animated:YES];
+
+    if ([model.status isEqualToString:@""]) {
+        __weak typeof(self) wself = self;
+        NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+        request.roomId = model.roomID;
+        [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
+        [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *chatroom, NIMChatroomMember *me) {
+            [SVProgressHUD dismiss];
+            if (!error) {
+                [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:request.roomId];
+                [[NTESMeetingRolesManager sharedInstance] startNewMeeting:me withChatroom:chatroom newCreated:NO];
+                UINavigationController *nav = wself.navigationController;
+                NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
+                [nav pushViewController:vc animated:YES];
+                NSMutableArray *vcs = [nav.viewControllers mutableCopy];
+                [vcs removeObject:self];
+                nav.viewControllers = vcs;
+            }else {
+                [self.view makeToast:@"进入授课失败，请确认ID是否正确" duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
+    }
+    else {
+        WXTeacherInformationViewController *teacherVC = [[WXTeacherInformationViewController alloc] init];
+        teacherVC.teacherID = model.teacherID;
+        [self.navigationController pushViewController:teacherVC animated:YES];
+    }
+    
 }
 
 @end

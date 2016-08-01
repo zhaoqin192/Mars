@@ -29,6 +29,14 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
   - CTAssetsPickerController (3.3.1):
     - PureLayout (~> 3.0.0)
   - EAIntroView (2.8.3):
@@ -43,6 +51,7 @@ PODS:
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
   - PureLayout (3.0.2)
+  - Reachability (3.1.1)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -56,6 +65,7 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SVProgressHUD (2.0.3)
+  - Toast (2.4)
   - UMengAnalytics-NO-IDFA (4.0.5)
   - YFStartView (0.0.1)
   - YYCategories (1.0.3):
@@ -65,16 +75,19 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - BlocksKit (= 2.2.5)
+  - CocoaLumberjack (~> 2.2.0)
   - CTAssetsPickerController
   - EAIntroView (~> 2.8.0)
   - Masonry
   - MBProgressHUD (~> 0.9.2)
   - MJExtension
   - NJKWebViewProgress
+  - Reachability (~> 3.1.1)
   - ReactiveCocoa (= 2.5)
   - SDCycleScrollView (~> 1.64)
   - SDWebImage
   - SVProgressHUD
+  - Toast (~> 2.4)
   - UMengAnalytics-NO-IDFA
   - YFStartView
   - YYCategories
@@ -82,6 +95,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   CTAssetsPickerController: b1d1d50ab87cf6b8b13531de5f4530482e7e53ed
   EAIntroView: e948c83e642f30010d427e643c18a6f2b529afed
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
@@ -90,14 +104,16 @@ SPEC CHECKSUMS:
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
   UMengAnalytics-NO-IDFA: 965a219b05475ff2a4c09a164139a27bbaa0e25b
   YFStartView: 0f81260cc7da743133c738d9154e4e7d9cf20314
   YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b
 
-PODFILE CHECKSUM: 0c65e4cc740b539e551190d9f2967094d8b22945
+PODFILE CHECKSUM: 9dbb6b6b1116b235ec5236c28ab39fd404c047a1
 
 COCOAPODS: 1.0.0

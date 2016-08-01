@@ -14,9 +14,11 @@
 @property (nonatomic, strong) UIImage *avatarImage;
 @property (nonatomic, strong) RACSubject *nameObject;
 @property (nonatomic, strong) RACSubject *avatarObject;
+@property (nonatomic, strong) RACCommand *createRoom;
+@property (nonatomic, strong) RACCommand *sendRoomID;
+@property (nonatomic, strong) NSString *roomID;
 
 - (void)updateStatus;
 - (BOOL)isExist;
-
 
 @end

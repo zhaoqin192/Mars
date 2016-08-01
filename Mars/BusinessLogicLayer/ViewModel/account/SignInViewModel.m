@@ -13,6 +13,9 @@
 #import "AccountDao.h"
 #import "Account.h"
 #import "EasyLiveSDK.h"
+#import "NTESLoginManager.h"
+#import "NTESService.h"
+#import "UIView+Toast.h"
 
 @interface SignInViewModel ()
 
@@ -60,6 +63,8 @@
             account.sessionID = response[@"yzb_session_id"];
             account.userID = response[@"yzb_user_id"];
             account.role = response[@"role"];
+            account.nimAccid = response[@"wy_accid"];
+            account.nimToken = response[@"wy_token"];
             [accountDao save];
             NSString *phone = [NSString stringWithFormat:@"86_%@", self.phone];
             [EasyLiveSDK userLoginWithParams:@{SDK_REGIST_TOKE: phone, SDK_USER_ID: account.userID
@@ -69,6 +74,29 @@
                                                    Account *account = [accountDao fetchAccount];
                                                    account.sessionID = result[@"sessionid"];
                                                }];
+            
+            [[[NIMSDK sharedSDK] loginManager] login:account.phone
+                                               token:account.nimToken
+                                          completion:^(NSError *error) {
+                                              if (error == nil)
+                                              {
+                                                  NTESLoginData *sdkData = [[NTESLoginData alloc] init];
+                                                  sdkData.account   = account.phone;
+                                                  sdkData.token     = account.nimToken;
+                                                  [[NTESLoginManager sharedManager] setCurrentNTESLoginData:sdkData];
+                                                  
+                                                  [[NTESServiceManager sharedManager] start];
+//                                                  [[NTESPageContext sharedInstance] setupMainViewController];
+                                              }
+                                              else
+                                              {
+                                                  NSString *toast = [NSString stringWithFormat:@"登录失败 code: %zd",error.code];
+                                                  NSLog(@"%@", toast);
+//                                                  [self.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
+                                              }
+                                          }];
+            
+            
             [self.successObject sendNext:nil];
         } else {
             [self.failureObject sendNext:@"用户名或密码不正确"];

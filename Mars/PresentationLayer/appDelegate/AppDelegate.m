@@ -17,9 +17,10 @@
 #import "YFStartView.h"
 #import "StartButtomView.h"
 #import "NetworkFetcher+Account.h"
+#import "NTESService.h"
 
 
-@interface AppDelegate () <EAIntroDelegate>
+@interface AppDelegate () <EAIntroDelegate, NIMLoginManagerDelegate>
 @property (nonatomic, strong) AccountDao *accountDao;
 @property (nonatomic, strong) Account *account;
 @end
@@ -40,9 +41,13 @@
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];
     
+    //NIM register
+    [[NIMSDK sharedSDK] registerWithAppID:@"c9b4027f49a776d0590173146da2145a"
+                                  cerName:@"bonan"];
+    [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[RootTabViewController alloc] init];
-//    self.window.rootViewController = [[LiveViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     [self configureHUD];
@@ -51,6 +56,10 @@
 //    [self configureStartView];
 //     [self configureIntroView];
     return YES;
+}
+
+- (void)dealloc {
+    [[[NIMSDK sharedSDK] loginManager] removeDelegate:self];
 }
 
 - (void)configureNavigationItem{
@@ -153,6 +162,9 @@
                 _account.token = response[@"sid"];
                 _account.sessionID = response[@"yzb_session_id"];
                 _account.userID = response[@"yzb_user_id"];
+                _account.role = response[@"role"];
+                _account.nimAccid = response[@"wy_accid"];
+                _account.nimToken = response[@"wy_token"];
                 [_accountDao save];
                 NSString *phone = [NSString stringWithFormat:@"86_%@", _account.phone];
                 [EasyLiveSDK userLoginWithParams:@{SDK_REGIST_TOKE: phone, SDK_USER_ID: _account.userID
@@ -162,6 +174,10 @@
                                                        Account *account = [accountDao fetchAccount];
                                                        account.sessionID = result[@"sessionid"];
                                                    }];
+                [[[NIMSDK sharedSDK] loginManager] autoLogin:_account.phone
+                                                       token:_account.nimToken];
+                [[NTESServiceManager sharedManager] start];
+                
             } else {
                 [_accountDao deleteAccount];
                 [_accountDao save];
@@ -173,6 +189,17 @@
             } afterDelay:1.5];
         }];
     }
+}
+
+/**
+ *  自动登录失败回调
+ *
+ *  @param error 失败原因
+ *  @discussion 自动重连不需要上层开发关心，但是如果发生一些需要上层开发处理的错误，SDK 会通过这个方法回调
+ *              用户需要处理的情况包括：AppKey 未被设置，参数错误，密码错误，多端登录冲突，账号被封禁，操作过于频繁等
+ */
+- (void)onAutoLoginFailed:(NSError *)error {
+    NSLog(@"login---%@", error);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

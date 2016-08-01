@@ -41,6 +41,7 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                                          @"date": @"lesson_date",
                                          @"time": @"lesson_time",
                                          @"teacherAvatar": @"photo_url",
+                                         @"roomID": @"teacher_room"
                                          };
                             }];
                             @strongify(self)

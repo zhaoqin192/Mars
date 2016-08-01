@@ -13,6 +13,12 @@
 #import "IndividualViewModel.h"
 #import "WXMeTestViewController.h"
 #import "WXMeAboutUsViewController.h"
+#import "NTESDemoService.h"
+#import "UIView+Toast.h"
+#import "NTESMeetingManager.h"
+#import "NTESMeetingRolesManager.h"
+#import "NTESMeetingViewController.h"
+
 
 @interface WXMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
@@ -22,12 +28,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *testView;
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *orderView;
-@property (nonatomic, strong) IndividualViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UIView *settingView;
 @property (weak, nonatomic) IBOutlet UIView *aboutUsView;
 @property (weak, nonatomic) IBOutlet UIView *contactUsView;
 @property (weak, nonatomic) IBOutlet UIView *applyTeacherView;
 
+@property (nonatomic, strong) IndividualViewModel *viewModel;
+@property (nonatomic, assign) BOOL isTeacher;
+@property (nonatomic, strong) Account *account;
 @end
 
 @implementation WXMeViewController
@@ -40,6 +48,7 @@
     
     [self bindViewModel];
     [self onClickEvent];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -50,6 +59,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    self.account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+    if (self.account.role && [self.account.role isEqualToString:@"1"]) {
+        self.isTeacher = YES;
+        self.orderLabel.text = @"开始授课";
+    }
+    else {
+        self.isTeacher = NO;
+        self.orderLabel.text = @"预约";
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -88,7 +106,6 @@
     
 }
 
-
 - (void)configureIconImageAndLabel {
     self.titleImageView.userInteractionEnabled = YES;
     
@@ -99,28 +116,17 @@
     self.iconImage.backgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
     
     [self.nameLabel setTextColor:[UIColor colorWithHexString:@"#999999"]];
+    
 }
 
 - (void)configureMiddleView {
     self.orderView.userInteractionEnabled = YES;
     self.orderLabel.userInteractionEnabled = YES;
     [self.orderView bk_whenTapped:^{
-        if (![_viewModel isExist]) {
-            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-            return ;
-        }
-        WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self orderClick];
     }];
     [self.orderLabel bk_whenTapped:^{
-        if (![_viewModel isExist]) {
-            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-            return ;
-        }
-        WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self orderClick];
     }];
     
     self.testView.userInteractionEnabled = YES;
@@ -174,6 +180,44 @@
     
 }
 
+- (void)orderClick {
+    if (self.isTeacher) {
+        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"确定要开始视频授课？" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        @weakify(self)
+        UIAlertAction *call = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            dispatch_after(0.2, dispatch_get_main_queue(), ^{
+                @strongify(self)
+                [[self.viewModel.createRoom execute:self.account.nickname]
+                 subscribeNext:^(NSString *code) {
+                     if ([code isEqualToString:@"200"]) {
+                         [self reserveNetCallMeeting:self.viewModel.roomID];
+                     }
+                     else {
+                         [self.view makeToast:@"创建授课失败，请重试" duration:2.0 position:CSToastPositionCenter];
+                     }
+                 }];
+                
+            });
+            
+        }];
+        [vc addAction:cancel];
+        [vc addAction:call];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    else {
+        if (![_viewModel isExist]) {
+            WXLoginViewController *vc = [[WXLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
+        WXMeOrderViewController *vc = [[WXMeOrderViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+}
+
 - (void)showCallActionSheet {
     UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否拨打官方电话进行咨询" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -185,5 +229,47 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)reserveNetCallMeeting:(NSString *)roomId {
+    NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
+    meeting.name = roomId;
+    meeting.type = NIMNetCallTypeVideo;
+    meeting.ext = @"test extend meeting messge";
+    [SVProgressHUD show];
+    
+    [[NIMSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting *meeting, NSError *error) {
+        [SVProgressHUD dismiss];
+        if (!error) {
+            [self enterChatRoom:roomId];
+        }
+        else {
+            [self.view makeToast:@"分配视频授课失败，请重试" duration:2.0 position:CSToastPositionCenter];
+        }
+    }];
+}
+
+- (void)enterChatRoom:(NSString *)roomId {
+    NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+    request.roomId = roomId;
+    [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
+    [SVProgressHUD show];
+    
+    __weak typeof(self) wself = self;
+    [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError *error, NIMChatroom *room, NIMChatroomMember *me) {
+        [SVProgressHUD dismiss];
+        if (!error) {
+            
+            [self.viewModel.sendRoomID execute:self.account.nickname];
+            
+            [[NTESMeetingManager sharedInstance] cacheMyInfo:me roomId:request.roomId];
+            [[NTESMeetingRolesManager sharedInstance] startNewMeeting:me withChatroom:room newCreated:YES];
+            NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:room];
+            [wself.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            [wself.view makeToast:@"进入授课失败，请重试" duration:2.0 position:CSToastPositionCenter];
+        }
+    }];
+    
+}
 
 @end

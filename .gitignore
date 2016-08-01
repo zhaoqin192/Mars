@@ -24,6 +24,7 @@ xcuserdata
 *.xcscmblueprint
 .DS_Store
 /Mars/BusinessLogicLayer/Other/EasyLiveSDK/libEasyLiveSDK_iphone.a
+/Mars/BusinessLogicLayer/Other/NIM/Vendors/NIMSDK/libNIMSDK.a
 /MLeaksFinder
 conflict.sh
 .clang-format

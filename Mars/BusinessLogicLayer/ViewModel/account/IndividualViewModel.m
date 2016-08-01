@@ -13,6 +13,7 @@
 #import "NetworkFetcher+Account.h"
 #import "MJExtension.h"
 
+static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
 
 @interface IndividualViewModel ()
 
@@ -29,6 +30,50 @@
         self.nameObject = [RACSubject subject];
         self.avatarObject = [RACSubject subject];
         self.accountDao = [[DatabaseManager sharedInstance] accountDao];
+        
+        self.createRoom = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                
+                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"Exercise/Teacher/create_chatroom"]];
+                Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+                NSDictionary *parameters = @{@"creator": account.nimAccid, @"name": input};
+                
+                [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([responseObject[@"code"] isEqualToString:@"200"]) {
+                        NSNumber *data = responseObject[@"data"];
+                        self.roomID = [NSString stringWithFormat:@"%@", data];
+                    }
+                    [subscriber sendNext:responseObject[@"code"]];
+                    [subscriber sendCompleted];
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:nil];
+                }];
+                
+                return nil;
+            }];
+        }];
+        
+        self.sendRoomID = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                
+                NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"Exercise/Teacher/create_room"]];
+                Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+                NSDictionary *parameters = @{@"teacher_id": account.token, @"room": input};
+                
+                [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    [subscriber sendNext:responseObject[@"code"]];
+                    [subscriber sendCompleted];
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:nil];
+                }];
+                
+                return nil;
+            }];
+        }];
+        
     }
     return self;
 }
