@@ -52,20 +52,28 @@
 
 - (void)commitInfo {
     
-    [NetworkFetcher accountUploadInfoWithAvatar:_avatarImage nickname:_nickname phone:_phone sex:_sex age:_age province:_province city:_city district:_district school:_school token:_account.token success:^(NSDictionary *response) {
-        
-        if ([response[@"code"] isEqualToString:@"200"]) {
+    if (_avatarImage && _nickname && _phone && _sex && _age && _province && _city && _district && _school) {
+        [NetworkFetcher accountUploadInfoWithAvatar:_avatarImage nickname:_nickname phone:_phone sex:_sex age:_age province:_province city:_city district:_district school:_school token:_account.token success:^(NSDictionary *response) {
             
-            [self saveImage:_avatarImage withName:@"avatar.png"];
-            [_successObject sendNext:@"修改成功"];
+            if ([response[@"code"] isEqualToString:@"200"]) {
+                
+                [self saveImage:_avatarImage withName:@"avatar.png"];
+                [_successObject sendNext:@"修改成功"];
+                
+            } else {
+                [_failureObject sendNext:response[@"msg"]];
+            }
             
-        } else {
-            [_failureObject sendNext:response[@"msg"]];
-        }
-        
-    } failure:^(NSString *error) {
-        [_errorObject sendNext:@"网络异常"];
-    }];
+        } failure:^(NSString *error) {
+            [_errorObject sendNext:@"网络异常"];
+        }];
+    }
+    else {
+        [_errorObject sendNext:@"信息填写不完全"];
+    }
+    
+    
+    
 }
 
 

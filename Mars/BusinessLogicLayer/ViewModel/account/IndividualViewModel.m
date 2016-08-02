@@ -38,7 +38,7 @@ static NSString *URLPREFIX = @"http://101.200.135.129/zhanshibang/index.php/";
                 
                 NSURL *url = [NSURL URLWithString:[URLPREFIX stringByAppendingString:@"Exercise/Teacher/create_chatroom"]];
                 Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
-                NSDictionary *parameters = @{@"creator": account.nimAccid, @"name": input};
+                NSDictionary *parameters = @{@"sid": account.token, @"name": input};
                 
                 [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if ([responseObject[@"code"] isEqualToString:@"200"]) {

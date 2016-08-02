@@ -3754,8 +3754,8 @@
 			baseConfigurationReference = A26E142E39D865A1AD408F7B /* Pods-Mars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3827,7 +3827,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cb8d0443-0d8e-4131-8f42-816b4ec5ad0b";
 			};
 			name = Debug;
 		};
@@ -3836,8 +3836,8 @@
 			baseConfigurationReference = 113416465894C2E4117159C8 /* Pods-Mars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3909,7 +3909,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cb8d0443-0d8e-4131-8f42-816b4ec5ad0b";
 			};
 			name = Release;
 		};
