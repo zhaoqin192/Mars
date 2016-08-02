@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300D61931D50764300320385 /* WXMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300D61911D50764300320385 /* WXMeViewController.m */; };
+		300D61941D50764300320385 /* WXMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 300D61921D50764300320385 /* WXMeViewController.xib */; };
 		302243221D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */; };
 		302243231D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */; };
 		302243271D0C5E350054B5E1 /* WXTestTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302243251D0C5E350054B5E1 /* WXTestTextFieldCell.m */; };
@@ -58,8 +60,6 @@
 		30B602561CD83F80003ED671 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602531CD83F80003ED671 /* RootTabViewController.m */; };
 		30B602571CD83F80003ED671 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602551CD83F80003ED671 /* testViewController.m */; };
 		30B6025D1CD84111003ED671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6025C1CD84111003ED671 /* Assets.xcassets */; };
-		30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602621CD847B2003ED671 /* WXMeViewController.m */; };
-		30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602631CD847B2003ED671 /* WXMeViewController.xib */; };
 		30B602761CD874B1003ED671 /* userIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B602741CD874B1003ED671 /* userIconCell.m */; };
 		30B602771CD874B1003ED671 /* userIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B602751CD874B1003ED671 /* userIconCell.xib */; };
 		30B6028D1CD87510003ED671 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B6027D1CD87510003ED671 /* AbstractActionSheetPicker.m */; };
@@ -449,6 +449,9 @@
 /* Begin PBXFileReference section */
 		113416465894C2E4117159C8 /* Pods-Mars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mars/Pods-Mars.release.xcconfig"; sourceTree = "<group>"; };
 		2D81FF0C4221A00AF484407E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		300D61901D50764300320385 /* WXMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeViewController.h; sourceTree = "<group>"; };
+		300D61911D50764300320385 /* WXMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeViewController.m; sourceTree = "<group>"; };
+		300D61921D50764300320385 /* WXMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeViewController.xib; sourceTree = "<group>"; };
 		3022431F1D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTestNormalCategoryCell.h; sourceTree = "<group>"; };
 		302243201D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTestNormalCategoryCell.m; sourceTree = "<group>"; };
 		302243211D0C3BEE0054B5E1 /* WXTestNormalCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXTestNormalCategoryCell.xib; sourceTree = "<group>"; };
@@ -531,9 +534,6 @@
 		30B602551CD83F80003ED671 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		30B602581CD83FB0003ED671 /* Mars.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mars.pch; sourceTree = "<group>"; };
 		30B6025C1CD84111003ED671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		30B602611CD847B2003ED671 /* WXMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMeViewController.h; sourceTree = "<group>"; };
-		30B602621CD847B2003ED671 /* WXMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMeViewController.m; sourceTree = "<group>"; };
-		30B602631CD847B2003ED671 /* WXMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMeViewController.xib; sourceTree = "<group>"; };
 		30B602731CD874B1003ED671 /* userIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userIconCell.h; sourceTree = "<group>"; };
 		30B602741CD874B1003ED671 /* userIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userIconCell.m; sourceTree = "<group>"; };
 		30B602751CD874B1003ED671 /* userIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userIconCell.xib; sourceTree = "<group>"; };
@@ -1539,9 +1539,9 @@
 				30B6029A1CD87C4A003ED671 /* WXInformationViewController.h */,
 				30B6029B1CD87C4A003ED671 /* WXInformationViewController.m */,
 				30B6029C1CD87C4A003ED671 /* WXInformationViewController.xib */,
-				30B602611CD847B2003ED671 /* WXMeViewController.h */,
-				30B602621CD847B2003ED671 /* WXMeViewController.m */,
-				30B602631CD847B2003ED671 /* WXMeViewController.xib */,
+				300D61901D50764300320385 /* WXMeViewController.h */,
+				300D61911D50764300320385 /* WXMeViewController.m */,
+				300D61921D50764300320385 /* WXMeViewController.xib */,
 				30FD1ED51CE09EA2003C91A5 /* WXMeOrderViewController.h */,
 				30FD1ED61CE09EA2003C91A5 /* WXMeOrderViewController.m */,
 				30FD1ED71CE09EA2003C91A5 /* WXMeOrderViewController.xib */,
@@ -3156,7 +3156,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = XVYRZ4RJ7K;
+						DevelopmentTeam = 2R3U88FFZP;
 					};
 				};
 			};
@@ -3188,6 +3188,7 @@
 				30FD1F951CE21FC7003C91A5 /* pic7.jpg in Resources */,
 				AC3344AB1CCD1B2B009C7323 /* LaunchScreen.storyboard in Resources */,
 				ACAFD44F1D4F39EE006811D3 /* NTESEnterRoomViewController.xib in Resources */,
+				300D61941D50764300320385 /* WXMeViewController.xib in Resources */,
 				3057B1CD1CD8B503008172DD /* userSelectCell.xib in Resources */,
 				30FD1EA51CDDD2E7003C91A5 /* VideoCell.xib in Resources */,
 				3057B1E41CD8E86D008172DD /* Address.plist in Resources */,
@@ -3264,7 +3265,6 @@
 				AC66CDC11D1BA7E4003B4DB5 /* ZSBExerciseMessageTableViewCell.xib in Resources */,
 				30FD1EA01CDDB3DF003C91A5 /* WXVideoViewController.xib in Resources */,
 				30B6029E1CD87C4A003ED671 /* WXInformationViewController.xib in Resources */,
-				30B602651CD847B2003ED671 /* WXMeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3365,7 +3365,6 @@
 				ACAFD3301D4F3982006811D3 /* NIMSessionImageContentView.m in Sources */,
 				ACAFD4861D4F39EE006811D3 /* UIScrollView+NTESPullToRefresh.m in Sources */,
 				ACAFD45F1D4F39EE006811D3 /* NTESChatroomMemberListViewController.m in Sources */,
-				30B602641CD847B2003ED671 /* WXMeViewController.m in Sources */,
 				ACAFD3231D4F3982006811D3 /* NIMUnsupportContentConfig.m in Sources */,
 				30FD1EE31CE0B3AB003C91A5 /* WXPreorderResultViewController.m in Sources */,
 				30B6028E1CD87510003ED671 /* ActionSheetCustomPicker.m in Sources */,
@@ -3618,6 +3617,7 @@
 				AC03B8C81D1A272500773EFA /* ZSBTestModel.m in Sources */,
 				ACAFD45A1D4F39EE006811D3 /* NTESMeetingMessageHandler.m in Sources */,
 				3033CBBF1D36279A008CAF2A /* Account+CoreDataProperties.m in Sources */,
+				300D61931D50764300320385 /* WXMeViewController.m in Sources */,
 				ACAFD32D1D4F3982006811D3 /* NIMSessionTimestampCell.m in Sources */,
 				AC5260AB1D1D431400B25B66 /* ZSBSelectConditionCollectionViewCell.m in Sources */,
 				AC5260991D1CF10B00B25B66 /* ZSBSelectTypeTableViewCell.m in Sources */,
@@ -3754,8 +3754,8 @@
 			baseConfigurationReference = A26E142E39D865A1AD408F7B /* Pods-Mars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3825,9 +3825,9 @@
 					"-framework",
 					"\"UMMobClick\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb8d0443-0d8e-4131-8f42-816b4ec5ad0b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3836,8 +3836,8 @@
 			baseConfigurationReference = 113416465894C2E4117159C8 /* Pods-Mars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: bonan zhao (XVYRZ4RJ7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3907,9 +3907,9 @@
 					"-framework",
 					"\"UMMobClick\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb8d0443-0d8e-4131-8f42-816b4ec5ad0b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
