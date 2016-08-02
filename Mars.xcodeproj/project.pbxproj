@@ -201,6 +201,7 @@
 		AC66CDC71D1BAFDE003B4DB5 /* WXSelectTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDC41D1BAFDE003B4DB5 /* WXSelectTimeCell.m */; };
 		AC66CDCB1D1BAFE6003B4DB5 /* PreOrderCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC66CDC81D1BAFE6003B4DB5 /* PreOrderCourseCell.xib */; };
 		AC66CDCC1D1BAFE6003B4DB5 /* PreOrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC66CDC91D1BAFE6003B4DB5 /* PreOrderCourseCell.m */; };
+		AC7910361D5045B800DA3401 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7910351D5045B800DA3401 /* CoreMotion.framework */; };
 		AC7AF3E91CE38CA800F69110 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */; };
 		AC7AF3EA1CE38CA800F69110 /* SignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */; };
 		AC7AF3EB1CE38CA800F69110 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF3E51CE38CA800F69110 /* InformationViewModel.m */; };
@@ -765,6 +766,7 @@
 		AC66CDC81D1BAFE6003B4DB5 /* PreOrderCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreOrderCourseCell.xib; sourceTree = "<group>"; };
 		AC66CDC91D1BAFE6003B4DB5 /* PreOrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreOrderCourseCell.m; sourceTree = "<group>"; };
 		AC66CDCA1D1BAFE6003B4DB5 /* PreOrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreOrderCourseCell.h; sourceTree = "<group>"; };
+		AC7910351D5045B800DA3401 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		AC7AF3E11CE38CA700F69110 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
 		AC7AF3E21CE38CA800F69110 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
 		AC7AF3E31CE38CA800F69110 /* SignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewModel.m; sourceTree = "<group>"; };
@@ -1302,6 +1304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC7910361D5045B800DA3401 /* CoreMotion.framework in Frameworks */,
 				ACAFD5031D4F6CF5006811D3 /* libNIMSDK.a in Frameworks */,
 				ACAFD1B61D4F35EE006811D3 /* libiconv.tbd in Frameworks */,
 				ACAFD1B41D4F35E1006811D3 /* QuartzCore.framework in Frameworks */,
@@ -1792,6 +1795,7 @@
 		8BB46A368132D85A1DA305D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC7910351D5045B800DA3401 /* CoreMotion.framework */,
 				ACAFD1B51D4F35EE006811D3 /* libiconv.tbd */,
 				ACAFD1B31D4F35E1006811D3 /* QuartzCore.framework */,
 				ACAFD1B11D4F35D5006811D3 /* CoreAudio.framework */,
@@ -3152,7 +3156,7 @@
 				TargetAttributes = {
 					AC3344941CCD1B2B009C7323 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BSR7J239R5;
+						DevelopmentTeam = XVYRZ4RJ7K;
 					};
 				};
 			};
@@ -3821,7 +3825,7 @@
 					"-framework",
 					"\"UMMobClick\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Marsz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3903,7 +3907,7 @@
 					"-framework",
 					"\"UMMobClick\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Marsz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muggins.Mars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

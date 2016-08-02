@@ -19,6 +19,8 @@
 #import "NetworkFetcher+Account.h"
 #import "NTESService.h"
 
+#import <PgySDK/PgyManager.h>
+#import <PgyUpdate/PgyUpdateManager.h>
 
 @interface AppDelegate () <EAIntroDelegate, NIMLoginManagerDelegate>
 @property (nonatomic, strong) AccountDao *accountDao;
@@ -45,6 +47,12 @@
     [[NIMSDK sharedSDK] registerWithAppID:@"c9b4027f49a776d0590173146da2145a"
                                   cerName:@"bonan"];
     [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
+    
+    //Pugongying
+    //启动基本SDK
+    [[PgyManager sharedPgyManager] startManagerWithAppId:@"58aa67488c567ec816c134e13f1fabbb"];
+    //启动更新检查SDK
+    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"58aa67488c567ec816c134e13f1fabbb"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[RootTabViewController alloc] init];
