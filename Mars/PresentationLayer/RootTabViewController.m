@@ -110,7 +110,7 @@ typedef NS_ENUM(NSInteger,NTESMainTabType) {
                              },
                      @(MainTabExercise): @{
                              TabbarVC           : @"WXExercisesViewController",
-                             TabbarTitle        : @"知识库",
+                             TabbarTitle        : @"预约",
                              TabbarImage        : @"练习_1",
                              TabbarSelectedImage: @"练习_2",
                              },

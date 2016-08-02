@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"知识库";
+    self.navigationItem.title = @"预约";
     
     [self configureUI];
     [self configureChildController];

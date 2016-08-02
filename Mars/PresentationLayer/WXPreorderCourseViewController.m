@@ -100,7 +100,7 @@
         else {
             self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             self.hud.mode = MBProgressHUDModeText;
-            self.hud.labelText = @"预约失败";
+            self.hud.labelText = @"已经预约该老师，详情请联系客服";
             [self.hud hide:YES afterDelay:1.5f];
         }
     }];

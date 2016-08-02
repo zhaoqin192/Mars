@@ -19,6 +19,7 @@
 @interface WXMeOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) OrderViewModel *viewModel;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation WXMeOrderViewController
@@ -43,6 +44,21 @@
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([userOrderCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([userOrderCell class])];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    [self.myTableView addSubview:self.refreshControl];
+    
+}
+
+- (void)refreshTableView {
+    [[self.viewModel.orderCommand execute:nil]
+     subscribeNext:^(id x) {
+         if ([self.refreshControl isRefreshing]) {
+             [self.refreshControl endRefreshing];
+         }
+         [self.myTableView reloadData];
+     }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -60,12 +76,23 @@
     cell.timeLabel.text = [NSString stringWithFormat:@"时段：%@", model.time];
     if ([model.status isEqualToString:@"1"]) {
         cell.statusLabel.text = @"状态：预约进行中";
+        cell.statusLabel.textColor = UIColorFromRGB(0x666666);
     }
     else if ([model.status isEqualToString:@"2"]) {
         cell.statusLabel.text = @"状态：完成预约";
+        cell.statusLabel.textColor = UIColorFromRGB(0x666666);
+    }
+    else if ([model.status isEqualToString:@"3"]) {
+        cell.statusLabel.text = @"状态：预约已取消";
+        cell.statusLabel.textColor = UIColorFromRGB(0x666666);
+    }
+    else if ([model.status isEqualToString:@"8"]) {
+        cell.statusLabel.text = @"状态：老师正在授课";
+        cell.statusLabel.textColor = WXGreenColor;
     }
     else {
-        cell.statusLabel.text = @"状态：预约已取消";
+        cell.statusLabel.text = @"未知状态，请联系客服";
+        cell.statusLabel.textColor = UIColorFromRGB(0x666666);
     }
     return cell;
 }
@@ -78,7 +105,7 @@
     
     ZSBOrderModel *model = self.viewModel.orderArray[indexPath.row];
 
-    if ([model.status isEqualToString:@""]) {
+    if ([model.status isEqualToString:@"8"]) {
         __weak typeof(self) wself = self;
         NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
         request.roomId = model.roomID;

@@ -34,7 +34,7 @@
         _actorViews = [NSMutableArray array];
         _backgroundViews = [NSMutableArray array];
         
-        UIImage *backgroundImage = [UIImage imageNamed:@"meeting_background"];
+        UIImage *backgroundImage = [UIImage imageWithColor:[UIColor lightGrayColor]];
         
         for (int i = 0; i < NTESMeetingMaxActors; i++) {
             UIImageView *background = [[UIImageView alloc] initWithImage:backgroundImage];

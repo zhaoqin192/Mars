@@ -163,18 +163,15 @@
     }];
     
     [self.aboutUsView bk_whenTapped:^{
-        NSLog(@"关于我们");
         WXMeAboutUsViewController *vc = [[WXMeAboutUsViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.contactUsView bk_whenTapped:^{
-        NSLog(@"联系我们");
         [self showCallActionSheet];
     }];
     
     [self.applyTeacherView bk_whenTapped:^{
-        NSLog(@"申请成为老师");
         [self showCallActionSheet];
     }];
     

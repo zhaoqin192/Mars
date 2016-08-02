@@ -21,7 +21,13 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     
     [self.checkUpdateView bk_whenTapped:^{
-        NSLog(@"check update");
+        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"当前是最新版本" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *call = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [vc addAction:cancel];
+        [vc addAction:call];
+        [self presentViewController:vc animated:YES completion:nil];
     }];
 }
 
