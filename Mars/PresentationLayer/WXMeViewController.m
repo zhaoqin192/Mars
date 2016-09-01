@@ -12,7 +12,6 @@
 #import "WXMeOrderViewController.h"
 #import "IndividualViewModel.h"
 #import "WXMeTestViewController.h"
-#import "WXMeAboutUsViewController.h"
 #import "NTESDemoService.h"
 #import "UIView+Toast.h"
 #import "NTESMeetingManager.h"
@@ -160,11 +159,6 @@
             WXLoginViewController *vc = [[WXLoginViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-    }];
-    
-    [self.aboutUsView bk_whenTapped:^{
-        WXMeAboutUsViewController *vc = [[WXMeAboutUsViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.contactUsView bk_whenTapped:^{
