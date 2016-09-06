@@ -20,6 +20,4 @@ target "Mars" do
     pod 'Toast', '~> 2.4'
     pod 'CocoaLumberjack', '~> 2.2.0'
     pod 'Reachability', '~> 3.1.1'
-    pod 'Pgyer'
-    pod 'PgyUpdate'
 end
