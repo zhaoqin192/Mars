@@ -236,7 +236,7 @@
         return headView;
     }
     else if (section == 2) {
-        headView.titleLabel.text = @"热门知识点";
+        headView.titleLabel.text = @"好课";
         return headView;
     }
     else {
